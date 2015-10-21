@@ -8,8 +8,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'friendly_id', '~> 5.1.0'
+gem 'simple_form'
 gem 'will_paginate', '~> 3.0.6'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem "gibbon"
 # bundle exec rake doc:rails generates the API under doc/api.
 
 gem 'spring',        group: :development
@@ -18,6 +20,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+gem 'dotenv-rails', :groups => [:development]
 
 gem 'whenever', require: false
 # gem 'bcrypt', '~> 3.1.7'

@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020093459) do
+ActiveRecord::Schema.define(version: 20151020155541) do
 
-  create_table "vns", force: :cascade do |t|
+  create_table "Vns", force: :cascade do |t|
     t.string   "name"
-    t.string   "summary"
     t.string   "genre"
     t.string   "developer"
     t.string   "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "summary"
   end
 
 end

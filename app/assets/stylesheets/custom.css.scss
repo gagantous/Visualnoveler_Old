@@ -1,0 +1,93 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+h2{
+
+	font-size: 2.0em;
+}
+.navbar-inner {
+	background: transparent;
+}
+
+.navword {
+	font-size: 1.6em;
+	line-height: 120%;
+	font-family: "klavika", Helvetica, Arial, sans-serif;
+
+}
+.navLogo {
+	font-size: 2em;
+	font-family: 'Poiret One', cursive;
+	//font-weight: bold;
+	color: #3EA9F5;
+	
+
+}
+
+.emailaddress{ 
+  width: 260px;
+  height: 43px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto;
+
+}
+
+.emailbutton {
+  top: 45px;
+  left: 100px;
+}
+
+.testgroup {
+  padding-right: 80px;
+}
+
+.calltoaction {
+
+  font-family: Arial,sans-serif;
+  font-size:35px;
+  color:#DDCCEE;
+}
+
+.lead {
+	color:#DDCCEE;
+}
+
+
+/* Custom container */
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+  min-height:100%;
+  background-color:#110022;
+  color:#eee;
+  overflow:hidden;
+}
+
+.container-full a {
+  color:#efefef;
+  text-decoration:none;
+}
+
+//homepage
+.v-center {
+  margin-top:17.8%;
+}
+.v-center1 {
+  margin-top:18.8%;
+}
+
+  
+
+.bgimage {
+	   position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+
+    opacity: 0.6;
+
+
+}
+
