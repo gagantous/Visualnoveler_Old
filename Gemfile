@@ -19,7 +19,7 @@ gem 'spring',        group: :development
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-
+gem "cocoon"
 gem 'dotenv-rails', :groups => [:development]
 
 gem 'whenever', require: false

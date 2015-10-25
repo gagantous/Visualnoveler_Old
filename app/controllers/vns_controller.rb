@@ -7,14 +7,20 @@ class VnsController < ApplicationController
 
 	def edit
 		@vn = Vn.find(params[:id])
+		@character = @vn.characters.all
+    	@vn.characters.build
 	end
 
 	def index
-		@vn = Vn.all.where(:isFeatured => true)
+		@vn = Vn.all
+		#@vn = Vn.all.where(:isFeatured => true)
+		#offset = rand(Vn.count)
+		@random = Vn.limit(5).order("RANDOM()")
 	end
 
 	def new
 		@vn = Vn.new
+    	@vn.characters.build
 	end
 
 	def update
@@ -41,7 +47,7 @@ class VnsController < ApplicationController
 
 	private
 		def vn_params
-			params.require(:vn).permit(:name,:isFeatured,	:release_date, :summary,:genre,:developer,:rating,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4)
+			params.require(:vn).permit(:name,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre,:developer,:rating,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4)
 		end
 
 end
