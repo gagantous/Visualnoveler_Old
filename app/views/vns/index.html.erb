@@ -2,14 +2,16 @@
 	<div class="row">
 			<h2>Featured</h2>
 		
-	
+		
+<div class="vn-random-column">
+
+<h2>Random</h2>
+</div>
 <% @vn.each do |vn| %>
 
 <div class="vn-column">
-
 			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
-	
-<div class="panel panel-default paneltest">
+		<div class="panel panel-default paneltest">
 		<div class="panel-body">
 
 
@@ -25,7 +27,9 @@
 	</div>
 </div>
 
+
 <% end %>
+
 
 	</div>
 </div>

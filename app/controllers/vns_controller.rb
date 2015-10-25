@@ -10,7 +10,7 @@ class VnsController < ApplicationController
 	end
 
 	def index
-		@vn = Vn.all
+		@vn = Vn.all.where(:isFeatured => true)
 	end
 
 	def new
@@ -41,7 +41,7 @@ class VnsController < ApplicationController
 
 	private
 		def vn_params
-			params.require(:vn).permit(:name,:release_date, :summary,:genre,:developer,:rating,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4)
+			params.require(:vn).permit(:name,:isFeatured,	:release_date, :summary,:genre,:developer,:rating,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4)
 		end
 
 end

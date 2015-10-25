@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025100218) do
+ActiveRecord::Schema.define(version: 20151025100859) do
 
   create_table "Vns", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20151025100218) do
     t.string   "image_2"
     t.string   "image_3"
     t.string   "image_4"
+    t.boolean  "isFeatured"
   end
 
   create_table "characters", force: :cascade do |t|
