@@ -1,0 +1,84 @@
+<div class="container-fullwidth">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage}" %>)">
+			
+		</div>
+	</div>
+
+
+</div>
+</div>
+
+<section id="vn-item">
+<div class="container vn-show-padding">
+	<div class="row">
+	
+		<div class="col-lg-3">
+				<div class="panel panel-default">
+  <div class="panel-body">
+			<%= image_tag("#{@vn.image_poster}",:alt => "thumbsup", :class=> "vn-poster") %>
+			<span class="genre-text vn-contentpadding">Genre: <%= @vn.genre %> </span>
+			<br>
+			<span class="genre-text vn-contentpadding ">Developer: <%= @vn.developer %> </span>
+			<br>
+			<span class="genre-text vn-contentpadding">Release Date: <%= @vn.release_date %> </span>
+			<br>
+		</div>
+	</div>
+		</div>
+		<div class="col-lg-9 col-md-9">
+			 <span class="vn-name text-primary vn-contentpadding"><%= @vn.name %> </span>
+			<a href=<%= edit_vn_path(@vn) %> class="a-inherit">
+ 			<%= fa_icon "pencil 2x" %>
+ 			</a>
+			 <hr>
+			
+			
+			<span class="vn-contentpadding summary-text"><%= @vn.summary %> </span>
+			 <div class="vn-thumbnail-img">
+			 	<div class="row">
+			 		<div class="col-md-3">
+					 <%= image_tag("#{@vn.image_1}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail  ") %>
+			 		</div>
+
+
+			 		<div class="col-md-3">
+					 <%= image_tag("#{@vn.image_2}",:alt => "screeshot 2", :class=> "vn-thumbnail img-thumbnail ") %>
+					</div>
+
+			 		<div class="col-md-3">
+					 <%= image_tag("#{@vn.image_3}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail ") %>
+					</div>
+			 		<div class="col-md-3">
+					 <%= image_tag("#{@vn.image_4}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail ") %>
+					</div>
+			</div>
+		</div>
+
+		
+	</div>
+</div>  <!-- end of container -->
+
+<div class="container">
+	<div class="row">
+		<h3>Characters</h3>
+			<% @showcharacters.each	 do |char| %>
+
+			<div class="col-md-1 adjustcharacter">
+			<%= link_to image_tag("#{char.img_string}",:alt => "thumbsup", :class=> "vn-char img-thumbnail"), character_path(char)  %>
+
+			</div>
+			<div class="col-md-1">
+			<a href=<%= character_path(char) %>>
+			<h5 class="vncharacter-padding"><%= char.name %></h5>
+			</a>
+		</div>
+		<!-- 	<p><%= char.summary %></p> -->
+
+			<% end %>
+		</div>
+	</div>
+</div>
+
+</section>

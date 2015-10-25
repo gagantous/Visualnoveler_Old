@@ -1,0 +1,2 @@
+module VnsHelper
+end

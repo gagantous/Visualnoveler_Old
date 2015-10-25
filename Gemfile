@@ -12,7 +12,7 @@ gem 'simple_form'
 gem 'will_paginate', '~> 3.0.6'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "gibbon"
-# bundle exec rake doc:rails generates the API under doc/api.
+gem "font-awesome-rails"
 
 gem 'spring',        group: :development
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

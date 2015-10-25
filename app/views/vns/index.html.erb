@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+			<h2>Featured</h2>
+		
+	
+<% @vn.each do |vn| %>
+
+<div class="vn-column">
+
+			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
+	
+<div class="panel panel-default paneltest">
+		<div class="panel-body">
+
+
+			<div class="text-center vnindex-title">
+				<span class="lead "><%= vn.name %></span>
+			</div>
+
+			<div class="text-center vnindex-genre">
+			<span class="vn-indexgenre text-info vn-contentpadding"><%= vn.genre %> </span>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<% end %>
+
+	</div>
+</div>

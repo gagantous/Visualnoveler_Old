@@ -1,6 +1,56 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  padding-top: 0px;
+  background-color: #F8F8F8;
+}
+
+
+.vn-poster {
+  // width: 200px;
+  width:  220px;
+   height: 300px !important;
+}
+
+.summary-text {
+  white-space: pre-wrap;
+  // color: #A3A8AD;
+  // font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  //   font-size: 16px;
+}
+
+.vn-char {
+  width: 70px;
+  height: 90px;
+}
+
+.vn-index-poster {
+  width: 220px;
+  height: 284px;
+}
+
+
+.adjustcharacter {
+  left: 15px;
+}
+
+.vncharacter-padding {
+ // padding-right: 10px;
+}
+
+
+.vn-thumbnail-img {
+  padding-top: 30px;
+  // width: 600px;
+}
+
+
+.vn-thumbnail{
+    width: 220px;
+    height: 140px; 
+}
+
 h2{
 
 	font-size: 2.0em;
@@ -8,7 +58,9 @@ h2{
 .navbar-inner {
 	background: transparent;
 }
-
+textarea {
+    resize: none;
+    }
 .navword {
 	font-size: 1.6em;
 	line-height: 120%;
@@ -49,23 +101,21 @@ h2{
   color:#DDCCEE;
 }
 
-.lead {
-	color:#DDCCEE;
-}
+
 
 
 /* Custom container */
-.container-full {
-  margin: 0 auto;
-  width: 100%;
-  min-height:100%;
-  color:#eee;
-  overflow:hidden;
+
+
+
+
+.paneltest {
+  width: 220px;
+  border-top: 0px;
 }
 
-.container-full a {
-  color:#efefef;
-  text-decoration:none;
+.vn-indexgenre{
+
 }
 
 //homepage
@@ -76,7 +126,29 @@ h2{
   margin-top:18.8%;
 }
 
-  
+.vn-column {
+  width: 220px;
+  height: auto;
+  margin-right: 18px;
+  padding-left: 0px; 
+  float: left;
+  position: relative;
+  left: 0px;
+
+}
+
+.vnindex-title {
+  position: relative;
+  bottom: 15px;
+  padding-top: 0px;
+}
+.vnindex-genre {
+  position: relative;
+  bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 
 .bgimage {
 	   position: absolute;
@@ -84,7 +156,7 @@ h2{
     top: 0;
     width: 100%;
     height: auto;
-
+    
 
 
 }

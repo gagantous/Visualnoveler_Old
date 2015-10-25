@@ -11,16 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020155541) do
+ActiveRecord::Schema.define(version: 20151025100218) do
 
   create_table "Vns", force: :cascade do |t|
     t.string   "name"
     t.string   "genre"
     t.string   "developer"
     t.string   "rating"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.text     "summary"
+    t.string   "release_date"
+    t.string   "image_poster"
+    t.string   "image_coverpage"
+    t.string   "image_1"
+    t.string   "image_2"
+    t.string   "image_3"
+    t.string   "image_4"
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "name"
+    t.text     "summary"
+    t.string   "voiceactor"
+    t.integer  "vn_id"
+    t.string   "vn_name"
+    t.string   "img_string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "summary"
   end
+
+  add_index "characters", ["vn_id"], name: "index_characters_on_vn_id"
 
 end

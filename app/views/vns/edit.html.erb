@@ -1,0 +1,60 @@
+<h1>Edit</h1>
+
+<div class="container">
+	<div class="row">
+		<%= simple_form_for @vn do |f| %>
+
+
+		<div class="col-lg-3">
+		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Name of Visual Novel', error: 'Name is mandatory, please specify one' %>
+		 </div>
+
+		  <div class="col-lg-3">
+		  <%= f.input :genre,input_html: {style: "width:240px;"} %> 
+		</div>
+
+		
+		  <div class="col-lg-2">		 
+			<%= f.input :developer,input_html: {style: "width:160px;"} %>
+		</div>
+
+		  <div class="col-lg-2">
+		  <%= f.input :rating,input_html: {style: "width:100px;"} %>
+		</div>
+		<div class="col-lg-2">
+		  <%= f.input :release_date,input_html: {style: "width:150px;"} %>
+		</div>
+		<div class="col-lg-12">
+		  <%= f.input :summary,input_html: {style: "height:150px;"} %>
+		</div>
+	
+		 <div class="col-lg-2">
+		 	 <%= f.input :image_poster,input_html: {style: "width:150px;"} %>
+		 </div>
+		  <div class="col-lg-2">
+		 	 <%= f.input :image_coverpage,input_html: {style: "width:150px;"} %>
+		 </div>
+		  <div class="col-lg-2">
+		 	 <%= f.input :image_1,label: "Screenshot 1", input_html: {style: "width:150px;"} %>
+		 </div>
+		  <div class="col-lg-2">
+		 	 <%= f.input :image_2,label: "Screenshot 2",input_html: {style: "width:150px;"} %>
+		 </div>
+		  <div class="col-lg-2">
+		 	 <%= f.input :image_3,label: "Screenshot 3",input_html: {style: "width:150px;"} %>
+		 </div>
+		  <div class="col-lg-2">
+		 	 <%= f.input :image_4,label: "Screenshot 4",input_html: {style: "width:150px;"} %>
+		 </div>
+		 
+
+		 <div class="col-lg-12">
+		  <%= f.button :submit , class: "btn btn-primary" %>
+		</div>
+		<% end %>
+
+	</div>
+
+	</div>
+
+</div>

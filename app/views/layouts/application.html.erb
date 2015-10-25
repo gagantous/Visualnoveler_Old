@@ -8,8 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= favicon_link_tag %>
 
-	 <nav class="navbar navbar-transparent navbar-fixed-top">
+ <div class="container">
+	 <nav class="navbar navbar-transparent">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -19,6 +21,9 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#"><span class="navLogo">Visualnoveler</span></a>
+         <a class="navbar-brand" href=<%= new_vn_path %>><span class="logotitle">Create VN</span></a>
+
+         <a class="navbar-brand" href=<%= new_character_path %>><span class="logotitle">Create Character</span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -33,12 +38,14 @@
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
-
+</div>
 
 
 <%= yield %>
 
 </body>
 </html>
+<!-- 
+end of container -->
 
 

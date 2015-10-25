@@ -1,0 +1,38 @@
+<h1>New</h1>
+
+<div class="container">
+	<div class="row">
+		<%= simple_form_for @character do |f| %>
+
+
+		<div class="col-lg-4">
+		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Name of Character', error: 'Name is mandatory, please specify one' %>
+
+		 </div>
+
+		  <div class="col-lg-8">
+
+			<%= f.association :vn,input_html: {style: "width:150px;"} %>
+		</div>
+		  <div class="col-lg-4">
+		  <%= f.input :voiceactor,input_html: {style: "width:150px;"} %> 
+		</div>
+		 <div class="col-lg-8">
+		  <%= f.input :img_string,input_html: {style: "width:150px;"} %> 
+		</div>
+
+		  <div class="col-lg-12">
+		 
+			<%= f.input :summary,input_html: {style: "height:150px;"} %>
+		</div>
+
+
+
+		  <%= f.button :submit , class: "btn btn-primary" %>
+		<% end %>
+
+	</div>
+
+	</div>
+
+</div>

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EmailapiControllerTest < ActionController::TestCase
+class VnsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
