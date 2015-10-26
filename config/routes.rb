@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
  get 'static_pages/home'
   get 'static_pages/help'
   root 'static_pages#home'
@@ -6,6 +7,12 @@ Rails.application.routes.draw do
   post 'static_pages/subscribe' , :path => "subscribe"
   resources :vns
   resources :characters
+
+  as :user do
+    get "/login" => "devise/sessions#new"
+    delete "/logout" => "devise/sessions#destroy"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
