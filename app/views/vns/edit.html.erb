@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="row">
-		<%= simple_form_for @vn do |f| %>
+		<%= simple_form_for @vn, html: { multipart: true }  do |f| %>
 		<div class="col-lg-3">
 		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Name of Visual Novel', error: 'Name is mandatory, please specify one' %>
 		 </div>
@@ -26,22 +26,31 @@
 		</div>
 	
 		 <div class="col-lg-2">
-		 	 <%= f.input :image_poster,input_html: {style: "width:150px;"} %>
+		 	 <%= f.input :image_poster %>
+  			<%= image_tag f.object.image_poster.url, :class => "formthumbnail" if f.object.image_poster? %>
 		 </div>
 		  <div class="col-lg-2">
-		 	 <%= f.input :image_coverpage,input_html: {style: "width:150px;"} %>
+		 	 
+
+  			<%= f.input :image_coverpage %>
+  			<%= image_tag f.object.image_coverpage.url, :class => "formthumbnail" if f.object.image_coverpage? %>
+
 		 </div>
 		  <div class="col-lg-2">
-		 	 <%= f.input :image_1,label: "Screenshot 1", input_html: {style: "width:150px;"} %>
+		 	 <%= f.input :image_1,label: "Screenshot 1" %>
+  			<%= image_tag f.object.image_1.url, :class => "formthumbnail" if f.object.image_1? %>
 		 </div>
 		  <div class="col-lg-2">
-		 	 <%= f.input :image_2,label: "Screenshot 2",input_html: {style: "width:150px;"} %>
+		 	 <%= f.input :image_2,label: "Screenshot 2" %>
+  			<%= image_tag f.object.image_2.url, :class => "formthumbnail" if f.object.image_1? %>
 		 </div>
 		  <div class="col-lg-2">
-		 	 <%= f.input :image_3,label: "Screenshot 3",input_html: {style: "width:150px;"} %>
+		 	 <%= f.input :image_3,label: "Screenshot 3"%>
+  			<%= image_tag f.object.image_3.url, :class => "formthumbnail" if f.object.image_1? %>
 		 </div>
 		  <div class="col-lg-2">
-		 	 <%= f.input :image_4,label: "Screenshot 4",input_html: {style: "width:150px;"} %>
+		 	 <%= f.input :image_4,label: "Screenshot 4" %>
+  			<%= image_tag f.object.image_4.url, :class => "formthumbnail" if f.object.image_1? %>
 		 </div>
 		  <div class="col-lg-12">
 		  <%= f.input :isFeatured,input_html: {style: "width:150px;"} %>

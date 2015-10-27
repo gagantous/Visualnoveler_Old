@@ -10,7 +10,8 @@
 		 </div>
 
 		  <div class="col-lg-3">
-		  <%= f.input :img_string,input_html: {style: "width:150px;"} %> 
+		 	<%= f.input :img_string %>
+  			<%= image_tag f.object.img_string.url, :class => "formcharacter" if f.object.img_string? %>
 		</div>
 
 		

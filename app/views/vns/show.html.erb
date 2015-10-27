@@ -1,7 +1,7 @@
 <div class="container-fullwidth">
 	<div class="row">
 		<div class="col-lg-12">
-			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage}" %>)">
+			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">
 			
 		</div>
 	</div>
@@ -10,6 +10,7 @@
 </div>
 </div>
 
+
 <section id="vn-item">
 <div class="container vn-show-padding">
 	<div class="row">
@@ -17,7 +18,7 @@
 		<div class="col-lg-3">
 				<div class="panel panel-default">
   <div class="panel-body">
-			<%= image_tag("#{@vn.image_poster}",:alt => "thumbsup", :class=> "vn-poster") %>
+			<%= image_tag("#{@vn.image_poster.url}",:alt => "thumbsup", :class=> "vn-poster") %>
 			<span class="genre-text vn-contentpadding">Genre: <%= @vn.genre %> </span>
 			<br>
 			<span class="genre-text vn-contentpadding ">Developer: <%= @vn.developer %> </span>
@@ -39,19 +40,19 @@
 			 <div class="vn-thumbnail-img">
 			 	<div class="row">
 			 		<div class="col-md-3">
-					 <%= image_tag("#{@vn.image_1}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail  ") %>
+					 <%= image_tag("#{@vn.image_1.url}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail  ") %>
 			 		</div>
 
 
 			 		<div class="col-md-3">
-					 <%= image_tag("#{@vn.image_2}",:alt => "screeshot 2", :class=> "vn-thumbnail img-thumbnail ") %>
+					 <%= image_tag("#{@vn.image_2.url}",:alt => "screeshot 2", :class=> "vn-thumbnail img-thumbnail ") %>
 					</div>
 
 			 		<div class="col-md-3">
-					 <%= image_tag("#{@vn.image_3}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail ") %>
+					 <%= image_tag("#{@vn.image_3.url}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail ") %>
 					</div>
 			 		<div class="col-md-3">
-					 <%= image_tag("#{@vn.image_4}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail ") %>
+					 <%= image_tag("#{@vn.image_4.url}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail ") %>
 					</div>
 			</div>
 		</div>

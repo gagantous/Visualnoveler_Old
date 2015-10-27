@@ -12,12 +12,13 @@ gem 'simple_form'
 gem 'will_paginate', '~> 3.0.6'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "gibbon"
+gem 'carrierwave'
 
 # authentication
 gem 'devise'
 gem 'omniauth'
-gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
+
 
 
 
