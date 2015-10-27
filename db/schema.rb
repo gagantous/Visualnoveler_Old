@@ -13,23 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20151026030615) do
 
-  create_table "Vns", force: :cascade do |t|
-    t.string   "name"
-    t.string   "genre"
-    t.string   "developer"
-    t.string   "rating"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.text     "summary"
-    t.string   "release_date"
-    t.string   "image_poster"
-    t.string   "image_coverpage"
-    t.string   "image_1"
-    t.string   "image_2"
-    t.string   "image_3"
-    t.string   "image_4"
-    t.boolean  "isFeatured"
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -42,7 +27,7 @@ ActiveRecord::Schema.define(version: 20151026030615) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "characters", ["vn_id"], name: "index_characters_on_vn_id"
+  add_index "characters", ["vn_id"], name: "index_characters_on_vn_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -61,7 +46,25 @@ ActiveRecord::Schema.define(version: 20151026030615) do
     t.string   "uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vns", force: :cascade do |t|
+    t.string   "name"
+    t.string   "genre"
+    t.string   "developer"
+    t.string   "rating"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.text     "summary"
+    t.string   "release_date"
+    t.string   "image_poster"
+    t.string   "image_coverpage"
+    t.string   "image_1"
+    t.string   "image_2"
+    t.string   "image_3"
+    t.string   "image_4"
+    t.boolean  "isFeatured"
+  end
 
 end
