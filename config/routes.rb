@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   post 'static_pages/subscribe' , :path => "subscribe"
   resources :vns
   resources :characters
+  resources :users, only: [:show,:index,:edit]
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
-
+  devise_for :users do
+    get :controllers => { :omniauth_callbacks => "callbacks" }
+  end
   as :user do
     get "/login" => "devise/sessions#new"
+    get "/register" => "devise/registrations#new"
     delete "/logout" => "devise/sessions#destroy"
   end
 

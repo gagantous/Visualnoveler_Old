@@ -35,6 +35,10 @@ body {
   // font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   //   font-size: 16px;
 }
+.usercoverbg {
+  background-color: white;
+  height: 400px;
+}
 
 .vn-char {
   width: 70px;
@@ -45,10 +49,14 @@ body {
   width: 220px;
   height: 284px;
 }
+.adjustcharactername {
+
+}
 
 
 .adjustcharacter {
   left: 15px;
+  margin-bottom: 20px;
 }
 
 .vncharacter-padding {

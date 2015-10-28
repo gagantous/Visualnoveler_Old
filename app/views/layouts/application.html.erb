@@ -24,23 +24,27 @@
          <a class="navbar-brand" href=<%= new_vn_path %>><span class="logotitle">Create VN</span></a>
 
          <a class="navbar-brand" href=<%= new_character_path %>><span class="logotitle">Create Character</span></a>
-         <% if user_signed_in? %>
+  <% if user_signed_in? %>
   <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  <%= link_to('Logout', logout_path, :method => :delete) %>        
   </li>
 <% else %>
   <li>
-  <%= link_to('Login', new_user_session_path)  %>  
+  <%= link_to('Login', login_path)  %>  
   </li>
+  <% end %>
 <% if user_signed_in? %>
   <li>
-  <%= link_to('Edit registration', edit_user_registration_path) %>
+ <!--- <%= link_to('Edit registration', edit_user_registration_path) %> -->
+      <ul>
+          <li><%= current_user.email %> <h4>hello</h4></li>
+       </ul>
   </li>
 <% else %>
+
   <li>
-  <%= link_to('Register', new_user_registration_path)  %>
+  <%= link_to('Register', register_path)  %>
   </li>
-<% end %>
 <% end %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
