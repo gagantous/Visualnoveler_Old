@@ -23,6 +23,12 @@ body {
 }
 
 
+.vn-user-poster {
+  // width: 200px;
+  width:  100px;
+  height: 160px !important;
+}
+
 .vn-poster {
   // width: 200px;
   width:  220px;
@@ -31,13 +37,21 @@ body {
 
 .summary-text {
   white-space: pre-wrap;
+      font-size: 1.2em;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   // color: #A3A8AD;
   // font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   //   font-size: 16px;
 }
 .usercoverbg {
   background-color: white;
-  height: 400px;
+ // height: 400px;
+}
+.user-playing {
+  margin-top: 50px;
+ // height: 400px;
 }
 
 .vn-char {
@@ -49,10 +63,6 @@ body {
   width: 220px;
   height: 284px;
 }
-.adjustcharactername {
-
-}
-
 
 .adjustcharacter {
   left: 15px;
@@ -125,10 +135,6 @@ textarea {
   left: 100px;
 }
 
-.testgroup {
-  padding-right: 80px;
-}
-
 .calltoaction {
 
   font-family: Arial,sans-serif;
@@ -145,10 +151,6 @@ textarea {
 .panelfeatured {
   width: 220px;
   border-top: 0px;
-}
-
-.vn-indexgenre{
-
 }
 
 .vnindex-categorypadding {
@@ -190,20 +192,40 @@ textarea {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+.user-add-time{
+ position: relative;
+ top: 85px;
+ left: 95px;
+}
+
+//top alignment
+.user-add-col-paddingtop{
+  margin-top: 85px;
+
+}
+// left alignment
+.user-add-col-padding{
+  margin-left: 10px;
+}
+
+.user-add-genre{
+ position: relative;
+ top: 85px;
+}
 
 .ajaxpos {
   position: relative;
   bottom: 33px;
   left: 20px;
 }
+.user-recenttext {
+  padding-left: 30px;
+}
+
 .bgimage {
 	   position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: auto;
-    
-
-
 }
-

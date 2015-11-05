@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   post 'static_pages/subscribe' , :path => "subscribe"
-  resources :vns
+
+
+  resources :library_entries, except: [:new, :edit]
+  resources :vns do
+    put :favourite, on: :member
+  end
+
   resources :characters
   resources :users, only: [:show,:index,:edit]
 
@@ -16,6 +22,8 @@ Rails.application.routes.draw do
     get "/register" => "devise/registrations#new"
     delete "/logout" => "devise/sessions#destroy"
   end
+
+  post 'vns/:id/favourite' => 'vns#favourite'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

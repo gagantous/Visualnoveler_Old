@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+   has_many :library_entries
+   has_many :favourites, through: :library_entries, source: :vn
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
    devise :database_authenticatable, :registerable,

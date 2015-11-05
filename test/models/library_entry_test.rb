@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LibraryItemTest < ActiveSupport::TestCase
+class LibraryEntryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -10,6 +10,23 @@ class VnsController < ApplicationController
 		@character = @vn.characters.all
     	@vn.characters.build
 	end
+# add to library entries
+	def favourite
+		@vn = Vn.find(params[:id])
+		type = params[:type]
+		if type == "favourite" 
+			current_user.favourites << @vn
+			redirect_to :back
+			flash[:success] = "You favourited #{@vn.name}"
+		elsif type == "unfavourite"
+			current_user.favourites.delete(@vn)
+			redirect_to :back
+			flash[:success] = "You removed #{@vn.name} from your library"
+		else
+			redirect_to :back, notice: 'Nothing happened, perhaps a bug?'
+		end
+
+	end
 
 	def index
 		@vn = Vn.all
