@@ -34,12 +34,11 @@
   </li>
   <% end %>
 <% if user_signed_in? %>
-  <li>
  <!--- <%= link_to('Edit registration', edit_user_registration_path) %> -->
       <ul>
-          <li><%= current_user.email %> <h4>hello</h4></li>
+          <li><%= current_user.email %> <h4>hello <%= current_user.name %></h4></li>
        </ul>
-  </li>
+  
 <% else %>
 
   <li>
