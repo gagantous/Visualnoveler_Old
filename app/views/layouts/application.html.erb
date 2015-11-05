@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <%= favicon_link_tag %>
 
  <div class="container">
@@ -35,6 +36,7 @@
   <% end %>
 <% if user_signed_in? %>
  <!--- <%= link_to('Edit registration', edit_user_registration_path) %> -->
+ <%= link_to "Change your password", edit_path %>
       <ul>
           <li><%= current_user.email %> <h4>hello <%= current_user.name %></h4></li>
        </ul>

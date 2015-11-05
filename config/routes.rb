@@ -12,14 +12,12 @@ Rails.application.routes.draw do
   end
 
   resources :characters
-  resources :users, only: [:show,:index,:edit]
-
-  devise_for :users do
-    get :controllers => { :omniauth_callbacks => "callbacks" }
-  end
+  resources :users, only: [:show, :edit, :update]
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   as :user do
     get "/login" => "devise/sessions#new"
     get "/register" => "devise/registrations#new"
+    get "/edit" => "devise/registrations#edit"
     delete "/logout" => "devise/sessions#destroy"
   end
 
