@@ -9,7 +9,7 @@
 </div>	<!-- end of container -->
 
 <div class="container user-playing">
-	<% current_user.favourites.each do |fav| %>
+	<% @user.favourites.each do |fav| %>
 	<% lib = fav.library_entries.first %>
 	<div class="row">
 <div class="panel panel-default">

@@ -64,7 +64,7 @@ class VnsController < ApplicationController
 
 	private
 		def vn_params
-			params.require(:vn).permit(:name,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre,:developer,:rating,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4)
+			params.require(:vn).permit(:name,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre_old,{ :genre_ids => [] },:developer,:rating,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id)
 		end
 
 end

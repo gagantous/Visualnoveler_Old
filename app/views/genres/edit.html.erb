@@ -1,0 +1,18 @@
+<h1>Edit</h1>
+
+<div class="container">
+	<div class="row">
+		<%= simple_form_for @genre do |f| %>
+
+
+		<div class="col-lg-3">
+		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Genre Name', error: 'Name is mandatory, please specify one' %>
+		 </div>
+
+		  <%= f.button :submit , class: "btn btn-primary" %>
+		<% end %>
+
+
+	</div>
+
+</div>

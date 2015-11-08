@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028132730) do
+ActiveRecord::Schema.define(version: 20151107104423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 20151028132730) do
   end
 
   add_index "characters", ["vn_id"], name: "index_characters_on_vn_id", using: :btree
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "library_entries", force: :cascade do |t|
     t.integer  "rating"
@@ -63,9 +69,19 @@ ActiveRecord::Schema.define(version: 20151028132730) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "vn_genres", force: :cascade do |t|
+    t.integer  "vn_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "vn_genres", ["genre_id"], name: "index_vn_genres_on_genre_id", using: :btree
+  add_index "vn_genres", ["vn_id"], name: "index_vn_genres_on_vn_id", using: :btree
+
   create_table "vns", force: :cascade do |t|
     t.string   "name"
-    t.string   "genre"
+    t.string   "genre_old"
     t.string   "developer"
     t.string   "rating"
     t.datetime "created_at",      null: false
@@ -79,8 +95,14 @@ ActiveRecord::Schema.define(version: 20151028132730) do
     t.string   "image_3"
     t.string   "image_4"
     t.boolean  "isFeatured"
+    t.integer  "genre_id"
   end
+
+  add_index "vns", ["genre_id"], name: "index_vns_on_genre_id", using: :btree
 
   add_foreign_key "library_entries", "users"
   add_foreign_key "library_entries", "vns"
+  add_foreign_key "vn_genres", "genres"
+  add_foreign_key "vn_genres", "vns"
+  add_foreign_key "vns", "genres"
 end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :characters
+  resources :genres
   resources :users, only: [:show, :edit, :update]
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   as :user do
