@@ -1,13 +1,9 @@
 <div class="container-fluid">
 	<div class="row">
-			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">
-			
+			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">	
 	</div>
-
-
 </div>
 </div>
-
 
 <section id="vn-item">
 <div class="container vn-show-padding">
@@ -15,10 +11,15 @@
 	
 		<div class="col-lg-3">
 				<div class="panel panel-default">
-  <div class="panel-body">
+  			<div class="panel-body">
 			<%= image_tag("#{@vn.image_poster.url}",:alt => "thumbsup", :class=> "vn-poster") %>
-			<span class="genre-text vn-contentpadding">Genre: nothing </span>
-			<br>
+			<span class="vn-contentpadding">
+				<ul class="list-inline">
+					<% @vn.genres.each do |genre| %>
+						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre) %></li>
+					<% end %>
+				</ul>
+			</span>
 			<span class="genre-text vn-contentpadding ">Developer: <%= @vn.developer %> </span>
 			<br>
 			<span class="genre-text vn-contentpadding">Release Date: <%= @vn.release_date %> </span>
