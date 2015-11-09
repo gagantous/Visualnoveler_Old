@@ -39,6 +39,11 @@
 			<a href=<%= edit_vn_path(@vn) %> class="a-inherit" data-no-turbolink="true">
  			<%= fa_icon "pencil 2x" %>
  			</a>
+ 			<div class="btn-group pull-right" role="group" aria-label="...">
+			  <a href="#" role="button" class="btn btn-info">Watching</a>
+			  <a href="#" role="button" class="btn btn-default">Wishlist</a>
+			  <a href="#" role="button" class="btn btn-default">Playing</a>
+			</div>
 			 <hr>
 			
 			
@@ -46,19 +51,27 @@
 			 <div class="vn-thumbnail-img">
 			 	<div class="row">
 			 		<div class="col-md-3">
-					 <%= image_tag("#{@vn.image_1.url}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail  ") %>
+			 		<%= link_to @vn.image_1.url do %>
+					 <%= image_tag("#{@vn.image_1.url}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail") %>
+					 <% end %>
 			 		</div>
 
 
 			 		<div class="col-md-3">
-					 <%= image_tag("#{@vn.image_2.url}",:alt => "screeshot 2", :class=> "vn-thumbnail img-thumbnail ") %>
+					 <%= link_to @vn.image_2.url do %>
+					 <%= image_tag("#{@vn.image_2.url}",:alt => "screenshot 2", :class=> "vn-thumbnail img-thumbnail") %>
+					 <% end %>
 					</div>
 
 			 		<div class="col-md-3">
-					 <%= image_tag("#{@vn.image_3.url}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail ") %>
+					<%= link_to @vn.image_3.url do %>
+					 <%= image_tag("#{@vn.image_3.url}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail") %>
+					 <% end %>
 					</div>
 			 		<div class="col-md-3">
-					 <%= image_tag("#{@vn.image_4.url}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail ") %>
+					 <%= link_to @vn.image_4.url do %>
+					 <%= image_tag("#{@vn.image_4.url}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail") %>
+					 <% end %>
 					</div>
 
 			</div>

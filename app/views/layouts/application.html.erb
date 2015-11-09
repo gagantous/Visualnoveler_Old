@@ -39,7 +39,7 @@
  <!--- <%= link_to('Edit registration', edit_user_registration_path) %> -->
  <%= link_to "Change your password", edit_path %>
       <ul>
-          <li><%= current_user.email %> <h4>hello <%= current_user.name %></h4></li>
+          <li><%= current_user.email %> <h4>hello <%= link_to current_user.name,user_path(current_user) %></h4></li>
        </ul>
   
 <% else %>
