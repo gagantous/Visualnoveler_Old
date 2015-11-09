@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :library_entries, except: [:new, :edit]
   resources :vns do
     put :favourite, on: :member
+    put :status, on: :member
   end
 
   resources :characters
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   end
 
   post 'vns/:id/favourite' => 'vns#favourite'
+  post 'vns/:id/status' => 'vns#status'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

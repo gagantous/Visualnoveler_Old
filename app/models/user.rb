@@ -1,14 +1,16 @@
 class User < ActiveRecord::Base
 
   # validates :name, presence: true
-   has_many :library_entries, dependent: :destroy
-   has_many :favourites, through: :library_entries, source: :vn
+    has_many :library_entries, dependent: :destroy
+   # has_many :favourites, through: :library_entries, source: :vn
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
      :omniauthable, :omniauth_providers => [:facebook]
   validates :name, presence: true
+
+  accepts_nested_attributes_for :library_entries
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
