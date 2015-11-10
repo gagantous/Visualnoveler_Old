@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109153201) do
+ActiveRecord::Schema.define(version: 20151110080747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20151109153201) do
 
   add_index "library_entries", ["user_id"], name: "index_library_entries_on_user_id", using: :btree
   add_index "library_entries", ["vn_id"], name: "index_library_entries_on_vn_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "detail"
+    t.integer  "library_entry_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "user_id"
+  end
+
+  add_index "posts", ["library_entry_id"], name: "index_posts_on_library_entry_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -104,6 +115,8 @@ ActiveRecord::Schema.define(version: 20151109153201) do
 
   add_foreign_key "library_entries", "users"
   add_foreign_key "library_entries", "vns"
+  add_foreign_key "posts", "library_entries"
+  add_foreign_key "posts", "users"
   add_foreign_key "vn_genres", "genres"
   add_foreign_key "vn_genres", "vns"
   add_foreign_key "vns", "genres"

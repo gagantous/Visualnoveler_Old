@@ -17,16 +17,23 @@ class VnsController < ApplicationController
 		libentry = current_user.library_entries.find_or_create_by(vn_id: @vn.id)
 		if type == "favourite" 
 			libentry.update_attribute(:favourite,true)
-			redirect_to :back
-			flash[:success] = "You favourited #{@vn.name}"
+			post = libentry.posts.build(detail: "#{current_user.name} has recently added #{@vn.name} to his favourites.",user_id: current_user.id)
+			if post.save 
+				redirect_to :back
+				flash[:success] = post.detail
+			end
 		elsif type == "unfavourite"
 			libentry.update_attribute(:favourite,false)
-			redirect_to :back
-			flash[:success] = "You removed #{@vn.name} from your library"
+			post = libentry.posts.build(detail: "#{current_user.name} has recently removed #{@vn.name} from his favourites.",user_id: current_user.id)
+			if post.save 
+				redirect_to :back
+				flash[:success] = post.detail
+			end
 		else
 			redirect_to :back, notice: 'Nothing happened, perhaps a bug?'
 		end
 	end
+	
 # add to library entries Status (Watching/Dropped/Wishlist)
 	def status
 		@vn = Vn.find(params[:id])
