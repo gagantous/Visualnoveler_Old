@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
-  belongs_to :LibraryEntry
+  belongs_to :library_entry
   belongs_to :user
+
 end

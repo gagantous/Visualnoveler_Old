@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     put :favourite, on: :member
     put :status, on: :member
   end
-
+  resources :users do
+    get :watch, on: :member
+    get :wishlist, on: :member
+    get :drop, on: :member
+  end
   resources :characters
   resources :genres
   resources :users, only: [:show, :edit, :update]

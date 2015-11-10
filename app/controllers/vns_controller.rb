@@ -33,26 +33,33 @@ class VnsController < ApplicationController
 			redirect_to :back, notice: 'Nothing happened, perhaps a bug?'
 		end
 	end
-	
+
 # add to library entries Status (Watching/Dropped/Wishlist)
 	def status
 		@vn = Vn.find(params[:id])
 		type = params[:type]
 		libentry = current_user.library_entries.find_or_create_by(vn_id: @vn.id)
 		 if type == "watch" 
-		# 	status: "watch",vn_id: @vn.id,user_id: current_user.id, name: @vn.name
 			libentry.update_attribute :status, "watch"
-			redirect_to :back
-			flash[:success] = "You started watching #{@vn.name}"
+			post = libentry.posts.build(detail: "#{current_user.name} has started watching #{@vn.name}",user_id: current_user.id)
+			if post.save 
+				redirect_to :back
+				flash[:success] = post.detail
+			end
 		elsif type == "drop"
-			# current_user.favourites.delete(@vn)
 			libentry.update_attribute :status, "drop"
-			redirect_to :back
-			flash[:success] = "You dropped #{@vn.name}from your library"
+			post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from his library",user_id: current_user.id)
+			if post.save 
+				redirect_to :back
+				flash[:success] = post.detail
+			end
 		elsif type == "wishlist"
 			libentry.update_attribute :status, "wishlist"
-			redirect_to :back
-			flash[:success] = "You put #{@vn.name} in your wishlist"
+			post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to his wishlist",user_id: current_user.id)
+			if post.save 
+				redirect_to :back
+				flash[:success] = post.detail
+			end
 		else
 			redirect_to :back, notice: 'Nothing happened, perhaps a bug?'
 		end

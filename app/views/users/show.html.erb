@@ -9,17 +9,17 @@
 </div>	<!-- end of container -->
 
 <div class="container user-playing">
-	<% @user.library_entries.each do |entry| %>
-	<% vn = entry.vn %>
+	<% @posts.each do |post| %>
+	<% vn = post.library_entry.vn %>
 	<div class="row">
 <div class="panel panel-default">
   <div class="panel-body">
 		<div class="col-md-1">
-			<%= image_tag("#{vn.image_poster.url}",:alt => "#{entry.name}", :class=> "vn-user-poster pull-left") %>
+			<%= image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "vn-user-poster pull-left") %>
 		</div>
 		<div class="col-md-8 user-add-col-padding">
 
-			<h4><%= current_user.name %> has recently added <%= vn.name %> to his favourites. </h4>
+			<h4><%= post.detail %></h4>
 
 			<div class="row user-add-col-paddingtop">
 				<div class="col-md-3">
@@ -28,7 +28,7 @@
 				</div>
 				<div class="col-md-6 col-md-offset-2">
 				
-					<h5><%= time_ago_in_words(entry.created_at) %> ago.</h5>	
+					<h5><%= time_ago_in_words(post.created_at) %> ago.</h5>	
 				
 				</div>		
 					<!-- end of nested divs-->

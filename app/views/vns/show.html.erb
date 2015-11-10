@@ -48,15 +48,15 @@
  					  <%= link_to "Playing", status_vn_path(@vn, type: "watch"),:class => 'btn btn-default', method: :post %>
  				<% end %>
 
- 				<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "drop") %> 
- 				    <%= link_to "Wishlist", status_vn_path(@vn, type: "drop"),:class => 'btn btn-info', method: :post %>
+ 				<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "wishlist") %> 
+ 				    <%= link_to "Wishlist", status_vn_path(@vn, type: "wishlist"),:class => 'btn btn-info', method: :post %>
  				<% else %>
- 				 	<%= link_to "Wishlist", status_vn_path(@vn, type: "drop"),:class => 'btn btn-default', method: :post %>
+ 				 	<%= link_to "Wishlist", status_vn_path(@vn, type: "wishlist"),:class => 'btn btn-default', method: :post %>
  				 <% end %>
- 				 <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "wishlist") %> 
- 					<%= link_to "Dropped", status_vn_path(@vn, type: "wishlist"),:class => 'btn btn-info', method: :post %>
+ 				 <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "drop") %> 
+ 					<%= link_to "Dropped", status_vn_path(@vn, type: "drop"),:class => 'btn btn-info', method: :post %>
  				 <% else %>
- 					<%= link_to "Dropped", status_vn_path(@vn, type: "wishlist"),:class => 'btn btn-default', method: :post %>
+ 					<%= link_to "Dropped", status_vn_path(@vn, type: "drop"),:class => 'btn btn-default', method: :post %>
  				<% end %>
  				<!--  end of buttons
 			  <a href="#" role="button" class="btn btn-info">Watching</a>

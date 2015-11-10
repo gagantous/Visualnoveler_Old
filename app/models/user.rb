@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   # validates :name, presence: true
     has_many :library_entries, dependent: :destroy
     has_many :posts, dependent: :destroy
-   # has_many :favourites, through: :library_entries, source: :vn
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
    devise :database_authenticatable, :registerable,
