@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # validates :name, presence: true
     has_many :library_entries, dependent: :destroy
     has_many :posts, dependent: :destroy
+    mount_uploader :poster_image, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
    devise :database_authenticatable, :registerable,

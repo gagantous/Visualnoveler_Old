@@ -1,12 +1,21 @@
-
 <div class="container-fluid usercoverbg">
 	<div class="row">
-		<div class="col-md-12">
-			<h1><%= current_user.name%></h1> <p><%=current_user.email%></p>
-		</div>
-		
-	</div> <!-- end of row -->
-</div>	<!-- end of container -->
+ 		 <div class="col-md-3 user-image-div">
+ 		 <%= image_tag("#{current_user.poster_image.url}",:class => "user-image") %>
+ 		</div>
+ 		<div class="col-md-6 user-image-div">
+ 		<h3 class="user-name"><%= current_user.name %>
+ 			<a href=<%= edit_path %> class="a-inherit" data-no-turbolink="true">
+ 			<%= fa_icon "pencil" %>
+ 			</a>
+
+ 		</h3>
+ 		
+ 			<p> Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph</p>
+
+ 		</div>
+ 	</div>
+</div>	
 
 <div class="container user-playing">
 	<% @posts.each do |post| %>
