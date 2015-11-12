@@ -33,7 +33,10 @@ body {
   width: 150px;
   height: auto;
 }
-
+.vn-favourite{
+  position: relative;
+  left: 30px;
+}
 
 .vn-user-poster {
   // width: 200px;
@@ -49,7 +52,7 @@ body {
 
 .summary-text {
   white-space: pre-wrap;
-      font-size: 1.2em;
+      font-size: 1.1em;
     line-height: 1.2;
     font-weight: 400;
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -240,4 +243,42 @@ textarea {
     top: 0;
     width: 100%;
     height: auto;
+}
+
+//star css
+
+// <span class="rating">
+//     <span><i class="fa fa-star-o fa-2x"></i></span><!--
+//  --><span><i class="fa fa-star-o fa-2x"></i></span><!--
+//  --><span><i class="fa fa-star-o fa-2x"></i></span><!--
+//  --><span><i class="fa fa-star-o fa-2x"></i></span><!--
+//  --><span><i class="fa fa-star-o fa-2x"></i></span>
+// </span>
+
+.rating{
+  position: relative;
+  left: 280px;
+}
+.pppp{
+
+  position: relative;
+  left: 180px;
+}
+.rating > span {
+  position: relative;
+
+  //display: inline-block; // remove this if u want 2x size
+}
+.rating:hover > span:before{
+   content:  "\f005";
+  font-family: FontAwesome;
+  font-style: normal;
+   font-weight: normal;
+  text-decoration: inherit;
+  font-size: 200%;
+   /* Place a solid star over all the empty stars when you hover them. */
+   position: absolute;
+}
+.rating > span:hover ~ span:before {
+   content: ""; /* Remove the solid star from any siblings after the one you’re hovering. */
 }

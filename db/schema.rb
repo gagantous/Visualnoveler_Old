@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110080747) do
+ActiveRecord::Schema.define(version: 20151112072957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(version: 20151110080747) do
     t.string   "name"
     t.string   "genre_old"
     t.string   "developer"
-    t.string   "rating"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.text     "summary"
@@ -109,6 +108,7 @@ ActiveRecord::Schema.define(version: 20151110080747) do
     t.string   "image_4"
     t.boolean  "isFeatured"
     t.integer  "genre_id"
+    t.float    "rating_number"
   end
 
   add_index "vns", ["genre_id"], name: "index_vns_on_genre_id", using: :btree

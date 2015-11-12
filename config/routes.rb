@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :vns do
     put :favourite, on: :member
     put :status, on: :member
+    put :rate, on: :member
   end
   resources :users do
     get :watch, on: :member

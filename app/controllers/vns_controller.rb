@@ -1,8 +1,26 @@
 class VnsController < ApplicationController
-
+	include VnsHelper
 	def show
 		@vn = Vn.find(params[:id])
 		@showcharacters = @vn.characters.all
+	end
+
+	def rate
+		@vn = Vn.find(params[:id])
+		type = params[:rating]
+		libentry = current_user.library_entries.find_or_create_by(vn_id: @vn.id)
+		if type == "perfect"
+			# perfect = 10, great = 8 , good = 6 , awful = 4
+			rate_vn(10)
+		elsif type =="great"
+			rate_vn(8)
+		elsif type =="good"
+			rate_vn(6)
+		elsif type =="awful"
+			rate_vn(4)
+		else
+			redirect_to :back, notice: 'Nothing happened, perhaps a bug?'
+		end
 	end
 
 	def edit
@@ -80,6 +98,7 @@ class VnsController < ApplicationController
 	def update
 
 		@vn = Vn.find(params[:id])
+
 		if @vn.update(vn_params)
 			flash[:success] = "Visual Novel is updated successfully!"
 			redirect_to vn_path(@vn)
@@ -101,7 +120,7 @@ class VnsController < ApplicationController
 
 	private
 		def vn_params
-			params.require(:vn).permit(:name,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre_old,{ :genre_ids => [] },:developer,:rating,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id)
+			params.require(:vn).permit(:name,:rating_number,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre_old,{ :genre_ids => [] },:developer,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id)
 		end
 
 end
