@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kawaiivn</title>
+  <title>Visualnoveler</title>
   <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -11,9 +11,9 @@
 
   <%= favicon_link_tag %>
 
- <div class="container">
+ <div class="container-fullwidth">
    <nav class="navbar navbar-transparent">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -22,48 +22,59 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#"><span class="navLogo">Visualnoveler</span></a>
-         <a class="navbar-brand" href=<%= new_vn_path %>><span class="logotitle">Create VN</span></a>
-
-         <a class="navbar-brand" href=<%= new_character_path %>><span class="logotitle">Create Character</span></a>
-         <a class="navbar-brand" href=<%= new_genre_path %>><span class="logotitle">Create Genre</span></a>
-         <h1> i am home</h1>
-  <% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', logout_path, :method => :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', login_path)  %>  
-  </li>
-  <% end %>
-<% if user_signed_in? %>
- <!--- <%= link_to('Edit registration', edit_user_registration_path) %> -->
- <%= link_to "Change your password", edit_path %>
-      <ul>
-          <li><%= current_user.email %> <h4>hello <%= link_to current_user.name,user_path(current_user) %></h4></li>
-       </ul>
-  
-<% else %>
-
-  <li>
-  <%= link_to('Register', register_path)  %>
-  </li>
-<% end %>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            
-           <!-- <li><a href="#about"><span class="navword">About</span></a></li> -->
-            
+      <div id="navbar" class="navbar-collapse collapse">
+         <ul class="nav navbar-nav">
+           <a class="navbar-brand" href=<%= new_vn_path %>><span class="logotitle">Create VN</span></a>
+            <a class="navbar-brand" href=<%= new_character_path %>><span class="logotitle">Create   Character</span></a>
+           <a class="navbar-brand" href=<%= new_genre_path %>><span class="logotitle">Create Genre</span></a>
+           <% if user_signed_in? %>
+              <li>
+              <%= link_to('Logout', logout_path, :method => :delete) %>        
+              </li>
+              <%= link_to "Change your password", edit_path %>
+              <ul>
+               <li><%= current_user.email %> <h4>hello <%= link_to current_user.name,user_path(current_user) %></h4></li>
+             </ul>
+          <% else %>
+              <li>
+                 <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+              </li>
+           
+              <li>
+                 <%= link_to('Register', register_path)  %>
+              </li>
+           <% end %>
           </ul>
-          
         </div><!--/.nav-collapse -->
-      </div>
+      </div><!--end of container -->
     </nav>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
-</div>
+</div><!--end first container -->
+
+   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+        <div class="loginmodal-container">
+          <h1>Login to Your Account</h1><br>
+                  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email, required: false, autofocus: true %>
+            <%= f.input :password, required: false %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+          
+
+
+  <div class="login-help">
+    <%= f.button :submit, "Log in",:class =>"login loginmodal-submit" %>
+  </div>
+<% end %>
+         
+        </div>
+      </div>
+      </div>
 
 
 <%= yield %>

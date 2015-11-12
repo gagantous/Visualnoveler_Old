@@ -1,25 +1,30 @@
 Rails.application.routes.draw do
- get 'static_pages/home'
+  get 'static_pages/home'
   get 'static_pages/help'
   root 'static_pages#home'
-
   post 'static_pages/subscribe' , :path => "subscribe"
 
-
+  resources :characters
+  resources :genres
   resources :library_entries, except: [:new, :edit]
+
   resources :vns do
     put :favourite, on: :member
     put :status, on: :member
     put :rate, on: :member
   end
-  resources :users do
-    get :watch, on: :member
-    get :wishlist, on: :member
-    get :drop, on: :member
-  end
-  resources :characters
-  resources :genres
-  resources :users, only: [:show, :edit, :update]
+  # resources :users do
+  #   get :watch, on: :member
+  #   get :wishlist, on: :member
+  #   get :drop, on: :member
+  # end
+  resources :users,only: [:show, :edit, :update] do
+    member do
+      get :watch
+      get :wishlist
+      get :drop
+    end
+ end
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   as :user do
     get "/login" => "devise/sessions#new"

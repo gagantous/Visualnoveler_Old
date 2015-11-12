@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
      :omniauthable, :omniauth_providers => [:facebook]
-  validates :name, presence: true
 
   accepts_nested_attributes_for :library_entries
   def self.from_omniauth(auth)
