@@ -1,10 +1,10 @@
 <div class="container-fluid usercoverbg">
 	<div class="row">
  		 <div class="col-md-3 user-image-div">
- 		 <%= image_tag("#{current_user.poster_image.url}",:class => "user-image") %>
+ 		 <%= image_tag("#{@user.poster_image.url}",:class => "user-image") %>
  		</div>
  		<div class="col-md-6 user-image-div">
- 		<h3 class="user-name"><%= current_user.name %>
+ 		<h3 class="user-name"><%= @user.name %>
  			<a href=<%= edit_path %> class="a-inherit" data-no-turbolink="true">
  			<%= fa_icon "pencil" %>
  			</a>

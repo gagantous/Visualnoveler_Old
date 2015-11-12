@@ -45,6 +45,7 @@
  			<!-- start of buttons -->
  			<div class="btn-group pull-right" role="group" aria-label="...">
  				
+			  <% if user_signed_in? %>
  				<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "watch") %> 
  					<%= link_to "Playing", status_vn_path(@vn, type: "watch"),:class => 'btn btn-info', method: :post %>
  				<% else %>
@@ -73,6 +74,8 @@
       <li><%= link_to 'Awful', rate_vn_path(@vn, rating: "awful"), method: :put %></li>
     </ul>
   </div>
+  
+ 				<% end %>
  				<!--  end of buttons
 			  <a href="#" role="button" class="btn btn-info">Watching</a>
 			  <a href="#" role="button" class="btn btn-default">Wishlist</a>

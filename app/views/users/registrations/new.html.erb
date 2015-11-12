@@ -12,9 +12,9 @@
     <%= f.input :email, required: true,label: false,placeholder: "Email", autofocus: true,input_html: {style: "width:260px;"} %>
     <%= f.input :password, required: true,label: false, placeholder: "Password",input_html: {style: "width:260px;"} %>
   </div>
-
+  <div class="signup">
     <%= f.button :submit, "Sign up",:class =>"register-button" %>
-  
+  </div>
 <% end %>
 
 <%= render "users/shared/links" %>
