@@ -1,67 +1,47 @@
-<div class="container-fluid vnindex-categorypadding">
+<div class="container">
 	<div class="row">
-			<h2 class="vnindex-heading">Featured</h2>
-		
-	
-<% @vn.each do |vn| %>
-
-<div class="vn-column">
-
-			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
-	
-	<div class="panel panel-default paneltest">
-		<div class="panel-body">
-
-
-			<div class="text-center vnindex-title">
-				<span class="lead "><%= vn.name %></span>
-			</div>
-
-			<ul class="list-inline vnindex-genre text-left">
-					<% vn.genres.each do |genre| %>
-						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre) %></li>
-					<% end %>
-				</ul>
-			
-		</div>
-	</div>
-</div>
-
-<% end %>
-
-	</div>
-</div>
-
-<div class="container-fluid">
-	<div class="row">
-		<h2 class="vnindex-heading">Random</h2>
-
-	
-<% @random.each do |vn| %>
-
-<div class="vn-column">
-
-			<%= image_tag(vn.image_poster,:alt => "thumbsup", :class=> "vn-index-poster") %>
-	
-	<div class="panel panel-default paneltest">
-		<div class="panel-body">
-
-
-			<div class="text-center vnindex-title">
-				<span class="lead "><%= vn.name %></span>
-			</div>
-
+		<h2 class="vnindex-heading">Featured</h2>
+		<% @vn.each do |vn| %>
+		<div class="col-md-3">	
+			<%= image_tag("#{vn.image_1.url}",:alt => vn.name, :class=> "vn-index-image") %>
+			<div class="panel panel-default">
+			<div class="panel-body">
+  				<h4><span class="bottom"><%= vn.name%></span></h4>
 				<ul class="list-inline vnindex-genre text-left">
 					<% vn.genres.each do |genre| %>
-						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre) %></li>
+						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre) %>
+						</li>
 					<% end %>
 				</ul>
 			
-			
+			</div>
+			</div>
 		</div>
+<% end %>
+
 	</div>
 </div>
 
+<div class="container">
+	<div class="row">
+		<h2 class="vnindex-heading">Random</h2>
+		<% @random.each do |vn| %>
+		<div class="col-md-3">	
+			<%= image_tag("#{vn.image_1.url}",:alt => vn.name, :class=> "vn-index-image") %>
+			<div class="panel panel-default">
+			<div class="panel-body">
+  				<h4><span class="bottom"><%= vn.name%></span></h4>
+				<ul class="list-inline vnindex-genre text-left">
+					<% vn.genres.each do |genre| %>
+						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre) %>
+						</li>
+					<% end %>
+				</ul>
+			
+			</div>
+			</div>
+		</div>
 <% end %>
+
 	</div>
 </div>

@@ -1,7 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 @import url(http://fonts.googleapis.com/css?family=Roboto);
+
+.bottom {
+  position:relative;
+   bottom: 20px;
+   right: 0px;
+    //background: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.panel{
+  border-top: 0px;
+  
+}
+.panel-body{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+.vn-index-image{
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
 
 /****** LOGIN MODAL ******/
 .loginmodal-container {
@@ -292,23 +313,8 @@ textarea {
   color:#DDCCEE;
 }
 
-
-.panelrandom {
-  width: 180px;
-  border-top: 0px;
-}
-
-.panelfeatured {
-  width: 220px;
-  border-top: 0px;
-}
-
-.vnindex-categorypadding {
- // padding-bottom: 15px;
-}
-
 .vnindex-heading{
-  margin-left: 95px;
+  margin-left: 25px;
   margin-top: 0px;
 }
 //homepage
@@ -330,17 +336,10 @@ textarea {
   left: 120px;
 
 }
-.panel-body {
 
-}
-.vnindex-title {
-  position: relative;
-  bottom: 15px;
-  padding-top: 0px;
-}
 .vnindex-genre {
   position: relative;
-  bottom: 10px;
+  bottom: 25px;
 }
 .user-add-time{
  position: relative;
