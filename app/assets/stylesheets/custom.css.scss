@@ -352,14 +352,10 @@ textarea {
 
 .vn-column {
   width: 220px;
-  height: auto;
-  margin-right: 15px;
-  margin-left: 0px;
-  padding-left: 0px; 
+  height: 380px; // to standardize posters
+  margin-right: 5px;
   float: left;
-  position: relative;
-  left: 120px;
-
+  margin-left: 15px;
 }
 
 .vnindex-genre {
