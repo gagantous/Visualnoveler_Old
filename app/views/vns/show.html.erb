@@ -13,9 +13,23 @@
 				<div class="panel panel-default">
   			<div class="panel-body panel-vnshow">
 
-			<a href=<%= edit_vn_path(@vn) %> class="a-inherit pull-right" data-no-turbolink="true">
+			<!-- <a href=<%= edit_vn_path(@vn) %> class="a-inherit pull-right" data-no-turbolink="true">
  			<%= fa_icon "pencil" %>
- 			</a>
+ 			</a> -->
+ 			<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit", 'data-no-turbolink' =>"true" do %>
+				<i class="fa fa-pencil"></i>
+			<% end %>
+ 			<% if user_signed_in? %>
+			<% if current_user.library_entries.exists?(vn_id: @vn.id,favourite: true) %>
+ 			<%= link_to favourite_vn_path(@vn, type: "unfavourite"), method: :put,:class => "btn ghost-buttonimg vn-button" do %>
+				<i class="fa fa-times"></i>
+			<% end %>
+			<% else %>
+			<%= link_to favourite_vn_path(@vn, type: "favourite"),:class => "btn ghost-buttonimg vn-button", method: :put do %>
+				<i class="fa fa-heart"></i>
+			<% end %>
+				<% end %>
+			  <% end %> 
 			<%= image_tag("#{@vn.image_poster.url}",:alt => "thumbsup", :class=> "vn-poster") %>
 
 			<span class="vn-contentpadding">
@@ -34,13 +48,7 @@
 		</div>
 		<div class="col-lg-9 col-md-9">
 			 <span class="vn-name text-primary vn-contentpadding"><%= @vn.name %> </span>
-			  <% if user_signed_in? %>
-				<% if current_user.library_entries.exists?(vn_id: @vn.id,favourite: true) %>
-					<%= link_to '<i class="fa fa-times fa-2x vn-favourite"></i>'.html_safe, favourite_vn_path(@vn, type: "unfavourite"), method: :put %>
-				<% else %>
-				<%= link_to '<i class="fa fa-heart-o fa-2x vn-favourite"></i>'.html_safe, favourite_vn_path(@vn, type: "favourite"), method: :put %>
-				<% end %>
-			  <% end %> 
+			  
  			<span class="text-info pppp">Score: <%= @vn.rating_number%> </span>
  			<!-- start of buttons -->
  			<div class="btn-group pull-right" role="group" aria-label="...">
