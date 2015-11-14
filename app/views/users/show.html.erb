@@ -1,3 +1,7 @@
+<div class="container"><div class="row">
+
+</div></div>
+
 <div class="container-fluid usercoverbg">
 	<div class="row">
  		 <div class="col-md-3 user-image-div">
@@ -12,7 +16,19 @@
  		</h3>
  		
  			<p> Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph</p>
+ 	<div class="user-buttons">
+		<%= link_to watch_user_path(@user), :class => "btn ghost-button"  do %>
+			<i class="fa fa-spinner"></i><span class="user-button-padding">Watching</span>
+		<% end %>
 
+		<%= link_to wishlist_user_path(@user), :class => "btn ghost-button"  do %>
+			<i class="fa fa-gift "></i><span class="user-button-padding">Wishlist</span>
+		<% end %>
+			
+		<%= link_to drop_user_path(@user), :class => "btn ghost-button"  do %>
+			<i class="fa fa-thumbs-o-down"></i><span class="user-button-padding">Dropped</span>
+		<% end %>
+	</div>
  		</div>
  	</div>
 </div>	
