@@ -6,6 +6,9 @@
 .user-button-padding{
   padding-left: 6px;
 }
+.status-dropdown{
+  padding-right: 10px;
+}
 .ghost-button {
   color: #6C8CD8;
   background: #fff;
@@ -445,38 +448,6 @@ textarea {
 }
 
 
-//star css
-
-
-.rating{
-  position: relative;
-  left: 280px;
-}
-.pppp{
-
-  position: relative;
-  left: 180px;
-}
-.rating > span {
-  position: relative;
-
-  //display: inline-block; // remove this if u want 2x size
-}
-
-.rating:hover > span:before{
-   content:  "\f005";
-  font-family: FontAwesome;
-  font-style: normal;
-   font-weight: normal;
-  text-decoration: inherit;
-  font-size: 200%;
-   /* Place a solid star over all the empty stars when you hover them. */
-   position: absolute;
-}
-.rating > span:hover ~ span:before {
-   content: ""; /* Remove the solid star from any siblings after the one you’re hovering. */
-}
-
 //vn page
 
 .vn-poster {
@@ -536,4 +507,15 @@ body {
 .genre-text {
   font-style: italic;
   line-height: 180%;
+}
+.userdiv{
+  width: 280px;
+  height: auto; // to standardize posters
+  margin-right: 5px;
+  float: left;
+  margin-left: 15px;
+}
+.userdiv-image{
+  width: 280px;
+  height: 200px;
 }

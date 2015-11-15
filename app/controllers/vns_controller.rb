@@ -60,26 +60,22 @@ class VnsController < ApplicationController
 		 if type == "watch" 
 			libentry.update_attribute :status, "watch"
 			post = libentry.posts.build(detail: "#{current_user.name} has started watching #{@vn.name}",user_id: current_user.id)
-			if post.save 
-				redirect_to :back
-				flash[:success] = post.detail
-			end
 		elsif type == "drop"
 			libentry.update_attribute :status, "drop"
 			post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from his library",user_id: current_user.id)
-			if post.save 
-				redirect_to :back
-				flash[:success] = post.detail
-			end
 		elsif type == "wishlist"
 			libentry.update_attribute :status, "wishlist"
 			post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to his wishlist",user_id: current_user.id)
-			if post.save 
-				redirect_to :back
-				flash[:success] = post.detail
-			end
+		elsif type =="complete"
+			libentry.update_attribute :status, "complete"
+			post = libentry.posts.build(detail: "#{current_user.name} has completed #{@vn.name}",user_id: current_user.id)
+		end
+		if post.save 
+			redirect_to :back
+			flash[:success] = post.detail
 		else
-			redirect_to :back, notice: 'Nothing happened, perhaps a bug?'
+			redirect_to :back
+			flash[:danger] = "There is a bug with VN Status code"
 		end
 	end
 

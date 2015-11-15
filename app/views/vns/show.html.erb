@@ -51,45 +51,58 @@
 			  
  			<span class="text-info pppp">Score: <%= @vn.rating_number%> </span>
  			<!-- start of buttons -->
- 			<div class="btn-group pull-right" role="group" aria-label="...">
+ 			<div class="pull-right">
  				
 			  <% if user_signed_in? %>
- 				<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "watch") %> 
- 					<%= link_to "Playing", status_vn_path(@vn, type: "watch"),:class => 'btn btn-info', method: :post %>
- 				<% else %>
- 					  <%= link_to "Playing", status_vn_path(@vn, type: "watch"),:class => 'btn btn-default', method: :post %>
- 				<% end %>
 
- 				<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "wishlist") %> 
- 				    <%= link_to "Wishlist", status_vn_path(@vn, type: "wishlist"),:class => 'btn btn-info', method: :post %>
- 				<% else %>
- 				 	<%= link_to "Wishlist", status_vn_path(@vn, type: "wishlist"),:class => 'btn btn-default', method: :post %>
- 				 <% end %>
- 				 <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "drop") %> 
- 					<%= link_to "Dropped", status_vn_path(@vn, type: "drop"),:class => 'btn btn-info', method: :post %>
- 				 <% else %>
- 					<%= link_to "Dropped", status_vn_path(@vn, type: "drop"),:class => 'btn btn-default', method: :post %>
+ 			<div class="btn-group status-dropdown" role="group">
+   			 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i>
+      			Status
+     		 <span class="caret"></span>
+   			 </button>
+   			 <ul class="dropdown-menu">
+				<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "watch") %> 
+			     	<li class="list-group-item-info"> <% else %> <li>
+			    <% end %>
+		 			<%= link_to "Playing", status_vn_path(@vn, type: "watch"), method: :post %>
+		 		</li>
+
+		      <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "wishlist") %> 
+			     	<li class="list-group-item-info"> <% else %> <li>
+			    <% end %>
+		 			<%= link_to "Wishlist", status_vn_path(@vn, type: "wishlist"), method: :post %>
+		 		</li>
+
+		        <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "drop") %> 
+			     	<li class="list-group-item-info"> <% else %> <li>
+			    <% end %>
+		 			<%= link_to "Dropped", status_vn_path(@vn, type: "drop"), method: :post %>
+		 		</li>
+
+		 		 <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "complete") %> 
+			     	<li class="list-group-item-info"> <% else %> <li>
+			    <% end %>
+		 			<%= link_to "Completed", status_vn_path(@vn, type: "complete"), method: :post %>
+		 		</li>
+		    </ul>
+  			</div>
+  			<div class="btn-group" role="group">
+  				<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-star"></i>
+  					Rate
+  					<span class="caret"></span>
+  				</button>
+  				<ul class="dropdown-menu">
+  					<li><%= link_to 'Perfect', rate_vn_path(@vn, rating: "perfect"), method: :put %></li>
+  					<li><%= link_to 'Great', rate_vn_path(@vn, rating: "great"), method: :put %></li>
+  					<li><%= link_to 'Good', rate_vn_path(@vn, rating: "good"), method: :put %></li>
+  					<li><%= link_to 'Awful', rate_vn_path(@vn, rating: "awful"), method: :put %></li>
+  				</ul>
+  			</div>
+
  				<% end %>
- 				<div class="btn-group" role="group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Rate VN
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><%= link_to 'Perfect', rate_vn_path(@vn, rating: "perfect"), method: :put %></li>
-      <li><%= link_to 'Great', rate_vn_path(@vn, rating: "great"), method: :put %></li>
-      <li><%= link_to 'Good', rate_vn_path(@vn, rating: "good"), method: :put %></li>
-      <li><%= link_to 'Awful', rate_vn_path(@vn, rating: "awful"), method: :put %></li>
-    </ul>
-  </div>
-  
- 				<% end %>
- 				<!--  end of buttons
-			  <a href="#" role="button" class="btn btn-info">Watching</a>
-			  <a href="#" role="button" class="btn btn-default">Wishlist</a>
-			  <a href="#" role="button" class="btn btn-default">Playing</a> -->
+ 				<!--  end of buttons -->
 			</div>
-			 <hr>
+	 <hr>
 			
 			
 			<span class="vn-contentpadding summary-text"><%= @vn.summary %> </span>
