@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
 	@user = User.find(params[:id])
 	@posts = @user.posts.order('created_at DESC')
-  @favourites = @user.favourites
+  @lib = @user.library_entries.where(favourite: true)
   end
 
   def watch

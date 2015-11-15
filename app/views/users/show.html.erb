@@ -31,14 +31,12 @@
  		<div class="col-md-3">
  			<h4><i class="fa fa-heart-o"></i> Favourites</h4>
  			<div class="row">
- 			<% @favourites.each do |fav| %>
- 				
+ 			<% @lib.each do |lib| vn = lib.vn %>
  					<div class="user-favcolumn removecharacterpadding">
- 					<%= link_to vn_path(fav) do %>
- 						 <%= image_tag(fav.image_poster,:class => "user-favimg") %>
+ 					<%= link_to vn_path(vn) do %>
+ 						 <%= image_tag(vn.image_poster,:class => "user-favimg") %>
  					<% end %>
  					</div>
- 			
  			<% end %>
  			</div>
  		</div>
