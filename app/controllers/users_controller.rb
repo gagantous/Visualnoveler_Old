@@ -15,8 +15,13 @@ class UsersController < ApplicationController
   end
 
   def drop
-	@user = User.find(params[:id])
+	   @user = User.find(params[:id])
   	@lib = @user.library_entries.where(status: "drop")
+  end
+
+  def completed
+     @user = User.find(params[:id])
+    @lib = @user.library_entries.where(status: "completed")
   end
 
   def edit

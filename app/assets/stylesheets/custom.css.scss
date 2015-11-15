@@ -53,13 +53,7 @@
   color:#fff;
   background:#6C8CD8;
 }
-.bottom {
-  position:relative;
-   bottom: 20px;
-   right: 0px;
-    //background: rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-}
+
 .panel-vnshow{
   padding-left: 5px;
   padding-right: 5px;
@@ -69,14 +63,49 @@
   border-top: 0px;
 
 }
-.panel-body{
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-}
-.vn-index-image{
-  width: 100%;
-  height: auto;
-  border-radius: 3px;
+
+// VN column in index VN page
+.vn-column{
+
+  width: 220px;
+  height: 380px; // to standardize posters
+  margin-right: 5px;
+  float: left;
+  margin-left: 15px;
+  .inline-nopadding {
+     padding-right: 0px;
+     margin-right: 0px;
+  }
+  .vngenre-padding{
+     margin-left: 6px;
+  }
+
+  .vn-index-poster {
+     width: 220px;
+     height: 284px;
+  }
+
+  .vnindex-heading{
+    margin-left: 25px;
+    margin-top: 0px;
+  }
+  .panel-body{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  .bottom {
+    position:relative;
+    bottom: 20px;
+    right: 0px;
+    //background: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  .vnindex-genre {
+    position: relative;
+    bottom: 25px;
+  }
+
 }
 
 /****** LOGIN MODAL ******/
@@ -174,6 +203,8 @@
   font-size: 12px;
 }
 
+// End of Login Container
+
 .register-button{
 
   background-color: #4d90fe;
@@ -201,17 +232,12 @@ body {
   background-color: #F8F8F8;
 }
 
-.vngenre-padding{
-  margin-left: 6px;
-}
+
 .list-inline {
   
   margin-bottom: 0px;
 }
-.inline-nopadding {
-  padding-right: 0px;
-  margin-right: 0px;
-}
+
 
 .navLogoPos {
   // position: absolute;
@@ -283,10 +309,7 @@ body {
   height: 90px;
 }
 
-.vn-index-poster {
-  width: 220px;
-  height: 284px;
-}
+
 
 .adjustcharacter {
   left: 15px;
@@ -300,18 +323,6 @@ body {
 .vncharacter-padding {
  // padding-right: 10px;
 }
-.vn-random-column {
-  float: right;
-  position: relative;
- left: 55px;
- bottom: 60px;
-}
-
-.vn-index-randomposter {
-  width: 180px;
-  height: 224px;
-}
-
 
 .vn-thumbnail-img {
   padding-top: 30px;
@@ -370,10 +381,7 @@ textarea {
   color:#DDCCEE;
 }
 
-.vnindex-heading{
-  margin-left: 25px;
-  margin-top: 0px;
-}
+
 //homepage
 .v-center {
   margin-top:17.8%;
@@ -382,18 +390,7 @@ textarea {
   margin-top:18.8%;
 }
 
-.vn-column {
-  width: 220px;
-  height: 380px; // to standardize posters
-  margin-right: 5px;
-  float: left;
-  margin-left: 15px;
-}
 
-.vnindex-genre {
-  position: relative;
-  bottom: 25px;
-}
 .user-add-time{
  position: relative;
  top: 85px;

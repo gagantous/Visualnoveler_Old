@@ -28,6 +28,10 @@
 		<%= link_to drop_user_path(@user), :class => "btn ghost-button"  do %>
 			<i class="fa fa-thumbs-o-down"></i><span class="user-button-padding">Dropped</span>
 		<% end %>
+
+		<%= link_to completed_user_path(@user), :class => "btn ghost-button"  do %>
+			<i class="fa fa-book"></i><span class="user-button-padding">Completed</span>
+		<% end %>
 	</div>
  		</div>
  	</div>
@@ -37,30 +41,25 @@
 	<% @posts.each do |post| %>
 	<% vn = post.library_entry.vn %>
 	<div class="row">
-<div class="panel panel-default">
-  <div class="panel-body">
-		<div class="col-md-1">
-			<%= image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "vn-user-poster pull-left") %>
+	<div class="panel panel-default">
+  	<div class="panel-body">
+		<div class="col-md-2">
+			<%= image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left") %>
 		</div>
 		<div class="col-md-8 user-add-col-padding">
-
 			<h4><%= post.detail %></h4>
-
 			<div class="row user-add-col-paddingtop">
 				<div class="col-md-3">
 					<h5>Some genre</h5>
-					
 				</div>
 				<div class="col-md-6 col-md-offset-2">
-				
 					<h5><%= time_ago_in_words(post.created_at) %> ago.</h5>	
-				
 				</div>		
 					<!-- end of nested divs-->
 			</div>
 		</div>
-	</div></div>
-	</div>
+	</div></div> <!---panels -->
+	</div><!---row -->
 	<% end %>
 
 </div>

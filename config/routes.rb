@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get :watch
       get :wishlist
       get :drop
+      get :completed
     end
  end
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
