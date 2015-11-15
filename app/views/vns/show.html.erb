@@ -10,12 +10,9 @@
 	<div class="row">
 	
 		<div class="col-lg-3">
-				<div class="panel panel-default">
+			<div class="panel panel-default">
   			<div class="panel-body panel-vnshow">
 
-			<!-- <a href=<%= edit_vn_path(@vn) %> class="a-inherit pull-right" data-no-turbolink="true">
- 			<%= fa_icon "pencil" %>
- 			</a> -->
  			<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit", 'data-no-turbolink' =>"true" do %>
 				<i class="fa fa-pencil"></i>
 			<% end %>
@@ -114,7 +111,6 @@
 					 <% end %>
 			 		</div>
 
-
 			 		<div class="col-md-3">
 					 <%= link_to @vn.image_2.url do %>
 					 <%= image_tag("#{@vn.image_2.url}",:alt => "screenshot 2", :class=> "vn-thumbnail img-thumbnail") %>
@@ -146,10 +142,10 @@
 		<h3>Characters</h3>
 	</div>
 			<% @showcharacters.each	 do |char| %>
-		<div class="col-md-2">
+		<div class="col-md-2 removecharacterpadding">
 			<div class="row">
 				<div class="col-md-6 adjustcharacter">
-				<%= link_to image_tag("#{char.img_string}",:alt => "thumbsup", :class=> "vn-char img-thumbnail"), character_path(char)  %>
+				<%= link_to image_tag("#{char.img_string}",:alt => "thumbsup", :class=> "img-thumbnail"), character_path(char)  %>
 
 				</div>
 				<div class="col-md-6">
