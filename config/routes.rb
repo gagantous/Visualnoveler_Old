@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     put :favourite, on: :member
     put :status, on: :member
     put :rate, on: :member
+    get :characters, on: :member
   end
   # resources :users do
   #   get :watch, on: :member

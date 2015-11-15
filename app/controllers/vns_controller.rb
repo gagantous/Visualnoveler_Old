@@ -104,6 +104,12 @@ class VnsController < ApplicationController
 		end
 	end
 
+	def characters
+
+		@vn = Vn.find(params[:id])
+		@characters = @vn.characters
+	end
+
 	def create	
     	@vn = Vn.new(vn_params)  
     	if @vn.save

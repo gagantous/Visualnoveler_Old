@@ -29,7 +29,7 @@
 			<% end %>
 				<% end %>
 			  <% end %> 
-			<%= image_tag("#{@vn.image_poster.url}",:alt => "thumbsup", :class=> "vn-poster") %>
+			<%= image_tag("#{@vn.image_poster.url}",:alt => "@vn.name", :class=> "vn-poster") %>
 
 			<span class="vn-contentpadding">
 				<ul class="list-inline">
@@ -141,20 +141,21 @@
 	<div class="row">
 		<div class="col-md-12">
 
-		<h3>Characters</h3>
+		<a href=<%= characters_vn_path(@vn) %>><h3>Characters</h3> </a>
 	</div>
 			<% @showcharacters.each	 do |char| %>
 		<div class="col-md-2 removecharacterpadding">
 			<div class="row">
 				<div class="col-md-6 adjustcharacter">
-				<%= link_to image_tag("#{char.img_string}",:alt => "thumbsup", :class=> "img-thumbnail"), character_path(char)  %>
-
+					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
+						 <%= image_tag("#{char.img_string.url}",:alt => "#{char.name}", :class=> "img-thumbnail") %>
+					<% end %>
+				
 				</div>
+
 				<div class="col-md-6">
-				<a href=<%= character_path(char) %>>
-				<h5 class="adjustcharactername"><%= char.name %></h5>
-				</a>
-			</div>
+					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5" %>
+				</div>
 			</div>
 		</div>
 		<!-- 	<p><%= char.summary %></p> -->
