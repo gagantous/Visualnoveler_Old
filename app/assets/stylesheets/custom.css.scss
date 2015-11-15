@@ -309,7 +309,15 @@ body {
   height: 90px;
 }
 
-
+.user-favimg {
+  width: 72px;
+  height: 76px;
+}
+.user-favcolumn {
+  width: 72px;
+  height: 76px;
+  float: left;
+}
 
 .adjustcharacter {
   left: 15px;
@@ -447,7 +455,11 @@ textarea {
     border-radius: 1px;
     background-color: #fc0 /* change this to any color you want! */;
 }
-
+.user-post{
+  .user-time{
+    margin-top: 115px;
+  }
+}
 
 //vn page
 
