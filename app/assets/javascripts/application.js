@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require cocoon
 //= require_tree .
+//= require fancybox

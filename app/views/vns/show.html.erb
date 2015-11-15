@@ -1,6 +1,8 @@
 <div class="container-fluid">
 	<div class="row">
-			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">	
+	
+			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">
+	
 		</div>
 	</div>
 </div>
@@ -106,24 +108,24 @@
 			 <div class="vn-thumbnail-img">
 			 	<div class="row">
 			 		<div class="col-md-3">
-			 		<%= link_to @vn.image_1.url do %>
+			 		<%= link_to @vn.image_1.url, :class => 'fancybox', :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_1.url}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
 			 		</div>
 
 			 		<div class="col-md-3">
-					 <%= link_to @vn.image_2.url do %>
+					 <%= link_to @vn.image_2.url, :class => 'fancybox', :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_2.url}",:alt => "screenshot 2", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
 					</div>
 
 			 		<div class="col-md-3">
-					<%= link_to @vn.image_3.url do %>
+					<%= link_to @vn.image_3.url, :class => 'fancybox', :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_3.url}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
 					</div>
 			 		<div class="col-md-3">
-					 <%= link_to @vn.image_4.url do %>
+					 <%= link_to @vn.image_4.url, :class => 'fancybox', :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_4.url}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
 					</div>
