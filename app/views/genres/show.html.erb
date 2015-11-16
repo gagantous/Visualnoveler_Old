@@ -1,1 +1,25 @@
-<h1> I am show Genre: <%= @genre.name%> </h1> 
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="vnindex-heading"><%= @genre.name%> Visual Novels</h2>
+		</div>
+	
+		<% @vns.each do |vn| %>
+<div class="vn-column">
+
+			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
+	
+	<div class="panel panel-default">
+		<div class="panel-body">
+
+
+  				<h4><span class="bottom"><%= vn.name%></span></h4>	
+			
+		</div>
+	</div>
+</div>
+
+<% end %>
+
+	</div>
+</div>

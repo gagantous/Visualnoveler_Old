@@ -1,6 +1,7 @@
 class DevelopersController < ApplicationController
 	def show
 		@developer = Developer.find(params[:id])
+		@vns = @developer.vns
 	end
 
 	def new
