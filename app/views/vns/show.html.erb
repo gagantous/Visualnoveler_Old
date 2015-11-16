@@ -1,3 +1,4 @@
+<% title @vn.name %>
 <div class="container-fluid">
 	<div class="row">
 	
@@ -38,8 +39,8 @@
 					<% end %>
 				</ul>
 			</span>
-			<span class="genre-text vn-contentpadding ">Developer: <%= link_to @vn.developer.name, developer_path(@vn.developer) %> </span>
-			<br>
+			<span class="genre-text vn-contentpadding ">Developer: <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %> </span>
+			<br> <% end %>
 			<span class="genre-text vn-contentpadding">Release Date: <%= @vn.release_date %> </span>
 			<br>
 		</div>
