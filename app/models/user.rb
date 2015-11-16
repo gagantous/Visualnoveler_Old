@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
      :omniauthable, :omniauth_providers => [:facebook]
 
+  validate :image_size
   accepts_nested_attributes_for :library_entries
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -20,4 +21,11 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
       end
   end
+
+  private 
+    def image_size
+      if poster_image.size > 7.megabytes
+        errors.add(:poster_image,"Should be less than 7 mb")
+      end
+    end
 end

@@ -38,7 +38,7 @@
 					<% end %>
 				</ul>
 			</span>
-			<span class="genre-text vn-contentpadding ">Developer: <%= @vn.developer %> </span>
+			<span class="genre-text vn-contentpadding ">Developer: <%= link_to @vn.developer.name, developer_path(@vn.developer) %> </span>
 			<br>
 			<span class="genre-text vn-contentpadding">Release Date: <%= @vn.release_date %> </span>
 			<br>

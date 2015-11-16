@@ -12,8 +12,8 @@
   <%= favicon_link_tag %>
 
  <div class="container-fullwidth">
-   <nav class="navbar navbar-transparent">
-      <div class="container-fluid">
+   <nav class="navbar navbar-default">
+      <div class="container-fullwidth">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -28,14 +28,15 @@
            <a class="navbar-brand" href=<%= new_vn_path %>><span class="logotitle">Create VN</span></a>
             <a class="navbar-brand" href=<%= new_character_path %>><span class="logotitle">Create   Character</span></a>
            <a class="navbar-brand" href=<%= new_genre_path %>><span class="logotitle">Create Genre</span></a>
+           <a class="navbar-brand" href=<%= new_developer_path %>><span class="logotitle">Create Developer</span></a>
            <% if user_signed_in? %>
-              <li>
-              <%= link_to('Logout', logout_path, :method => :delete) %>        
-              </li>
-              <%= link_to "Change your password", edit_path %>
-              <ul>
-               <li><%= current_user.email %> <h4>hello <%= link_to current_user.name,user_path(current_user) %></h4></li>
-             </ul>
+           
+              <%= link_to('Logout', logout_path,:style =>"color:black;",:class =>"navbar-brand", :method => :delete) %>        
+              <%= link_to "Change your password", edit_path, :style =>"color:black;",:class =>"navbar-brand" %>
+           
+             <%= link_to current_user.name,user_path(current_user),:style =>"color:black;",:class =>"navbar-brand" %>
+             
+        
           <% else %>
               <li>
                  <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>

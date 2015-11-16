@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :characters
   resources :genres
+  resources :developers
   resources :library_entries, except: [:new, :edit]
 
   resources :vns do
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
       get :crop
     end
  end
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks",:registrations => :registrations }
   as :user do
     get "/login" => "devise/sessions#new"
     get "/register" => "devise/registrations#new"

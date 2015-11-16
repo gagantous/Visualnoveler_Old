@@ -2,6 +2,10 @@
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
+.navbar-default{
+  background-color: white;
+
+}
 
 .user-button-padding{
   padding-left: 6px;
@@ -238,7 +242,9 @@ body {
   margin-bottom: 0px;
 }
 
-
+.logotitle{
+  color: black;
+}
 .navLogoPos {
   // position: absolute;
   // bottom: 120px;
@@ -284,6 +290,18 @@ body {
 .user-image-div {
   padding-left: 0px;
   padding-right: 0px;
+}
+.userpic {
+  width: 220px;
+  height: 220px;
+  border-radius: 5px;
+}
+
+.usercol {
+  width: 220px;
+  height: 220px;
+  margin-right: 35px;
+  float: left;
 }
 
 .user-showname {

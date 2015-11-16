@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112072957) do
+ActiveRecord::Schema.define(version: 20151116174826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 20151112072957) do
   end
 
   add_index "characters", ["vn_id"], name: "index_characters_on_vn_id", using: :btree
+
+  create_table "developers", force: :cascade do |t|
+    t.string   "name"
+    t.text     "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string   "name"
@@ -95,7 +102,7 @@ ActiveRecord::Schema.define(version: 20151112072957) do
   create_table "vns", force: :cascade do |t|
     t.string   "name"
     t.string   "genre_old"
-    t.string   "developer"
+    t.string   "developer_old"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.text     "summary"
@@ -109,8 +116,10 @@ ActiveRecord::Schema.define(version: 20151112072957) do
     t.boolean  "isFeatured"
     t.integer  "genre_id"
     t.float    "rating_number"
+    t.integer  "developer_id"
   end
 
+  add_index "vns", ["developer_id"], name: "index_vns_on_developer_id", using: :btree
   add_index "vns", ["genre_id"], name: "index_vns_on_genre_id", using: :btree
 
   add_foreign_key "library_entries", "users"
@@ -119,5 +128,6 @@ ActiveRecord::Schema.define(version: 20151112072957) do
   add_foreign_key "posts", "users"
   add_foreign_key "vn_genres", "genres"
   add_foreign_key "vn_genres", "vns"
+  add_foreign_key "vns", "developers"
   add_foreign_key "vns", "genres"
 end
