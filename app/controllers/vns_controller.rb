@@ -104,8 +104,16 @@ class VnsController < ApplicationController
 		end
 	end
 
-	def characters
+	def crop
 
+		@vn = Vn.find(params[:id])
+		if @vn.save
+			render :crop
+		end
+		 
+	end
+
+	def characters
 		@vn = Vn.find(params[:id])
 		@characters = @vn.characters
 	end
@@ -122,7 +130,7 @@ class VnsController < ApplicationController
 
 	private
 		def vn_params
-			params.require(:vn).permit(:name,:rating_number,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre_old,{ :genre_ids => [] },:developer,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id)
+			params.require(:vn).permit(:name,:image_coverpage_crop_x, :image_coverpage_crop_y, :image_coverpage_crop_w, :image_coverpage_crop_h,:rating_number,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre_old,{ :genre_ids => [] },:developer,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id)
 		end
 
 end

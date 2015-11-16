@@ -14,9 +14,11 @@ class Vn < ActiveRecord::Base
 	accepts_nested_attributes_for :genres
  	accepts_nested_attributes_for :library_entries
 	mount_uploader :image_coverpage, AvatarUploader
+	crop_uploaded :image_coverpage 
 	mount_uploader :image_1, AvatarUploader
 	mount_uploader :image_2, AvatarUploader
 	mount_uploader :image_3, AvatarUploader
 	mount_uploader :image_4, AvatarUploader
 	mount_uploader :image_poster, AvatarUploader
+
 end

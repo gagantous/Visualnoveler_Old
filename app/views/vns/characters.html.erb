@@ -4,7 +4,9 @@
 	<a name=<%= char.name.delete(' ')%>></a>
 	<div class="row vncharacter-section">
 		<div class="col-md-2">
-			<%= link_to image_tag("#{char.img_string.url}",:alt => "thumbsup", :class=> "img-responsive"), character_path(char)  %>
+			<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'group' do %>
+				<%= image_tag("#{char.img_string.url}",:alt => char.name, :class=> "img-responsive") %>
+			<% end %>
 		</div>
 		<div class="col-md-7">
 			<h2 class="vn-characterpage-name"><%= char.name %></h2>

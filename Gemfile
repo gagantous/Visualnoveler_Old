@@ -14,7 +14,8 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "gibbon"
 gem 'carrierwave'
-
+gem 'carrierwave-crop'
+gem "mini_magick"
 # authentication
 gem 'devise'
 gem 'omniauth'
