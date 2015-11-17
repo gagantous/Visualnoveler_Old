@@ -2,6 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
+
+  $("#add_comment_link").click ->
+    
+    event.preventDefault()
+    $("#show_comment").show();
+
+    jQuery ->
+
+  $("#hide_comment_link").click ->
+
+    event.preventDefault()
+    $("#show_comment").hide();
+
+jQuery ->
   new CarrierWaveCropper()
 
 class CarrierWaveCropper

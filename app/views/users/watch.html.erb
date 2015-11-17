@@ -1,4 +1,8 @@
-<% title @user.name + "'s Watchlist" %>
+<% if @user.name %>
+	<% title @user.name + "'s Watchlist" %>
+<% else %>
+	<% title 'Watchlist'%>
+<% end %>
 <div class="container-fluid">
 	<div class="row">
 

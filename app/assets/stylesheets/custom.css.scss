@@ -42,11 +42,11 @@
  min-width: 120px;
  font-weight: 400px;
  display: inline-block;
- -webkit-transition: background-color .5s linear;
- -moz-transition: background-color .5s linear;
- -ms-transition: background-color .5s linear;
- -o-transition: background-color .5s linear;
- transition: background-color .5s linear;
+ -webkit-transition: background-color .15s linear;
+ -moz-transition: background-color .15s linear;
+ -ms-transition: background-color .15s linear;
+ -o-transition: background-color .15s linear;
+ transition: background-color .15s linear;
 }
 .ghost-buttonimg:hover, .ghost-buttonimg:active {
   color:#fff;
@@ -272,6 +272,12 @@ body {
   height: 160px !important;
 }
 
+.default-text{
+
+    font-weight: 400;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 
 .summary-text {
   white-space: pre-wrap;
@@ -481,12 +487,20 @@ textarea {
 }
 
 //vn page
-
+.vn-score{
+  padding-left: 50px;
+  font-size: 1.2em;
+}
 .vn-poster {
   // width: 200px;
   display: inline;
   width:  250px;
    height: 335px !important;
+}
+.vn-postdate{
+    color: rgba(0,39,59,.35);   
+    font-weight: 500;
+    font-size: 12px;
 }
 
 body {
@@ -583,7 +597,6 @@ body {
   min-height: 80px;
 }
 .user-postbutton {
- position: absolute;
- bottom: 25px;
- right: 25px;
+  position: relative;
+  bottom: 10px;
 }

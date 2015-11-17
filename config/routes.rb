@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :characters
   resources :genres
   resources :developers
+  resources :reviews
+  resources :comments
   resources :library_entries, except: [:new, :edit]
   resources :posts
 

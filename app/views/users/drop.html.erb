@@ -1,4 +1,8 @@
-<% title @user.name + "'s Dropped Visual Novels" %>
+<% if @user.name %>
+	<% title @user.name + "'s Dropped Visual Novels" %>
+<% else %>
+	<% title 'Dropped Visual Novels'%>
+<% end %>
 <div class="container-fluid">
 	<div class="row">
 

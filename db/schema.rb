@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117091251) do
+ActiveRecord::Schema.define(version: 20151117140316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20151117091251) do
   end
 
   add_index "characters", ["vn_id"], name: "index_characters_on_vn_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "detail"
+    t.integer  "post_author_id"
+    t.integer  "wall_author_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "developers", force: :cascade do |t|
     t.string   "name"
@@ -68,6 +76,18 @@ ActiveRecord::Schema.define(version: 20151117091251) do
   add_index "posts", ["library_entry_id"], name: "index_posts_on_library_entry_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
   add_index "posts", ["vn_id"], name: "index_posts_on_vn_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "vn_id"
+    t.text     "details"
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  add_index "reviews", ["vn_id"], name: "index_reviews_on_vn_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -131,6 +151,8 @@ ActiveRecord::Schema.define(version: 20151117091251) do
   add_foreign_key "posts", "library_entries"
   add_foreign_key "posts", "users"
   add_foreign_key "posts", "vns"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "vns"
   add_foreign_key "vn_genres", "genres"
   add_foreign_key "vn_genres", "vns"
   add_foreign_key "vns", "developers"

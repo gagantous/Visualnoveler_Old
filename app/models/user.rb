@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
 
-  enum role: [:user, :vip, :admin]
+    enum role: [:user, :vip, :admin]
   # validates :name, presence: true
     has_many :library_entries, dependent: :destroy
     has_many :posts, dependent: :destroy
+    has_many :comments, dependent: :destroy,:foreign_key => "post_author_id",:class_name =>"Comment"
+
     mount_uploader :poster_image, UserImageUploader
     crop_uploaded :poster_image
   # Include default devise modules. Others available are:
