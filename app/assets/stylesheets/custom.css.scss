@@ -102,6 +102,7 @@
     position:relative;
     bottom: 20px;
     right: 0px;
+    color: black;
     //background: rgba(0, 0, 0, 0.2);
     overflow: hidden;
   }
@@ -318,7 +319,7 @@ body {
   height: 250px
 }
 .user-playing {
-  margin-top: 50px;
+  margin-top: 10px;
  // height: 400px;
 }
 
@@ -475,7 +476,7 @@ textarea {
 }
 .user-post{
   .user-time{
-    margin-top: 115px;
+    //margin-top: 115px;
   }
 }
 
@@ -521,6 +522,15 @@ body {
   top: 10px;
   padding: 0px 0px 0px 0px;
 }
+
+.vn-youtube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0.7;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
 //edit button
 .vn-buttonedit{
   position: absolute;
@@ -559,4 +569,21 @@ body {
   .vncharacter-section {
     padding-bottom: 25px;
   }
+}
+
+.user-createpost {
+  margin-top: 25px;
+}
+.user-postdelete{
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+.user-bio {
+  min-height: 80px;
+}
+.user-postbutton {
+ position: absolute;
+ bottom: 25px;
+ right: 25px;
 }

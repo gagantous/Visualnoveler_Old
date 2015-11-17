@@ -10,7 +10,9 @@
  			<%= fa_icon "pencil" %>
  			</a>
  			</h3>
- 			<p> Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph Insert some body paragraph</p>
+ 			<div class="user-bio">
+ 				<p><%= @user.bio %></p>
+ 			</div>
  			<div class="user-buttons">
 				<%= link_to watch_user_path(@user), :class => "btn ghost-button"  do %>
 					<i class="fa fa-spinner"></i><span class="user-button-padding">Watching</span>
@@ -45,35 +47,61 @@
  	</div>
 </div>	
 
+<div class="user-createpost">
+	<div class="container">
+		<div class="row">
+			
+				<div class="col-md-9">
+					<%= simple_form_for @new_post do |f| %>
+					<%= f.input :detail,placeholder: "What are you doing right now?",label: false,input_html: {style: "height:100px;"}  %>
+
+		 			 <%= f.button :submit , class: "btn btn-success pull-right user-postbutton" %>
+		 			 <% end %>
+				</div>
+			
+		</div>
+	</div>
+</div>
+
 <div class="user-post">
 <div class="container user-playing">
 	<% @posts.each do |post| %>
-	<% vn = post.library_entry.vn %>
+	<% vn = post.library_entry.vn if post.library_entry %>
 	<div class="row">
-
+	<div class="col-md-9">
 	<div class="panel panel-default">
   	<div class="panel-body">
+		<%= button_to post,:method=>:delete,:class =>"btn btn-danger user-postdelete" do %>
+			<i class="fa fa-trash-o"></i>
+		<% end %>
 		<div class="col-md-2">
-			<%= image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left") %>
+			<% if post.library_entry %>
+			<%= link_to image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left"), vn_path(vn)  %>
+			<% else %>
+				<%= image_tag(@user.poster_image.url,:alt => "#{@user.name}",:class =>"img-responsive pull-left") %>
+			<% end %>
 		</div>
-		<div class="col-md-8 user-add-col-padding">
+		<div class="col-md-10">
 			<h4><%= post.detail %></h4>
 			<hr>
 			<div class="row">
 				<div class="col-md-12">
+					<% if post.library_entry %>
 					<ul class="list-inline">
 					<% vn.genres.each do |genre| %>
 						<li><%= link_to genre.name,genre_path(genre) %></li>
 					<% end %>
 					</ul>
+					<% end %>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-4">
 				<h5 class="user-time"><%= time_ago_in_words(post.created_at) %> ago.</h5>	
 				</div>		
 					<!-- end of nested divs-->
 			</div>
 		</div>
 	</div></div> <!---panels -->
+</div>
 	</div><!---row -->
 	<% end %>
 

@@ -1,5 +1,6 @@
 class VnsController < ApplicationController
 	include VnsHelper
+	
 	def show
 		@vn = Vn.find(params[:id])
 		@showcharacters = @vn.characters.all
@@ -94,8 +95,8 @@ class VnsController < ApplicationController
 	def update
 
 		@vn = Vn.find(params[:id])
-
 		if @vn.update(vn_params)
+			
 			flash[:success] = "Visual Novel is updated successfully!"
 			redirect_to vn_path(@vn)
 			#redirect_to recipe_path(@recipe)
@@ -130,7 +131,7 @@ class VnsController < ApplicationController
 
 	private
 		def vn_params
-			params.require(:vn).permit(:name,:image_coverpage_crop_x, :image_coverpage_crop_y, :image_coverpage_crop_w, :image_coverpage_crop_h,:rating_number,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre_old,{ :genre_ids => [] },:developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id)
+			params.require(:vn).permit(:name,:bio,:trailer_url,:image_coverpage_crop_x, :image_coverpage_crop_y, :image_coverpage_crop_w, :image_coverpage_crop_h,:rating_number,:isFeatured,{ characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string] },:release_date, :summary,:genre_old,{ :genre_ids => [] },:developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id)
 		end
 
 end

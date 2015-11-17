@@ -1,6 +1,13 @@
 jQuery ->
   $('a.fancybox').fancybox()
 
+jQuery ->
+ $(".fancyframe").fancybox
+  type: "iframe"
+  width: 1000 
+  height: 700  
+
+
   jQuery ->
   new CarrierWaveCropper()
 

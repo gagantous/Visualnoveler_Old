@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116174826) do
+ActiveRecord::Schema.define(version: 20151117091251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,10 +62,12 @@ ActiveRecord::Schema.define(version: 20151116174826) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "user_id"
+    t.integer  "vn_id"
   end
 
   add_index "posts", ["library_entry_id"], name: "index_posts_on_library_entry_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+  add_index "posts", ["vn_id"], name: "index_posts_on_vn_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 20151116174826) do
     t.string   "uid"
     t.string   "poster_image"
     t.string   "name"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -117,6 +120,7 @@ ActiveRecord::Schema.define(version: 20151116174826) do
     t.integer  "genre_id"
     t.float    "rating_number"
     t.integer  "developer_id"
+    t.string   "trailer_url"
   end
 
   add_index "vns", ["developer_id"], name: "index_vns_on_developer_id", using: :btree
@@ -126,6 +130,7 @@ ActiveRecord::Schema.define(version: 20151116174826) do
   add_foreign_key "library_entries", "vns"
   add_foreign_key "posts", "library_entries"
   add_foreign_key "posts", "users"
+  add_foreign_key "posts", "vns"
   add_foreign_key "vn_genres", "genres"
   add_foreign_key "vn_genres", "vns"
   add_foreign_key "vns", "developers"

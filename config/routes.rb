@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :genres
   resources :developers
   resources :library_entries, except: [:new, :edit]
+  resources :posts
 
   resources :vns do
     put :favourite, on: :member

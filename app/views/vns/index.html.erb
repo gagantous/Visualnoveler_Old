@@ -10,13 +10,13 @@
 
 <div class="vn-column">
 
-			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
+			<%= image_tag("#{vn.image_poster}",:alt => vn.name, :class=> "vn-index-poster") %>
 	
 	<div class="panel panel-default">
 		<div class="panel-body">
 
 
-  				<h4><span class="bottom"><%= vn.name%></span></h4>	
+		<a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4>	</a>	
 
 			<ul class="list-inline vnindex-genre text-left">
 					<% vn.genres.each do |genre| %>
@@ -42,13 +42,13 @@
 
 <div class="vn-column">
 
-			<%= image_tag(vn.image_poster,:alt => "thumbsup", :class=> "img-responsive") %>
+			<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "img-responsive") %>
 	
 	<div class="panel panel-default paneltest">
 		<div class="panel-body">
 
 
-		<h4><span class="bottom"><%= vn.name%></span></h4>	
+		<a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4>	</a>
 
 
 				<ul class="list-inline vnindex-genre text-left">

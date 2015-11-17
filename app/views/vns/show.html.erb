@@ -31,7 +31,9 @@
 				<% end %>
 			  <% end %> 
 			<%= image_tag("#{@vn.image_poster.url}",:alt => "@vn.name", :class=> "vn-poster") %>
-
+			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
+				<i class="fa fa-youtube-play fa-3x"></i>
+			<% end %>
 			<span class="vn-contentpadding">
 				<ul class="list-inline">
 					<% @vn.genres.each do |genre| %>
@@ -166,4 +168,11 @@
 	</div>
 </div>
 
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+		</div>
+	</div>
+</div>
 </section>

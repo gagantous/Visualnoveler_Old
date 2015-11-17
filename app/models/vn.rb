@@ -1,11 +1,12 @@
 class Vn < ActiveRecord::Base
 	has_many :characters
 	has_many :library_entries
+	has_many :posts
 	has_many :favourited_by, through: :library_entries, source: :user
-  has_many :vn_genres
-  has_many :genres, :through => :vn_genres
-  belongs_to :developer
-  mount_uploader :image_coverpage, AvatarUploader
+    has_many :vn_genres
+    has_many :genres, :through => :vn_genres
+    belongs_to :developer
+    mount_uploader :image_coverpage, AvatarUploader
 	crop_uploaded :image_coverpage 
 	mount_uploader :image_1, AvatarUploader
 	mount_uploader :image_2, AvatarUploader
@@ -22,6 +23,13 @@ class Vn < ActiveRecord::Base
 	accepts_nested_attributes_for :vn_genres
 	accepts_nested_attributes_for :genres
  	accepts_nested_attributes_for :library_entries
+ 	before_save :edit_youtubeurl
+
+ 	# only accepts direct copying of youtube urls
+	def edit_youtubeurl
+		self.trailer_url.sub!('watch?v=','embed/')
+		self.trailer_url << "?autoplay=1"
+	end
 
  	private 
  		def cover_size
