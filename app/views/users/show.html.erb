@@ -71,7 +71,7 @@
 	<div class="col-md-9">
 	<div class="panel panel-default">
   	<div class="panel-body">
-		<%= button_to post,:method=>:delete,:class =>"btn btn-danger user-postdelete" do %>
+		<%= button_to post,:method=>:delete,:class =>"btn btn-danger user-postdelete",data:{ disable_with: "Deleting Post...."} do %>
 			<i class="fa fa-trash-o"></i>
 		<% end %>
 		<div class="col-md-2">
