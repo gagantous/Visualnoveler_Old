@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-  
+  before_action :authenticate_user!, :only => [:edit,:update,:crop]
   def show
   	@user = User.find(params[:id])
+    authorize @user
   	@posts = @user.posts.paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
     @lib = @user.library_entries.where(favourite: true).limit(8)
-    if current_user && current_user == @user 
-       @new_post =  current_user.posts.build
+    if current_user == @user 
+      @new_post =  @user.posts.build
     end
     @comments = Comment.where(wall_author_id: @user.id).order('created_at DESC')
     @new_comment = @user.comments.build
@@ -15,36 +16,42 @@ class UsersController < ApplicationController
 
   def watch
 	  @user = User.find(params[:id])
+    authorize @user
   	@lib = @user.library_entries.where(status: "watch")
   end
 
   def wishlist
   	@user = User.find(params[:id])
+    authorize @user
   	@lib = @user.library_entries.where(status: "wishlist")
   end
 
   def favourite
     @user = User.find(params[:id])
+    authorize @user
     @lib = @user.library_entries.where(favourite: true)
   end
 
   def drop
 	   @user = User.find(params[:id])
+    authorize @user
      @lib = @user.library_entries.where(status: "drop")
   end
 
   def completed
      @user = User.find(params[:id])
+     authorize @user
      @lib = @user.library_entries.where(status: "completed")
   end
 
   def edit
-
      @user = User.find(params[:id])
+     authorize @user
   end
 
   def update
       @user = User.find(params[:id])
+      authorize @user
       if @user.update(user_params)
         flash[:success] = "You have successfully updated your profile!"
         redirect_to user_path(@user)
@@ -53,8 +60,8 @@ class UsersController < ApplicationController
       end
   end
   def crop
-
     @user = User.find(params[:id])
+    authorize @user
   end
   def index
 

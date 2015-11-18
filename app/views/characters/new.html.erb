@@ -6,13 +6,13 @@
 
 
 		<div class="col-lg-4">
-		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Name of Character', error: 'Name is mandatory, please specify one' %>
+		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Name of Character', error: 'Name is mandatory, please specify one',required: false  %>
 
 		 </div>
 
 		  <div class="col-lg-8">
 
-			<%= f.association :vn,input_html: {style: "width:150px;"} %>
+			<%= f.association :vn,input_html: {style: "width:150px;"},required: false %>
 		</div>
 		  <div class="col-lg-4">
 		  <%= f.input :voiceactor,input_html: {style: "width:150px;"} %> 

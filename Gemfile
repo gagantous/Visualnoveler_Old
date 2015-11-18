@@ -15,11 +15,13 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "gibbon"
+#image & attachments 
 gem 'carrierwave'
 gem 'carrierwave-crop'
 gem "mini_magick"
 # authentication
 gem 'devise'
+gem "pundit"
 gem 'omniauth'
 gem 'omniauth-facebook'
 #cloud
@@ -34,7 +36,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem "cocoon"
 gem 'dotenv-rails', :groups => [:development]
-
+gem 'sitemap_generator'
 gem 'whenever', require: false
 # gem 'bcrypt', '~> 3.1.7'
 

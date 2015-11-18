@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/help'
+  get 'static_pages/contact'
+  get 'static_pages/about'
   root 'static_pages#home'
   post 'static_pages/subscribe' , :path => "subscribe"
 
@@ -41,6 +43,7 @@ Rails.application.routes.draw do
     get "/edit" => "devise/registrations#edit"
     delete "/logout" => "devise/sessions#destroy"
   end
+  
 
   post 'vns/:id/favourite' => 'vns#favourite'
   post 'vns/:id/status' => 'vns#status'

@@ -1,21 +1,24 @@
 class CharactersController < ApplicationController
-
+	before_action :authenticate_user!, :only => [:edit,:new,:update]
 	def show
 		@character = Character.find(params[:id])
 	end
 
 	def new
 		@character = Character.new
+		authorize @character
 	end
 
 	def edit
 		@character = Character.find(params[:id])
+		authorize @character
 	end
 
 	def create	
     	@character = Character.new(char_params)  
     	if @character.save
-
+    		redirect_to vn_path(@character.vn)
+    		flash[:sucess] = "Character created successfully!"
     	else
     		render :action=>"new"
     	end
@@ -24,6 +27,7 @@ class CharactersController < ApplicationController
 
 	def update
 		@character = Character.find(params[:id])
+		authorize @character
 		if @character.update(char_params)
 			flash[:success] = "Your character was updated successfully!"
 			redirect_to characters_path(@character)

@@ -66,11 +66,17 @@
                   <li><%= link_to 'Developer',developers_path %></li>
               </ul>
             </li>
+
+            <li class="logotitle-dropdown">
+             <a href=<%= static_pages_about_path %> class="navbar-brand"><span class="logotitle">About</span> </a>
+           </li>
+
             <% if !user_signed_in? %>
             <li class ="logotitle-dropdown">
                <a href="#" class="navbar-brand" data-toggle="modal" data-target="#login-modal"><span class="logotitle">Login</span> </a>
          
                <a href=<%= register_path %> class="navbar-brand"><span class="logotitle">Register</span> </a>
+
             </li>
             <% end %>
          </ul>
@@ -104,6 +110,7 @@
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
+      
 
    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
@@ -125,11 +132,23 @@
          
         </div>
       </div>
-      </div>
+ </div>
+
 
 
 <%= yield %>
+  <!--  <footer class="footer">
+      <div class="container-fullwidth">
+        <hr>
+        <div class="footer-content text-center">
+        <h4>
+         
 
+          <%= link_to 'Contact',static_pages_contact_path,:class =>"logotitle footer-text" %>
+        </h4>
+      </div>
+      </div>
+    </footer> -->
 </body>
 </html>
 <!-- 

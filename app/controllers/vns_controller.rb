@@ -1,6 +1,6 @@
 class VnsController < ApplicationController
 	include VnsHelper
-	
+	before_action :authenticate_user!, :only => [:edit,:crop,:new,:update]
 	def show
 		@vn = Vn.find(params[:id])
 		@showcharacters = @vn.characters.all
@@ -26,6 +26,7 @@ class VnsController < ApplicationController
 
 	def edit
 		@vn = Vn.find(params[:id])
+		authorize @vn
 		@character = @vn.characters.all
     	@vn.characters.build
 	end
@@ -89,12 +90,13 @@ class VnsController < ApplicationController
 
 	def new
 		@vn = Vn.new
+		authorize @vn
     	@vn.characters.build
 	end
 
 	def update
-
 		@vn = Vn.find(params[:id])
+		authorize @vn
 		if @vn.update(vn_params)
 			
 			flash[:success] = "Visual Novel is updated successfully!"
@@ -106,8 +108,8 @@ class VnsController < ApplicationController
 	end
 
 	def crop
-
 		@vn = Vn.find(params[:id])
+		authorize @vn
 		if @vn.save
 			render :crop
 		end
@@ -120,9 +122,11 @@ class VnsController < ApplicationController
 	end
 
 	def create	
-    	@vn = Vn.new(vn_params)  
+    	@vn = Vn.new(vn_params) 
+    	authorize @vn 
     	if @vn.save
-
+    		# redirect_to vn_path(@vn)
+    		# flash[:success] = "Visual novel successfully created!"
     	else
     		render :action=>"new"
     	end

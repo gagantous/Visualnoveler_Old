@@ -1,23 +1,27 @@
 <% title 'Edit Profile' %>
 <div class="container">
 <div class="row">
-    <div class="col-md-12">
-        <h2>Edit <%= resource_name.to_s.humanize %></h2>
-    </div>
+   
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:method => :put, :multipart => true}) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <div class="row">
+       <div class="col-md-12">
+        <h2>Edit <%= resource_name.to_s.humanize %></h2>
+       </div>
         <div class="col-md-4">
-             <%= f.input :name, required: true, autofocus: true %>
+             <%= f.input :name, required: false, autofocus: true %>
         </div>
-         <div class="col-md-4">
-             <%= f.input :bio ,input_html: {style: "height:100px;"}%>
-        </div>
+       
         <div class="col-md-4">
-        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :email, required: true, autofocus: true,required: false  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+          <%= f.input :bio ,input_html: {style: "height:100px;"}%>
       </div>
     </div>
 
@@ -26,16 +30,16 @@
     <% end %>
     <div class="row">
         <div class="col-md-4">
-           <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+           <%= f.input :password, autocomplete: "off", placeholder: "Only if you want to change password else blank", required: false %>
         </div>
 
         <div class="col-md-4">
-            <%= f.input :password_confirmation, required: false %>
+            <%= f.input :password_confirmation,placeholder: "same", required: false %>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
-        <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+        <%= f.input :current_password, placeholder: "required", required: true,required: false  %>
        </div>
     </div>
     <div class="col-md-6">
@@ -47,18 +51,20 @@
     </div>
   
   </div>
-  <div class="col-md-12">
-      <div class="form-actions">
-        <%= f.button :submit, "Update" %>
-      </div>
-  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <div class="form-actions">
+          <%= f.button :submit, "Update",class: "register-button",:style =>"width: 100px;" %>
+        </div>
+    </div>
 <% end %>
 <!--
 <h3>Cancel my account</h3> 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
  -->
- <div class="col-md-12">
-    <%= link_to "Back", :back %>
+     <div class="col-md-12">
+        <%= link_to "Back", :back, :class => "btn btn-danger", style: "margin-top: 35px;"%>
+     </div>
   </div>
 
 </div></div>

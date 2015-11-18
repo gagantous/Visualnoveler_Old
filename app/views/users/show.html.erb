@@ -10,9 +10,11 @@
  		</div>
  		<div class="col-md-6">
  			<h3 class="user-name"><%= @user.name %>
+ 			<% if @user == current_user %>
  			<a href=<%= edit_path %> class="a-inherit" data-no-turbolink="true">
  			<%= fa_icon "pencil" %>
  			</a>
+ 			<% end %>
  			</h3>
  			<div class="user-bio">
  				<p><%= @user.bio %></p>
@@ -80,8 +82,10 @@
 	<div class="col-md-9">
 	<div class="panel panel-default">
   	<div class="panel-body">
+  		<% if current_user == @user %>
 		<%= button_to post,:method=>:delete,:class =>"btn btn-danger user-postdelete",data:{ disable_with: "Deleting Post...."} do %>
 			<i class="fa fa-trash-o"></i>
+		<% end %>
 		<% end %>
 		<div class="col-md-2">
 			<% if post.library_entry %>
@@ -129,7 +133,7 @@
 					<%= simple_form_for @new_comment do |f| %>
 					<%= f.input :detail,placeholder: "Post a comment?",label: false,input_html: {style: "height:70px;"}  %>
 					<%= f.hidden_field :wall_author_id,value: @user.id %>
-		 			 <%= f.button :submit , class: "btn btn-success pull-right user-postbutton" %>
+		 			 <%= f.button :submit , class: "btn btn-success pull-right user-postbutton",data:{ disable_with: "Creating Comment...."} %>
 		 			 <% end %>
 				</div>
 			
@@ -142,10 +146,10 @@
 		<% @comments.each do |comment| %> 
 		<div class="row">
 
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<%= image_tag(comment.post_author.poster_image.url,:class => "img-responsive") %>
 		</div>
-		<div class="col-md-9" id ="show_comment">
+		<div class="col-md-7" id ="show_comment">
 			<p><span class="text-primary default-text"><%= link_to comment.post_author.name,user_path(comment.post_author) %> </span><span class="vn-postdate"> 5 minutes ago</span></p> 
 		<p><%= comment.detail %> </p>
 		</div>
