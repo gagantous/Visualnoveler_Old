@@ -151,7 +151,7 @@
 			<div class="row">
 				<div class="col-md-6 adjustcharacter">
 					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
-						 <%= image_tag("#{char.img_string.url}",:alt => "#{char.name}", :class=> "img-thumbnail") %>
+						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "img-thumbnail") %>
 					<% end %>
 				
 				</div>
