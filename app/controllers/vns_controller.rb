@@ -125,8 +125,8 @@ class VnsController < ApplicationController
     	@vn = Vn.new(vn_params) 
     	authorize @vn 
     	if @vn.save
-    		# redirect_to vn_path(@vn)
-    		# flash[:success] = "Visual novel successfully created!"
+    		 redirect_to vn_path(@vn)
+    		 flash[:success] = "Visual novel successfully created!"
     	else
     		render :action=>"new"
     	end

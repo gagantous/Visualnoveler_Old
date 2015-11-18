@@ -15,10 +15,6 @@ class Vn < ActiveRecord::Base
 	mount_uploader :image_poster, AvatarUploader
  	validates :name, presence: true
  	validate :cover_size
-  	# validates :genre, presence: true
-  	# validates :summary, presence: true
-  	# validates :developer, presence: true
-  	# validates :rating, presence: true
 	accepts_nested_attributes_for :characters
 	accepts_nested_attributes_for :vn_genres
 	accepts_nested_attributes_for :genres

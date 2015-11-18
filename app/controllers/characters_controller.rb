@@ -18,7 +18,7 @@ class CharactersController < ApplicationController
     	@character = Character.new(char_params)  
     	if @character.save
     		redirect_to vn_path(@character.vn)
-    		flash[:sucess] = "Character created successfully!"
+    		flash[:success] = "Character created successfully!"
     	else
     		render :action=>"new"
     	end
