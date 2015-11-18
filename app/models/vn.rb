@@ -8,10 +8,10 @@ class Vn < ActiveRecord::Base
     belongs_to :developer
     mount_uploader :image_coverpage, AvatarUploader
 	crop_uploaded :image_coverpage 
-	mount_uploader :image_1, AvatarUploader
-	mount_uploader :image_2, AvatarUploader
-	mount_uploader :image_3, AvatarUploader
-	mount_uploader :image_4, AvatarUploader
+	mount_uploader :image_1, ScreenshotUploader
+	mount_uploader :image_2, ScreenshotUploader
+	mount_uploader :image_3, ScreenshotUploader
+	mount_uploader :image_4, ScreenshotUploader
 	mount_uploader :image_poster, AvatarUploader
  	validates :name, presence: true
  	validate :cover_size
