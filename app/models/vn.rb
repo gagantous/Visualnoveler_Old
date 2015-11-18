@@ -27,9 +27,11 @@ class Vn < ActiveRecord::Base
 
  	# only accepts direct copying of youtube urls
 	def edit_youtubeurl
-		self.trailer_url.sub!('watch?v=','embed/')
-		if !self.trailer_url.include?("?autoplay=1")
-			self.trailer_url << "?autoplay=1"
+		if !trailer_url.empty?
+			self.trailer_url.sub!('watch?v=','embed/')
+			if !self.trailer_url.include?("?autoplay=1")
+				self.trailer_url << "?autoplay=1"
+			end
 		end
 	end
 

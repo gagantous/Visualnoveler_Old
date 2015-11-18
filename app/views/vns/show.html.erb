@@ -32,7 +32,7 @@
 			  <% end %> 
 			<%= image_tag("#{@vn.image_poster.url}",:alt => "@vn.name", :class=> "vn-poster") %>
 
-			<% if @vn.trailer_url %>
+			<% if !@vn.trailer_url.blank? %>
 			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
 				<i class="fa fa-youtube-play fa-3x"></i>
 			<% end %> <% end %>

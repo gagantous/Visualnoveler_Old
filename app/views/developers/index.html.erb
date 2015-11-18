@@ -1,1 +1,33 @@
-<h1> I am Index</h1>
+<% title "Discover Visual Novels by genres" %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="vnindex-heading">Random Developer listings</h2>
+		</div>
+	
+		<% @developers.each do |developer| %>
+		<% vn = developer.vns.order("RANDOM()").limit(1).first %>
+<div class="vn-column">
+
+			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
+	
+	<div class="panel panel-default">
+		<div class="panel-body">
+
+
+		<a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4>	</a>
+
+			<ul class="list-inline vnindex-genre text-left">
+						<li class="vngenre-padding inline-nopadding"><%= link_to developer.name,developer_path(developer),:style =>"font-size: 1.1em;" %></li>
+				</ul>
+			
+			
+		</div>
+	</div>
+</div>
+
+<% end %>
+
+	</div>
+</div>

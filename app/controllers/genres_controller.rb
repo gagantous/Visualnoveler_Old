@@ -8,6 +8,10 @@ class GenresController < ApplicationController
 		@genre = Genre.new
 	end
 
+	def index
+		@genres = Genre.limit(12).order("RANDOM()")
+	end
+
 	def edit
 		@genre = Genre.find(params[:id])
 	end

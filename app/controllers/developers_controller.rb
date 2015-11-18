@@ -8,6 +8,10 @@ class DevelopersController < ApplicationController
 		@developer = Developer.new
 	end
 
+	def index
+		@developers = Developer.limit(12).order("RANDOM()")
+	end
+
 	def edit
 		@developer = Developer.find(params[:id])
 	end
