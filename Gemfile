@@ -22,9 +22,8 @@ gem "mini_magick"
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
-
-
+#cloud
+gem "fog"
 
 gem "font-awesome-rails"
 

@@ -112,24 +112,24 @@
 			 	<div class="row">
 			 		<div class="col-md-3">
 			 		<%= link_to @vn.image_1.url, :class => 'fancybox', :rel =>'group' do %>
-					 <%= image_tag("#{@vn.image_1.url}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail") %>
+					 <%= image_tag("#{@vn.image_1.url(:thumb)}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
 			 		</div>
 
 			 		<div class="col-md-3">
 					 <%= link_to @vn.image_2.url, :class => 'fancybox', :rel =>'group' do %>
-					 <%= image_tag("#{@vn.image_2.url}",:alt => "screenshot 2", :class=> "vn-thumbnail img-thumbnail") %>
+					 <%= image_tag("#{@vn.image_2.url(:thumb)}",:alt => "screenshot 2", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
 					</div>
 
 			 		<div class="col-md-3">
 					<%= link_to @vn.image_3.url, :class => 'fancybox', :rel =>'group' do %>
-					 <%= image_tag("#{@vn.image_3.url}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail") %>
+					 <%= image_tag("#{@vn.image_3.url(:thumb)}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
 					</div>
 			 		<div class="col-md-3">
 					 <%= link_to @vn.image_4.url, :class => 'fancybox', :rel =>'group' do %>
-					 <%= image_tag("#{@vn.image_4.url}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail") %>
+					 <%= image_tag("#{@vn.image_4.url(:thumb)}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
 					</div>
 

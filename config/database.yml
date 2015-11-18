@@ -5,16 +5,16 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
   host: localhost
-  username: rails
-  password: wraith123
+  username: <%= ENV["DATABASE_USER_KEY"] %>
+  password: <%= ENV["DATABASE_PASSWORD_KEY"] %>
 
 development:
   adapter: postgresql
   encoding: unicode
   pool: 5
   database: visualnoveler_development
-  username: rails
-  password: wraith123
+  username: <%= ENV["DATABASE_USER_KEY"] %>
+  password: <%= ENV["DATABASE_PASSWORD_KEY"] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -26,5 +26,5 @@ test:
 production:
   <<: *default
   database: visualnoveler_production
-  username: rails
-  password: wraith123
+  username: <%= ENV["DATABASE_USER_KEY"] %>
+  password: <%= ENV["DATABASE_PASSWORD_KEY"] %>
