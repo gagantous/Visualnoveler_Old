@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       get :watch
       get :wishlist
       get :drop
+      get :favourite
       get :completed
       get :crop
     end

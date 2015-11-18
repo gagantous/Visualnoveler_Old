@@ -23,6 +23,11 @@ class UsersController < ApplicationController
   	@lib = @user.library_entries.where(status: "wishlist")
   end
 
+  def favourite
+    @user = User.find(params[:id])
+    @lib = @user.library_entries.where(favourite: true)
+  end
+
   def drop
 	   @user = User.find(params[:id])
      @lib = @user.library_entries.where(status: "drop")

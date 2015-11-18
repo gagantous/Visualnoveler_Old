@@ -7,6 +7,13 @@
 
 }
 
+// For on hover navbar show dropdown
+@media (min-width: 679px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
+
 .user-button-padding{
   padding-left: 6px;
 }
@@ -241,6 +248,9 @@ body {
 .list-inline {
   
   margin-bottom: 0px;
+}
+.logotitle-dropdown{
+  padding-top: 5px;
 }
 
 .logotitle{

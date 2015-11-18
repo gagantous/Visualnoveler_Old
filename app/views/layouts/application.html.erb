@@ -15,9 +15,8 @@
 
   <%= favicon_link_tag %>
 
- <div class="container-fullwidth">
    <nav class="navbar navbar-default">
-      <div class="container-fullwidth">
+      <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -28,20 +27,69 @@
           <a class="navbar-brand" href="#"><span class="navLogo">Visualnoveler</span></a>
         </div>
       <div id="navbar" class="navbar-collapse collapse">
-         <ul class="nav navbar-nav">
-           <a class="navbar-brand" href=<%= new_vn_path %>><span class="logotitle">Create VN</span></a>
-            <a class="navbar-brand" href=<%= new_character_path %>><span class="logotitle">Create   Character</span></a>
-           <a class="navbar-brand" href=<%= new_genre_path %>><span class="logotitle">Create Genre</span></a>
-           <a class="navbar-brand" href=<%= new_developer_path %>><span class="logotitle">Create Developer</span></a>
-           <% if user_signed_in? %>
-           
-              <%= link_to('Logout', logout_path,:style =>"color:black;",:class =>"navbar-brand", :method => :delete) %>        
-              <%= link_to "Change your password", edit_path, :style =>"color:black;",:class =>"navbar-brand" %>
-           
-             <%= link_to current_user.name,user_path(current_user),:style =>"color:black;",:class =>"navbar-brand" %>
-             
-        
-          <% else %>
+
+        <% if user_signed_in? %>
+         <ul class ="nav navbar-nav">
+            <li class="dropdown logotitle-dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Create</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><%= link_to "Create Visual Novel", new_vn_path %></li>
+                  <li><%= link_to "Create Character", new_character_path %></li>
+                  <li><%= link_to "Create Developer", new_developer_path %></li>
+                  <li><%= link_to "Create Genre", new_genre_path %></li>
+              </ul>
+           </li>
+         </ul>
+         <% end %>
+
+         <ul class ="nav navbar-nav">
+            <li class="dropdown logotitle-dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Visual Novels</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><%= link_to "What's New", vns_path %></li>
+
+                  <% if user_signed_in? %>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">My Visual Novels</li>
+                  <li><%= link_to "Favourites", favourite_user_path(current_user) %></li>
+                  <li><%= link_to "Wishlist", wishlist_user_path(current_user) %></li>
+                  <li><%= link_to "Completed", completed_user_path(current_user) %></li>
+                  <li><%= link_to "Playing", watch_user_path(current_user) %></li>
+                  <% end %>
+              </ul>
+            </li>
+
+            <li class="dropdown logotitle-dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Discover</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><%= link_to 'Genres', ""  %></li>
+                  <li><%= link_to 'Developer',"" %></li>
+              </ul>
+            </li>
+            <% if !user_signed_in? %>
+            <li class ="logotitle-dropdown">
+               <a href="#" class="navbar-brand" data-toggle="modal" data-target="#login-modal"><span class="logotitle">Login</span> </a>
+         
+               <a href=<%= register_path %> class="navbar-brand"><span class="logotitle">Register</span> </a>
+            </li>
+            <% end %>
+         </ul>
+
+          <% if user_signed_in? %>
+         <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown pull-right">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle"><%= current_user.name %></span> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><%= link_to "My Profile", user_path(current_user) %></li>
+                    <li><%= link_to "Edit Profile", edit_path %></li>
+                     <li><%= link_to "Crop Profile Picture", crop_user_path(current_user) %></li>
+                    <li><%= link_to "Logout", logout_path, :method => :delete %></li>    
+                </ul>
+             </li>
+               <%= image_tag current_user.poster_image.url, :class => "pull-right",:style =>"max-width: 50px; max-height: 50px;" %>
+          </ul>
+          <% end %>
+          <!--  <% if !user_signed_in? %>
               <li>
                  <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
               </li>
@@ -49,15 +97,13 @@
               <li>
                  <%= link_to('Register', register_path)  %>
               </li>
-           <% end %>
-          </ul>
+           <% end %> -->
         </div><!--/.nav-collapse -->
       </div><!--end of container -->
     </nav>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
-</div><!--end first container -->
 
    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">

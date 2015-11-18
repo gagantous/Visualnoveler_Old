@@ -1,0 +1,36 @@
+<% if @user.name %>
+	<% title @user.name + "'s favourite Visual Novels" %>
+<% else %>
+	<% title 'Favourite Visual Novels'%>
+<% end %>
+<div class="container-fluid">
+	<div class="row">
+			<h2 class="vnindex-heading">Completed</h2>
+		
+	
+		<% @lib.each do |lib| %>
+		<% vn = lib.vn %>
+<div class="vn-column">
+
+			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
+	
+	<div class="panel panel-default">
+		<div class="panel-body">
+
+
+		<a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4>	</a>
+
+			<ul class="list-inline vnindex-genre text-left">
+					<% vn.genres.each do |genre| %>
+						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre) %></li>
+					<% end %>
+				</ul>
+			
+		</div>
+	</div>
+</div>
+
+<% end %>
+
+	</div>
+</div>

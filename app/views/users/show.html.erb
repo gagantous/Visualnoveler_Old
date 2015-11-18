@@ -3,7 +3,6 @@
 <% else %>
 	<% title 'Profile Page'%>
 <% end %>
-<h1><%= @user.id %></h1>
 <div class="container usercoverbg">
 	<div class="row">
  		 <div class="usercol user-image-div">
@@ -20,7 +19,7 @@
  			</div>
  			<div class="user-buttons">
 				<%= link_to watch_user_path(@user), :class => "btn ghost-button"  do %>
-					<i class="fa fa-spinner"></i><span class="user-button-padding">Watching</span>
+					<i class="fa fa-spinner"></i><span class="user-button-padding">Playing</span>
 				<% end %>
 
 				<%= link_to wishlist_user_path(@user), :class => "btn ghost-button"  do %>
@@ -37,7 +36,10 @@
 			</div>
  		</div>
  		<div class="col-md-3">
- 			<h4><i class="fa fa-heart-o"></i> Favourites</h4>
+ 			<%= link_to favourite_user_path(@user) do %>
+ 				<h4 class ="logotitle"><i class="fa fa-heart-o"></i> Favourites</h4>
+ 			<% end %>
+ 			
  			<div class="row">
  			<% @lib.each do |lib| vn = lib.vn %>
  					<div class="user-favcolumn removecharacterpadding">
@@ -144,7 +146,7 @@
 			<%= image_tag(comment.post_author.poster_image.url,:class => "img-responsive") %>
 		</div>
 		<div class="col-md-9" id ="show_comment">
-			<p><span class="text-primary default-text"><%= comment.post_author.name %> </span><span class="vn-postdate"> 5 minutes ago</span></p> 
+			<p><span class="text-primary default-text"><%= link_to comment.post_author.name,user_path(comment.post_author) %> </span><span class="vn-postdate"> 5 minutes ago</span></p> 
 		<p><%= comment.detail %> </p>
 		</div>
 
