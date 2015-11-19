@@ -95,7 +95,7 @@
                <% if current_user.poster_image.blank? %>
                   <%= image_tag("default_avatar.jpg",:class => "pull-right",:style =>"max-width: 50px; max-height: 50px;")  %>
                <% else %>
-                  <%= image_tag("#{@user.poster_image.url}",:class => "pull-right",:style =>"max-width: 50px; max-height: 50px;")  %>
+                  <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right",:style =>"max-width: 50px; max-height: 50px;")  %>
                <% end %>
           </ul>
           <% end %>
