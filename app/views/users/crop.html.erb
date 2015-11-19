@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-<%= form_for @user,url: user_path(@user) do |f| %>
+<%= form_for @user do |f| %>
   <%= f.cropbox :poster_image %>
   <%= f.submit 'Crop',:class => "btn btn-danger",:style =>'margin-top: 50px; width: 120px;' %>
 <% end %>

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :only => [:edit,:update,:crop]
+  before_action :authenticate_user!, :only => [:crop] #:edit , :update
+
   def show
   	@user = User.find(params[:id])
     authorize @user
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
     if current_user == @user 
       @new_post =  @user.posts.build
     end
-    @comments = Comment.where(wall_author_id: @user.id).order('created_at DESC')
+    @comments = Comment.where(wall_author_id: @user.id).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
     @new_comment = @user.comments.build
     # @new_comment.update_attribute(:wall_user_id,@user.id)
   end

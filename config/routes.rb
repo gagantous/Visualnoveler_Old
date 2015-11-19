@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   #   get :wishlist, on: :member
   #   get :drop, on: :member
   # end
-  resources :users,only: [:show, :edit, :update] do
+  resources :users,only: [:show] do
     member do
       get :watch
       get :wishlist
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       get :crop
     end
  end
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks",:registrations => :registrations }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks",:registrations => :registrations,:passwords => "passwords" }
   as :user do
     get "/login" => "devise/sessions#new"
     get "/register" => "devise/registrations#new"

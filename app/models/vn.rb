@@ -15,11 +15,15 @@ class Vn < ActiveRecord::Base
 	mount_uploader :image_poster, AvatarUploader
  	validates :name, presence: true
  	validate :cover_size
+    validates_uniqueness_of :name
 	accepts_nested_attributes_for :characters
 	accepts_nested_attributes_for :vn_genres
 	accepts_nested_attributes_for :genres
  	accepts_nested_attributes_for :library_entries
  	before_save :edit_youtubeurl
+
+    extend FriendlyId
+    friendly_id :name, use: [:slugged, :finders]
 
  	# only accepts direct copying of youtube urls
 	def edit_youtubeurl
