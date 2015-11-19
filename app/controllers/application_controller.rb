@@ -30,16 +30,6 @@ class ApplicationController < ActionController::Base
 		def after_sign_in_path_for(resource)
 	 		 return session[:previous_url] || user_path(current_user)
 		end
-	protected
-		def configure_permitted_parameters
-		      devise_parameter_sanitizer.for(:sign_up) << :name
-		      
-		  	  devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email,:bio, :password,
-		      :password_confirmation, :current_password, :poster_image,:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h) }
-		end 
-
-	
-
 
 	  def authenticate_user!(options={})
 	    if user_signed_in?
@@ -51,12 +41,22 @@ class ApplicationController < ActionController::Base
 	    end
 	  end
 
+
+
 	private
 
 	  def user_not_authorized
 	    flash[:alert] = "You are not authorized to perform this action."
 	    redirect_to(session[:previous_url] || root_path)
 	  end
+
+	  	protected
+		def configure_permitted_parameters
+		      devise_parameter_sanitizer.for(:sign_up) << :name
+		      
+		  	  devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email,:bio, :password,
+		      :password_confirmation, :current_password, :poster_image,:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h) }
+		end 
 	 
 
 end
