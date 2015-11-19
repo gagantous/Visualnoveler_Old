@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       get :favourite
       get :completed
       get :crop
+      put :update_avatar
     end
  end
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks",:registrations => :registrations,:passwords => "passwords" }

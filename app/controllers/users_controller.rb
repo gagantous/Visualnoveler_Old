@@ -50,6 +50,13 @@ class UsersController < ApplicationController
      authorize @user
   end
 
+  def update_avatar
+    @user = current_user
+    @user.update_attributes(user_params)
+    flash[:success] = "it worked"
+    redirect_to user_path(@user)
+  end
+
   def update
       @user = User.find(params[:id])
       authorize @user
