@@ -6,26 +6,23 @@
 			<h2 class="vnindex-heading">Random Genre listings</h2>
 		</div>
 	
-		<% @genres.each do |genre| %>
-		<% vn = genre.vns.order("RANDOM()").limit(1).first %>
-<div class="vn-column">
-
-			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
-	
-	<div class="panel panel-default">
-		<div class="panel-body">
-
-
-		<a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4>	</a>
-
-			<ul class="list-inline vnindex-genre text-left">
+<% @genres.each do |genre| %>
+		<% vn = genre.vns.order("RANDOM()").first %>
+		<% if vn %>
+			<div class="vn-column">
+				<%= image_tag("#{vn.image_poster}",:alt => "#{vn.name}", :class=> "vn-index-poster") %>
+				<div class="panel panel-default">
+				<div class="panel-body">
+					<a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4>	</a>
+					<ul class="list-inline vnindex-genre text-left">
 						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre),:style =>"font-size: 1.1em;" %></li>
-				</ul>
+					</ul>
 			
 			
-		</div>
-	</div>
-</div>
+				</div>
+				</div>
+			</div>
+	<% end %>
 
 <% end %>
 

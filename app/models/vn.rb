@@ -3,7 +3,7 @@ class Vn < ActiveRecord::Base
 	has_many :library_entries
 	has_many :posts
 	has_many :favourited_by, through: :library_entries, source: :user
-    has_many :vn_genres
+    has_many :vn_genres,dependent: :destroy
     has_many :genres, :through => :vn_genres
     belongs_to :developer
     mount_uploader :image_coverpage, AvatarUploader

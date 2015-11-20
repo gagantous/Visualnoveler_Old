@@ -10,7 +10,7 @@
 		<% vn = developer.vns.order("RANDOM()").limit(1).first %>
 <div class="vn-column">
 
-			<%= image_tag("#{vn.image_poster}",:alt => "thumbsup", :class=> "vn-index-poster") %>
+			<%= image_tag("#{vn.image_poster}",:alt => "#{vn.name}", :class=> "vn-index-poster") %>
 	
 	<div class="panel panel-default">
 		<div class="panel-body">
