@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8">
+  				<%= image_tag @screenshot.image.url, :class => "img-responsive" if @screenshot.image? %>
+  				<h3><%= @screenshot.alt %></h3>
+  				<p> <%= @screenshot.name %> </p>
+		</div>
+
+
+	</div>
+
+</div>

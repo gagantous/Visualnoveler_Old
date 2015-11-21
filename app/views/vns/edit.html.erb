@@ -68,8 +68,7 @@
 <div class="container">
 	<div class="row">
 		<h3>Characters</h3>
-		<% @character.each do |c| %>
-			<%= f.simple_fields_for :characters, c do |char| %>
+			<%= f.simple_fields_for :characters do |char| %>
 				 <div class="col-md-4">
 			 	<%= char.input :name %>
 			 </div>
@@ -86,7 +85,7 @@
 
 			
 			<% end %>
-		<% end %>
+		
 	</div>
 </div>
 

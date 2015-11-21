@@ -8,6 +8,8 @@
 	
 		<% @developers.each do |developer| %>
 		<% vn = developer.vns.order("RANDOM()").limit(1).first %>
+
+		<% if vn %>
 <div class="vn-column">
 
 			<%= image_tag("#{vn.image_poster}",:alt => "#{vn.name}", :class=> "vn-index-poster") %>
@@ -26,7 +28,7 @@
 		</div>
 	</div>
 </div>
-
+<% end %>
 <% end %>
 
 	</div>

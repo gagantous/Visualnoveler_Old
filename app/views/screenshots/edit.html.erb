@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+
+	<h1>Edit Screenshot</h1>
+
+		<%= simple_form_for @screenshot do |f| %>
+
+			<div class="col-lg-4">
+		 	 	<%= f.input :name,  label: 'Screenshot details' %>
+			 </div>
+			 <div class="col-lg-4">
+		 		 <%= f.input :alt,  label: 'Alt tag image, SEO purposes' %>
+			 </div>
+		 	<div class="col-lg-6">
+			 	<%= f.input :image, label: 'Image' %>
+  				<%= image_tag f.object.image.url, :class => "img-responsive" if f.object.image? %>
+			 </div>
+			<div class="col-lg-12">
+			  <%= f.button :submit , class: "btn btn-primary" %>
+			 </div>
+		<% end %>
+
+
+
+	</div>
+
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+		<%= simple_form_for @screenshot do |f| %>
+
+		<h1>New Screenshot</h1>
+		<div class="col-lg-4">
+		  <%= f.input :name,  label: 'Screenshot name' %>
+
+		 </div>
+		 <div class="col-lg-4">
+
+		  <%= f.input :alt,  label: 'What is this image about (SEO purposes)' %>
+		 </div>
+		 <div class="col-lg-6">
+		 	<%= f.input :image, label: 'Image' %>
+		 </div>
+		<div class="col-lg-12">
+		  <%= f.button :submit , class: "btn btn-primary" %>
+		 </div>
+		<% end %>
+
+
+	</div>
+
+</div>

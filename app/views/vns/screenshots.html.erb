@@ -1,0 +1,24 @@
+<% title "New Screenshots"  %>
+
+<div class="container">
+	<div class="row">
+	<h1>New</h1>
+		<%= simple_form_for @vn do |f| %>
+
+		
+			 <%= f.simple_fields_for :screenshots do |c| %>
+				 <%= render 'screenshot_fields', :f => c %>
+		 	<% end %>
+ 
+   		 <div class='links col-md-3'>
+      		<%= link_to_add_association 'Add Screenshots', f, :screenshots,:class => 'btn btn-default' %>
+
+   		 </div>
+
+   		 	<div class='col-md-12'>
+			  <%= f.button :submit , class: "btn btn-primary" %>
+			</div>
+		<% end %>
+	</div>
+
+</div>

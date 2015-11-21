@@ -1,0 +1,20 @@
+<div class='nested-fields'>
+	<div class="col-md-12">
+		<h3> Add additional screenshots</h3>
+	</div>
+		 
+			<div class="col-lg-4">
+		 	 	<%= f.input :name,  label: 'Screenshot details' %>
+			 </div>
+			 <div class="col-lg-4">
+		 		 <%= f.input :alt,  label: 'Alt tag image, SEO purposes' %>
+			 </div>
+		 	<div class="col-lg-6">
+			 	<%= f.input :image, label: 'Image' %>
+			 </div>
+			
+	<div class="col-lg-3">
+  	 	 <%= link_to_remove_association "Remove Screenshot", f,:class => 'btn btn-default'  %>
+  	 </div>
+   	
+ </div>
