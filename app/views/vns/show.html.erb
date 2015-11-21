@@ -147,26 +147,25 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
+			<a href=<%= characters_vn_path(@vn) %>><h3>Characters</h3> </a>
+		</div>
+			<% @showcharacters.each_slice(6) do |charRow| %>
 
-		<a href=<%= characters_vn_path(@vn) %>><h3>Characters</h3> </a>
-	</div>
-			<% @showcharacters.each	 do |char| %>
+		<div class="row">
+			<% charRow.each do |char| %>
 		<div class="col-md-2 removecharacterpadding">
-			<div class="row">
 				<div class="col-md-6 adjustcharacter">
 					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
 						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "img-thumbnail") %>
 					<% end %>
-				
 				</div>
-
 				<div class="col-md-6">
 					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5" %>
 				</div>
-			</div>
+			
+		</div> 
+		<% end %> 
 		</div>
-		<!-- 	<p><%= char.summary %></p> -->
-
 			<% end %>
 		</div>
 	</div>

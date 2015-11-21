@@ -1,7 +1,6 @@
 class Vn < ActiveRecord::Base
-	has_many :characters
-	has_many :library_entries
-	has_many :posts
+	has_many :characters, dependent: :destroy
+	has_many :library_entries, dependent: :destroy
 	has_many :favourited_by, through: :library_entries, source: :user
     has_many :vn_genres,dependent: :destroy
     has_many :genres, :through => :vn_genres
@@ -13,9 +12,8 @@ class Vn < ActiveRecord::Base
 	mount_uploader :image_3, ScreenshotUploader
 	mount_uploader :image_4, ScreenshotUploader
 	mount_uploader :image_poster, AvatarUploader
- 	validates :name, presence: true
+ 	validates :name, presence: true, uniqueness: {case_sensitive: false}
  	validate :cover_size
-    validates_uniqueness_of :name
 	accepts_nested_attributes_for :characters
 	accepts_nested_attributes_for :vn_genres
 	accepts_nested_attributes_for :genres

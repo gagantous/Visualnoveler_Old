@@ -27,8 +27,8 @@ class VnsController < ApplicationController
 	def edit
 		@vn = Vn.find(params[:id])
 		authorize @vn
-		@character = @vn.characters.all
-    	@vn.characters.build
+		@character = @vn.characters
+    	#@vn.characters.build
 	end
 # add to library entries favourite
 	def favourite
@@ -103,6 +103,7 @@ class VnsController < ApplicationController
 			redirect_to vn_path(@vn)
 			#redirect_to recipe_path(@recipe)
 		else
+			flash[:danger] = "failed"
 			render :edit
 		end
 	end
