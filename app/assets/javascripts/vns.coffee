@@ -1,12 +1,12 @@
 jQuery ->
-  $('a.fancybox').fancybox()
+  $('a.fancybox').fancybox({parent: "body"})
 
 jQuery ->
  $(".fancyframe").fancybox
   type: "iframe"
   width: 1000 
   height: 700  
-
+  parent: "body"
 
   jQuery ->
   new CarrierWaveCropper()
