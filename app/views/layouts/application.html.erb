@@ -68,7 +68,7 @@
             </li>
 
             <li class="logotitle-dropdown">
-             <a href=<%= static_pages_about_path %> class="navbar-brand"><span class="logotitle">About</span> </a>
+             <a href=<%= pages_about_path %> class="navbar-brand"><span class="logotitle">About</span> </a>
            </li>
 
             <% if !user_signed_in? %>
@@ -143,18 +143,7 @@
 
 
 <%= yield %>
-  <!--  <footer class="footer">
-      <div class="container-fullwidth">
-        <hr>
-        <div class="footer-content text-center">
-        <h4>
-         
-
-          <%= link_to 'Contact',static_pages_contact_path,:class =>"logotitle footer-text" %>
-        </h4>
-      </div>
-      </div>
-    </footer> -->
+ 
 </body>
 </html>
 <!-- 

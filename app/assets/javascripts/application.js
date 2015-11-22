@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require jquery.jcrop
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require cocoon
 //= require_tree .
 //= require fancybox

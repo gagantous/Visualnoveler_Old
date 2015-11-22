@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/contact'
-  get 'static_pages/about'
-  root 'static_pages#home'
-  post 'static_pages/subscribe' , :path => "subscribe"
+  get 'pages/home'
+  get 'pages/help'
+  get 'pages/contact'
+  get 'pages/about'
+  root 'pages#home'
+  post 'pages/subscribe' , :path => "subscribe"
 
   resources :characters
   resources :genres

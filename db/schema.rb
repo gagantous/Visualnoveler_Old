@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121102514) do
+ActiveRecord::Schema.define(version: 20151122085020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,7 +110,6 @@ ActiveRecord::Schema.define(version: 20151121102514) do
     t.integer  "vn_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "alt"
   end
 
   add_index "screenshots", ["vn_id"], name: "index_screenshots_on_vn_id", using: :btree

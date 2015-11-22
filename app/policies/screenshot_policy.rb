@@ -1,4 +1,4 @@
-class VnPolicy
+class ScreenshotPolicy
   attr_reader :current_user, :model
   
   def initialize(current_user, model)
@@ -6,29 +6,15 @@ class VnPolicy
     @vn = model
   end
 
-  def index?
-    @current_user.admin?
+  def new?
+    @current_user.admin? or @current_user.mod?
   end
 
   def edit?
     @current_user.admin? or @current_user.mod?
   end
 
-  def crop?
-    @current_user.admin? or @current_user.mod?
-  end
-
-  def new?
-    @current_user.admin? or @current_user.mod?
-  end
-
   def create?
-    @current_user.admin? or @current_user.mod?
-  end
-  def show?
-    return true
-  end
-  def screenshots?
     @current_user.admin? or @current_user.mod?
   end
 

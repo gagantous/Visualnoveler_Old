@@ -3,7 +3,10 @@
 	<div class="row">
 	
 			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">
-	
+			<% if user_signed_in? && current_user.admin? %>
+			<%= link_to 'Crop',crop_vn_path,:class =>"ghost-buttonimg text-center",:style =>"text-decoration:none;" %>
+			<%= link_to 'Add Screenshots',screenshots_vn_path,:class =>"ghost-buttonimg text-center",:style =>"text-decoration:none" %>
+			<% end %>
 		</div>
 	</div>
 </div>
@@ -40,19 +43,20 @@
 			<span class="vn-contentpadding">
 				<ul class="list-inline">
 					<% @vn.genres.each do |genre| %>
-						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre) %></li>
+						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre),:class =>"vn-genre summary-text" %></li>
 					<% end %>
 				</ul>
 			</span>
-			<span class="genre-text vn-contentpadding ">Developer: <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %> </span>
+			<span class="vn-contentpadding "><span class="vn-label">Developer:</span> <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %> </span>
 			<br> <% end %>
-			<span class="genre-text vn-contentpadding">Release Date: <%= @vn.release_date %> </span>
+			<span class="vn-label">Genre:</span>
+			<span class="vn-contentpadding"><span class="vn-label">Release Date:</span> <%= @vn.release_date %> </span>
 			<br>
 		</div>
 	</div>
 		</div>
 		<div class="col-lg-9 col-md-9">
-			 <span class="vn-name text-primary vn-contentpadding"><%= @vn.name %> </span>
+			 <span class="h3 vn-contentpadding"><%= @vn.name %> </span>
 			  
  			<span class="default-text vn-score">Score: <%= @vn.rating_number%> </span>
  			<!-- start of buttons -->
@@ -144,6 +148,9 @@
 	</div>
 </div>  <!-- end of container -->
 
+</section>
+
+<section id="vn-character">
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -170,7 +177,18 @@
 		</div>
 	</div>
 </div>
-
-
-
 </section>
+
+<div class="container">
+	<div class="row">
+		<h3>Other Screenshots</h3>
+		<% @screenshots.each do |ss| %>
+			<div class="col-md-3">
+			<%= link_to ss.image.url, :class => 'fancybox', :rel =>'ss' do %>
+						 <%= image_tag(ss.image.url(:thumb),:alt => ss.name, :class=> "img-responsive") %>
+					<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>
+

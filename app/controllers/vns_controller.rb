@@ -4,6 +4,7 @@ class VnsController < ApplicationController
 	def show
 		@vn = Vn.find(params[:id])
 		@showcharacters = @vn.characters.all
+		@screenshots = @vn.screenshots
 	end
 
 	def rate
@@ -125,6 +126,7 @@ class VnsController < ApplicationController
 	def screenshots
 		@vn = Vn.find(params[:id])
 		@vn.screenshots.build
+		authorize @vn
 	end
 
 	def create	
@@ -145,7 +147,7 @@ class VnsController < ApplicationController
 			 :image_coverpage_crop_y, :image_coverpage_crop_w, :image_coverpage_crop_h,:rating_number,:isFeatured,
 			 { characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:img_string,] },:release_date, :summary,:genre_old,
 			 { :genre_ids => [] },:developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id,
-			 {screenshots_attributes: [:id,:name,:alt,:image] } ,)
+			 {screenshots_attributes: [:id,:_destroy,:name,:alt,:image] } ,)
 		end
 
 end

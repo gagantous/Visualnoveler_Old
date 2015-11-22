@@ -1,10 +1,13 @@
 class ScreenshotsController < ApplicationController
+
 	def edit
 		@screenshot = Screenshot.find(params[:id])
+		authorize @screenshot
 	end
 
 	def update
 		@screenshot = Screenshot.find(params[:id])
+		authorize @screenshot
 		if @screenshot.update(ss_params)
 			
 			flash[:success] = "Image updated sucessfully"
@@ -33,10 +36,11 @@ class ScreenshotsController < ApplicationController
 
 	def new
 		@screenshot = Screenshot.new
+		authorize @screenshot
 	end
 
 	private
 		def ss_params
-			params.require(:screenshot).permit(:name,:image,:vn_id,:alt)
+			params.require(:screenshot).permit(:name,:image,:vn_id)
 		end
 end

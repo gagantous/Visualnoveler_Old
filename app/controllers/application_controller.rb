@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 	    session[:previous_url] = request.fullpath 
 	  end
 	end  
-	 def after_sign_out_path_for(resource_or_scope)
+		def after_sign_out_path_for(resource_or_scope)
 		 	 session[:previous_url] || vns_path
 		end
 		def after_sign_in_path_for(resource)
@@ -47,6 +47,7 @@ class ApplicationController < ActionController::Base
 
 	  def user_not_authorized
 	    flash[:alert] = "You are not authorized to perform this action."
+	    self.response_body = nil
 	    redirect_to(session[:previous_url] || root_path)
 	  end
 

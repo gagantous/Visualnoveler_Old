@@ -582,6 +582,9 @@ body {
   top: 10px;
   padding: 0px 0px 0px 0px;
 }
+.vn-crop {
+
+}
 
 .vn-youtube {
   position: absolute;
@@ -605,9 +608,14 @@ body {
   font-size: 1.5em;
 }
 
-.genre-text {
-  font-style: italic;
+.vn-label {
   line-height: 180%;
+  color: #444444;
+  font-weight: bold;
+}
+.vn-genre {
+  color: #1F3A93;
+  font-weight: bold;
 }
 .userdiv{
   width: 280px;

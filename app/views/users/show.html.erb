@@ -69,7 +69,7 @@
 					<%= simple_form_for @new_post do |f| %>
 					<%= f.input :detail,placeholder: "What are you doing right now?",label: false,input_html: {style: "height:100px;"}  %>
 
-		 			 <%= f.button :submit , class: "btn btn-success pull-right user-postbutton" %>
+		 			 <%= f.button :submit , class: "btn btn-success pull-right user-postbutton",data:{ disable_with: "Deleting Post...."} %>
 		 			 <% end %>
 				</div>
 			

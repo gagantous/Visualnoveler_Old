@@ -8,9 +8,6 @@
 			<div class="col-lg-4">
 		 	 	<%= f.input :name,  label: 'Screenshot details' %>
 			 </div>
-			 <div class="col-lg-4">
-		 		 <%= f.input :alt,  label: 'Alt tag image, SEO purposes' %>
-			 </div>
 		 	<div class="col-lg-6">
 			 	<%= f.input :image, label: 'Image' %>
   				<%= image_tag f.object.image.url, :class => "img-responsive" if f.object.image? %>

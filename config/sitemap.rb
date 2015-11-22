@@ -4,7 +4,7 @@ SitemapGenerator::Sitemap.default_host = "http://www.visualnoveler.com"
 
 SitemapGenerator::Sitemap.create do
 
-  add '/pages'
+  add '/static_pages'
   Vn.find_each do |vn|
     add vn_path(vn), lastmod: vn.updated_at
   end
