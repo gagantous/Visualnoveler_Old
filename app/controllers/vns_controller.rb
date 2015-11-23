@@ -10,7 +10,6 @@ class VnsController < ApplicationController
 	def rate
 		@vn = Vn.find(params[:id])
 		type = params[:rating]
-		libentry = current_user.library_entries.find_or_create_by(vn_id: @vn.id)
 		if type == "perfect"
 			# perfect = 10, great = 8 , good = 6 , awful = 4
 			rate_vn(10)
@@ -142,6 +141,7 @@ class VnsController < ApplicationController
 	end
 
 	private
+
 		def vn_params
 			params.require(:vn).permit(:name,:bio,:trailer_url,:image_coverpage_crop_x,
 			 :image_coverpage_crop_y, :image_coverpage_crop_w, :image_coverpage_crop_h,:rating_number,:isFeatured,

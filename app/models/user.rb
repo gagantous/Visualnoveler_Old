@@ -21,7 +21,10 @@ class User < ActiveRecord::Base
     friendly_id :name, use: [:slugged, :finders]
 
     def set_default_role
+      # set default role and default settings
+      self.bio = "A short bio about me"
       self.role ||= :user
+
     end
 
     def self.from_omniauth(auth)

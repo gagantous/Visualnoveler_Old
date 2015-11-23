@@ -1,7 +1,6 @@
 class Vn < ActiveRecord::Base
 	has_many :characters, dependent: :destroy
 	has_many :library_entries, dependent: :destroy
-	has_many :favourited_by, through: :library_entries, source: :user
     has_many :vn_genres,dependent: :destroy
     has_many :genres, :through => :vn_genres
     has_many :screenshots, dependent: :destroy
@@ -34,6 +33,7 @@ class Vn < ActiveRecord::Base
 			end
 		end
 	end
+
 
  	private 
  		def cover_size

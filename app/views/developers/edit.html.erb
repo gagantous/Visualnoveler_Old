@@ -4,11 +4,17 @@
 	<div class="row">
 		<%= simple_form_for @developer do |f| %>
 
-		<h1>Edit</h1>
+		<h1>Edit Developer</h1>
+		<div class="row">
 		<div class="col-lg-4">
 		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Genre Name', error: 'Name is mandatory, please specify one' %>
-
+		</div>
 		 </div>
+		 <div class="row">
+		 <div class="col-lg-6">
+		  <%= f.input :details, input_html: {style: "height:150px;"}, label: 'Genre Name', error: 'Name is mandatory, please specify one' %>
+		 </div>
+		</div>
 
 		<div class="col-lg-12">
 		  <%= f.button :submit , class: "btn btn-primary" %>
