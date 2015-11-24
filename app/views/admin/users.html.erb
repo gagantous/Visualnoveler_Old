@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+  			<div class="panel-body">
+		<table class="table">
+			<h2>User List</h2>
+			<thead><tr>
+				<th>Avatar</th>
+				<th>Name</th>
+				<th>Edit</th>
+				<th>Last updated</th>
+			</tr></thead>
+			<tbody>
+			<% @user.each do |user| %>
+				<tr>
+				<tr>
+				<td>
+					<% if !user.poster_image.blank? %>
+					 <%= image_tag(user.poster_image.url,:style =>"height:60px;width:50px;") %> 
+					 <% else %> 
+					 	<%= image_tag("default_avatar.jpg",:style =>"height:60px;width:50px;") %>
+					 <% end %>
+				</td>
+				<td><%= link_to user.name, user_path(user) %> </td>
+				<td>No?</td>
+				<td><%= time_ago_in_words(user.updated_at) %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+			</div></div>
+			<%= will_paginate @user, renderer: BootstrapPagination::Rails %>
+		</div>
+	</div>
+</div>

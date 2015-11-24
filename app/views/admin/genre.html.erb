@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+  			<div class="panel-body">
+		<table class="table">
+			<h2>Genre List</h2>
+			<thead><tr>
+				<th>Name</th>
+				<th>Edit</th>
+				<th>Last updated</th>
+			</tr></thead>
+			<tbody>
+			<% @genre.each do |genre| %>
+				<tr>
+				<td><%= link_to genre.name, genre_path(genre) %> </td>
+				<td><%= link_to 'Edit',edit_genre_path(genre) %></td>
+				<td><%= time_ago_in_words(genre.updated_at) %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+			</div></div>
+			<%= will_paginate @genre, renderer: BootstrapPagination::Rails %>
+		</div>
+	</div>
+</div>

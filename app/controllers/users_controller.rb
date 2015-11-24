@@ -47,7 +47,6 @@ class UsersController < ApplicationController
 
   def edit
      @user = User.find(params[:id])
-     authorize @user
   end
 
   def update_avatar

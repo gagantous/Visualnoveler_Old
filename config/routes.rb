@@ -15,6 +15,14 @@ Rails.application.routes.draw do
   resources :library_entries, except: [:new, :edit]
   resources :posts
 
+  namespace :admin do
+    get 'vn'
+    get 'genre'
+    get 'developer'
+    get 'users'
+    get 'character'
+  end
+
   resources :vns do
     put :favourite, on: :member
     put :status, on: :member

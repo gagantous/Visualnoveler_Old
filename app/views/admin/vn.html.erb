@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+  			<div class="panel-body">
+		<table class="table">
+			<h2>Visual Novel List</h2>
+			<thead><tr>
+				<th>Name</th>
+				<th>Edit</th>
+				<th>Last updated</th>
+				<th>Featured?</th>
+			</tr></thead>
+			<tbody>
+			<% @vn.each do |vn| %>
+				<tr>
+				<td><%= link_to vn.name, vn_path(vn) %> </td>
+				<td><%= link_to 'Edit',edit_vn_path(vn) %></td>
+				<td><%= time_ago_in_words(vn.updated_at) %></td>
+				<td><%= vn.isFeatured? ? 'Yes' : 'No' %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+			</div></div>
+			<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
+		</div>
+	</div>
+</div>
