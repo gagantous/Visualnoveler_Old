@@ -102,10 +102,24 @@
   				</button>
   				<ul class="dropdown-menu">
   					
-  					<li><%= link_to 'Perfect', rate_vn_path(@vn, rating: "perfect"), method: :put %></li>
-  					<li><%= link_to 'Great', rate_vn_path(@vn, rating: "great"), method: :put %></li>
-  					<li><%= link_to 'Good', rate_vn_path(@vn, rating: "good"), method: :put %></li>
-  					<li><%= link_to 'Awful', rate_vn_path(@vn, rating: "awful"), method: :put %></li>
+  					 <% if current_user.library_entries.exists?(vn_id: @vn.id,rating: "10") %> 
+			     		<li class="list-group-item-info"> <% else %> <li>
+			   		 <% end %>
+  					<%= link_to 'Perfect', rate_vn_path(@vn, rating: "perfect"), method: :put %></li>
+  					 <% if current_user.library_entries.exists?(vn_id: @vn.id,rating: "8") %> 
+			     		<li class="list-group-item-info"> <% else %> <li>
+			   		 <% end %>
+  					<%= link_to 'Great', rate_vn_path(@vn, rating: "great"), method: :put %></li>
+
+  					 <% if current_user.library_entries.exists?(vn_id: @vn.id,rating: "6") %> 
+			     		<li class="list-group-item-info"> <% else %> <li>
+			   		 <% end %>
+  					<%= link_to 'Good', rate_vn_path(@vn, rating: "good"), method: :put %></li>
+
+  					 <% if current_user.library_entries.exists?(vn_id: @vn.id,rating: "4") %> 
+			     		<li class="list-group-item-info"> <% else %> <li>
+			   		 <% end %>
+  					<%= link_to 'Awful', rate_vn_path(@vn, rating: "awful"), method: :put %></li>
   				</ul>
   			</div>
 
