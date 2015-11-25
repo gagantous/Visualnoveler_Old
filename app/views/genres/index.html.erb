@@ -11,7 +11,9 @@
 		<% vn = genre.vns.order("RANDOM()").first %>
 		<% if vn %>
 			<div class="vn-column">
-				<%= image_tag("#{vn.image_poster}",:alt => "#{vn.name}", :class=> "vn-index-poster") %>
+				<%= link_to vn_path(vn) do %>
+			<%= image_tag("#{vn.image_poster}",:alt => vn.name, :class=> "vn-index-poster") %>
+			<% end %>
 				<div class="panel panel-default">
 				<div class="panel-body">
 					<a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4>	</a>

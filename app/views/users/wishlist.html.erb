@@ -11,8 +11,9 @@
 		<% vn = lib.vn %>
 		<div class="vn-column">
 
-			<%= image_tag("#{vn.image_poster}",:alt => "#{vn.name}", :class=> "vn-index-poster") %>
-			
+			<%= link_to vn_path(vn) do %>
+			<%= image_tag("#{vn.image_poster}",:alt => vn.name, :class=> "vn-index-poster") %>
+			<% end %>
 			<div class="panel panel-default">
 				<div class="panel-body panel-vnindex">
 

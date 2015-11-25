@@ -10,9 +10,9 @@
 <% @vn.each do |vn| %>
 
 <div class="vn-column">
-
+			<%= link_to vn_path(vn) do %>
 			<%= image_tag("#{vn.image_poster}",:alt => vn.name, :class=> "vn-index-poster") %>
-	
+			<% end %>
 	<div class="panel panel-default">
 		<div class="panel-body panel-vnindex">
 

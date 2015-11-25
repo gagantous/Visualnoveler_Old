@@ -41,6 +41,6 @@ class ScreenshotsController < ApplicationController
 
 	private
 		def ss_params
-			params.require(:screenshot).permit(:name,:image,:vn_id)
+			params.require(:screenshot).permit(:name,:image,:vn_id,:remote_image_url)
 		end
 end

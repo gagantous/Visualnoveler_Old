@@ -38,7 +38,9 @@
 
 			<% if !@vn.trailer_url.blank? %>
 			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
-				<i class="fa fa-youtube-play fa-3x"></i>
+			<div class="bgtest">
+				<i class="fa fa-youtube-play fa-3x dd"></i>
+			</div>
 			<% end %> <% end %>
 
 			<span class="vn-contentpadding">
@@ -50,7 +52,6 @@
 			</span>
 			<span class="vn-contentpadding "><span class="vn-label">Developer:</span> <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %> </span>
 			<br> <% end %>
-			<span class="vn-label">Genre:</span>
 			<span class="vn-contentpadding"><span class="vn-label">Release Date:</span> <%= @vn.release_date %> </span>
 			<br>
 		</div>
@@ -178,7 +179,7 @@
 		<div class="col-md-2 removecharacterpadding">
 				<div class="col-md-6 adjustcharacter">
 					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
-						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "img-thumbnail") %>
+						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "vnchar-img img-thumbnail") %>
 					<% end %>
 				</div>
 				<div class="col-md-6">
@@ -194,13 +195,13 @@
 </div>
 </section>
 
-<div class="container">
-	<div class="row">
+<div class="container ">
+	<div class="row otherss-padding">
 		<h3>Other Screenshots</h3>
 		<% @screenshots.each do |ss| %>
 			<div class="col-md-3">
 			<%= link_to ss.image.url, :class => 'fancybox', :rel =>'ss' do %>
-						 <%= image_tag(ss.image.url(:thumb),:alt => ss.name, :class=> "img-responsive") %>
+						 <%= image_tag(ss.image.url(:thumb),:alt => @vn.name, :class=> "img-thumbnail") %>
 					<% end %>
 		</div>
 		<% end %>

@@ -10,6 +10,28 @@
   ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
   }
+
+}
+
+//Mobile optimization to be worked on
+// @media (max-width: 600px) {
+//   .vn-poster{
+//     display: block !important;
+//     width: 100%;
+//     height: auto;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }
+.bgtest{
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  height: 150%;
+
+}
+.removepadding {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 }
 
 .user-button-padding{
@@ -433,6 +455,7 @@ textarea {
 .navLogo {
 	font-size: 2em;
 	font-family: 'Poiret One', cursive;
+  font-weight: bold;
 	//font-weight: bold;
 	color: #3EA9F5;
 	
@@ -532,6 +555,18 @@ textarea {
   }
 }
 
+
+.vnchar-img{
+  width: 80px;
+  height: 100px;
+}
+.otherss-padding{
+  margin-bottom: 50px;
+}
+.vn-otherss {
+  width: 260px;
+  height: 167px;
+}
 //vn page
 .vn-score{
   padding-left: 50px;
@@ -590,7 +625,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  opacity: 0.7;
+  opacity: 0.9;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
