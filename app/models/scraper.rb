@@ -1,5 +1,3 @@
-require 'Mechanize'
-
 class Scraper
 	def initialize(vn,url)
 
