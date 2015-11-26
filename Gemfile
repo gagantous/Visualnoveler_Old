@@ -41,6 +41,9 @@ gem 'sitemap_generator'
 gem 'whenever', require: false
 # gem 'bcrypt', '~> 3.1.7'
 
+#scraping
+gem 'mechanize'
+gem 'nokogiri'
 # Use Unicorn as the app server
 
 group :development do

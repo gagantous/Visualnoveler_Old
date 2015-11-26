@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     get :characters, on: :member
     get :crop, on: :member
     get :screenshots, on: :member
+    get :simple_create, on: :collection
   end
   # resources :users do
   #   get :watch, on: :member

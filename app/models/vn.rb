@@ -20,7 +20,7 @@ class Vn < ActiveRecord::Base
 	accepts_nested_attributes_for :genres
  	accepts_nested_attributes_for :library_entries
  	before_save :edit_youtubeurl
-
+  	attr_accessor :characterurl
     extend FriendlyId
     friendly_id :name, use: [:slugged, :finders]
 

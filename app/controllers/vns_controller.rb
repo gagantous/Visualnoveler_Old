@@ -7,6 +7,11 @@ class VnsController < ApplicationController
 		@screenshots = @vn.screenshots
 	end
 
+	def simple_create
+		@vn = Vn.new
+		authorize @vn
+	end
+
 	def rate
 		@vn = Vn.find(params[:id])
 		type = params[:rating]
@@ -131,6 +136,10 @@ class VnsController < ApplicationController
 	def create	
     	@vn = Vn.new(vn_params) 
     	authorize @vn 
+    	 if @vn.characterurl.blank? 
+		 else
+			 @scraper = Scraper.new(@vn,@vn.characterurl)
+		 end
     	if @vn.save
     		 redirect_to vn_path(@vn)
     		 flash[:success] = "Visual novel successfully created!"
@@ -143,7 +152,7 @@ class VnsController < ApplicationController
 	private
 
 		def vn_params
-			params.require(:vn).permit(:name,:remote_image_coverpage_url,:remote_image_1_url,:remote_image_2_url,:remote_image_3_url,:remote_image_4_url,
+			params.require(:vn).permit(:name,:characterurl,:remote_image_coverpage_url,:remote_image_1_url,:remote_image_2_url,:remote_image_3_url,:remote_image_4_url,
 			:bio,:trailer_url,:image_coverpage_crop_x,:image_coverpage_crop_y, :image_coverpage_crop_w, :image_coverpage_crop_h,:rating_number,:isFeatured,
 			 { characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:remote_img_string_url,:img_string,] },:release_date, :summary,:genre_old,
 			 { :genre_ids => [] },:developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id,
