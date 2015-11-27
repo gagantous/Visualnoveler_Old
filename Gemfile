@@ -44,6 +44,9 @@ gem 'whenever', require: false
 #scraping
 gem 'mechanize'
 gem 'nokogiri'
+
+#markdown
+gem 'redcarpet'
 # Use Unicorn as the app server
 
 group :development do

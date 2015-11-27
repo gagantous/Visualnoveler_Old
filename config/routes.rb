@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :characters
   resources :genres
   resources :developers
-  resources :reviews
   resources :screenshots, except: [:index]
   resources :comments
   resources :library_entries, except: [:new, :edit]
@@ -32,6 +31,7 @@ Rails.application.routes.draw do
     get :crop, on: :member
     get :screenshots, on: :member
     get :simple_create, on: :collection
+    resources :reviews
   end
   # resources :users do
   #   get :watch, on: :member

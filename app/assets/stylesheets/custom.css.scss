@@ -581,7 +581,13 @@ textarea {
 .vn-postdate{
     color: rgba(0,39,59,.35);   
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
+}
+
+.vn-reviewdate{
+  position: relative;
+  top: 23px;
+  right: 15px;
 }
 
 body {
@@ -673,6 +679,9 @@ body {
     padding-bottom: 25px;
   }
 }
+.vn-review-userposter{
+  padding-top: 18px;
+}
 .vn-reviewtext {
   font-size: 1.2em;
   font-weight: 500;
@@ -691,8 +700,30 @@ body {
 }
 
 .vn-user-profile {
-  padding-left: 15px;
-  padding-top: 15px;
+
+}
+.vn-reviewbutton {
+  position: relative;
+  bottom: 50px;
+}
+.radiobox-inline {
+  display: inline-block;
+  margin-right: 10px;
+}
+.radio-ratinglabel {
+  padding-right: 15px;
+}
+.tester{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.vn-userheader{
+  padding-bottom: 12px;
+}
+.vn-recommendtext{
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .nav-tabs { border-bottom: 2px solid #DDD; }
@@ -702,10 +733,9 @@ body {
         .nav-tabs > li > a::after { content: ""; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
     .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
 .tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
-.tab-pane { padding: 15px 0; }
-.tab-content{}
+.tab-pane { padding: 5px 0; }
+.tab-content{padding:20px}
 
-.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
 
 .user-createpost {
   margin-top: 25px;

@@ -196,55 +196,114 @@
 </div>
 </section>
 
-<!--
+
 <section id = "review">
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-		<h3> Reviews</h3>
-		<div class="row">
-
 		<div class="col-md-8">
-			<div class="card">
-
-			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Useful</a></li>
-				<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Positive</a></li>
-				<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Negative</a></li>
-				<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Mixed</a></li>
-			</ul>
-
-			<div class="row">
-				<div class="col-md-2">
-					<div class="vn-user-profile">
-						
+			<h3> Reviews</h3>
+			<div class="panel panel-default">
+ 			<div class="panel-body">
+ 				<ul class="nav nav-tabs" role="tablist">
+ 					<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Useful</a></li>
+ 					<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Recent</a></li>
+ 					<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Positive</a></li>
+ 					<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Negative</a></li>
+ 					<li role="presentation"><a href="#write" aria-controls="settings" role="tab" data-toggle="tab">Write a Review</a></li>
+ 				</ul>
+ 			<div class="row"> 
+ 				<div class="tab-content">
+			    <div role="tabpanel" class="tab-pane fade in active" id="home">
+			    	<div class="col-md-2">
+						<div class="vn-user-profile">
 						<%= image_tag(current_user.poster_image.url,:class =>"img-responsive") %>
 						<div class="vn-reviewusertextdiv">
 						<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
+						</div></div>
 					</div>
-					</div>
-				</div>
-				<div class="col-md-10">
-					
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="home">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-						<br><br>
-						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-						.</div>
-					<div role="tabpanel" class="tab-pane" id="profile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br><br>
-						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-						. </div>
-					<div role="tabpanel" class="tab-pane" id="messages">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</div>
-					<div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </div>
-				</div>
-				</div>
-		</div>
-	</div>
+					<div class="col-md-10">
+						
+						
+						<div class="vn-userheader">
+							<i class="fa fa-smile-o fa-3x" style="color:green;padding-right:5px;"></i>
+							<span class="vn-recommendtext summarytext">Recommended </span>
+							<div class="vn-reviewdate pull-right">
+								<span class="vn-postdate ">12 March 2015</span>
+							</div>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulput.
 
-</div>
-	</div>
-</div>
-!-->
+						 Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus</p>
+					</div>
+			 	 </div>
+			    <div role="tabpanel" class="tab-pane fade" id="profile">
+			    	    <div class="col-md-2">
+						<div class="vn-user-profile">
+						<%= image_tag("default_avatar.jpg",:class =>"img-responsive") %>
+						<div class="vn-reviewusertextdiv">
+						<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
+						</div></div>
+					</div>
+					<div class="col-md-10">
+					
+						<div class="vn-userheader">
+							<i class="fa fa-frown-o fa-3x" style="color:#F64747;padding-right:5px;"></i>
+							<span class="vn-recommendtext summarytext">Not Recommended </span>
+							<div class="vn-reviewdate pull-right">
+								<span class="vn-postdate ">12 March 2015</span>
+							</div>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulput.
+
+						 Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus</p>
+					</div>
+
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="messages">
+			    	<i class="fa fa-pencil-square-o fa-3x" style="padding-right:5px;"></i>
+
+
+				</div>
+
+			    <div role="tabpanel" class="tab-pane" id="settings">Settings
+
+			    </div>
+
+			    <div role="tabpanel" class="tab-pane" id="write">
+
+			    <h4 style="margin-top:0px; margin-bottom:20px;">Write a review for <%= @vn.name%></h4>
+			    <%= simple_form_for @vn do |f| %>
+			     <%= f.simple_fields_for :reviews do |r| %>
+			     	<div class="row">
+			     	<div class="col-md-2">
+			     		<div class="vn-review-userposter">
+			     			<%= image_tag(current_user.poster_image.url,class: "img-responsive") %>
+			     		</div>
+			     	</div>
+			     	<div class="col-md-10">
+			     	<%= r.input :details, :as => :text, required: false,input_html: {:rows => 10 ,:style => "resize:vertical;"} %>
+			     	</div>
+			     	<div class="col-md-10 col-md-offset-2">
+			     		<%= r.input :rating,:as => :radio_buttons, collection: 0..10,item_wrapper_class: "radiobox-inline",:label_html => {:class =>"radio-ratinglabel"},:required => false %>
+			     		 <%= f.button :submit , class: "btn btn-success pull-right vn-reviewbutton",data:{ disable_with: "Creating Review..."} %>
+			     	</div>
+			     	</div>
+			     <% end %>
+			    <% end %>
+			    </div>
+
+
+
+
+			  </div>
+			</div>
+		
+		</div></div> <!-- panels !-->
+<!-- col 8 !-->
+		</div>
+</div></div>
+</section>
+
 <div class="container ">
 	<div class="row otherss-padding">
 		<div class="col-md-12">
