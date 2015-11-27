@@ -196,8 +196,58 @@
 </div>
 </section>
 
+<!--
+<section id = "review">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+		<h3> Reviews</h3>
+		<div class="row">
+
+		<div class="col-md-8">
+			<div class="card">
+
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Useful</a></li>
+				<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Positive</a></li>
+				<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Negative</a></li>
+				<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Mixed</a></li>
+			</ul>
+
+			<div class="row">
+				<div class="col-md-2">
+					<div class="vn-user-profile">
+						
+						<%= image_tag(current_user.poster_image.url,:class =>"img-responsive") %>
+						<div class="vn-reviewusertextdiv">
+						<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
+					</div>
+					</div>
+				</div>
+				<div class="col-md-10">
+					
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="home">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						<br><br>
+						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						.</div>
+					<div role="tabpanel" class="tab-pane" id="profile">Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br><br>
+						Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						. </div>
+					<div role="tabpanel" class="tab-pane" id="messages">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</div>
+					<div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </div>
+				</div>
+				</div>
+		</div>
+	</div>
+
+</div>
+	</div>
+</div>
+!-->
 <div class="container ">
 	<div class="row otherss-padding">
+		<div class="col-md-12">
 		<h3>Other Screenshots</h3>
 		<% @screenshots.each do |ss| %>
 			<div class="col-md-3">
@@ -206,6 +256,7 @@
 					<% end %>
 		</div>
 		<% end %>
+	</div>
 	</div>
 </div>
 

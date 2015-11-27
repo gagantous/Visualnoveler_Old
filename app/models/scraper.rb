@@ -46,38 +46,38 @@ class Scraper
 
 		# ###### side character section #######
 
-		sidechar = page.search('.mainbox')[3].search('table')
-		sidecharimgs = page.search('.mainbox')[3].search('div > div > img')
-		sidecharnames = []
-		sidechardescriptions = []
-		sidecharimages = []
+		# sidechar = page.search('.mainbox')[3].search('table')
+		# sidecharimgs = page.search('.mainbox')[3].search('div > div > img')
+		# sidecharnames = []
+		# sidechardescriptions = []
+		# sidecharimages = []
 
-		sidechar.each do |char|
-			name = char.search('thead > tr > td > a').text.strip
-			description = char.search('.nostripe > td > p').text
-			description.gsub!("<hidden by spoiler settings>","")
-			description.gsub!("\u2019s","")
-			description.gsub!("[Edited from Wikipedia]","")
-			description.gsub!("[From Wikipedia]","")
-			description.gsub!("\"","")
-			sidecharnames << name
-			sidechardescriptions << description
-		end
+		# sidechar.each do |char|
+		# 	name = char.search('thead > tr > td > a').text.strip
+		# 	description = char.search('.nostripe > td > p').text
+		# 	description.gsub!("<hidden by spoiler settings>","")
+		# 	description.gsub!("\u2019s","")
+		# 	description.gsub!("[Edited from Wikipedia]","")
+		# 	description.gsub!("[From Wikipedia]","")
+		# 	description.gsub!("\"","")
+		# 	sidecharnames << name
+		# 	sidechardescriptions << description
+		# end
 
-		sidecharimgs.each do |char|
-			url = char.attr('src').gsub!("//","https://")
-			sidecharimages << url
-		end
+		# sidecharimgs.each do |char|
+		# 	url = char.attr('src').gsub!("//","https://")
+		# 	sidecharimages << url
+		# end
 
 		 num = charnames.count - 1
 		 (0..num).each do |i|
 		 	character = vn.characters.build(name: charnames[i],summary: chardescriptions[i],remote_img_string_url: charimages[i])
 		 end
 		 # write side characters
-		 num = sidechar.count - 1
-		 (0..num).each do |i|
-		 	character = vn.characters.build(name: sidecharnames[i],summary: sidechardescriptions[i],remote_img_string_url: sidecharimages[i])
-		 end
+		 # num = sidechar.count - 1
+		 # (0..num).each do |i|
+		 # 	character = vn.characters.build(name: sidecharnames[i],summary: sidechardescriptions[i],remote_img_string_url: sidecharimages[i])
+		 # end
 
 		# #Write to character.txt
 

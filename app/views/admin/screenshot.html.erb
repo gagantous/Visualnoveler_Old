@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+  			<div class="panel-body">
+		<table class="table">
+			<h2>Screenshot List</h2>
+			<thead><tr>
+				<th>Name</th>
+				<th>Edit</th>
+				<th>Last updated</th>
+			</tr></thead>
+			<tbody>
+			<% @screenshot.each do |ss| %>
+				<tr>
+				<td><%= link_to ss.vn.name, screenshot_path(ss) %> </td>
+				<td><%= link_to 'Edit',edit_screenshot_path(ss) %></td>
+				<td><%= time_ago_in_words(ss.updated_at) %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+			</div></div>
+			<%= will_paginate @screenshot, renderer: BootstrapPagination::Rails %>
+		</div>
+	</div>
+</div>

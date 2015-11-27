@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'developer'
     get 'users'
     get 'character'
+    get 'screenshot'
   end
 
   resources :vns do

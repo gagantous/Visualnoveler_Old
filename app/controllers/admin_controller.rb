@@ -20,6 +20,13 @@ class AdminController < ApplicationController
 		end
 	end
 
+	def screenshot
+		@screenshot = Screenshot.all.order("updated_at DESC").paginate(:page => params[:page],:per_page => 15)
+		if !current_user.admin? 
+			user_not_authorized
+		end
+	end
+
 	def users
 		@user = User.all.order("updated_at DESC").paginate(:page => params[:page],:per_page => 15)
 		if !current_user.admin? 

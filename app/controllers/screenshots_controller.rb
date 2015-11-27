@@ -27,10 +27,19 @@ class ScreenshotsController < ApplicationController
     	@screenshot = Screenshot.new(ss_params) 
     	if @screenshot.save
     		 flash[:success] = "Added image successfully"
-    		 redirect_to screenshot_path(@screenshot)
+    		 redirect_to :back
     	else
     		render :action=>"new"
     	end
+
+	end
+
+	def destroy
+		@screenshot = Screenshot.find(params[:id])
+	  	if @screenshot.destroy
+	 		flash[:success] = "Screenshot deleted!"
+	 		redirect_to admin_screenshot_path
+	    end
 
 	end
 
