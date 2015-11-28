@@ -11,7 +11,7 @@ module ApplicationHelper
  	def markdown(text)
  	 markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
 	    extensions = {})
- 	 
+
 	return markdown.render(text).html_safe
 	end
 
@@ -21,6 +21,14 @@ module ApplicationHelper
 
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
+  end
+
+  def display_avatar(user,css_class)  
+    unless user.poster_image
+      image_tag(user.poster_image.url) 
+    else
+      image_tag("default_avatar.jpg",:class => css_class)
+     end    
   end
 
   

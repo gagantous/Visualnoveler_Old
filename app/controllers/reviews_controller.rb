@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
 
 	def edit
 		@review = Review.find(params[:id])
-		#authorize @review
+		authorize @review
 	end
 
 	def create	

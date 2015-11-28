@@ -5,7 +5,9 @@ class VnsController < ApplicationController
 		@vn = Vn.find(params[:id])
 		@showcharacters = @vn.characters.all
 		@screenshots = @vn.screenshots
-		@recent_reviews = @vn.reviews.all
+		@recent_reviews = @vn.reviews.all.paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+		@positive_reviews = @vn.reviews.where("rating > ?",5).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+		@negative_reviews = @vn.reviews.where("rating < ?",5).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
 		@vn.reviews.build
 	end
 
@@ -110,8 +112,8 @@ class VnsController < ApplicationController
 			redirect_to vn_path(@vn)
 			#redirect_to recipe_path(@recipe)
 		else
-			flash[:danger] = "failed"
-			render :edit
+			flash[:danger] = "Failed to update the visual novel, perhaps you submitted an empty review or missed fields when creating a VN?"
+			redirect_to session[:previous_url] 
 		end
 	end
 

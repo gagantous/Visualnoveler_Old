@@ -2,8 +2,10 @@ module VnsHelper
 	#helper method to make ratings
 
 	def get_review_icon(rating)
+		
 		rating = rating.to_f
 		text = ""
+		
 		if rating == 5
 			text = '<span class="vn-recommendtext summarytext">Mixed Thoughts</span>'
 			return  '<i class="fa fa-question" style="color:#F89406;padding-right:5px;font-size:2.9em;"></i>'.html_safe + text.html_safe

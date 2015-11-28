@@ -205,128 +205,46 @@
 			<div class="panel panel-default">
  			<div class="panel-body">
  				<ul class="nav nav-tabs" role="tablist">
- 					<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Useful</a></li>
- 					<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Recent</a></li>
+ 					<li role="presentation" class="active"><a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Recent</a></li>
  					<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Positive</a></li>
  					<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Negative</a></li>
  					<li role="presentation"><a href="#write" aria-controls="settings" role="tab" data-toggle="tab">Write a Review</a></li>
  				</ul>
  			<div class="row"> 
  				<div class="tab-content">
-			    <div role="tabpanel" class="tab-pane fade in active" id="home">
-			    	<div class="col-md-2">
-						<div class="vn-user-profile">
-						<%= image_tag(current_user.poster_image.url,:class =>"img-responsive") %>
-						<div class="vn-reviewusertextdiv">
-						<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
-						</div></div>
-					</div>
-					<div class="col-md-10">
-						
-						
-						<div class="vn-userheader">
-							<i class="fa fa-smile-o fa-3x" style="color:green;padding-right:5px;"></i>
-							<span class="vn-recommendtext summarytext">Recommended </span>
-							<div class="vn-reviewdate pull-right">
-								<span class="vn-postdate ">12 March 2015</span>
-							</div>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulput.
-
-						 Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus</p>
-					</div>
-			 	 </div>
-			    <div role="tabpanel" class="tab-pane fade" id="profile">
-			    	    <div class="col-md-2">
-						<div class="vn-user-profile">
-						<%= image_tag("default_avatar.jpg",:class =>"img-responsive") %>
-						<div class="vn-reviewusertextdiv">
-						<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
-						</div></div>
-					</div>
-					<div class="col-md-10">
-					
-						<div class="vn-userheader">
-							<i class="fa fa-frown-o fa-3x" style="color:#F64747;padding-right:5px;"></i>
-							<span class="vn-recommendtext summarytext">Not Recommended </span>
-							<div class="vn-reviewdate pull-right">
-								<span class="vn-postdate ">12 March 2015</span>
-							</div>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulput.
-
-						 Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus</p>
-					</div>
+			
+			    <div role="tabpanel" class="tab-pane fade in active" id="recent">
+			    	  <%= render :partial => 'review', :collection => @recent_reviews  %>
+					  <%= will_paginate @recent_reviews, renderer: BootstrapPagination::Rails %>
 
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="messages">
-				 <% @recent_reviews.each do |review| %>
-				     	<div class="row vn-reviewmargins">
-				     	<div class="col-md-2">
-				     		<div class="vn-review-userposter">
-				     			<%= image_tag(review.user.poster_image.url,class: "img-responsive") %>
-				     		<div class="vn-reviewusertextdiv">
-							<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
-							</div>
-				     		</div>
-				     	</div>
-				     	<div class="col-md-10">
-				     	<%= get_review_icon(review.rating) %>
-				     	<span class="vn-postdate vn-ratingdiv">Score: <%= review.rating%></span>
-				     	<div class="vn-reviewdate pull-right">
-								<span class="vn-postdate "><%= time_ago_in_words(review.created_at) %></span>
-						</div>
-						<div class="vn-reviewdetails">
-				     	<%= markdown(review.details) %>
-				     	</div>
-				     	<% if current_user.id == review.user_id %>
-				     	<%= link_to edit_vn_review_path(@vn,review) do %>
-				     		<i class="fa fa-pencil-square-o pull-right"></i>
-				     	<% end %> <% end %>
-				     	</div>
-
-				     	</div>
-				     	<hr>
-				     <% end %>   
-				 
+			    	  <%= render :partial => 'review', :collection => @positive_reviews  %>
+					 <%= will_paginate @positive_reviews, renderer: BootstrapPagination::Rails %>
 				</div>
 
 			    <div role="tabpanel" class="tab-pane" id="settings">
-			        <div class="col-md-2">
-						<div class="vn-user-profile">
-						<%= image_tag("default_avatar.jpg",:class =>"img-responsive") %>
-						<div class="vn-reviewusertextdiv">
-						<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
-						</div></div>
-					</div>
-					<div class="col-md-10">
-					
-						<div class="vn-userheader">
-							<i class="fa fa-question fa-4x" style="color:#F89406;padding-right:5px;"></i>
-							<span class="vn-recommendtext summarytext">Mixed feelings </span>
-							<div class="vn-reviewdate pull-right">
-								<span class="vn-postdate ">12 March 2015</span>
-							</div>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulput.
-
-						 Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus</p>
-					</div>
+			       	 <%= render :partial => 'review', :collection => @negative_reviews  %>
+					 <%= will_paginate @negative_reviews, renderer: BootstrapPagination::Rails %>
 			    </div>
 
 			    <div role="tabpanel" class="tab-pane" id="write">
 
-			    <h4 style="margin-top:0px; margin-bottom:20px;">Write a review for <%= @vn.name%></h4>
+			    <h4 style="margin-top:0px; margin-bottom:20px;">Write a review for <%= @vn.name%>
+			    	<%= link_to image_path("markdown.png"), :class => 'fancybox', :rel =>'?' do %>
+			     <i class="fa fa-question-circle"></i>
+			     <% end %>
+			 	</h4>
 			    <%= simple_form_for @vn do |f| %>
 			     <%= f.simple_fields_for :reviews,@vn.reviews.build do |r| %>
 			     	<div class="row">
 			     	<div class="col-md-2">
 			     		<div class="vn-review-userposter">
-			     			<%= image_tag(current_user.poster_image.url,class: "img-responsive") %>
+			     			<%= display_avatar(current_user,"img-responsive") %>
 			     		</div>
 			     	</div>
 			     	<div class="col-md-10">
-			     	<%= r.input :details, :as => :text, required: false,input_html: {:rows => 10 ,:style => "resize:vertical;"} %>
+			     	<%= r.input :details, :as => :text, required: true,input_html: {:rows => 10 ,:style => "resize:vertical;"} %>
 			     	</div>
 			     	<div class="col-md-10 col-md-offset-2">
 			     		<%= r.input :rating,:as => :radio_buttons, collection: 0..10,item_wrapper_class: "radiobox-inline",:label_html => {:class =>"radio-ratinglabel"},:required => false %>

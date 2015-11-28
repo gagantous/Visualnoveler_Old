@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
       # set default role and default settings
       self.bio = "A short bio about me"
       self.role ||= :user
-
+      self.poster_image = "default_avatar.jpg"
     end
 
     def self.from_omniauth(auth)
