@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+
+	<h1>Edit Review</h1>
+
+		<%= simple_form_for @review, url: vn_review_path do |f| %>
+
+		<div class="row">
+		<div class="col-lg-8">
+		  <%= f.input :details,input_html: {:rows => 10} %>
+		 </div>
+		</div>
+		
+		<div class="row">
+		<div class="col-lg-12">
+			<%= f.input :rating,:as => :radio_buttons, collection: 0..10,item_wrapper_class: "radiobox-inline",:label_html => {:class =>"radio-ratinglabel"},:required => false %>
+
+		  <%= f.button :submit , class: "btn btn-primary" %>
+		 </div>
+		</div>
+
+		<% end %>
+
+
+	</div>
+
+</div>

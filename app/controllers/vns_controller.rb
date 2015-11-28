@@ -5,6 +5,8 @@ class VnsController < ApplicationController
 		@vn = Vn.find(params[:id])
 		@showcharacters = @vn.characters.all
 		@screenshots = @vn.screenshots
+		@recent_reviews = @vn.reviews.all
+		@vn.reviews.build
 	end
 
 	def simple_create
@@ -146,7 +148,7 @@ class VnsController < ApplicationController
     	else
     		render :action=>"new"
     	end
-
+ 
 	end
 
 	private
@@ -156,7 +158,8 @@ class VnsController < ApplicationController
 			:bio,:trailer_url,:image_coverpage_crop_x,:image_coverpage_crop_y, :image_coverpage_crop_w, :image_coverpage_crop_h,:rating_number,:isFeatured,
 			 { characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:remote_img_string_url,:img_string,] },:release_date, :summary,:genre_old,
 			 { :genre_ids => [] },:developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id,
-			 {screenshots_attributes: [:id,:_destroy,:name,:alt,:image,:remote_image_url] } ,:remote_image_poster_url)
+			 {screenshots_attributes: [:id,:_destroy,:name,:alt,:image,:remote_image_url] } ,:remote_image_poster_url,
+			 {reviews_attributes: [:details,:rating,:status,:vn_id,:user_id,:_destroy] })
 		end
 
 end

@@ -680,11 +680,20 @@ body {
   }
 }
 .vn-review-userposter{
-  padding-top: 18px;
+  //padding-top: 12px;
+}
+.vn-ratingdiv {
+  padding-left: 90px;
+}
+.vn-reviewmargins {
+  margin-bottom: 35px;
 }
 .vn-reviewtext {
   font-size: 1.2em;
   font-weight: 500;
+}
+.vn-reviewdetails{
+  padding-top: 9px;
 }
 .vn-reviewusertextdiv{
   padding-top: 10px;

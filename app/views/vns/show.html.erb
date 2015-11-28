@@ -260,20 +260,65 @@
 
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="messages">
-			    	<i class="fa fa-pencil-square-o fa-3x" style="padding-right:5px;"></i>
+				 <% @recent_reviews.each do |review| %>
+				     	<div class="row vn-reviewmargins">
+				     	<div class="col-md-2">
+				     		<div class="vn-review-userposter">
+				     			<%= image_tag(review.user.poster_image.url,class: "img-responsive") %>
+				     		<div class="vn-reviewusertextdiv">
+							<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
+							</div>
+				     		</div>
+				     	</div>
+				     	<div class="col-md-10">
+				     	<%= get_review_icon(review.rating) %>
+				     	<span class="vn-postdate vn-ratingdiv">Score: <%= review.rating%></span>
+				     	<div class="vn-reviewdate pull-right">
+								<span class="vn-postdate "><%= time_ago_in_words(review.created_at) %></span>
+						</div>
+						<div class="vn-reviewdetails">
+				     	<%= markdown(review.details) %>
+				     	</div>
+				     	<% if current_user.id == review.user_id %>
+				     	<%= link_to edit_vn_review_path(@vn,review) do %>
+				     		<i class="fa fa-pencil-square-o pull-right"></i>
+				     	<% end %> <% end %>
+				     	</div>
 
-
+				     	</div>
+				     	<hr>
+				     <% end %>   
+				 
 				</div>
 
-			    <div role="tabpanel" class="tab-pane" id="settings">Settings
+			    <div role="tabpanel" class="tab-pane" id="settings">
+			        <div class="col-md-2">
+						<div class="vn-user-profile">
+						<%= image_tag("default_avatar.jpg",:class =>"img-responsive") %>
+						<div class="vn-reviewusertextdiv">
+						<%= link_to current_user.name,user_path(current_user),class: "vn-reviewtext summary-text" %>
+						</div></div>
+					</div>
+					<div class="col-md-10">
+					
+						<div class="vn-userheader">
+							<i class="fa fa-question fa-4x" style="color:#F89406;padding-right:5px;"></i>
+							<span class="vn-recommendtext summarytext">Mixed feelings </span>
+							<div class="vn-reviewdate pull-right">
+								<span class="vn-postdate ">12 March 2015</span>
+							</div>
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulput.
 
+						 Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus</p>
+					</div>
 			    </div>
 
 			    <div role="tabpanel" class="tab-pane" id="write">
 
 			    <h4 style="margin-top:0px; margin-bottom:20px;">Write a review for <%= @vn.name%></h4>
 			    <%= simple_form_for @vn do |f| %>
-			     <%= f.simple_fields_for :reviews do |r| %>
+			     <%= f.simple_fields_for :reviews,@vn.reviews.build do |r| %>
 			     	<div class="row">
 			     	<div class="col-md-2">
 			     		<div class="vn-review-userposter">
@@ -285,7 +330,8 @@
 			     	</div>
 			     	<div class="col-md-10 col-md-offset-2">
 			     		<%= r.input :rating,:as => :radio_buttons, collection: 0..10,item_wrapper_class: "radiobox-inline",:label_html => {:class =>"radio-ratinglabel"},:required => false %>
-			     		 <%= f.button :submit , class: "btn btn-success pull-right vn-reviewbutton",data:{ disable_with: "Creating Review..."} %>
+			     		 <%= f.button :submit , class: "btn btn-success pull-right vn-reviewbutton",data:{ disable_with: "Posting.."} %>
+						<%= r.hidden_field :user_id,value: current_user.id %>
 			     	</div>
 			     	</div>
 			     <% end %>

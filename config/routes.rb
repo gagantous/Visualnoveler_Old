@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :vns do
+    resources :reviews
     put :favourite, on: :member
     put :status, on: :member
     put :rate, on: :member
@@ -31,7 +32,6 @@ Rails.application.routes.draw do
     get :crop, on: :member
     get :screenshots, on: :member
     get :simple_create, on: :collection
-    resources :reviews
   end
   # resources :users do
   #   get :watch, on: :member

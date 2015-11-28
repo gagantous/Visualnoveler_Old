@@ -8,6 +8,13 @@ module ApplicationHelper
  	def description(text)
  	   content_for :description, text
  	end
+ 	def markdown(text)
+ 	 markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+	    extensions = {})
+ 	 
+	return markdown.render(text).html_safe
+	end
+
   def resource
     @resource ||= User.new
   end

@@ -22,8 +22,9 @@ class ReviewsController < ApplicationController
 
 	def create	
     	@review = Review.new(review_params)  
+    	@review.user_id = params[:review][:user_id]
     	if @review.save
-    		redirect_to review_path(@review)
+    		redirect_to vn_path(@review)
     		flash[:success] = "Review successfully created!"
     	else
     		render :action=>"new"
@@ -36,7 +37,7 @@ class ReviewsController < ApplicationController
 		#authorize @review
 		if @review.update(review_params)
 			flash[:success] = "Your Review was updated successfully!"
-			redirect_to reviews_path(@review)
+			redirect_to vn_path(@review.vn)
 		else
 			render :edit
 		end

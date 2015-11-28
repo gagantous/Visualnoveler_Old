@@ -4,6 +4,7 @@ class Vn < ActiveRecord::Base
     has_many :vn_genres,dependent: :destroy
     has_many :genres, :through => :vn_genres
     has_many :screenshots, dependent: :destroy
+    has_many :reviews, dependent: :destroy
     belongs_to :developer
     mount_uploader :image_coverpage, AvatarUploader
 	crop_uploaded :image_coverpage 
@@ -19,6 +20,7 @@ class Vn < ActiveRecord::Base
 	accepts_nested_attributes_for :vn_genres
 	accepts_nested_attributes_for :genres
  	accepts_nested_attributes_for :library_entries
+ 	accepts_nested_attributes_for :reviews
  	before_save :edit_youtubeurl
   	attr_accessor :characterurl
     extend FriendlyId
