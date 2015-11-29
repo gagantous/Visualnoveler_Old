@@ -21,7 +21,7 @@
 		</div>
 		 <div class="col-lg-8">
 
-			<%= f.association :vn,input_html: {style: "width:150px;"} %>
+			<%= f.association :vns, :as => :check_boxes %>
 		</div>
 		<div class="col-lg-12">
 		  <%= f.button :submit , class: "btn btn-primary" %>

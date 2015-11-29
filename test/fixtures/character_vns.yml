@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vn_id: 
+  character_id: 
+
+two:
+  vn_id: 
+  character_id: 

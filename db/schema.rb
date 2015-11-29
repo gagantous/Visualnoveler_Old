@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127133850) do
+ActiveRecord::Schema.define(version: 20151129135257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "character_vns", force: :cascade do |t|
+    t.integer  "vn_id"
+    t.integer  "character_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "character_vns", ["character_id"], name: "index_character_vns_on_character_id", using: :btree
+  add_index "character_vns", ["vn_id"], name: "index_character_vns_on_vn_id", using: :btree
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -140,6 +150,16 @@ ActiveRecord::Schema.define(version: 20151127133850) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "vn_chars", force: :cascade do |t|
+    t.integer  "vn_id"
+    t.integer  "character_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "vn_chars", ["character_id"], name: "index_vn_chars_on_character_id", using: :btree
+  add_index "vn_chars", ["vn_id"], name: "index_vn_chars_on_vn_id", using: :btree
+
   create_table "vn_genres", force: :cascade do |t|
     t.integer  "vn_id"
     t.integer  "genre_id"
@@ -173,6 +193,8 @@ ActiveRecord::Schema.define(version: 20151127133850) do
   add_index "vns", ["developer_id"], name: "index_vns_on_developer_id", using: :btree
   add_index "vns", ["genre_id"], name: "index_vns_on_genre_id", using: :btree
 
+  add_foreign_key "character_vns", "characters"
+  add_foreign_key "character_vns", "vns"
   add_foreign_key "library_entries", "users"
   add_foreign_key "library_entries", "vns"
   add_foreign_key "posts", "library_entries"
@@ -181,6 +203,8 @@ ActiveRecord::Schema.define(version: 20151127133850) do
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "vns"
   add_foreign_key "screenshots", "vns"
+  add_foreign_key "vn_chars", "characters"
+  add_foreign_key "vn_chars", "vns"
   add_foreign_key "vn_genres", "genres"
   add_foreign_key "vn_genres", "vns"
   add_foreign_key "vns", "developers"

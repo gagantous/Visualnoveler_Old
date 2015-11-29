@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
 	def create	
     	@character = Character.new(char_params)  
     	if @character.save
-    		redirect_to vn_path(@character.vn)
+    		redirect_to vn_path(@character.vns.first)
     		flash[:success] = "Character created successfully!"
     	else
     		render :action=>"new"
@@ -38,7 +38,7 @@ class CharactersController < ApplicationController
 
 	private
 		def char_params
-			params.require(:character).permit(:name, :summary,:voiceactor,:vn_name,:vn_id,:img_string)
+			params.require(:character).permit(:name, :summary,:voiceactor,:vn_name,:vn_id,:img_string,{ :vn_ids => [] })
 		end
 
 end
