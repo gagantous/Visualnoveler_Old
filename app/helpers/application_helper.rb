@@ -24,11 +24,15 @@ module ApplicationHelper
   end
 
   def display_avatar(user,css_class)  
-    unless user.poster_image
-      image_tag(user.poster_image.url) 
+    if user_signed_in?
+      unless user.poster_image
+        image_tag(user.poster_image.url) 
+      else
+        image_tag("default_avatar.jpg",:class => css_class)
+       end  
     else
-      image_tag("default_avatar.jpg",:class => css_class)
-     end    
+      return
+    end  
   end
 
   
