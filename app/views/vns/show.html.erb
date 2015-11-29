@@ -229,7 +229,7 @@
 			    </div>
 
 			    <div role="tabpanel" class="tab-pane" id="write">
-
+			    <% if user_signed_in? %>
 			    <h4 style="margin-top:0px; margin-bottom:20px;">Write a review for <%= @vn.name%>
 			    	<%= link_to image_path("markdown.png"), :class => 'fancybox', :rel =>'?' do %>
 			     <i class="fa fa-question-circle"></i>
@@ -255,7 +255,7 @@
 			     <% end %>
 			    <% end %>
 			    </div>
-
+			    <% end %>
 
 
 
