@@ -17,7 +17,11 @@
 				<tr>
 				<td><%= image_tag(character.img_string.url,:style =>"height:60px;width:50px;") %></td>
 				<td><h5><%= character.name %></h5></td>
+				<% if !character.vns.blank? %>
 				<td><%= character.vns.first.name%></td>
+				<% else %>
+				<td>Empty</td>
+				<% end %>
 				<td><%= link_to 'Edit',edit_character_path(character) %></td>
 				<td><%= time_ago_in_words(character.updated_at) %></td>
 				</tr>

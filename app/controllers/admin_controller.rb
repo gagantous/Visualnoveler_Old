@@ -35,7 +35,7 @@ class AdminController < ApplicationController
 	end
 
 	def developer
-		@developer = Developer.all.order("updated_at DESC").all
+		@developer = Developer.all.order("updated_at DESC").all? { |e|  }
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end

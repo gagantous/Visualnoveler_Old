@@ -25,6 +25,15 @@ class CharactersController < ApplicationController
 
 	end
 
+	def destroy
+		@character = Character.find(params[:id])
+	  	if @character.destroy
+	 		flash[:success] = "Character deleted!"
+	 		redirect_to admin_character_path
+	    end
+
+	end
+
 	def update
 		@character = Character.find(params[:id])
 		authorize @character
