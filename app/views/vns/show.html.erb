@@ -4,10 +4,11 @@
 	<div class="row">
 	
 			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">
-			<% if user_signed_in? && current_user.admin? %>
+			<% if user_signed_in?  %>
+			<% if current_user.admin? || current_user.mod? %>
 			<%= link_to 'Crop',crop_vn_path,:class =>"ghost-buttonimg text-center",:style =>"text-decoration:none;" %>
 			<%= link_to 'Add Screenshots',screenshots_vn_path,:class =>"ghost-buttonimg text-center",:style =>"text-decoration:none" %>
-			
+			<% end %>
 			<% end %>
 		</div>
 	</div>
