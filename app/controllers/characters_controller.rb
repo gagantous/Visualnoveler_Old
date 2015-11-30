@@ -27,6 +27,7 @@ class CharactersController < ApplicationController
 
 	def destroy
 		@character = Character.find(params[:id])
+		authorize @character
 	  	if @character.destroy
 	 		flash[:success] = "Character deleted!"
 	 		redirect_to admin_character_path
