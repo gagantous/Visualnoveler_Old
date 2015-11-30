@@ -11,11 +11,11 @@ class VnPolicy
   end
 
   def simple_create?
-    @current_user.admin? or @current_user.mod?
+    @current_user.admin?
   end
 
   def edit?
-    @current_user.admin? or @current_user.mod?
+    @current_user.admin?
   end
 
   def crop?

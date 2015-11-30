@@ -7,7 +7,7 @@ class CharacterPolicy
   end
 
   def edit?
-    @current_user.admin? or @current_user.mod?
+    @current_user.admin?
   end
 
   def new?

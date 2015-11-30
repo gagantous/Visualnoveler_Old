@@ -14,7 +14,6 @@
 		 	<%= f.input :img_string %>
   			<%= image_tag f.object.img_string.url, :class => "formcharacter" if f.object.img_string? %>
 		</div>
-
 		
 		<div class="col-lg-12">
 		  <%= f.input :summary,input_html: {style: "height:150px;"} %>

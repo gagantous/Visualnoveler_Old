@@ -8,6 +8,7 @@
 			<thead><tr>
 				<th>Image</th>
 				<th>Name</th>
+				<th>Visual Novel</th>
 				<th>Edit</th>
 				<th>Last updated</th>
 			</tr></thead>
@@ -16,6 +17,7 @@
 				<tr>
 				<td><%= image_tag(character.img_string.url,:style =>"height:60px;width:50px;") %></td>
 				<td><h5><%= character.name %></h5></td>
+				<td><%= character.vns.first.name%></td>
 				<td><%= link_to 'Edit',edit_character_path(character) %></td>
 				<td><%= time_ago_in_words(character.updated_at) %></td>
 				</tr>

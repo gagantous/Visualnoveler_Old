@@ -1,2 +1,38 @@
-<h1>StaticPages#help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+<% title "Creating a new visual novel in Visualnoveler" %>
+<div class="container">
+	<div class="row">
+		<h2>Guide to creating a new Visual Novel in the database</h2>
+		<div class="col-md-12">
+
+			<h3> Creation </h3>
+			<p style="font-size:1.2em;">At the moment, creation of new visual novels, characters, genres and developers are allowed <br> but editing them is not possible. Contact wraithseeker if you edited or submitted a new entry wrongly. </p>
+		</div>
+		<div class="col-md-9">
+			<h3> Trailer URL </h3>
+			<p style="font-size:1.2em;"><b>Youtube URL</b> to be copied over here which will show up as a play button in the poster image of the visual novel. </p>
+			<br><br>
+			<h3> Remote URL (Text box below "Choose File") </h3>
+			<p style="font-size:1.2em;">Put in any remote URL from the Internet and it will be uploaded to the database automatically. <b>Does not work with VNDB URLs, you will have to manually upload the images. </b>
+			<br><br>
+			You will only need to choose one of the above for uploading an image; Remote or from local system. </p>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag("guide_poster.png",:class =>"img-responsive") %>
+		</div>
+		<div class="col-md-12">
+			<h3> Screenshot URL </h3>
+			<p style="font-size:1.2em;">These are screenshots that appear under the description of the visual novel as shown in the picture below. </p>
+			<%= image_tag("guide_screenshot.png",:class =>"img-responsive") %>
+		</div>
+		<div class="col-md-12">
+			<h3> Image coverpage </h3>
+			<p style="font-size:1.2em;">The cover image as shown at the top of a visual novel.</p>
+			<br>
+			<p style="font-size:1.2em;">
+			There are buttons such as <b>Crop</b> to crop the Image coverpage and <b>Add Screenshots </b>which adds additional screenshots under <b> Other Screenshots </b> 
+			<%= image_tag("guide_cover.png",:class =>"img-responsive") %>
+			<%= image_tag("guide_others.png",:class =>"img-responsive") %>
+			 </p>
+		</div>
+	</div>
+</div>

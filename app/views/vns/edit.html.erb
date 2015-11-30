@@ -74,9 +74,14 @@
 			 	<%= char.input :name %>
 			 </div>
 			
-			  <div class="col-md-4">
+			  <div class="col-md-3">
 			 	<%= char.input :img_string %>
 			 </div>
+
+			 <div class="col-md-2">
+			 	<%= image_tag char.object.img_string.url, :style => "width:60px;height:100px;" if char.object.img_string? %>
+			 </div>
+
 			 <div class="col-md-12">
 			 	<%= char.input :summary,input_html: {style: "height:150px;"}%>
 			 </div>

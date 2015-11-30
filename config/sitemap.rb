@@ -4,9 +4,10 @@ SitemapGenerator::Sitemap.default_host = "http://www.visualnoveler.com"
 
 SitemapGenerator::Sitemap.create do
 
-  add '/static_pages'
+  add '/pages'
   Vn.find_each do |vn|
     add vn_path(vn), lastmod: vn.updated_at
+    add characters_vn_path(vn)
   end
 
   User.find_each do |user|
@@ -21,7 +22,10 @@ SitemapGenerator::Sitemap.create do
     add genre_path(genre), lastmod: genre.updated_at
   end
 
-  add genres_path
+  Developer.find_each do |developer|
+    add developer_path(developer), lastmod: developer.updated_at
+  end
+
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.
