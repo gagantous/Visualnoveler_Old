@@ -265,6 +265,10 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.3)
+    pg_search (1.0.5)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     pundit (1.0.1)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -334,6 +338,10 @@ GEM
     tilt (2.0.1)
     turbolinks (2.5.3)
       coffee-rails
+    twitter-typeahead-rails (0.11.1)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -382,6 +390,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg
+  pg_search
   pundit
   rails (= 4.2.4)
   rails_12factor
@@ -393,6 +402,7 @@ DEPENDENCIES
   spring
   sqlite3
   turbolinks
+  twitter-typeahead-rails
   uglifier (>= 1.3.0)
   unicorn
   whenever

@@ -1,6 +1,18 @@
 jQuery ->
   $('a.fancybox').fancybox({parent: "body"})
 
+jQuery -> 
+  users = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  limit: 10,
+  prefetch: 'http://localhost:3000/json/vns.json'
+  })
+  users.initialize();
+  $('.typeahead').typeahead(null, {
+      source: users.ttAdapter()
+  })
+
 jQuery ->
  $(".fancyframe").fancybox
   type: "iframe"

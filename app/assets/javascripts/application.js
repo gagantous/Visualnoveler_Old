@@ -14,6 +14,8 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.jcrop
+//= require twitter/typeahead
+//= require twitter/typeahead/bloodhound
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks

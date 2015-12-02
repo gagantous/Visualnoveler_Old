@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'pages/about'
   root 'pages#home'
   post 'pages/subscribe' , :path => "subscribe"
-
+  get 'search' => 'pages#search'
+  get 'typeahead/:query' => 'pages#typeahead'
+  get 'json/vns' => "pages#test"
   resources :characters
   resources :genres
   resources :developers

@@ -1,0 +1,35 @@
+<% title "Search Visual Novels" %>
+<% description "A list of featured visual novels in Visualnoveler and also random visual novels for you to discover!" %>
+<div class="container-fluid">
+  <div class="row vnindex-row">
+
+    <div class="col-md-12">
+      <h2 class="vnindex-heading">Query</h2>
+    </div>
+  
+<% @vn.each do |vn| %>
+
+<div class="vn-column">
+      <%= link_to vn_path(vn) do %>
+      <%= image_tag("#{vn.image_poster}",:alt => vn.name, :class=> "vn-index-poster") %>
+      <% end %>
+  <div class="panel panel-default">
+    <div class="panel-body panel-vnindex">
+
+
+    <a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4> </a>  
+
+      <ul class="list-inline vnindex-genre">
+          <% vn.genres.each do |genre| %>
+            <li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre) %></li>
+          <% end %>
+        </ul>
+      
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+  </div>
+</div>

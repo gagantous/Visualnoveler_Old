@@ -25,6 +25,10 @@ class Vn < ActiveRecord::Base
  	accepts_nested_attributes_for :reviews
  	before_save :edit_youtubeurl
   	attr_accessor :characterurl
+  	include PgSearch
+  	pg_search_scope :search_by_name, :against => :name,:using => {
+                    :tsearch => {:prefix => true}
+                  }
     extend FriendlyId
     friendly_id :name, use: [:slugged, :finders]
 
