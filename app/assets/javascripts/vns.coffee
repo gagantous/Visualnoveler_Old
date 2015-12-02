@@ -6,7 +6,8 @@ jQuery ->
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   limit: 10,
-  prefetch: 'http://localhost:3000/json/vns.json'
+  #local http://localhost:3000/json/vns.json
+  prefetch: 'http://visualnoveler.com/json/vns.json'
   })
   users.initialize();
   $('.typeahead').typeahead(null, {
