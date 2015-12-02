@@ -17,7 +17,13 @@
 		<div class="panel-body panel-vnindex">
 
 
-		<a href=<%= vn_path(vn) %>><h4><span class="bottom"><%= vn.name%></span></h4>	</a>	
+		<a href=<%= vn_path(vn) %>><h4>
+			<% if vn.name.length > 30 %>
+				<span class="bottom" style="font-size:14px !important;"><%= vn.name %>
+			<% else %>
+				<span class="bottom"><%= vn.name %>
+			<% end %>
+		</span></h4>	</a>	
 
 			<ul class="list-inline vnindex-genre">
 					<% vn.genres.each do |genre| %>

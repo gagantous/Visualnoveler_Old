@@ -1,4 +1,4 @@
-<% title @vn.name %>
+ <% title @vn.name %>
 <% description @vn.summary.first(150) %>
 <div class="container-fluid">
 	<div class="row">
@@ -60,7 +60,11 @@
 	</div>
 		</div>
 		<div class="col-lg-9 col-md-9">
-			 <span class="h3 vn-contentpadding"><%= @vn.name %> </span>
+			<% if @vn.name.length > 30 %>
+			 	<span class="h3 vn-contentpadding" style="font-size:19px !important;"><%= @vn.name %> </span>
+			<% else %>
+			 	<span class="h3 vn-contentpadding"><%= @vn.name %> </span>
+			 <% end %>
 			  
  			<span class="default-text vn-score">Score: <%= @vn.rating_number%> </span>
  			<!-- start of buttons -->
