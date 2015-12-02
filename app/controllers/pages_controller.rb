@@ -7,16 +7,11 @@ class PagesController < ApplicationController
      @vn = Vn.search_by_name(params[:search])
   end
 
-  # def test
-  #   respond_to do |format|
-  #   format.json { render json: Vn.all.select('name').map(&:name)}
-  # end
-
-  end
-
   def typeahead
+
     @vn = Vn.search_by_name(params[:search])
     @name = @vn.select('name').map(&:name)
+    
     render json: @name
   end
 

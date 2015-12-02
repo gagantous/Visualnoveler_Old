@@ -7,12 +7,7 @@ jQuery ->
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   limit: 10,
   #local http://localhost:3000/json/vns.json
-  # remote: {url:'http://localhost:3000/typeahead/%QUERY'
-
-  #  , wildcard: '%QUERY'
-  #  }
-  remote: {url:'http://visualnoveler.com/typeahead/%QUERY'
-
+  remote: {url:'/typeahead/%QUERY'
    , wildcard: '%QUERY'
    }
   })

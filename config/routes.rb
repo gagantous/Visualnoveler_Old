@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'pages/subscribe' , :path => "subscribe"
   get 'search' => 'pages#search'
   get 'typeahead/:search' => 'pages#typeahead'
+ # get 'json/vns' => "pages#test"
   resources :characters
   resources :genres
   resources :developers
