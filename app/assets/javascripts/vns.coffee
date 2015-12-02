@@ -7,10 +7,19 @@ jQuery ->
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   limit: 10,
   #local http://localhost:3000/json/vns.json
-  prefetch: 'http://visualnoveler.com/json/vns.json'
+  # remote: {url:'http://localhost:3000/typeahead/%QUERY'
+
+  #  , wildcard: '%QUERY'
+  #  }
+  remote: {url:'http://visualnoveler.com/typeahead/%QUERY'
+
+   , wildcard: '%QUERY'
+   }
   })
+
   users.initialize();
   $('.typeahead').typeahead(null, {
+      name: "mysearch"
       source: users.ttAdapter()
   })
 
