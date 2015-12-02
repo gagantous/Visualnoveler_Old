@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def completed
      @user = User.find(params[:id])
      authorize @user
-     @lib = @user.library_entries.where(status: "completed")
+     @lib = @user.library_entries.where(status: "complete")
   end
 
   def edit
