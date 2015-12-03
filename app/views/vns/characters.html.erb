@@ -1,21 +1,28 @@
 <% title @vn.name + " Character Listings" %>
 <% description "Details of characters in #{@vn.name} such as #{@characters.first.name} are listed in Visualnoveler. Come join us to start tracking and discovering new visual novels!" %>
-<div class="vncharacter">
-<div class="container">
-	<% @characters.each do |char| %>
-	<a name=<%= char.name.delete(' ')%>></a>
-	<div class="row vncharacter-section">
-		<div class="col-md-2">
-			<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'group' do %>
-				<%= image_tag("#{char.img_string.url}",:alt => char.name, :class=> "img-responsive") %>
-			<% end %>
-		</div>
-		<div class="col-md-7">
-			<h2 class="vn-characterpage-name"><%= char.name %></h2>
-			<span class="summary-text"><%= char.summary %></span>
+<div class="vncharacter"><div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="row">
+				<div class="panel panel-default"> <div class="panel-body">
+					<% @characters.each do |char| %>
+					<a name=<%= char.name.delete(' ')%>></a>
+
+					<div class="row vncharacter-section">
+						<div class="col-md-3">
+							<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'group' do %>
+								<%= image_tag("#{char.img_string.url}",:alt => char.name, :class=> "img-responsive") %>
+							<% end %>
+						</div>
+						<div class="col-md-9">
+							<h2 class="vn-characterpage-name"><%= char.name %></h2>
+							<span class="summary-text"><%= char.summary %></span>
+						</div>
+					</div>
+					<% end %>
+				</div></div>
+			</div>
 		</div>
 	</div>
-		<% end %>
-	</div>
-</div>
+</div></div>
 

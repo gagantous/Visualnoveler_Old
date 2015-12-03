@@ -21,21 +21,30 @@
  				<p><%= @user.bio %></p>
  			</div>
  			<div class="user-buttons">
-				<%= link_to watch_user_path(@user), :class => "btn ghost-button"  do %>
-					<i class="fa fa-spinner"></i><span class="user-button-padding">Playing</span>
-				<% end %>
+				
 
-				<%= link_to wishlist_user_path(@user), :class => "btn ghost-button"  do %>
-					<i class="fa fa-gift "></i><span class="user-button-padding">Wishlist</span>
-				<% end %>
+				
+
+				<div class="dropdown">
 					
-				<%= link_to drop_user_path(@user), :class => "btn ghost-button"  do %>
-					<i class="fa fa-thumbs-o-down"></i><span class="user-button-padding">Dropped</span>
+					<%= link_to library_user_path(@user), :class => "btn ghost-button library-list"  do %>
+					<i class="fa fa-book"></i><span class="user-button-padding ">Library List</span>
 				<% end %>
+				<%= link_to '', :class => "btn ghost-button dropdown-toggle",'data-toggle' => 'dropdown',id: 'dropdownMenu1','aria-haspopup' => true, 'aria-expanded' => true,type: "button"  do %>
+					<i class="fa fa-bars"></i><span class="user-button-padding">Library Filter</span>
+    			<span class="caret"></span>
+				<% end %>
+				  <ul class="dropdown-menu" style="left:auto;right:200px;" aria-labelledby="dropdownMenu1">
+					<li><%= link_to 'Completed', completed_user_path(@user) %></li>
+				    <li><%= link_to 'Watching', watch_user_path(@user) %></li>
+				    <li><%= link_to 'Dropped', drop_user_path(@user) %></li>
+				    <li><%= link_to 'Wishlist', wishlist_user_path(@user) %></li>
+				</ul>
 
-				<%= link_to completed_user_path(@user), :class => "btn ghost-button"  do %>
-					<i class="fa fa-book"></i><span class="user-button-padding">Completed</span>
-				<% end %>
+				</div>
+
+
+
 			</div>
  		</div>
  		<div class="col-md-3">

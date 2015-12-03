@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include UsersHelper
   before_action :authenticate_user!, :only => [:crop] #:edit , :update
 
   def show
@@ -12,6 +13,11 @@ class UsersController < ApplicationController
     @comments = Comment.where(wall_author_id: @user.id).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
     @new_comment = @user.comments.build
     # @new_comment.update_attribute(:wall_user_id,@user.id)
+  end
+
+  def library
+    @user = User.find(params[:id])
+    @lib = @user.library_entries.all
   end
 
 

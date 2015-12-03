@@ -14,6 +14,7 @@ SitemapGenerator::Sitemap.create do
     add user_path(user), lastmod: user.updated_at
     add watch_user_path(user), lastmod: user.updated_at
     add favourite_user_path(user), lastmod: user.updated_at
+    add library_user_path(user), lastmod: user.updated_at
    # add drop_path(user), lastmod: user.updated_at
    # add wishlist_path(user), lastmod: user.updated_at
   end
