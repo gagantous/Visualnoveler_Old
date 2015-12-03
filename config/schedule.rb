@@ -21,5 +21,5 @@
 
 
 every 1.day, :at => '5:00 am' do
-  rake "-s sitemap:refresh"
+  rake "RAILS_ENV=production rake sitemap:refresh"
 end
