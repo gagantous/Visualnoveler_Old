@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129135257) do
+ActiveRecord::Schema.define(version: 20151205133914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 20151129135257) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+  end
+
+  create_table "franchises", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -188,9 +194,11 @@ ActiveRecord::Schema.define(version: 20151129135257) do
     t.integer  "developer_id"
     t.string   "trailer_url"
     t.string   "slug"
+    t.integer  "franchise_id"
   end
 
   add_index "vns", ["developer_id"], name: "index_vns_on_developer_id", using: :btree
+  add_index "vns", ["franchise_id"], name: "index_vns_on_franchise_id", using: :btree
   add_index "vns", ["genre_id"], name: "index_vns_on_genre_id", using: :btree
 
   add_foreign_key "character_vns", "characters"
@@ -208,5 +216,6 @@ ActiveRecord::Schema.define(version: 20151129135257) do
   add_foreign_key "vn_genres", "genres"
   add_foreign_key "vn_genres", "vns"
   add_foreign_key "vns", "developers"
+  add_foreign_key "vns", "franchises"
   add_foreign_key "vns", "genres"
 end

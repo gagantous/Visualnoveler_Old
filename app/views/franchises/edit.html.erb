@@ -1,0 +1,23 @@
+
+
+<div class="container">
+	<div class="row">
+		<%= simple_form_for @franchise do |f| %>
+
+		<h1>Edit Franchise</h1>
+		<div class="row">
+		<div class="col-lg-4">
+		  <%= f.input :name %>
+		</div>
+		 </div>
+		
+
+		<div class="col-lg-12">
+		  <%= f.button :submit , class: "btn btn-primary" %>
+		 </div>
+		<% end %>
+
+
+	</div>
+
+</div>

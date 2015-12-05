@@ -29,40 +29,36 @@
         </div>
       <div id="navbar" class="navbar-collapse collapse">
 
-        <% if user_signed_in? %>
-         <ul class ="nav navbar-nav">
-            <li class="dropdown logotitle-dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Create</span> <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                  <li><%= link_to "Create Visual Novel", new_vn_path %></li>
-                  <li><%= link_to "Create Visual Novel Simple", simple_create_vns_path %></li>
-                  <li><%= link_to "Create Character", new_character_path %></li>
-                  <li><%= link_to "Create Developer", new_developer_path %></li>
-                  <li><%= link_to "Create Genre", new_genre_path %></li>
-              </ul>
-           </li>
-         </ul>
-         <% end %>
-
           <% if user_signed_in? %>
           <% if current_user.admin? || current_user.mod? %> 
          <ul class ="nav navbar-nav">
-            <li class="dropdown logotitle-dropdown">
+            <li class="dropdown logotitle-dropdown nav-padding">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Admin</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
+                  <li class="dropdown-header">Dashboard</li>
                   <li><%= link_to "Visual Novel listings", admin_vn_path %></li>
                   <li><%= link_to "Character listings", admin_character_path %></li>
                   <li><%= link_to "Developer listings", admin_developer_path %></li>
                   <li><%= link_to "Genre listings", admin_genre_path %></li>
                   <li><%= link_to "User listings", admin_users_path %></li>
                   <li><%= link_to "Screenshot listings", admin_screenshot_path %></li>
+                  <li><%= link_to "Reviews listings", admin_review_path %></li>
+                  <li><%= link_to "Franchise listings", admin_franchise_path %></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Creation</li>
+                  <li><%= link_to "Create Visual Novel", new_vn_path %></li>
+                  <li><%= link_to "Create Visual Novel Simple", simple_create_vns_path %></li>
+                  <li><%= link_to "Create Character", new_character_path %></li>
+                  <li><%= link_to "Create Developer", new_developer_path %></li>
+                  <li><%= link_to "Create Genre", new_genre_path %></li>
+                  <li><%= link_to "Create Franchise", new_franchise_path %></li>
               </ul>
            </li>
          </ul> 
          <% end %> <% end %>
 
          <ul class ="nav navbar-nav">
-            <li class="dropdown logotitle-dropdown">
+            <li class="dropdown logotitle-dropdown nav-padding">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Visual Novels</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li><%= link_to "What's New", vns_path %></li>
@@ -78,7 +74,7 @@
               </ul>
             </li>
 
-            <li class="dropdown logotitle-dropdown">
+            <li class="dropdown logotitle-dropdown nav-padding">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Discover</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li><%= link_to 'Genres', genres_path  %></li>
@@ -86,12 +82,12 @@
               </ul>
             </li>
 
-            <li class="logotitle-dropdown">
+            <li class="logotitle-dropdown nav-padding">
              <a href=<%= pages_about_path %> class="navbar-brand"><span class="logotitle">About</span> </a>
            </li>
 
             <% if !user_signed_in? %>
-            <li class ="logotitle-dropdown">
+            <li class ="logotitle-dropdown nav-padding">
                <a href="#" class="navbar-brand" data-toggle="modal" data-target="#login-modal"><span class="logotitle">Login</span> </a>
          
                <a href=<%= register_path %> class="navbar-brand"><span class="logotitle">Register</span> </a>
@@ -126,8 +122,8 @@
 
               <%= button_tag(type: "submit", class: "btn btn-primary padding-search") do %>
                   <i class="fa fa-search 6x"></i>
-        <% end %>
-        <% end %>
+              <% end %>
+          <% end %>
   </div>
 
         </div><!--/.nav-collapse -->

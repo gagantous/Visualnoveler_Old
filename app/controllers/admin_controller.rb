@@ -6,6 +6,13 @@ class AdminController < ApplicationController
 		end
 	end
 
+	def review
+		@review = Review.all.order("updated_at DESC").all
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+	end
+
 	def genre
 		@genre = Genre.all.order("updated_at DESC").all
 		if !current_user.admin? && !current_user.mod? 
@@ -13,8 +20,22 @@ class AdminController < ApplicationController
 		end
 	end
 
+	def franchise
+		@franchise = Franchise.all.order("updated_at DESC").all
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+	end
+
+	def lonely_character	
+		@character = Character.all.order("updated_at DESC").paginate(:page => params[:page],:per_page => 50)
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+	end
+
 	def character
-		@character = Character.all.order("updated_at DESC").paginate(:page => params[:page],:per_page => 25)
+		@character = Character.all.order("updated_at DESC").paginate(:page => params[:page],:per_page => 50)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end

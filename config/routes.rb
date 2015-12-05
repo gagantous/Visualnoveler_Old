@@ -10,6 +10,7 @@ Rails.application.routes.draw do
  # get 'json/vns' => "pages#test"
   resources :characters
   resources :genres
+  resources :franchises
   resources :developers
   resources :screenshots, except: [:index]
   resources :comments
@@ -22,7 +23,10 @@ Rails.application.routes.draw do
     get 'developer'
     get 'users'
     get 'character'
+    get 'lonely_character'
     get 'screenshot'
+    get 'review'
+    get 'franchise'
   end
 
   resources :vns do

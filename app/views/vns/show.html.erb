@@ -163,9 +163,8 @@
 					 <% end %>
 					</div>
 
+				</div>
 			</div>
-		</div>
-
 		
 	</div>
 </div>  <!-- end of container -->
@@ -200,6 +199,23 @@
 	</div>
 </div>
 </section>
+
+<div class="container">
+	<div class="row">
+	<div class="col-md-6 ">
+		<% unless @franchise.blank? %>
+
+		<h3> Related </h3>
+		<% @franchise.vns.each do |vn| %>
+			<% if @vn != vn %>
+			 <%= link_to image_tag(vn.image_poster_url,:alt => vn.name, :class=> "related-thumbnail",:style =>"float:left;"), vn_path(vn)	 %>
+			<% end %>
+		<% end %>
+		<% end %>
+	</div>
+	</div>
+
+</div>
 
 
 <section id = "review">
@@ -270,6 +286,9 @@
 		</div></div> <!-- panels !-->
 <!-- col 8 !-->
 		</div>
+		<!-- Related Section !-->
+		
+		
 </div></div>
 </section>
 

@@ -8,6 +8,7 @@ class Vn < ActiveRecord::Base
     has_many :screenshots, dependent: :destroy
     has_many :reviews, dependent: :destroy
     belongs_to :developer
+    belongs_to :franchise
     mount_uploader :image_coverpage, AvatarUploader
 	crop_uploaded :image_coverpage 
 	mount_uploader :image_1, ScreenshotUploader

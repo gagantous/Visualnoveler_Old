@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+  			<div class="panel-body">
+		<table class="table">
+			<h2>Review List</h2>
+			<thead><tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Edit</th>
+				<th>Last updated</th>
+			</tr></thead>
+			<tbody>
+			<% @review.each do |review| %>
+			<% vn = review.vn %>
+				<tr>
+				<td><%= link_to review.user.name, vn_review_path(vn,review) %> </td>
+				<td><%= review.details.first(200) %></td>
+				<td><%= link_to 'Edit',edit_vn_review_path(vn,review) %></td>
+				<td><%= time_ago_in_words(review.updated_at) %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+			</div></div>
+		
+		</div>
+	</div>
+</div>
