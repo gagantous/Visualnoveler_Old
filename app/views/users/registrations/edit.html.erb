@@ -17,6 +17,7 @@
             <%= f.input :bio ,input_html: {style: "height:150px;"}%>
             <%= f.input :current_password, placeholder: "required", required: true,required: false  %>
              <%= f.button :submit, "Update",class: "register-button",:style =>"width: 100px;margin-top:10px;" %>
+            
         </div>
 
         <div class="col-md-4 col-md-offset-1">
@@ -25,6 +26,10 @@
           <% end %>
 
          <%= f.input :poster_image, :label => "Upload an image" %>
+
+           <%= f.input :password, autocomplete: "off", placeholder: "Only if you want to change password else blank", required: false %>
+           <%= f.input :password_confirmation,placeholder: "Confirm password", required: false %>
+       
        </div>
       
        
@@ -37,15 +42,9 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-    <div class="row">
-        <div class="col-md-4 col-md-offset-1">
-           <%= f.input :password, autocomplete: "off", placeholder: "Only if you want to change password else blank", required: false %>
-        </div>
 
-        <div class="col-md-4 col-md-offset-1">
-            <%= f.input :password_confirmation,placeholder: "Confirm password", required: false %>
-        </div>
-    </div>
+    
+      
     
          
  
@@ -56,6 +55,7 @@
  -->
      <div class="col-md-12">
         <%= link_to "Back", :back, :class => "btn btn-danger", style: "margin-top: 5px;"%>
+
      </div>
   </div> </div>
 
