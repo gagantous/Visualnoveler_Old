@@ -235,9 +235,13 @@
  				<div class="tab-content">
 			
 			    <div role="tabpanel" class="tab-pane fade in active" id="recent">
-			    	  <%= render :partial => 'review', :collection => @recent_reviews  %>
-					  <%= will_paginate @recent_reviews, renderer: BootstrapPagination::Rails %>
-
+			    	  <% unless @recent_reviews.blank? %>
+				    	  <%= render :partial => 'review', :collection => @recent_reviews  %>
+						  <%= will_paginate @recent_reviews, renderer: BootstrapPagination::Rails %>
+					  <% else %>
+					  <h4><i class="fa fa-magic fa-2x" style="color:#000080;"></i> No Reviews</h4>
+					  <p>Nobody has written a review for <b><%= @vn.name %></b> yet. Come and write a review to let the community know of your thoughts!</p>
+					  <% end %>
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="messages">
 			    	  <%= render :partial => 'review', :collection => @positive_reviews  %>

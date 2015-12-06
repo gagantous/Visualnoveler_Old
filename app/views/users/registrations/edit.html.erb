@@ -2,69 +2,62 @@
 <div class="container">
 <div class="row">
    
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:method => :put, :multipart => true}) do |f| %>
   <%= f.error_notification %>
+  <div class="col-md-9">
 
-  <div class="form-inputs">
+  <div class="panel panel-default">
+  <div class="panel-body">
     <div class="row">
        <div class="col-md-12">
         <h2>Edit <%= resource_name.to_s.humanize %></h2>
        </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
              <%= f.input :name, required: false, autofocus: true %>
+            <%= f.input :bio ,input_html: {style: "height:150px;"}%>
+            <%= f.input :current_password, placeholder: "required", required: true,required: false  %>
+             <%= f.button :submit, "Update",class: "register-button",:style =>"width: 100px;margin-top:10px;" %>
         </div>
+
+        <div class="col-md-4 col-md-offset-1">
+          <% if current_user.poster_image.url.present? %>
+            <%= image_tag(current_user.poster_image.url,:class =>"formthumbnail") %>
+          <% end %>
+
+         <%= f.input :poster_image, :label => "Upload an image" %>
+       </div>
+      
        
-        <div class="col-md-4">
+       <!--  <div class="col-md-4">
         <%= f.input :email, required: true, autofocus: true,required: false  %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-          <%= f.input :bio ,input_html: {style: "height:100px;"}%>
-      </div>
-    </div>
+        </div> -->
+  
+  
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-offset-1">
            <%= f.input :password, autocomplete: "off", placeholder: "Only if you want to change password else blank", required: false %>
         </div>
 
-        <div class="col-md-4">
-            <%= f.input :password_confirmation,placeholder: "same", required: false %>
+        <div class="col-md-4 col-md-offset-1">
+            <%= f.input :password_confirmation,placeholder: "Confirm password", required: false %>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-        <%= f.input :current_password, placeholder: "required", required: true,required: false  %>
-       </div>
-    </div>
-    <div class="col-md-6">
-        <% if current_user.poster_image.url.present? %>
-          <%= image_tag(current_user.poster_image.url,:class =>"formthumbnail") %>
-        <% end %>
-
-       <%= f.input :poster_image, :label => "Upload an image" %>
-    </div>
-  
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-        <div class="form-actions">
-          <%= f.button :submit, "Update",class: "register-button",:style =>"width: 100px;" %>
-        </div>
-    </div>
+    
+         
+ 
 <% end %>
 <!--
 <h3>Cancel my account</h3> 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
  -->
      <div class="col-md-12">
-        <%= link_to "Back", :back, :class => "btn btn-danger", style: "margin-top: 35px;"%>
+        <%= link_to "Back", :back, :class => "btn btn-danger", style: "margin-top: 5px;"%>
      </div>
-  </div>
+  </div> </div>
 
+</div></div>
 </div></div>
