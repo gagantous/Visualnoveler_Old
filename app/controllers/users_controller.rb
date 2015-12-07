@@ -18,6 +18,11 @@ class UsersController < ApplicationController
   def library
     @user = User.find(params[:id])
     @lib = @user.library_entries.all
+    @lib_fav = @user.library_entries.where(favourite: true)
+    @lib_completed = @lib.where(status: "complete")
+    @lib_wishlist = @lib.where(status: "wishlist")
+    @lib_dropped = @lib.where(status: "drop")
+    @lib_watched = @lib.where(status: "watch")
   end
 
 

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'search' => 'pages#search'
   get 'typeahead/:search' => 'pages#typeahead'
  # get 'json/vns' => "pages#test"
-  resources :characters
+  resources :characters do
+    get :search, on: :collection
+  end
   resources :genres
   resources :franchises
   resources :developers

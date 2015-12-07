@@ -4,6 +4,10 @@ class CharactersController < ApplicationController
 		@character = Character.find(params[:id])
 	end
 
+	def search
+    	 @character = Character.search_by_name(params[:search])
+	end
+
 	def new
 		@character = Character.new
 		authorize @character

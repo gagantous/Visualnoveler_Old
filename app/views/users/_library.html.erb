@@ -1,0 +1,14 @@
+<tbody>
+  <tr>
+    <td style="min-width:400px;"><%= link_to library.vn.name,vn_path(library.vn),style: "font-weight:400;font-size:1.05em;" %></td>
+    <td class="text-center"><%= library.rating %></td>
+    <td><%= status_text(library.status) %></td>
+    <td><div class="text-center">
+    	<% if library.favourite? %>
+    		<i class="fa fa-heart" style="color:red;font-size:1.3em;"></i></div>
+    	<% else %>
+    		<i class="fa fa-times" style="color:red;font-size:1.2em;"></i></div>
+    	<% end %>
+    </td>
+  </tr>
+</tbody>

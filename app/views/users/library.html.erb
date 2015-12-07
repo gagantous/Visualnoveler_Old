@@ -6,34 +6,97 @@
 	  <div class="panel panel-default">
 	  <div class="panel-body">
 	  <h3> Visual Novel Library</h3>     
-	  <ul class="list-inline" style="padding-top:5px;padding-bottom:5px;">
-		  <li class="lead"><%= link_to 'Completed', completed_user_path(@user) %></li>
-	      <li class="lead"><%= link_to 'Watching', watch_user_path(@user) %></li>
-	      <li class="lead"><%= link_to 'Dropped', drop_user_path(@user) %></li>
-	      <li class="lead"><%= link_to 'Wishlist', wishlist_user_path(@user) %></li>
-	  </ul>     
-	  <table class="table table-bordered table-hover">
-	    <thead>
-	      <tr>
-	        <th>Visual Novel Title</th>
-	        <th>Rating</th>
-	        <th>Status</th>
-	        <th>Favourite</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	    <% @lib.each do |library| %>
-	      <tr>
-	        <td><%= link_to library.vn.name,vn_path(library.vn) %></td>
-	        <td class="text-center"><%= library.rating %></td>
-	        <td><%= status_text(library.status) %></td>
-	        <td><%= library.favourite ? "Favourited" : "Not Favourited" %> </td>
-	      </tr>
+	  <ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#home">All</a></li>
+		<li><a data-toggle="tab" href="#watch">Watching</a></li>
+		<li><a data-toggle="tab" href="#complete">Completed</a></li>
+		<li><a data-toggle="tab" href="#wishlist">Wishlist</a></li>
+		<li><a data-toggle="tab" href="#favourite">Favourites</a></li>
+		<li><a data-toggle="tab" href="#drop">Dropped</a></li>
+	  </ul>
 
-	    <% end %>
-	    </tbody>
-	  </table>
+	<div class="tab-content">
+	  <div id="home" class="tab-pane fade in active">
+		  	<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th>Visual Novel Title</th>
+		        <th>Rating</th>
+		        <th>Status</th>
+		        <th>Favourite</th>
+		      </tr>
+		    </thead>
+	      <%= render :partial => 'library', :collection => @lib  %>
+	      </table>
+	  </div>
+	  <div id="watch" class="tab-pane fade">
+	 		<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th>Visual Novel Title</th>
+		        <th>Rating</th>
+		        <th>Status</th>
+		        <th>Favourite</th>
+		      </tr>
+		    </thead>
+	      <%= render :partial => 'library', :collection => @lib_watched  %>
+	      </table>
+	  </div>
+	  <div id="complete" class="tab-pane fade">
+	    	<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th>Visual Novel Title</th>
+		        <th>Rating</th>
+		        <th>Status</th>
+		        <th>Favourite</th>
+		      </tr>
+		    </thead>
+	      <%= render :partial => 'library', :collection => @lib_completed  %>
+	      </table>
+	  </div>
+	  <div id="wishlist" class="tab-pane fade">
+	  	<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th>Visual Novel Title</th>
+		        <th>Rating</th>
+		        <th>Status</th>
+		        <th>Favourite</th>
+		      </tr>
+		    </thead>
+	      <%= render :partial => 'library', :collection => @lib_wishlist  %>
+	      </table>
+	  </div>
+	  <div id="favourite" class="tab-pane fade">
+	  	<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th>Visual Novel Title</th>
+		        <th>Rating</th>
+		        <th>Status</th>
+		        <th>Favourite</th>
+		      </tr>
+		    </thead>
+	      <%= render :partial => 'library', :collection => @lib_fav  %>
+	      </table>
+	  </div>
+	  <div id="drop" class="tab-pane fade">
+	  	<table class="table table-hover">
+		    <thead>
+		      <tr>
+		        <th>Visual Novel Title</th>
+		        <th>Rating</th>
+		        <th>Status</th>
+		        <th>Favourite</th>
+		      </tr>
+		    </thead>
+	      <%= render :partial => 'library', :collection => @lib_dropped  %>
+	      </table>
+	  </div>
+
+	</div>    
+	  
 	 </div>
 </div></div>
-</div>
-</div>
+</div></div>

@@ -25,8 +25,8 @@ module ApplicationHelper
 
   def display_avatar(user,css_class)  
     if user_signed_in?
-      unless user.poster_image
-        image_tag(user.poster_image.url) 
+      if user.poster_image?
+        image_tag(user.poster_image.url,:class => css_class) 
       else
         image_tag("default_avatar.jpg",:class => css_class)
        end  

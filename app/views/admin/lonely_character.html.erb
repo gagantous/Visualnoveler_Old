@@ -14,7 +14,7 @@
 			</tr></thead>
 			<tbody>
 			<% @character.each do |character| %>
-				<% if !character.vns.blank? %>
+				<% if character.vns.blank? %>
 				<tr>
 				<td><%= image_tag(character.img_string.url,:style =>"height:60px;width:50px;") %></td>
 				<td><h5><%= character.name %></h5></td>

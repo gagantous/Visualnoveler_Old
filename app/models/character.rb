@@ -9,4 +9,8 @@ class Character < ActiveRecord::Base
  	mount_uploader :img_string, ScreenshotUploader
  	#note to self this is a "HACK" to get nested fields working, fix this when u can
 	crop_uploaded :image_coverpage  
+	include PgSearch
+  	pg_search_scope :search_by_name, :against => :name,:using => {
+                    :tsearch => {:prefix => true}
+                  }
 end
