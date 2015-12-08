@@ -5,7 +5,7 @@
 	<div class="row">
 		<h2>All Genre Categories</h2>
 		<% @genres.each do |genre| %>
-			<div class="col-md-2">
+			<div class="col-md-2" style="padding-bottom:13px;">
 				<h4><%= link_to genre.name + "(#{genre.vns.count})", genre_path(genre) %></h4>
 			</div>
 		<% end %>
