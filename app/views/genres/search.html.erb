@@ -3,18 +3,8 @@
 
 <div class="container-fluid">
 	<div class="row vnindex-row">
-		<div class="col-md-12" style="padding-bottom:20px;">
+		<div class="col-md-12">
 			<h2>Random Genres</h2>
-		 
-			<%= form_tag(search_genres_path, :method => "get", class: "form-inline",style:"") do %>
-			   <%= link_to 'All Genres', all_genres_path,style:"font-size:1.4em; padding-right:40px;position:relative;top:8px;" %>
-			
-			 <%= text_field_tag :search, params[:search], class: "customform-input typeahead-genres", placeholder: "Search Genres" %>
-		
-			<%= button_tag(type: "submit", class: "btn btn-primary",style:"position:relative;top:5px;") do %>
-                  <i class="fa fa-search 6x"></i>
-             <% end %>
-  		    <% end %>
 		</div>
 	
 <% @genres.each do |genre| %>

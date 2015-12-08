@@ -1,0 +1,13 @@
+<% title "All Genres for visual novels" %>
+<% description "This is a list of genres for visual novels in Visualnoveler. Come join us to start tracking and discovering new visual novels!" %>
+
+<div class="container">
+	<div class="row">
+		<h2>All Genre Categories</h2>
+		<% @genres.each do |genre| %>
+			<div class="col-md-2">
+				<h4><%= link_to genre.name + "(#{genre.vns.count})", genre_path(genre) %></h4>
+			</div>
+		<% end %>
+	</div>
+</div>

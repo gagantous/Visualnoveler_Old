@@ -3,24 +3,22 @@
 		<div class="col-md-8">
 			<div class="panel panel-default">
   			<div class="panel-body">
+  			<h2>Character List 
+				<%= link_to "Characters with no VN",admin_lonely_character_path,:class => "h4",:style => "padding-left:25px;color:#337ab7;" %>   
+				</h2>
+				<div class="row">
+				<%= form_tag(search_characters_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+				<div class="col-md-4">
+				 <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Character" %>
+	            </div>
+	            <div class="col-md-4">
+	              <%= button_tag(type: "submit", class: "btn btn-primary padding-search",style:"position:relative;bottom:9px;right:55px;") do %>
+	                  <i class="fa fa-search 6x"></i>
+	              <% end %>
+	       	  	</div>
+	              <% end %>
+	         	 </div>
 		<table class="table">
-			<h2>Character List 
-			<%= link_to "Characters with no VN",admin_lonely_character_path,:class => "h4",:style => "padding-left:25px;color:#337ab7;" %>   
-
-			</h2>
-			<div class="row">
-			<%= form_tag(search_characters_path, :method => "get", class: "navbar-form", id: "search-form") do %>
-			<div class="col-md-4">
-			 <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Character" %>
-              </div>
-              <div class="col-md-4">
-              <%= button_tag(type: "submit", class: "btn btn-primary padding-search",style:"position:relative;bottom:9px;right:15px;") do %>
-                  <i class="fa fa-search 6x"></i>
-              <% end %>
-       	   </div>
-
-              <% end %>
-          </div>
 			<thead><tr>
 				<th>Image</th>
 				<th>Name</th>

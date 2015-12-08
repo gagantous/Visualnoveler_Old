@@ -10,9 +10,22 @@ class GenresController < ApplicationController
 		@genre = Genre.new
 		authorize @genre
 	end
+	def typeahead
+	    @genre = Genre.search_by_name(params[:search])
+	    @name = @genre.select('name').map(&:name)
+	    render json: @name
+ 	 end
+
+	def all
+		@genres = Genre.all
+	end
+
+	def search
+    	 @genres = Genre.search_by_name(params[:search])
+	end
 
 	def index
-		@genres = Genre.limit(12).order("RANDOM()")
+		@genres = Genre.limit(14).order("RANDOM()")
 		
 	end
 

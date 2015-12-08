@@ -7,13 +7,21 @@ Rails.application.routes.draw do
   post 'pages/subscribe' , :path => "subscribe"
   get 'search' => 'pages#search'
   get 'typeahead/:search' => 'pages#typeahead'
+  get 'genres/typeahead/:search' => 'genres#typeahead'
+  get 'developers/typeahead/:search' => 'developers#typeahead'
  # get 'json/vns' => "pages#test"
   resources :characters do
     get :search, on: :collection
   end
-  resources :genres
+  resources :genres do
+    get :search, on: :collection
+    get :all, on: :collection
+  end
   resources :franchises
-  resources :developers
+  resources :developers do
+    get :search, on: :collection
+    get :all, on: :collection
+  end
   resources :screenshots, except: [:index]
   resources :comments
   resources :library_entries, except: [:new, :edit]

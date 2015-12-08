@@ -11,8 +11,22 @@ class DevelopersController < ApplicationController
 		authorize @developer
 	end
 
+	def typeahead
+	    @developer = Developer.search_by_name(params[:search])
+	    @name = @developer.select('name').map(&:name)
+	    render json: @name
+ 	 end
+
+	def all
+		@developers = Developer.all
+	end
+
+	def search
+    	 @developers = Developer.search_by_name(params[:search])
+	end
+
 	def index
-		@developers = Developer.limit(12).order("RANDOM()")
+		@developers = Developer.limit(14).order("RANDOM()")
 	end
 
 	def edit
