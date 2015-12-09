@@ -40,9 +40,8 @@
 
 			<% if !@vn.trailer_url.blank? %>
 			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
-			<div class="bgtest">
+		
 				<i class="fa fa-youtube-play fa-3x dd"></i>
-			</div>
 			<% end %> <% end %>
 
 			<span class="vn-contentpadding">
@@ -56,6 +55,7 @@
 			<br> <% end %>
 			<span class="vn-contentpadding"><span class="vn-label">Release Date:</span> <%= @vn.release_date %> </span>
 			<br>
+			
 		</div>
 	</div>
 		</div>
@@ -68,9 +68,9 @@
 			  
  			<span class="default-text vn-score">Score: <%= @vn.rating_number%> </span>
  			<!-- start of buttons -->
- 			<div class="pull-right">
+ 			<div class="vn-pull-right">
  				
-			  <% if user_signed_in? %>
+			 <% if user_signed_in? %>
 
  			<div class="btn-group status-dropdown" role="group">
    			 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i>
@@ -134,7 +134,7 @@
  				<% end %>
  				<!--  end of buttons -->
 			</div>
-	 <hr>
+	 	<hr>
 			
 			
 			<span class="vn-contentpadding summary-text"><%= @vn.summary %> </span>
@@ -181,14 +181,14 @@
 
 		<div class="row">
 			<% charRow.each do |char| %>
-		<div class="col-md-2 removecharacterpadding">
+		<div class="col-md-2 col-xs-4 removecharacterpadding">
 				<div class="col-md-6 adjustcharacter">
 					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
 						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "vnchar-img img-thumbnail") %>
 					<% end %>
 				</div>
-				<div class="col-md-6">
-					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5" %>
+				<div class="col-md-6 vn-characterbottompadding">
+					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5 vnpage-charname" %>
 				</div>
 			
 		</div> 

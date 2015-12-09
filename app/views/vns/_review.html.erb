@@ -1,14 +1,14 @@
 
 <div class="row vn-reviewmargins">
-	<div class="col-md-2">
+	<div class="col-md-2 col-sm-2 col-xs-12">
 		<div class="vn-review-userposter">
-			<%= link_to image_tag(review.user.poster_image.url,class: "img-responsive"),user_path(review.user) %>
-			<div class="vn-reviewusertextdiv text-center">
+			<%= link_to image_tag(review.user.poster_image.url,class: "img-responsive vn-reviewposter"),user_path(review.user) %>
+			<div class="vn-reviewusertextdiv">
 				<%= link_to review.user.name,user_path(review.user),class: "vn-reviewtext summary-text" %>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-10">
+	<div class="col-md-10 col-sm-10 col-xs-12">
 		<%= get_review_icon(review.rating) %>
 		<span class="vn-postdate vn-ratingdiv">Score: <%= review.rating%></span>
 		<div class="vn-reviewdate pull-right">
