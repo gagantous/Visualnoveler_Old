@@ -27,6 +27,22 @@ class AdminController < ApplicationController
 		end
 	end
 
+	def delete_lonely_character
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+		Character.all.each do |c|
+			if c.vns.blank?
+				if !c.destroy
+					redirect_to :back
+					flash[:danger] = "There was a bug deleting lonely characters"
+				end
+			end
+
+		end
+		redirect_to :back
+		flash[:success] = "All lonely characters are successfully deleted!"
+	end
 	def lonely_character	
 		@character = Character.all.order("updated_at DESC").paginate(:page => params[:page],:per_page => 50)
 		if !current_user.admin? && !current_user.mod? 

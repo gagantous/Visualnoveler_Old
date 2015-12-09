@@ -44,7 +44,7 @@ class CharactersController < ApplicationController
 		authorize @character
 		if @character.update(char_params)
 			flash[:success] = "Your character was updated successfully!"
-			redirect_to characters_path(@character)
+			redirect_to admin_character_path
 		else
 			render :edit
 		end

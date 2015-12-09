@@ -154,6 +154,16 @@ class VnsController < ApplicationController
  
 	end
 
+	def destroy
+		@vn = Vn.find(params[:id])
+		authorize @vn
+	  	if @vn.destroy
+	 		flash[:success] = "Visual Novel deleted! Remember to cleanup the characters with no visual novels"
+	 		redirect_to admin_vn_path
+	    end
+
+	end
+
 	private
 
 		def vn_params

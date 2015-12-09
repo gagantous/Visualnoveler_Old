@@ -3,8 +3,11 @@
 		<div class="col-md-8">
 			<div class="panel panel-default">
   			<div class="panel-body">
+  				<h2>Character List <%= link_to "Back",admin_character_path,:class => "h4",:style => "padding-left:25px;color:#337ab7;" %>
+				<%= button_to "Delete all?" ,admin_delete_lonely_character_path,class:"btn btn-danger",style: "margin-top:25px;margin-bottom:20px;" %>
+			</h2>
 		<table class="table">
-			<h2>Character List <%= link_to "Back",admin_character_path,:class => "h4",:style => "padding-left:25px;color:#337ab7;" %></h2></h2>
+
 			<thead><tr>
 				<th>Image</th>
 				<th>Name</th>

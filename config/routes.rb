@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     get 'screenshot'
     get 'review'
     get 'franchise'
+    post 'delete_lonely_character'
   end
 
   resources :vns do
