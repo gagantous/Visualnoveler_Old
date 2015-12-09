@@ -1,6 +1,20 @@
 class AdminController < ApplicationController
 	def vn
-		@vn = Vn.all.order("updated_at DESC").all
+		@vn = Vn.all.order("updated_at DESC")
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+	end
+
+	def vn_featured
+		@vn = Vn.where(isFeatured: true).order("updated_at DESC").all
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+	end
+
+	def vn_not_featured
+		@vn = Vn.where(isFeatured: false).order("updated_at DESC").all
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end

@@ -9,5 +9,8 @@
 				<h4><%= link_to developer.name + "(#{developer.vns.count})", developer_path(developer) %></h4>
 			</div>
 		<% end %>
+		<div class="col-md-12">
+	 		<%= will_paginate @developers, renderer: BootstrapPagination::Rails %>
+	 	</div>
 	</div>
 </div>

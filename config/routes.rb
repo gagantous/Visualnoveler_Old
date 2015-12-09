@@ -29,15 +29,17 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'vn'
+    get 'vn_featured'
+    get 'vn_not_featured'
     get 'genre'
     get 'developer'
     get 'users'
     get 'character'
     get 'lonely_character'
+    post 'delete_lonely_character'
     get 'screenshot'
     get 'review'
     get 'franchise'
-    post 'delete_lonely_character'
   end
 
   resources :vns do

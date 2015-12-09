@@ -1,5 +1,9 @@
 <% title @vn.name + " Character Listings" %>
+<% if !@characters.first.blank? %>
 <% description "Details of characters in #{@vn.name} such as #{@characters.first.name} are listed in Visualnoveler. Come join us to start tracking and discovering new visual novels!" %>
+<% else %>
+<% description "Details of characters in #{@vn.name} are listed in Visualnoveler. Come join us to start tracking and discovering new visual novels!" %>
+<% end %>
 <div class="vncharacter"><div class="container">
 	<div class="row">
 		<div class="col-md-9">

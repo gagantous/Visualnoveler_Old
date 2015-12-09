@@ -18,7 +18,7 @@ class DevelopersController < ApplicationController
  	 end
 
 	def all
-		@developers = Developer.all
+		@developers = Developer.all.paginate(:page => params[:page], :per_page => 50)
 	end
 
 	def search
