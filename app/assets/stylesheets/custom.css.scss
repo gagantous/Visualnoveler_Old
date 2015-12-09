@@ -108,6 +108,11 @@
 // tablets and mobile
 
 @media (max-width: 1196px) {
+   .vn-score{
+    padding-left: 25px;
+    font-size: 1.2em;
+  }
+
   .vn-thumbnail{
     max-width: 100%;
     height: auto;
@@ -147,6 +152,7 @@
 
   .vnpage-charname {
     font-size: 1.3em;
+    padding-left: 10px;
   }
 
    .adjustcharacter {
@@ -180,6 +186,11 @@
 }
 //desktops and above
 @media (min-width: 1200px) { 
+
+  .vn-score{
+    padding-left: 50px;
+    font-size: 1.2em;
+  }
   .vn-thumbnail {
     width: 220px;
     height: 140px; 
@@ -778,10 +789,7 @@ textarea {
   height: 167px;
 }
 //vn page
-.vn-score{
-  padding-left: 50px;
-  font-size: 1.2em;
-}
+
 
 .vn-postdate{
     color: rgba(0,39,59,.35);   
