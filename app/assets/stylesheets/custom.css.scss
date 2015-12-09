@@ -108,6 +108,11 @@
 // tablets and mobile
 
 @media (max-width: 1196px) {
+
+  .vn-characterbottompadding {
+    padding-bottom: 20px;
+    padding-left: 30px;
+  }
    .vn-score{
     padding-left: 25px;
     font-size: 1.2em;
@@ -152,7 +157,6 @@
 
   .vnpage-charname {
     font-size: 1.3em;
-    padding-left: 10px;
   }
 
    .adjustcharacter {
@@ -164,9 +168,6 @@
     height: 93px !important;
   }
 
-  .vn-characterbottompadding {
-    padding-bottom: 20px;
-  }
 
   .related-thumbnail {
      width: 155px;
@@ -186,6 +187,10 @@
 }
 //desktops and above
 @media (min-width: 1200px) { 
+
+  .vn-characterbottompadding {
+    padding-bottom: 20px;
+  }
 
   .vn-score{
     padding-left: 50px;
