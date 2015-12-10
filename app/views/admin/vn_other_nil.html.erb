@@ -4,13 +4,8 @@
 			<div class="panel panel-default">
   			<div class="panel-body">
 		<table class="table">
-			<h2>Visual Novel List</h2>
-			<h4><%= link_to 'Featured VN',  admin_vn_featured_path %>
-				<%= link_to 'Not Featured VN',  admin_vn_not_featured_path,style:"padding-left:35px;" %>
-				<%= link_to 'No SS',  admin_vn_no_screenshot_path,style:"padding-left:35px;" %>
-				<%= link_to 'No Other SS',  admin_vn_other_nil_path,style:"padding-left:35px;" %>
-
-			</h4>
+			<h2>No Other Screenshot</h2>
+			<h4><%= link_to 'Back' ,admin_vn_path %></h4>
 			<thead><tr>
 				<th>Name</th>
 				<th>Edit</th>
@@ -19,12 +14,14 @@
 			</tr></thead>
 			<tbody>
 			<% @vn.each do |vn| %>
+			<% if vn.screenshots.blank? %>
 				<tr>
 				<td><%= link_to vn.name, vn_path(vn) %> </td>
 				<td><%= link_to 'Edit',edit_vn_path(vn) %></td>
 				<td><%= time_ago_in_words(vn.updated_at) %></td>
 				<td><%= vn.isFeatured? ? 'Yes' : 'No' %></td>
 				</tr>
+			<% end %>
 			<% end %>
 			</tbody>
 		</table>

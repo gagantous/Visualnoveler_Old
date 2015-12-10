@@ -19,6 +19,12 @@ class AdminController < ApplicationController
 			user_not_authorized
 		end
 	end
+	def vn_other_nil
+		@vn = Vn.all#.created_between(6.day.ago, Time.now)
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+	end
 
 	def vn_not_featured
 		@vn = Vn.where(isFeatured: false).order("updated_at DESC").all
