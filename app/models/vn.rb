@@ -30,6 +30,7 @@ class Vn < ActiveRecord::Base
   	pg_search_scope :search_by_name, :against => :name,:using => {
                     :tsearch => {:prefix => true}
                   }
+    scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
     extend FriendlyId
     friendly_id :name, use: [:slugged, :finders]
 

@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'vn'
     get 'vn_featured'
     get 'vn_not_featured'
+    get 'vn_no_screenshot'
     get 'genre'
     get 'developer'
     get 'users'
