@@ -1,5 +1,5 @@
 class Vn < ActiveRecord::Base
-	 has_many :character_vns,dependent: :delete_all
+	 has_many :character_vns,dependent: :destroy
 	 has_many :characters, :through => :character_vns
 	#has_many :characters
 	has_many :library_entries, dependent: :destroy
