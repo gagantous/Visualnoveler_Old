@@ -6,7 +6,8 @@
 	<div class="panel panel-default">
   <div class="panel-body">
 <h2 class ="signup">Sign up
-  <a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-primary" style="margin-left:40px;">Login</a> <br></h2>
+   <br></h2>
+<!--    <a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-dropbox" style="margin-left:40px;">Login</a> -->
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -21,7 +22,7 @@
     <%= f.button :submit, "Sign up",:class =>"register-button" %>
   </div>
 <% end %>
-
+<br>
 <%= render "users/shared/links" %>
 
   </div>

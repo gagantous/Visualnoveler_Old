@@ -151,14 +151,24 @@
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
           
-
-
   <div class="login-help">
     <%= f.button :submit, "Log in",:class =>"login loginmodal-submit" %>
-      <%= link_to 'Register', register_path %> - <%= link_to 'Forgot Password',new_user_password_path %>
-         
+      <%= link_to 'Register', register_path,:class =>"links" %> - <%= link_to 'Forgot Password',new_user_password_path,:class =>'links' %>
+      <br><br>
+
+    <ul class="list-inline">
+      <li><%= link_to omniauth_authorize_path(:user,"facebook"),class: 'btn btn-facebook' do %>
+       <span class="fa fa-facebook" style="padding-right:2px;"></span>
+       <%= "Facebook" %>
+      <% end %></li>
+
+      <li><%= link_to omniauth_authorize_path(:user,"google_oauth2"),class: 'btn btn-googleauth' do %>
+     <span class="fa fa-google" style="padding-right:2px;"></span>
+     <%= "Google" %>
+      <% end %> </li>
+    </ul>
   </div>
-<% end %>
+<% end %> <!--end of modal !-->
          
         </div>
       </div>
