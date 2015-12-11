@@ -2,6 +2,7 @@
 <% description "This is a list of the top visual novels in Visualnoveler for you to discover!" %>
 <div class="container-fluid">
 	<div class="row vnindex-row">
+
 		<div class="col-md-12">
 			<h2 class="vnindex-heading">Top Visual Novels</h2>
 		</div>
@@ -29,8 +30,9 @@
 		</div></div>
 	</div>
 	<% end %>
+		<div class="col-md-12">
 	 	<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
-	
+		</div>
 	
 	</div>
 </div>
