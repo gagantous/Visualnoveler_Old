@@ -18,7 +18,7 @@ class VnsController < ApplicationController
 	end
 
 	def top
-		@vn = Vn.order("rating_number DESC NULLS LAST").paginate(:page => params[:page], :per_page => 25)
+		@vn = Vn.order("rating_number DESC NULLS LAST").paginate(:page => params[:page], :per_page => 35)
 		#@vn = Vn.all.where(:isFeatured => true)
 		#offset = rand(Vn.count)
 		@random = Vn.limit(5).order("RANDOM()")
