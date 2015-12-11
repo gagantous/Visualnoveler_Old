@@ -63,7 +63,7 @@
               <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Visual Novels</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li><%= link_to "What's New", vns_path %></li>
-
+                  <li><%= link_to "Top Visual Novels", top_vns_path %></li>
                   <% if user_signed_in? %>
                   <li class="divider"></li>
                   <li class="dropdown-header">My Visual Novels</li>
@@ -123,7 +123,7 @@
        
            <div class="input-append">
            <%= form_tag(search_path, :method => "get", class: "navbar-form", id: "search-form") do %>
-                <%= text_field_tag :search, params[:search], class: "form-control typeahead", placeholder: "Search VN" %>
+                <%= text_field_tag :search, params[:search], class: "form-control typeahead", placeholder: "Search Visual Novels" %>
                 
 
               <%= button_tag(type: "submit", class: "btn btn-primary padding-search") do %>

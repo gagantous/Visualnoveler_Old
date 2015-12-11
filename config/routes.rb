@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     get :crop, on: :member
     get :screenshots, on: :member
     get :simple_create, on: :collection
+    get :top, on: :collection
   end
   # resources :users do
   #   get :watch, on: :member

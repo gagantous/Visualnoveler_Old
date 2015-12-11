@@ -141,27 +141,32 @@
 			 <div class="vn-thumbnail-img">
 			 	<div class="row">
 			 		<div class="col-md-3">
+			 		<% unless @vn.image_1.blank? %>
 			 		<%= link_to @vn.image_1.url, :class => 'fancybox', :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_1.url(:thumb)}",:alt => "screenshot 1", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
-			 		</div>
+			 		</div> <% end %>
 
 			 		<div class="col-md-3">
+			 		<% unless @vn.image_2.blank? %>
 					 <%= link_to @vn.image_2.url, :class => 'fancybox', :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_2.url(:thumb)}",:alt => "screenshot 2", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
-					</div>
+					</div> <% end %>
 
 			 		<div class="col-md-3">
+			 		<% unless @vn.image_3.blank? %>
 					<%= link_to @vn.image_3.url, :class => 'fancybox', :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_3.url(:thumb)}",:alt => "screenshot 3", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
-					</div>
+					</div> <% end %>
+
 			 		<div class="col-md-3">
+			 		<% unless @vn.image_4.blank? %>
 					 <%= link_to @vn.image_4.url, :class => 'fancybox', :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_4.url(:thumb)}",:alt => "screenshot 4", :class=> "vn-thumbnail img-thumbnail") %>
 					 <% end %>
-					</div>
+					</div> <% end %>
 
 				</div>
 			</div>
@@ -240,7 +245,7 @@
 						  <%= will_paginate @recent_reviews, renderer: BootstrapPagination::Rails %>
 					  <% else %>
 					  <h4><i class="fa fa-magic fa-2x" style="color:#000080;"></i> No Reviews</h4>
-					  <p>Nobody has written a review for <b><%= @vn.name %></b> yet. Come and write a review to let the community know of your thoughts!</p>
+					  <p>Nobody has written a review for <b><%= @vn.name %></b> yet. Come and write a review about <%= @vn.name %> to let the community know of your thoughts!</p>
 					  <% end %>
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="messages">
@@ -299,13 +304,15 @@
 <div class="container ">
 	<div class="row otherss-padding">
 		<div class="col-md-12">
-		<h3>Other Screenshots</h3>
-		<% @screenshots.each do |ss| %>
-			<div class="col-md-3">
-			<%= link_to ss.image.url, :class => 'fancybox', :rel =>'ss' do %>
+		<% unless @screenshots.blank? %>
+			<h3>Other Screenshots</h3>
+			<% @screenshots.each do |ss| %>
+				<div class="col-md-3">
+					<%= link_to ss.image.url, :class => 'fancybox', :rel =>'ss' do %>
 						 <%= image_tag(ss.image.url(:thumb),:alt => @vn.name, :class=> "img-thumbnail") %>
 					<% end %>
-		</div>
+				</div>
+			<% end %>
 		<% end %>
 	</div>
 	</div>

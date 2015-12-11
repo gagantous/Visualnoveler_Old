@@ -17,7 +17,7 @@ class GenresController < ApplicationController
  	 end
 
 	def all
-		@genres = Genre.all
+		@genres = Genre.all.order("name ASC")
 	end
 
 	def search
