@@ -1,6 +1,3 @@
-<%- if controller_name != 'sessions' %>
- 	<a href="#" data-toggle="modal" data-target="#login-modal">Login</a> <br>
-<% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to "Sign up", register_path %><br />
@@ -18,8 +15,26 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 
+
 <%- if devise_mapping.omniauthable? %>
+<ul class="list-inline">
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+  	<li>
+   <% if provider.to_s == "facebook" %>
+    <%= link_to omniauth_authorize_path(resource_name, provider),class: 'btn btn-facebook' do %>
+ 		 <span class="fa fa-facebook" style="padding-right:2px;"></span>
+ 		 <%= "#{provider.to_s.titleize}" %>
+    	<% end %>
+    	<br />
+    <% elsif provider.to_s == "google_oauth2" %>
+     <%= link_to omniauth_authorize_path(resource_name, provider),class: 'btn btn-googleauth' do %>
+ 		 <span class="fa fa-google" style="padding-right:2px;"></span>
+ 		 <%= "Google" %>
+    	<% end %>
+    	<br />
+    <% end %>
+
+	</li>
   <% end -%>
+</ul>
 <% end -%>

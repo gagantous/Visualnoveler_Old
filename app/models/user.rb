@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-     :omniauthable, :omniauth_providers => [:facebook]
+     :omniauthable, :omniauth_providers => [:facebook,:google_oauth2]
     validate :image_size
     validates :name, presence: true
     accepts_nested_attributes_for :library_entries

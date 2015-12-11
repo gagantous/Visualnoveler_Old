@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'twitter-typeahead-rails'
+gem 'bootstrap-social-rails'
 gem 'fancybox2-rails', '~> 0.2.8'
 gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
@@ -25,8 +26,10 @@ gem "mini_magick"
 # authentication
 gem 'devise'
 gem "pundit"
+#omniauth
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 #cloud
 gem "fog"
 
