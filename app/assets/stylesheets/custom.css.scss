@@ -91,6 +91,45 @@
 
 // Mobile Phone CSS only
 @media (max-width: 460px) {
+   .emailbutton {
+    position: relative;
+    top: 20px; 
+    left: 60px; 
+  }
+  .home-registerbtn{
+    position: relative;
+    top: 25px;
+    left: 85px;
+  }
+  .home-cta{
+    font-size: 20px !important;
+  }
+  .email-form{
+    padding-top: 5px;
+    padding-left:30px;
+  }
+  .home-signup{
+    color:white;
+    font-weight:bold;
+    font-size:30px;
+    padding-left:5px;
+    padding-bottom:10px;
+  }
+  .content{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: auto;
+    background: white;
+  }
+  .home-emailtext{
+    color:#fff; 
+    font-size:20px;
+    position:relative;
+    left: 30px;
+  }
+
   .vn-reviewdate{
     position: relative;
     top: 20px;
@@ -103,7 +142,7 @@
 
 }
 
-// Tablet size
+// Tablet
 @media (max-width: 1196px) and (min-width:600px) {
   .vn-pull-right {
     float: right !important;
@@ -111,10 +150,11 @@
   }
 }
 
-// tablets and mobile
+// Mobile and Tablet
 
 @media (max-width: 1196px) {
 
+  //VN Show page
   .vn-characterbottompadding {
     padding-bottom: 20px;
     padding-left: 30px;
@@ -191,9 +231,9 @@
   }
 
 }
-//desktops and above
+//Desktop
 @media (min-width: 1200px) { 
-
+  //VN Show page
   .vn-characterbottompadding {
     padding-bottom: 20px;
   }
@@ -259,6 +299,37 @@
      padding-left: 90px;
   }
 }
+// Tablet + Desktop
+@media (min-width: 460px) {
+  .email-form{
+    padding-top: 5px;
+    padding-left:70px;
+  }
+  .emailbutton {
+
+  }
+  .home-emailtext{
+    color:#fff; 
+    font-size:20px;
+    position:relative;
+    right:25px;
+  }
+  .home-signup{
+    color:white;
+    font-weight:bold;
+    font-size:30px;
+    padding-left:55px;
+    padding-bottom:10px;
+  }
+  .content{
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        left: 0;
+        height: auto;
+        background: white;
+  }
+}
 
 
 .removepadding {
@@ -276,6 +347,30 @@
 .library-list {
   margin-right: 45px !important;
 }
+
+.landing-button {
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+}
+
+.landing-button:hover {
+   opacity: 0.6;
+   color: black;
+}
+
+.ghost-button-white{
+    font-size: 16px;
+    color: white;
+    padding: 10px 22px 10px 22px !important;
+    background: transparent;
+    border: 1px solid #fff;
+}
+
 .ghost-button {
   color: #6C8CD8;
   background: #fff;
@@ -331,7 +426,7 @@
 
 // VN column in index VN page
  .vnindex-row {
-    margin-left: 85px !important;
+    margin-left: 100px !important;
   }
 
 .vn-column{
@@ -527,11 +622,8 @@ body {
 .logotitle{
   color: black;
 }
-.navLogoPos {
-  // position: absolute;
-  // bottom: 120px;
 
-}
+
 .formthumbnail {
   width: 200px;
   height: auto;
@@ -553,12 +645,74 @@ body {
   height: 160px !important;
 }
 
-.default-text{
+.wrapper{
+  min-height: 100%;
+  min-width: 1024px;
+  
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
 
+}
+
+.landingimg{
+  background-repeat: no-repeat;
+background-position: center center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.navLogo {
+  font-size: 2em;
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
+  //font-weight: bold;
+  color: #3EA9F5;
+}
+
+.landing-navitems{
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    background-color: transparent !important;
+   font-weight: 400;
+   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.landing-navitems:hover{
+   background-color: transparent !important;
+   opacity: 0.6;
+   color: white;
+}
+
+.navLogo-home {
+  font-size: 1.65em;
+  font-weight: 400;
+  color: white;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.display-landingpage{
+  z-index: 1;
+  position: absolute;
+}
+.default-text{
     font-weight: 400;
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.default-font {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+}
 
 .summary-text {
   white-space: pre-wrap;
@@ -684,45 +838,14 @@ textarea {
 	font-family: "klavika", Helvetica, Arial, sans-serif;
 
 }
-.navLogo {
-	font-size: 2em;
-	font-family: 'Poiret One', cursive;
-  font-weight: bold;
-	//font-weight: bold;
-	color: #3EA9F5;
-	
 
-}
+
+
 
 .emailaddress{ 
-  width: 260px;
-  height: 43px;
-  border-radius: 5px;
-  text-align: center;
-  margin: 0 auto;
-
+  width: 230px;
 }
 
-.emailbutton {
-  top: 45px;
-  left: 100px;
-}
-
-.calltoaction {
-
-  font-family: Arial,sans-serif;
-  font-size:35px;
-  color:#DDCCEE;
-}
-
-
-//homepage
-.v-center {
-  margin-top:17.8%;
-}
-.v-center1 {
-  margin-top:18.8%;
-}
 
 
 .user-add-time{
