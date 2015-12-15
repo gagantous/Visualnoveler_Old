@@ -11,6 +11,7 @@ SitemapGenerator::Sitemap.create do
   add '/vns'
   add '/vns/top'
   add '/vns/translated'
+  add '/vns/walkthroughs'
   add '/genres/all'
   add '/developers/all'
 

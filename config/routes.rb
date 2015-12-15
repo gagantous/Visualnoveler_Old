@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     get :simple_create, on: :collection
     get :top, on: :collection
     get :translated, on: :collection
+    get :walkthroughs, on: :collection
   end
   # resources :users do
   #   get :watch, on: :member
