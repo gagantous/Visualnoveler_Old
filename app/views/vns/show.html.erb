@@ -208,17 +208,16 @@
 
 <div class="container">
 	<div class="row">
+		<% unless @franchise.blank? %>
 		<div class="col-md-6 col-xs-12">
-			<% unless @franchise.blank? %>
-
 			<h3> Related </h3>
 			<% @franchise.vns.each do |vn| %>
 				<% if @vn != vn %>
 				 <%= link_to image_tag(vn.image_poster_url,:alt => vn.name, :class=> "related-thumbnail",:style =>"float:left;"), vn_path(vn)	 %>
 				<% end %>
 			<% end %>
-			<% end %>
 		</div>
+		<% end %>
 		<div class="col-md-6 col-xs-12">
 			<% unless @vn.route_url.blank? %>
 				<h3>Character Route Walkthroughs</h3>
