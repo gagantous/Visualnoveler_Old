@@ -13,6 +13,7 @@ gem 'bootstrap-social-rails'
 gem 'fancybox2-rails', '~> 0.2.8'
 gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
+gem 'enum_help'
 gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 gem 'sdoc', '~> 0.4.0',          group: :doc

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get :all, on: :collection
   end
   resources :franchises
+  resources :contests
   resources :developers do
     get :search, on: :collection
     get :all, on: :collection
@@ -54,6 +55,7 @@ Rails.application.routes.draw do
     get :screenshots, on: :member
     get :simple_create, on: :collection
     get :top, on: :collection
+    get :translated, on: :collection
   end
   # resources :users do
   #   get :watch, on: :member

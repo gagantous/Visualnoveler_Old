@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+  			<div class="panel-body">
+		<table class="table">
+			<h2>Character List 
+       			 
+			</h2>
+			<thead><tr>
+				<th>Image</th>
+				<th>Name</th>
+				<th>Visual Novel</th>
+				<th>Edit</th>
+				<th>Last updated</th>
+			</tr></thead>
+			<tbody>
+			<% @character.each do |character| %>
+				<tr>
+				<td><%= image_tag(character.img_string.url,:style =>"height:60px;width:50px;") %></td>
+				<td><h5><%= character.name %></h5></td>
+				<% if !character.vns.blank? %>
+				<td><%= character.vns.first.name%></td>
+				<% else %>
+				<td>Empty</td>
+				<% end %>
+				<td><%= link_to 'Edit',edit_character_path(character) %></td>
+				<td><%= time_ago_in_words(character.updated_at) %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+			</div></div>
+		</div>
+	</div>
+</div>

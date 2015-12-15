@@ -10,6 +10,7 @@ SitemapGenerator::Sitemap.create do
   add '/developers'
   add '/vns'
   add '/vns/top'
+  add '/vns/translated'
   add '/genres/all'
   add '/developers/all'
 

@@ -26,17 +26,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href=<%= vns_path %>><span class="navLogo">Visualnoveler</span></a>
-        </div>
-      <div id="navbar" class="navbar-collapse collapse">
-
-          <% if user_signed_in? %>
+              <% if user_signed_in? %>
           <% if current_user.admin? || current_user.mod? %> 
          <ul class ="nav navbar-nav">
-            <li class="dropdown logotitle-dropdown nav-padding">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Admin</span> <b class="caret"></b></a>
+            <li class="dropdown logotitle-dropdown">
+             
+          <a class="navbar-brand" data-toggle="dropdown" class="dropdown-toggle" href=<%= vns_path %>><span class="navLogo">Visualnoveler</span></a>
               <ul class="dropdown-menu">
                   <li class="dropdown-header">Dashboard</li>
+                  <li><%= link_to "Home", vns_path %></li>
                   <li><%= link_to "Visual Novel listings", admin_vn_path %></li>
                   <li><%= link_to "Character listings", admin_character_path %></li>
                   <li><%= link_to "Developer listings", admin_developer_path %></li>
@@ -56,14 +54,25 @@
               </ul>
            </li>
          </ul> 
-         <% end %> <% end %>
+
+         <% else %>
+         <a class="navbar-brand" href=<%= vns_path %>><span class="navLogo">Visualnoveler</span></a>
+         <% end %> 
+
+         <% else %>
+             <a class="navbar-brand" href=<%= vns_path %>><span class="navLogo">Visualnoveler</span></a>
+         <% end %>
+
+        </div>
+      <div id="navbar" class="navbar-collapse collapse">
 
          <ul class ="nav navbar-nav">
-            <li class="dropdown logotitle-dropdown nav-padding">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Visual Novels</span> <b class="caret"></b></a>
+            <li class="dropdown logotitle-dropdown ">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle button-nav"><span class="logotitle">Visual Novels</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li><%= link_to "What's New", vns_path %></li>
                   <li><%= link_to "Top Visual Novels", top_vns_path %></li>
+                  <li><%= link_to "Translated Visual Novels", translated_vns_path %></li>
                   <% if user_signed_in? %>
                   <li class="divider"></li>
                   <li class="dropdown-header">My Visual Novels</li>
@@ -75,8 +84,8 @@
               </ul>
             </li>
 
-            <li class="dropdown logotitle-dropdown nav-padding">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle">Discover</span> <b class="caret"></b></a>
+            <li class="dropdown logotitle-dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle button-nav"><span class="logotitle">Discover</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                   <li><%= link_to 'Genres', genres_path  %></li>
                   <li><%= link_to 'Developer',developers_path %></li>
@@ -87,16 +96,24 @@
               </ul>
             </li>
 
-            <li class="logotitle-dropdown nav-padding">
-             <a href=<%= pages_about_path %> class="navbar-brand"><span class="logotitle">About</span> </a>
+            <li class="dropdown logotitle-dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle button-nav"><span class="logotitle">Contests</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><%= link_to 'View Contests', contests_path  %></li>
+                  <li><%= link_to 'Create Contests',new_contest_path %></li>
+              </ul>
+            </li>
+
+            <li class="logotitle-dropdown">
+             <a href=<%= pages_about_path %> class="button-nav"><span class="logotitle">About</span> </a>
            </li>
 
             <% if !user_signed_in? %>
-            <li class ="logotitle-dropdown nav-padding">
-               <a href="#" class="navbar-brand" data-toggle="modal" data-target="#login-modal"><span class="logotitle">Login</span> </a>
-         
-               <a href=<%= register_path %> class="navbar-brand"><span class="logotitle">Register</span> </a>
-
+            <li class ="logotitle-dropdown">
+               <a href="#" class="button-nav" data-toggle="modal" data-target="#login-modal"><span class="logotitle">Login</span> </a>
+            </li>
+            <li class ="logotitle-dropdown">
+               <a href=<%= register_path %> class="button-nav"><span class="logotitle">Register</span> </a>
             </li>
             <% end %>
          </ul>
@@ -122,7 +139,7 @@
           <% end %>
        
            <div class="input-append">
-           <%= form_tag(search_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+           <%= form_tag(search_path, :method => "get", class: "navbar-form", id: "search-form" ) do %>
                 <%= text_field_tag :search, params[:search], class: "form-control typeahead", placeholder: "Search Visual Novels" %>
                 
 

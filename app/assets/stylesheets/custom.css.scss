@@ -262,7 +262,7 @@
 
   .vn-youtube {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     opacity: 0.9;
     /* bring your own prefixes */
@@ -583,6 +583,10 @@
 
 // End of Login Container
 
+.vn-walkthroughimg{
+  width: 80%;
+  height: auto;
+}
 .register-button{
 
   background-color: #4d90fe;
@@ -615,12 +619,18 @@ body {
   
   margin-bottom: 0px;
 }
+
+.button-nav{
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
 .logotitle-dropdown{
   padding-top: 5px;
 }
 
 .logotitle{
-  color: black;
+  color: black; 
+  font-size: 1.15em;
 }
 
 
@@ -670,7 +680,7 @@ background-size: cover;
 }
 
 .navLogo {
-  font-size: 2em;
+  font-size: 1.7em;
   font-family: 'Poiret One', cursive;
   font-weight: bold;
   //font-weight: bold;
