@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     get :all, on: :collection
   end
   resources :franchises
-  resources :contests
+  resources :contests do
+    get :nominate, on: :member
+  end
   resources :developers do
     get :search, on: :collection
     get :all, on: :collection

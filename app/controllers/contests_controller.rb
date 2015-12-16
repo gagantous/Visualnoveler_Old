@@ -2,6 +2,7 @@ class ContestsController < ApplicationController
 
 	def show
 		@contest = Contest.find(params[:id])
+		@characters = @contest.contest_characters
 	end
 
 	def new
@@ -9,6 +10,11 @@ class ContestsController < ApplicationController
 	end
 	def index
 		@contests = Contest.all
+	end
+
+	def nominate
+		@contest = Contest.find(params[:id])
+		@character = @contest.contest_characters.build
 	end
 
 	def edit
@@ -37,7 +43,6 @@ class ContestsController < ApplicationController
 
 	def update
 		@contest = Contest.find(params[:id])
-		authorize @contest
 		if @contest.update(char_params)
 			flash[:success] = "Your Contest was updated successfully!"
 			redirect_to contest_path(@contest)
@@ -48,7 +53,7 @@ class ContestsController < ApplicationController
 
 	private
 		def char_params
-			params.require(:contest).permit(:name, :details,{ :Contest_ids => [] })
+			params.require(:contest).permit(:name,{ contest_characters_attributes: [:id,:_destroy,:name,:details,:image,:image_crop_x,:image_crop_y, :image_crop_w, :image_crop_h,:remote_image_url,] },:details,{ :contest_characters_ids => [] })
 		end
 
 end

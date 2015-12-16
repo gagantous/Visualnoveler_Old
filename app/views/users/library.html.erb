@@ -2,101 +2,118 @@
 
 <div class="container">
 <div class="row">
-	<div class="col-md-8">
-	  <div class="panel panel-default">
-	  <div class="panel-body">
-	  <h3> Visual Novel Library</h3>     
-	  <ul class="nav nav-tabs">
-		<li class="active"><a data-toggle="tab" href="#home">All</a></li>
-		<li><a data-toggle="tab" href="#watch">Watching</a></li>
-		<li><a data-toggle="tab" href="#complete">Completed</a></li>
-		<li><a data-toggle="tab" href="#wishlist">Wishlist</a></li>
-		<li><a data-toggle="tab" href="#favourite">Favourites</a></li>
-		<li><a data-toggle="tab" href="#drop">Dropped</a></li>
+	<div class="col-md-9">
+    <div class="panel panel-default">
+  <div class="panel-body">
+  	<h3 style="margin-top:10px;margin-bottom:25px;">Visual Novel Library</h3>
+	  <ul class="nav nav-pills">
+		<li class="active"><a data-toggle="tab" class="nav-library" href="#home">All</a></li>
+		<li><a data-toggle="tab" href="#watch" class="nav-library">Watching</a></li>
+		<li><a data-toggle="tab" href="#complete" class="nav-library">Completed</a></li>
+		<li><a data-toggle="tab" href="#wishlist" class="nav-library">Wishlist</a></li>
+		<li><a data-toggle="tab" href="#favourite" class="nav-library">Favourites</a></li>
+		<li><a data-toggle="tab" href="#drop" class="nav-library">Dropped</a></li>
 	  </ul>
 
 	<div class="tab-content">
 	  <div id="home" class="tab-pane fade in active">
 		  	<table class="table table-hover">
 		    <thead>
-		      <tr>
+		      	<th>#</th>
 		        <th>Visual Novel Title</th>
 		        <th>Rating</th>
 		        <th>Status</th>
 		        <th>Favourite</th>
-		      </tr>
+		  
 		    </thead>
-	      <%= render :partial => 'library', :collection => @lib  %>
+		    <tbody>
+	     	 <%= render :partial => 'library', :collection => @lib  %>
+	  		</tbody>
 	      </table>
 	  </div>
 	  <div id="watch" class="tab-pane fade">
 	 		<table class="table table-hover">
 		    <thead>
 		      <tr>
+		      	<th>#</th>
 		        <th>Visual Novel Title</th>
 		        <th>Rating</th>
 		        <th>Status</th>
 		        <th>Favourite</th>
 		      </tr>
 		    </thead>
+		    <tbody>
 	      <%= render :partial => 'library', :collection => @lib_watched  %>
+		    </tbody>
 	      </table>
 	  </div>
 	  <div id="complete" class="tab-pane fade">
 	    	<table class="table table-hover">
 		    <thead>
 		      <tr>
+		      	<th>#</th>
 		        <th>Visual Novel Title</th>
 		        <th>Rating</th>
 		        <th>Status</th>
 		        <th>Favourite</th>
 		      </tr>
 		    </thead>
-	      <%= render :partial => 'library', :collection => @lib_completed  %>
+
+		    <tbody>
+	     	 <%= render :partial => 'library', :collection => @lib_completed  %>
+	  		</tbody>
 	      </table>
 	  </div>
 	  <div id="wishlist" class="tab-pane fade">
 	  	<table class="table table-hover">
 		    <thead>
 		      <tr>
+		      	<th>#</th>
 		        <th>Visual Novel Title</th>
 		        <th>Rating</th>
 		        <th>Status</th>
 		        <th>Favourite</th>
 		      </tr>
 		    </thead>
-	      <%= render :partial => 'library', :collection => @lib_wishlist  %>
+		    <tbody>
+	      	<%= render :partial => 'library', :collection => @lib_wishlist  %>
+	      </tbody>
 	      </table>
 	  </div>
 	  <div id="favourite" class="tab-pane fade">
 	  	<table class="table table-hover">
 		    <thead>
 		      <tr>
+		      	<th>#</th>
 		        <th>Visual Novel Title</th>
 		        <th>Rating</th>
 		        <th>Status</th>
 		        <th>Favourite</th>
 		      </tr>
 		    </thead>
-	      <%= render :partial => 'library', :collection => @lib_fav  %>
+		   <tbody>
+	     	 <%= render :partial => 'library', :collection => @lib_fav  %>
+	     	</tbody>
 	      </table>
 	  </div>
 	  <div id="drop" class="tab-pane fade">
 	  	<table class="table table-hover">
 		    <thead>
 		      <tr>
+		      	<th>#</th>
 		        <th>Visual Novel Title</th>
 		        <th>Rating</th>
 		        <th>Status</th>
 		        <th>Favourite</th>
 		      </tr>
 		    </thead>
-	      <%= render :partial => 'library', :collection => @lib_dropped  %>
+		   <tbody>
+	      	<%= render :partial => 'library', :collection => @lib_dropped  %>
+	      	</tbody>
 	      </table>
 	  </div>
 
 	</div>    
-	  
+	  </div></div>
 	 </div>
-</div></div>
 </div></div>

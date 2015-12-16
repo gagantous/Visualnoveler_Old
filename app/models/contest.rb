@@ -1,3 +1,4 @@
 class Contest < ActiveRecord::Base
-	has_many :characters
+	has_many :contest_characters
+ 	accepts_nested_attributes_for :contest_characters
 end

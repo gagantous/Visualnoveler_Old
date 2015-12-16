@@ -8,7 +8,7 @@
 		<div class="row">
 		<div class="col-lg-8">
 		  <%= f.input :details,input_html: {:rows => 10} %>
-		 </div>
+		 </div>	
 		</div>
 		
 		<div class="row">
@@ -20,6 +20,9 @@
 		</div>
 
 		<% end %>
+		 <%= link_to vn_review_path(@review.vn,@review),:method=>:delete,:style =>"margin-top:50px;",:class =>"btn btn-danger",data:{ disable_with: "Deleting Review...."} do %>
+			 	<i class="fa fa-trash-o" style="padding-right:10px;"></i>Destroy Review
+				<% end %>
 
 
 	</div>

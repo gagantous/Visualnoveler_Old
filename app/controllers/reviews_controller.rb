@@ -15,6 +15,17 @@ class ReviewsController < ApplicationController
 		
 	end
 
+
+	def destroy
+		@review = Review.find(params[:id])
+		authorize @review
+	  	if @review.destroy
+	 		flash[:success] = "Review deleted!"
+	 		redirect_to admin_review_path
+	    end
+
+	end
+
 	def edit
 		@review = Review.find(params[:id])
 		authorize @review

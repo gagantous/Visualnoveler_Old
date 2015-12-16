@@ -1,10 +1,26 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<%= @contest.name %>
+			<h2><%= @contest.name %></h2>
+			<%= link_to 'Edit Contest',edit_contest_path(@contest) %>
+			 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= link_to 'Nominate Item',nominate_contest_path(@contest) %>
 		</div>
 		<div class="col-md-12">
-			<%= @contest.details %>
+			<p><%= @contest.details %></p>
 		</div>
+			<h3>Participants</h3>
+		
+		<% @characters.each do |character| %>
+		<div class="row">
+			<div class="col-md-4">
+				<%= character.name %>
+				<%= link_to 'some item','' %>
+				<%= image_tag(character.image_url,class:"img-responsive",:style =>"width:200px;height:auto;max-height:200px;") %>
+			</div>
+			<div class="col-md-4">
+				<%= character.details %>
+			</div>
+		</div>
+		<% end %>
 	</div>
 </div>

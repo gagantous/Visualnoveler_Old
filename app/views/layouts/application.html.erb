@@ -96,7 +96,8 @@
                   <li><%= link_to 'All Developers',all_developers_path %></li>
               </ul>
             </li>
-
+             <% if user_signed_in? %>
+          <% if current_user.admin? || current_user.mod? %> 
             <li class="dropdown logotitle-dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle button-nav"><span class="logotitle">Contests</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -104,6 +105,7 @@
                   <li><%= link_to 'Create Contests',new_contest_path %></li>
               </ul>
             </li>
+            <% end %> <% end %>
 
             <li class="logotitle-dropdown">
              <a href=<%= pages_about_path %> class="button-nav"><span class="logotitle">About</span> </a>
