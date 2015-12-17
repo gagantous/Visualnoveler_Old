@@ -9,7 +9,7 @@ module UsersHelper
 		elsif text == "wishlist"
 			return "Wishlist"
 		else
-			return "Not set yet"
+			return "None"
 		end
 
 	end

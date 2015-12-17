@@ -6,6 +6,7 @@ SitemapGenerator::Sitemap.create do
 
   add '/pages/about'
   add '/pages/help'
+  add '/pages/resources'
   add '/genres'
   add '/developers'
   add '/vns'
