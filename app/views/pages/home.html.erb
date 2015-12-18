@@ -12,6 +12,7 @@
         </div>
             
          <div class="col-md-9 col-md-offset-4 col-xs-12"style="padding-top:100px;">
+           <% unless user_signed_in? %>
           <h2 class="home-signup">Sign up for the Beta</h2>
          
           <ul class="list-inline" style="padding-left:10px;">
@@ -30,6 +31,7 @@
             <% end %>
           </ul>
 
+          <% end %>
          </div>
 
          

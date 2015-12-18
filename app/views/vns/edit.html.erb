@@ -1,6 +1,5 @@
 <% title "Edit #{@vn.name}" %>
 
-
 <div class="container">
 
 	<%= simple_form_for @vn, html: { multipart: true }  do |f| %>
@@ -21,16 +20,31 @@
 			<%= f.input :route_url,input_html: {style: "width:250px;"} %> 
 		</div>
 
-		
-
 		  <div class="col-lg-2">
 		  <%= f.input :rating_number,input_html: {style: "width:100px;"} %>
 		</div>
 		<div class="col-lg-2">
 		  <%= f.input :release_date,input_html: {style: "width:150px;"} %>
 		</div>
-		<div class="col-lg-4">
+		<div class="col-lg-2">
 		  <%= f.input :trailer_url %>
+		</div>
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="col-lg-3">
+					<%= f.input :buy_1 %>
+				</div>
+
+				<div class="col-lg-3">
+					<%= f.input :buy_2 %>
+				</div>
+				<div class="col-lg-3">
+					<%= f.input :buy_3 %>
+				</div>
+				<div class="col-lg-3">
+					<%= f.input :buy_4 %>
+				</div>
+			</div>
 		</div>
 		<div class="col-lg-12">
 			

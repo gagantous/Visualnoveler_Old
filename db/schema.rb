@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215101122) do
+ActiveRecord::Schema.define(version: 20151218104432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,6 +213,10 @@ ActiveRecord::Schema.define(version: 20151215101122) do
     t.integer  "franchise_id"
     t.integer  "status",          default: 0
     t.string   "route_url"
+    t.string   "buy_1"
+    t.string   "buy_2"
+    t.string   "buy_3"
+    t.string   "buy_4"
   end
 
   add_index "vns", ["developer_id"], name: "index_vns_on_developer_id", using: :btree

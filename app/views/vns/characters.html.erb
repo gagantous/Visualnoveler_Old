@@ -6,9 +6,13 @@
 <% end %>
 <div class="vncharacter"><div class="container">
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-md-11">
 			<div class="row">
 				<div class="panel panel-default"> <div class="panel-body">
+					<% if @characters.blank? %>
+						<h3>We don't have any character details for <%= @vn.name%> </h3>
+						<p>There are no characters pages for <%=@vn.name%> yet. Check back next time or help to contribute to the page!</p>
+					<% end %>
 					<% @characters.each do |char| %>
 					<a name=<%= char.name.delete(' ')%>></a>
 

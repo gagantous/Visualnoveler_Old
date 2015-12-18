@@ -32,8 +32,10 @@
               <li><%= link_to 'Blog', 'http://blog.visualnoveler.com' ,:class=>"landing-navitems" %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to 'Login', '#', :class =>"ghost-button-white landing-button default-font", style:"margin-right:10px;", 'data-toggle' =>"modal", 'data-target'=>"#login-modal" %></li>
-              <li><%= link_to 'Register', register_path, :class =>"ghost-button-white landing-button default-font" ,:style =>"margin-left:10px;" %></li>
+              <% unless user_signed_in? %>
+                <li><%= link_to 'Login', '#', :class =>"ghost-button-white landing-button default-font", style:"margin-right:10px;", 'data-toggle' =>"modal", 'data-target'=>"#login-modal" %></li>
+                <li><%= link_to 'Register', register_path, :class =>"ghost-button-white landing-button default-font" ,:style =>"margin-left:10px;" %></li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

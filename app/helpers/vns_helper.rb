@@ -16,7 +16,19 @@ module VnsHelper
 			text = '<span class="vn-recommendtext summarytext">Not Recommended</span>'
 			return '<i class="fa fa-frown-o fa-3x" style="color:#F64747;padding-right:5px;"></i>'.html_safe + text.html_safe
 		end
-	
+	end
+
+	def get_purchase_location(url)
+		if url.blank?
+			return
+		end
+		if url.include?("steampowered")
+			link_to(url,:rel =>"nofollow",:target =>"_blank") do
+				'<i class="fa fa-steam-square vn-purchaseicon" style="font-size:1.9em;color:black;"></i>'.html_safe
+			end			
+		elsif url.include?("mangagamer")
+			return link_to(image_tag("mg_logo.png",alt:"mangagamer logo",style:"position:relative;bottom:6px;padding-left:15px;"),url,:rel => "nofollow",:target =>"_blank").html_safe
+		end
 	end
 
 	def rate_vn(rating)
