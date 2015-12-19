@@ -855,7 +855,11 @@ background-size: cover;
   // width: 600px;
 }
 
-
+.vn-reviewdetails img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 h2{
 
