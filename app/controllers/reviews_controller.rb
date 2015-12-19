@@ -6,7 +6,8 @@ class ReviewsController < ApplicationController
 	end
 
 	def new
-		@review = Review.new
+		@vn = Vn.find(params[:vn_id])
+		@review = @vn.reviews.build
 		#authorize @review
 	end
 
@@ -35,7 +36,7 @@ class ReviewsController < ApplicationController
     	@review = Review.new(review_params)  
     	@review.user_id = params[:review][:user_id]
     	if @review.save
-    		redirect_to vn_path(@review)
+    		redirect_to vn_path(params[:vn_id])
     		flash[:success] = "Review successfully created!"
     	else
     		render :action=>"new"

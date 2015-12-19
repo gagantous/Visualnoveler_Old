@@ -24,10 +24,10 @@ module VnsHelper
 		end
 		if url.include?("steampowered")
 			link_to(url,:rel =>"nofollow",:target =>"_blank") do
-				'<i class="fa fa-steam-square vn-purchaseicon" style="font-size:1.9em;color:black;"></i>'.html_safe
+				'<i class="fa fa-steam-square vn-purchaseicon" style="font-size:1.9em;color:black;position:relative;top:3px;"></i>'.html_safe
 			end			
 		elsif url.include?("mangagamer")
-			return link_to(image_tag("mg_logo.png",alt:"mangagamer logo",style:"position:relative;bottom:6px;padding-left:15px;"),url,:rel => "nofollow",:target =>"_blank").html_safe
+			return link_to(image_tag("mg_logo.png",alt:"mangagamer logo",style:"position:relative;bottom:1px;padding-left:15px;"),url,:rel => "nofollow",:target =>"_blank").html_safe
 		end
 	end
 

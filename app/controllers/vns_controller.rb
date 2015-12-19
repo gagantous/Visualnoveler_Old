@@ -6,9 +6,9 @@ class VnsController < ApplicationController
 		@showcharacters = @vn.characters.all
 		@franchise = @vn.franchise
 		@screenshots = @vn.screenshots
-		@recent_reviews = @vn.reviews.all.paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
-		@positive_reviews = @vn.reviews.where("rating > ?",5).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
-		@negative_reviews = @vn.reviews.where("rating < ?",5).paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
+		@recent_reviews = @vn.reviews.all.paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
+		@positive_reviews = @vn.reviews.where("rating > ?",5).paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
+		@negative_reviews = @vn.reviews.where("rating < ?",5).paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
 		@vn.reviews.build
 	end
 

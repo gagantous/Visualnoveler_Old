@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row">
+		<div class="panel panel-default"><div class="panel-body">
+	<h2 style="padding-bottom:10px;">&nbsp;&nbsp;<%= @review.user.name %>'s review of <%= @review.vn.name %></h2>
+
+		<div class="col-md-2 col-sm-2 col-xs-12">
+			<%= link_to image_tag(@review.user.poster_image.url,class: "img-responsive vn-reviewposter"),user_path(@review.user) %>
+			<div class="text-center review-username">
+				<%= link_to @review.user.name,user_path(@review.user),class: "vn-reviewtext summary-text review-username" %>
+			</div>
+		</div>
+		
+		<div class="col-md-10 col-sm-10 col-xs-12">
+			<%= get_review_icon(@review.rating) %>
+			<span class="vn-review-postdate vn-ratingdiv">Score: <%= @review.rating%></span>
+			<div class="vn-reviewdate pull-right">
+				<span class="vn-review-postdate "><%= time_ago_in_words(@review.created_at) %></span>
+			</div>
+			<div class="vn-reviewdetails">
+				<%= markdown(@review.details) %>
+			</div>
+			<% if user_signed_in? %>
+				<% if current_user.id == @review.user_id %>
+					<%= link_to 'Edit Review',edit_vn_review_path(@review.vn,@review),class: "btn blue-button" %>
+				<% end %> 
+			<% end %>
+		</div>
+
+	</div></div>
+	</div>
+</div>

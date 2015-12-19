@@ -1,5 +1,16 @@
  <% title @vn.name %>
 <% description (@vn.name + " - " + @vn.summary.first(150)) %>
+
+<% if @vn.image_coverpage.blank? %>
+	<% if user_signed_in?  %>
+			<% if current_user.admin? || current_user.mod? %>
+			<div class="container">
+			<%= link_to 'Crop',crop_vn_path,:class =>"btn blue-button text-center",:style =>"text-decoration:none;" %>
+			<%= link_to 'Add Screenshots',screenshots_vn_path,:class =>"btn blue-button text-center",:style =>"text-decoration:none" %>
+			<% end %>
+			</div>
+	<% end %>
+<% else %>
 <div class="container-fluid">
 	<div class="row">
 	
@@ -13,6 +24,7 @@
 		</div>
 	</div>
 </div>
+<% end %>
 
 <section id="vn-item">
 <div class="container vn-show-padding">
@@ -277,23 +289,27 @@
 			    <%= simple_form_for @vn do |f| %>
 			     <%= f.simple_fields_for :reviews,@vn.reviews.build do |r| %>
 			     	<div class="row">
-			     	<div class="col-md-2">
-			     		<div class="vn-review-userposter">
-			     			<%= display_avatar(current_user,"img-responsive") %>
-			     		</div>
-			     	</div>
-			     	<div class="col-md-10">
-			     	<%= r.input :details, :as => :text, required: true,input_html: {:rows => 10 ,:style => "resize:vertical;"} %>
-			     	</div>
-			     	<div class="col-md-10 col-md-offset-2">
-			     		<%= r.input :rating,:as => :radio_buttons, collection: 0..10,item_wrapper_class: "radiobox-inline",:label_html => {:class =>"radio-ratinglabel"},:required => false %>
-			     		 <%= f.button :submit , class: "btn btn-success pull-right vn-reviewbutton",data:{ disable_with: "Posting.."} %>
-						<%= r.hidden_field :user_id,value: current_user.id %>
-			     	</div>
+				     	<div class="col-md-2">
+				     		<div class="vn-review-userposter">
+				     			<%= display_avatar(current_user,"img-responsive") %>
+				     		</div>
+				     	</div>
+				     	<div class="col-md-10">
+				     	<%= r.input :details, :as => :text, required: true,input_html: {:rows => 10 ,:style => "resize:vertical;"} %>
+				     	</div>
+				     	<div class="col-md-10 col-md-offset-2">
+				     		<%= r.input :rating,collection: 0..10,input_html:{style:"width:120px;"},:selected => 5,:required => false %>
+				     		 <%= f.button :submit ,"Submit Review", class: "btn btn-success pull-right vn-reviewbutton",data:{ disable_with: "Posting.."} %>
+				     		 <%= link_to "Write a full Review",new_vn_review_path(@vn),class: "btn blue-button pull-right vn-fullbutton" %>
+							<%= r.hidden_field :user_id,value: current_user.id %>
+				     	</div>
 			     	</div>
 			     <% end %>
 			    <% end %>
 			    </div>
+			    <!-- if not logged in, tell them to login !-->
+			    <% else %>
+			    	<h4> You have to be logged in to be able to write a review for <%= @vn.name %>.</h4>
 			    <% end %>
 
 

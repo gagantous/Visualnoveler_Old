@@ -958,13 +958,24 @@ textarea {
   height: 167px;
 }
 //vn page
-
+.vn-fullbutton{
+  position: relative;
+  bottom: 50px;
+  right: 90px;
+}
 
 .vn-postdate{
     color: rgba(0,39,59,.35);   
     font-weight: 500;
     font-size: 14px;
 }
+
+.vn-review-postdate{
+    color: rgba(0,39,59,.35);   
+    font-weight: 500;
+    font-size: 17px;
+}
+
 
 
 body {
@@ -1091,6 +1102,9 @@ body {
 .vn-recommendtext{
   font-size: 1.2em;
   font-weight: bold;
+}
+.review-username{
+  padding-top: 10px;
 }
 
 .nav-tabs { border-bottom: 2px solid #DDD; }

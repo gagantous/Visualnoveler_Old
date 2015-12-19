@@ -9,10 +9,13 @@ module ApplicationHelper
  	   content_for :description, text
  	end
  	def markdown(text)
- 	 markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+    options = {
+      link_attributes: { rel: 'nofollow', target: "_blank" }
+    }
+ 	  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(options),
 	    extensions = {})
-
-	return markdown.render(text).html_safe
+    
+	 return markdown.render(text).html_safe
 	end
 
   def resource

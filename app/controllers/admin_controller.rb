@@ -1,13 +1,13 @@
 class AdminController < ApplicationController
 	def vn
-		@vn = Vn.all.order("updated_at DESC")
+		@vn = Vn.order("updated_at DESC").paginate(:page => params[:page],:per_page => 600)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
 	end
 
 	def vn_featured
-		@vn = Vn.where(isFeatured: true).order("updated_at DESC").all
+		@vn = Vn.where(isFeatured: true).order("updated_at DESC")
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
@@ -27,28 +27,28 @@ class AdminController < ApplicationController
 	end
 
 	def vn_not_featured
-		@vn = Vn.where(isFeatured: false).order("updated_at DESC").all
+		@vn = Vn.where(isFeatured: false).order("updated_at DESC")
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
 	end
 
 	def review
-		@review = Review.order("updated_at DESC").all
+		@review = Review.order("updated_at DESC").paginate(:page => params[:page],:per_page => 30)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
 	end
 
 	def genre
-		@genre = Genre.order("updated_at DESC").all
+		@genre = Genre.order("updated_at DESC")
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
 	end
 
 	def franchise
-		@franchise = Franchise.order("updated_at DESC").all
+		@franchise = Franchise.order("updated_at DESC")
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
@@ -78,28 +78,28 @@ class AdminController < ApplicationController
 	end
 
 	def character
-		@character = Character.order("updated_at DESC").paginate(:page => params[:page],:per_page => 50)
+		@character = Character.order("updated_at DESC").paginate(:page => params[:page],:per_page => 100)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
 	end
 
 	def screenshot
-		@screenshot = Screenshot.order("updated_at DESC").paginate(:page => params[:page],:per_page => 15)
+		@screenshot = Screenshot.order("updated_at DESC").paginate(:page => params[:page],:per_page => 30)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
 	end
 
 	def users
-		@user = User.order("updated_at DESC").paginate(:page => params[:page],:per_page => 15)
+		@user = User.order("updated_at DESC").paginate(:page => params[:page],:per_page => 40)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
 	end
 
 	def developer
-		@developer = Developer.order("updated_at DESC").all
+		@developer = Developer.order("updated_at DESC")
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end

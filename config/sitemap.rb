@@ -18,7 +18,10 @@ SitemapGenerator::Sitemap.create do
 
   Vn.find_each do |vn|
     add vn_path(vn), lastmod: vn.updated_at
-    add characters_vn_path(vn)
+    add characters_vn_path(vn),lastmod: vn.updated_at
+    Review.find_each do |review|
+      add vn_review_path(vn,review),lastmod: review.updated_at
+    end
   end
 
   User.find_each do |user|
