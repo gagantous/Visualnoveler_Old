@@ -18,7 +18,7 @@
 			<%= f.input :rating,collection: 0..10,input_html:{style:"width:120px;"},:selected => 5,:required => false %>
 			<%= f.hidden_field :user_id,value: current_user.id %>
 			<%= f.hidden_field :vn_id,value: @vn.id %>
-		  <%= f.button :submit , class: "btn btn-primary" %>
+		  <%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Posting.."} %>
 		 </div>
 		</div>
 

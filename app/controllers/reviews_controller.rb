@@ -20,9 +20,19 @@ class ReviewsController < ApplicationController
 	def destroy
 		@review = Review.find(params[:id])
 		authorize @review
+		vn_id = @review.vn.id
+		if @review.user.mod? || @review.user.admin?
+			admin_state = true
+		else
+			admin_state = false
+		end
 	  	if @review.destroy
 	 		flash[:success] = "Review deleted!"
-	 		redirect_to admin_review_path
+	 		if admin_state
+	 			redirect_to admin_review_path
+	 		else
+	 			redirect_to vn_path(vn_id)
+	 		end
 	    end
 
 	end
@@ -39,7 +49,8 @@ class ReviewsController < ApplicationController
     		redirect_to vn_path(params[:vn_id])
     		flash[:success] = "Review successfully created!"
     	else
-    		render :action=>"new"
+    		flash[:danger] = "You cannot submit an empty review for #{@review.vn.name}"
+    		redirect_to :back
     	end
 
 	end

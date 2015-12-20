@@ -3,7 +3,7 @@ class ReviewPolicy
   
   def initialize(current_user, model)
     @current_user = current_user
-    @user = model
+    @user = model.user
   end
 
   def edit?
@@ -11,11 +11,11 @@ class ReviewPolicy
   end
 
   def new?
-    @current_user.admin? or @current_user.mod?
+    return true
   end
 
   def create?
-    @current_user.admin? or @current_user.mod?
+    return true
   end
  
   def update?
@@ -23,7 +23,7 @@ class ReviewPolicy
   end
 
   def destroy?
-    @current_user.admin?
+    @current_user.admin? or @current_user.mod? or @current_user == @user
   end
 
   

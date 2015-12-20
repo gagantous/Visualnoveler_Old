@@ -1,7 +1,7 @@
 <div class="row vn-reviewmargins">
 	<div class="col-md-2 col-sm-2 col-xs-12">
 		<div class="vn-review-userposter">
-			<%= link_to image_tag(review.user.poster_image.url,class: "img-responsive vn-reviewposter"),user_path(review.user) %>
+			<%= link_to image_tag(review.user.poster_image.url,class: "img-responsive vn-reviewposter"),user_path(review.user) if review.user.poster_image? %>
 			<div class="vn-reviewusertextdiv">
 				<%= link_to review.user.name,user_path(review.user),class: "vn-reviewtext summary-text" %>
 			</div>
@@ -20,7 +20,7 @@
 				<%= link_to 'View More',vn_review_path(review.vn,review),class: "btn blue-button" %>
 		<% end %>
 		<% if user_signed_in? %>
-			<% if current_user.id == review.user_id %>
+			<% if current_user.id == review.user_id || current_user.admin? || current_user.mod? %>
 				<%= link_to 'Edit Review',edit_vn_review_path(@vn,review),class: "btn blue-button pull-right" %>
 			<% end %> 
 		<% end %>

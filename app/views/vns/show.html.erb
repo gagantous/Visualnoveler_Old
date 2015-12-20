@@ -247,7 +247,7 @@
 <section id = "review">
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<h3> Reviews</h3>
 			<div class="panel panel-default">
  			<div class="panel-body">
@@ -286,8 +286,7 @@
 			     <i class="fa fa-question-circle"></i>
 			     <% end %>
 			 	</h4>
-			    <%= simple_form_for @vn do |f| %>
-			     <%= f.simple_fields_for :reviews,@vn.reviews.build do |r| %>
+			     <%= simple_form_for ([@vn,@vn.reviews.build]) do |f| %>
 			     	<div class="row">
 				     	<div class="col-md-2">
 				     		<div class="vn-review-userposter">
@@ -295,17 +294,17 @@
 				     		</div>
 				     	</div>
 				     	<div class="col-md-10">
-				     	<%= r.input :details, :as => :text, required: true,input_html: {:rows => 10 ,:style => "resize:vertical;"} %>
+				     	<%= f.input :details, :as => :text, required: true,input_html: {:rows => 10 ,:style => "resize:vertical;"} %>
 				     	</div>
 				     	<div class="col-md-10 col-md-offset-2">
-				     		<%= r.input :rating,collection: 0..10,input_html:{style:"width:120px;"},:selected => 5,:required => false %>
+				     		<%= f.input :rating,collection: 0..10,input_html:{style:"width:120px;"},:selected => 5,:required => false %>
 				     		 <%= f.button :submit ,"Submit Review", class: "btn btn-success pull-right vn-reviewbutton",data:{ disable_with: "Posting.."} %>
 				     		 <%= link_to "Write a full Review",new_vn_review_path(@vn),class: "btn blue-button pull-right vn-fullbutton" %>
-							<%= r.hidden_field :user_id,value: current_user.id %>
+							<%= f.hidden_field :user_id,value: current_user.id %>
+							<%= f.hidden_field :vn_id,value: @vn.id %>
 				     	</div>
 			     	</div>
 			     <% end %>
-			    <% end %>
 			    </div>
 			    <!-- if not logged in, tell them to login !-->
 			    <% else %>
