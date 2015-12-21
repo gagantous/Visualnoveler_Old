@@ -1,0 +1,27 @@
+
+
+<div class="container">
+	<div class="row">
+		<%= simple_form_for @publisher do |f| %>
+
+		<h1>Edit Publisher</h1>
+		<div class="row">
+		<div class="col-lg-4">
+		  <%= f.input :name %>
+		</div>
+		 </div>
+		 <div class="row">
+		 <div class="col-lg-6">
+		  <%= f.input :details %>
+		 </div>
+		</div>
+
+		<div class="col-lg-12">
+		  <%= f.button :submit , class: "btn btn-primary" %>
+		 </div>
+		<% end %>
+
+
+	</div>
+
+</div>

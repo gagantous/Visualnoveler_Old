@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+  			<div class="panel-body">
+		<table class="table">
+			<h2>publisher List</h2>
+			<thead><tr>
+				<th>Name</th>
+				<th>Edit</th>
+				<th>Last updated</th>
+			</tr></thead>
+			<tbody>
+			<% @publishers.each do |publisher| %>
+				<tr>
+				<td><%= link_to publisher.name, publisher_path(publisher) %> </td>
+				<td><%= link_to 'Edit',edit_publisher_path(publisher) %></td>
+				<td><%= time_ago_in_words(publisher.updated_at) %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+			</div></div>
+		
+		</div>
+	</div>
+</div>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get :all, on: :collection
   end
   resources :franchises
+  resources :publishers
   resources :contests do
     get :nominate, on: :member
   end
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
     get 'developer'
     get 'users'
     get 'character'
+    get 'publisher'
     get 'lonely_character'
     post 'delete_lonely_character'
     get 'screenshot'

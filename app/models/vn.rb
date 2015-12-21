@@ -7,6 +7,8 @@ class Vn < ActiveRecord::Base
     has_many :genres, :through => :vn_genres
     has_many :screenshots, dependent: :destroy
     has_many :reviews, dependent: :destroy
+    has_many :vn_publishers, dependent: :destroy
+    has_many :publishers, :through => :vn_publishers
     enum status: {"Not Translated" => 0,"Translated" => 1,"Ongoing Translation" => 2}
     belongs_to :developer
     belongs_to :franchise
@@ -24,6 +26,7 @@ class Vn < ActiveRecord::Base
 	accepts_nested_attributes_for :vn_genres
 	accepts_nested_attributes_for :genres
  	accepts_nested_attributes_for :library_entries
+ 	accepts_nested_attributes_for :reviews
  	accepts_nested_attributes_for :reviews
  	before_save :edit_youtubeurl
   	attr_accessor :characterurl

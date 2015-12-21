@@ -4,7 +4,6 @@ class Genre < ActiveRecord::Base
   has_many :vn_genres,dependent: :destroy
   has_many :vns, :through => :vn_genres
 
-
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 

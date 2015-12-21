@@ -6,6 +6,10 @@ class AdminController < ApplicationController
 		end
 	end
 
+	def publisher
+		@publishers = Publisher.all
+	end
+
 	def vn_featured
 		@vn = Vn.where(isFeatured: true).order("updated_at DESC")
 		if !current_user.admin? && !current_user.mod? 

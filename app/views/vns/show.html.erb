@@ -63,12 +63,22 @@
 					<% end %>
 				</ul>
 			</span>
+
+			<span class="vn-contentpadding "><span class="vn-label">Publishers:</span> <% if @publishers %>
+				<% @publishers.each do |publisher| %>
+				<%= link_to publisher.name,publisher_path(publisher) %>
+				<% end %>
+			</span>
+			<br> <% end %>
 			<span class="vn-contentpadding "><span class="vn-label">Developer:</span> <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %> </span>
 			<br> <% end %>
 			<span class="vn-contentpadding"><span class="vn-label">Release Date:</span> <%= @vn.release_date %> </span>
 			<br>
 			<span class="vn-contentpadding "><span class="vn-label">Status:</span> <%= @vn.status %> </span>
 			<br>
+			<% if @vn.alias %>
+			<span class="vn-contentpadding "><span class="vn-label">Alias:</span> <%= @vn.alias %> </span>
+			<br> <% end %>
 			<% unless @vn.buy_1.blank? && @vn.buy_2.blank? && @vn.buy_3.blank? && @vn.buy_4.blank? %>
 				<span class="vn-contentpadding "><span class="vn-label">Purchase:</span><%= get_purchase_location(@vn.buy_1) %> <%= get_purchase_location(@vn.buy_2) %> 
 					<%= get_purchase_location(@vn.buy_3) %> <%= get_purchase_location(@vn.buy_4) %>

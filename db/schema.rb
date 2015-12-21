@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218104432) do
+ActiveRecord::Schema.define(version: 20151221082604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,17 @@ ActiveRecord::Schema.define(version: 20151218104432) do
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
   add_index "posts", ["vn_id"], name: "index_posts_on_vn_id", using: :btree
 
+  create_table "publishers", force: :cascade do |t|
+    t.string   "name"
+    t.text     "details"
+    t.integer  "vn_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
+  add_index "publishers", ["vn_id"], name: "index_publishers_on_vn_id", using: :btree
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "vn_id"
@@ -192,6 +203,16 @@ ActiveRecord::Schema.define(version: 20151218104432) do
   add_index "vn_genres", ["genre_id"], name: "index_vn_genres_on_genre_id", using: :btree
   add_index "vn_genres", ["vn_id"], name: "index_vn_genres_on_vn_id", using: :btree
 
+  create_table "vn_publishers", force: :cascade do |t|
+    t.integer  "vn_id"
+    t.integer  "publisher_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "vn_publishers", ["publisher_id"], name: "index_vn_publishers_on_publisher_id", using: :btree
+  add_index "vn_publishers", ["vn_id"], name: "index_vn_publishers_on_vn_id", using: :btree
+
   create_table "vns", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at",                  null: false
@@ -205,7 +226,6 @@ ActiveRecord::Schema.define(version: 20151218104432) do
     t.string   "image_3"
     t.string   "image_4"
     t.boolean  "isFeatured"
-    t.integer  "genre_id"
     t.float    "rating_number"
     t.integer  "developer_id"
     t.string   "trailer_url"
@@ -217,11 +237,11 @@ ActiveRecord::Schema.define(version: 20151218104432) do
     t.string   "buy_2"
     t.string   "buy_3"
     t.string   "buy_4"
+    t.string   "alias"
   end
 
   add_index "vns", ["developer_id"], name: "index_vns_on_developer_id", using: :btree
   add_index "vns", ["franchise_id"], name: "index_vns_on_franchise_id", using: :btree
-  add_index "vns", ["genre_id"], name: "index_vns_on_genre_id", using: :btree
 
   add_foreign_key "character_vns", "characters"
   add_foreign_key "character_vns", "vns"
@@ -230,6 +250,7 @@ ActiveRecord::Schema.define(version: 20151218104432) do
   add_foreign_key "posts", "library_entries"
   add_foreign_key "posts", "users"
   add_foreign_key "posts", "vns"
+  add_foreign_key "publishers", "vns"
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "vns"
   add_foreign_key "screenshots", "vns"
@@ -237,7 +258,8 @@ ActiveRecord::Schema.define(version: 20151218104432) do
   add_foreign_key "vn_chars", "vns"
   add_foreign_key "vn_genres", "genres"
   add_foreign_key "vn_genres", "vns"
+  add_foreign_key "vn_publishers", "publishers"
+  add_foreign_key "vn_publishers", "vns"
   add_foreign_key "vns", "developers"
   add_foreign_key "vns", "franchises"
-  add_foreign_key "vns", "genres"
 end
