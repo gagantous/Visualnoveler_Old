@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
 
 	 def redirect_subdomain
 		  if request.host == 'www.visualnoveler.com'
-		    redirect_to 'http://puppies.com' + request.fullpath
+		    redirect_to 'http://visualnoveler.com' + request.fullpath
 		  end
 	 end
 
