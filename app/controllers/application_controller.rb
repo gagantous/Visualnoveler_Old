@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
  	 before_action :configure_permitted_parameters, if: :devise_controller?
  	 rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 	 after_filter :store_location
-	 before_filter :add_www_subdomain
+	 before_filter :redirect_subdomain
 
 	def store_location
 	  # store last url - this is needed for post-login redirect to whatever the user last visited.
@@ -44,11 +44,11 @@ class ApplicationController < ActionController::Base
 
 	private
 
-	  def add_www_subdomain
-	    unless /^www/.match(request.host)
-	      redirect_to("#{request.protocol}www.#{request.host_with_port}",status: 301)
-	    end
-	  end
+	 def redirect_subdomain
+		  if request.host == 'www.visualnoveler.com'
+		    redirect_to 'http://puppies.com' + request.fullpath
+		  end
+	 end
 
 	  def user_not_authorized
 	    flash[:alert] = "You are not authorized to perform this action."
