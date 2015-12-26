@@ -1,0 +1,15 @@
+  <tr>
+    <td><%= similar_counter %></td>
+  <!--   <td><%= similar.vn_id %></td> -->
+    <td class="summary-text"><%= link_to similar.vn.name,vn_path(similar.vn),style: "font-size:1em;color:black;" %></td>
+    <td style="padding-left:26px; font-style:italic;"><%= user[similar_counter].rating %></td>
+    <td style="padding-left:26px; font-style:italic;"><%= similar.rating %></td>
+   <!--  <td><%= status_text(similar.status) %></td>
+    <td><div style="padding-left:25px;">
+    	<% if similar.favourite? %>
+    		<i class="fa fa-heart" style="color:red;font-size:1.3em;opacity:0.7;"></i></div>
+    	<% else %>
+    		<i class="fa fa-times" style="color:red;font-size:1.2em;opacity:0.55;"></i></div>
+    	<% end %>
+    </td> -->
+  </tr>

@@ -6,7 +6,6 @@ class VnsController < ApplicationController
 		@showcharacters = @vn.characters.all
 		@franchise = @vn.franchise
 		@screenshots = @vn.screenshots
-		@publishers = @vn.publishers
 		@recent_reviews = @vn.reviews.all.paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
 		@positive_reviews = @vn.reviews.where("rating > ?",5).paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
 		@negative_reviews = @vn.reviews.where("rating < ?",5).paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
@@ -87,7 +86,7 @@ class VnsController < ApplicationController
 		libentry = current_user.library_entries.find_or_create_by(vn_id: @vn.id)
 		 if type == "watch" 
 			libentry.update_attribute :status, "watch"
-			post = libentry.posts.build(detail: "#{current_user.name} has started watching #{@vn.name}",user_id: current_user.id)
+			post = libentry.posts.build(detail: "#{current_user.name} has started playing #{@vn.name}",user_id: current_user.id)
 		elsif type == "drop"
 			libentry.update_attribute :status, "drop"
 			post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from his library",user_id: current_user.id)

@@ -10,10 +10,11 @@ module ApplicationHelper
  	end
  	def markdown(text)
     options = {
-      link_attributes: { rel: 'nofollow', target: "_blank" }
+      link_attributes: { rel: 'nofollow', target: "_blank" },
+      autolink: true
     }
  	  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(options),
-	    extensions = {})
+	    extensions = {autolink:true})
     
 	 return markdown.render(text).html_safe
 	end

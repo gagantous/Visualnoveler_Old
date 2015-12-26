@@ -11,18 +11,17 @@
 			</div>
 	<% end %>
 <% else %>
-<div class="container-fluid">
-	<div class="row">
-	
-			<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">
-			<% if user_signed_in?  %>
-			<% if current_user.admin? || current_user.mod? %>
-			<%= link_to 'Crop',crop_vn_path,:class =>"ghost-buttonimg text-center",:style =>"text-decoration:none;" %>
-			<%= link_to 'Add Screenshots',screenshots_vn_path,:class =>"ghost-buttonimg text-center",:style =>"text-decoration:none" %>
-			<% end %>
-			<% end %>
+<div class="container-fluid" style="padding-left:0px;padding-right:0px;">
+
+		<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">
+		<% if user_signed_in?  %>
+		<% if current_user.admin? || current_user.mod? %>
+		<%= link_to 'Crop',crop_vn_path,:class =>"ghost-buttonimg text-center",:style =>"text-decoration:none;" %>
+		<%= link_to 'Add Screenshots',screenshots_vn_path,:class =>"ghost-buttonimg text-center",:style =>"text-decoration:none" %>
+		<% end %>
+		<% end %>
 		</div>
-	</div>
+	
 </div>
 <% end %>
 
@@ -64,8 +63,8 @@
 				</ul>
 			</span>
 
-			<span class="vn-contentpadding "><span class="vn-label">Publishers:</span> <% if @publishers %>
-				<% @publishers.each do |publisher| %>
+			<span class="vn-contentpadding "><% if !@vn.publishers.blank? %><span class="vn-label">Publishers:</span> 
+				<% @vn.publishers.each do |publisher| %>
 				<%= link_to publisher.name,publisher_path(publisher) %>
 				<% end %>
 			</span>

@@ -5,12 +5,25 @@
   background-color: white;
 
 }
+.navbar{
+  margin-bottom: 0px;
+}
 
 .nav-padding{
   padding-right: 6px;
   padding-left: 6px;
 }
-
+.signup-bg{
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 600px;
+}
+.similar-thumbnail {
+  width: 120px;
+  height: 150px;
+}
 .btn-googleauth{
     color: #fff;
     background-color: #dd4b39;

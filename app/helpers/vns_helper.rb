@@ -65,12 +65,13 @@ module VnsHelper
 					@vn.save
 					warning_text = ""
 				end
-		
-				redirect_to :back
-				flash[:success] = message + warning_text
-			
+				post = libentry.posts.build(detail: "#{current_user.name} has recently rated #{@vn.name} with a rating of #{rating}.",user_id: current_user.id)
+				if post.save 
+					redirect_to :back
+					flash[:success] = message + warning_text
+				end
+				
 			else #if already have same type of ratings, redirect and inform user
-			
 				flash[:danger] = "You have already rated #{@vn.name} as #{rating_type}"
 				redirect_to :back
 			end

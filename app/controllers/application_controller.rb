@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
  	 rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 	 after_filter :store_location
 	 before_filter :redirect_subdomain
-
+	 def register
+	 	flash[:success] ="hihihii"
+	 end
 	def store_location
 	  # store last url - this is needed for post-login redirect to whatever the user last visited.
 	  return unless request.get? 

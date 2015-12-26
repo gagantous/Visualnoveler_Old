@@ -77,6 +77,7 @@ Rails.application.routes.draw do
       get :favourite
       get :completed
       get :crop
+      get :similar
       put :update_avatar
     end
  end

@@ -9,7 +9,14 @@ class UsersController < ApplicationController
     @lib = @user.library_entries.where(favourite: true).limit(8)
     if current_user == @user 
       @new_post =  @user.posts.build
+    else
+      @user_lib = @user.library_entries
+      @current_user_lib = current_user.library_entries
+      @similarities = @user_lib.map{|lib| lib[:vn_id] } & @current_user_lib.map {|lib| lib[:vn_id]}
+      @similar_lib = @current_user_lib.select { |f| @similarities .include? f[:vn_id] }
+      #some bad looping?
     end
+
     @comments = Comment.where(wall_author_id: @user.id).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
     @new_comment = @user.comments.build
     # @new_comment.update_attribute(:wall_user_id,@user.id)
@@ -17,7 +24,7 @@ class UsersController < ApplicationController
 
   def library
     @user = User.find(params[:id])
-    @lib = @user.library_entries.all
+    @lib = @user.library_entries
     @lib_fav = @user.library_entries.where(favourite: true)
     @lib_completed = @lib.where(status: "complete")
     @lib_wishlist = @lib.where(status: "wishlist")
@@ -25,6 +32,14 @@ class UsersController < ApplicationController
     @lib_watched = @lib.where(status: "watch")
   end
 
+  def similar
+    @user = User.find(params[:id])
+    @user_lib = @user.library_entries
+    @current_user_lib = current_user.library_entries
+    @similarities = @user_lib.map{|lib| lib[:vn_id] } & @current_user_lib.map {|lib| lib[:vn_id]}
+    @similar_lib = @current_user_lib.order('vn_id ASC').select{ |f| @similarities .include? f[:vn_id] }
+    @similar_user_lib_rating = @user_lib.order('vn_id ASC').select { |f| @similarities .include? f[:vn_id] }
+  end
 
   def watch
 	  @user = User.find(params[:id])
