@@ -11,7 +11,6 @@
 			</div>
 	<% end %>
 <% else %>
-<div class="container-fluid" style="padding-left:0px;padding-right:0px;">
 
 		<div class="twittercover" style="background-image:url(<%= asset_path "#{@vn.image_coverpage.url}" if @vn.image_coverpage? %>)">
 		<% if user_signed_in?  %>
@@ -22,7 +21,7 @@
 		<% end %>
 		</div>
 	
-</div>
+
 <% end %>
 
 <section id="vn-item">
