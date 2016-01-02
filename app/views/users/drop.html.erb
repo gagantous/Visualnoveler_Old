@@ -3,11 +3,7 @@
 <div class="container-fluid">
 	<div class="row vnindex-row">
 
-		<div class="col-md-12">
-			<h2 class="vnindex-heading">Dropped</h2>
+		<%= render 'layouts/vn_title',:title => "Dropped" %>
+		<%= render :partial => 'list', locals: {lib: @lib}  %>
 		</div>
-	
-		 <%= render :partial => 'list', :collection => @lib  %>
-	
-	</div>
 </div>

@@ -12,6 +12,10 @@ class ContestsController < ApplicationController
 		@contests = Contest.all
 	end
 
+	def crop
+		@contest = Contest.find(params[:id])
+		@character = ContestCharacter.find(params[:char_id])
+	end
 	def nominate
 		@contest = Contest.find(params[:id])
 		@character = @contest.contest_characters.build
@@ -39,6 +43,16 @@ class ContestsController < ApplicationController
 	 		redirect_to contests_path
 	    end
 
+	end
+
+	def nominate_update
+		@contest = Contest.find(params[:id])
+		if @contest.update(char_params)
+			flash[:success] = "Your Contest was updated successfully! from nominate_update"
+			redirect_to contest_path(@contest)
+		else
+			render :edit
+		end
 	end
 
 	def update

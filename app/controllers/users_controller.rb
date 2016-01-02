@@ -7,14 +7,16 @@ class UsersController < ApplicationController
     authorize @user
   	@posts = @user.posts.paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
     @lib = @user.library_entries.where(favourite: true).limit(8)
-    if current_user == @user 
-      @new_post =  @user.posts.build
-    else
-      @user_lib = @user.library_entries
-      @current_user_lib = current_user.library_entries
-      @similarities = @user_lib.map{|lib| lib[:vn_id] } & @current_user_lib.map {|lib| lib[:vn_id]}
-      @similar_lib = @current_user_lib.select { |f| @similarities .include? f[:vn_id] }
-      #some bad looping?
+    if user_signed_in?
+      if current_user == @user 
+        @new_post =  @user.posts.build
+      else
+        @user_lib = @user.library_entries
+        @current_user_lib = current_user.library_entries
+        @similarities = @user_lib.map{|lib| lib[:vn_id] } & @current_user_lib.map {|lib| lib[:vn_id]}
+        @similar_lib = @current_user_lib.select { |f| @similarities .include? f[:vn_id] }
+        #some bad looping?
+      end
     end
 
     @comments = Comment.where(wall_author_id: @user.id).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)

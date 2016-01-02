@@ -21,9 +21,9 @@
 			 </div>
 			 <div class="col-lg-12">
 			 	<%= c.input :image %>
-			 	<!--<%= image_tag c.object.image.url, :style =>"width:200px;height:auto;max-height:200px;" if c.object.image? %>!-->
+			 	<%= image_tag c.object.image.url, :style =>"width:200px;height:auto;max-height:200px;" if c.object.image? %>
 
-  				<%= c.cropbox :image %>
+				<%= link_to 'Crop Image',crop_contest_path(@contest,:char_id => c.object.id) %>
 			 </div>
 			  <div class="col-lg-4">
 			 

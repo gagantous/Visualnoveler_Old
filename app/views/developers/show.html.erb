@@ -2,32 +2,8 @@
 <% description "Visual novels developed by #{@developer.name} are found over here. Come join us to start tracking and discovering new visual novels!" %>
 <div class="container-fluid">
 	<div class="row vnindex-row">
-		<div class="col-md-12">
-			<h2 class="vnindex-heading"><%= @developer.name%></h2>
-		</div>
-	
-		<% @vns.each do |vn| %>
-<div class="vn-column">
-
-			<%= link_to vn_path(vn) do %>
-			<%= image_tag("#{vn.image_poster}",:alt => vn.name, :class=> "vn-index-poster") %>
-			<% end %>
-	<div class="panel panel-default">
-		<div class="panel-body panel-vnindex">
-
-		<a href=<%= vn_path(vn) %>><h4>
-				<% if vn.name.length > 30 %>
-					<span class="bottom" style="font-size:14px !important;"><%= vn.name %>
-				<% else %>
-					<span class="bottom"><%= vn.name %>
-				<% end %>
-			</span></h4></a>		
-		</div>
-		
-	</div>
-</div>
-
-<% end %>
+		<%= render 'layouts/vn_title',:title => "#{@developer.name}" %>
+		<%= render 'layouts/vn_show_simple',locals:{vn: @vn} %>	
 
 	</div>
 </div>

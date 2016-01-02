@@ -8,9 +8,33 @@
 .navbar{
   margin-bottom: 0px;
 }
+.btn:focus,.btn:active {
+   outline: none !important;
+}
 .about-list{
   font-size: 16px;
   padding-bottom: 10px;
+}
+.pull-right-nav{
+    display: right;
+}
+
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
 }
 #bg {
   position: fixed; 
@@ -119,11 +143,16 @@
   ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
   }
-
+  .pull-right-nav{
+    display: block;
+  }
 }
 
 // Mobile Phone CSS only
 @media (max-width: 460px) {
+  .vnindex-heading{
+    top: -10px !important;
+  }
    .emailbutton {
     position: relative;
     top: 20px; 
@@ -181,12 +210,29 @@
     float: right !important;
     padding-top: 0px !important;
   }
+   .btn-vnlist{
+    position:relative;
+    bottom:10px;
+  }
+ 
 }
+  .btn-vnlist{
+    position:relative;
+    bottom:10px;
+  }
 
-// Mobile and Tablet
+// mobile and tablet
 
 @media (max-width: 1196px) {
-
+  .row-vnlist-summary {
+    margin-right:25px;
+  }
+  .vnindex-heading{
+    top: 0px;
+    padding-left:45px;
+    position:relative;
+    display: inline;
+  }
   //VN Show page
   .vn-characterbottompadding {
     padding-bottom: 20px;
@@ -264,9 +310,23 @@
   }
 
 }
-//Desktop
+//desktop 
 @media (min-width: 1200px) { 
   //VN Show page
+  .vnindex-heading{
+    display:inline;
+    padding-left:45px;
+    position:relative;
+    top:6px;
+  }
+  .row-vnlist-summary {
+    margin-right:100px;
+  }
+   .btn-vnlist{
+    position:relative;
+    bottom: 5px;
+  }
+ 
   .vn-characterbottompadding {
     padding-bottom: 20px;
   }
@@ -332,8 +392,23 @@
      padding-left: 90px;
   }
 }
+
+// small Tablets + mobile
+@media (max-width: 700px) {
+  .vn-menuright {
+    float: none !important;
+    margin-left: 30px;
+  }
+
+}
 // Tablet + Desktop
 @media (min-width: 460px) {
+  .vnindex-row {
+    margin-left: 100px !important;
+  }
+  .vn-menuright {
+    float: right;
+  }
   .email-form{
     padding-top: 5px;
     padding-left:70px;
@@ -477,10 +552,12 @@
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-// VN column in index VN page
- .vnindex-row {
-    margin-left: 100px !important;
+  .vn-index-poster {
+     width: 220px;
+     height: 284px;
   }
+// VN column in index VN page
+
 
 .vn-column{
 
@@ -501,16 +578,14 @@
      width: 220px;
      height: 284px;
   }
+  .joker{ width: 220px;
+     height: 284px;}
 
   .text-title {
     font-size: 2.0em;
     font-weight: 500;
   }
 
-  .vnindex-heading{
-    margin-left: 25px;
-    margin-top: 0px;
-  }
   .panel-body{
     padding-bottom: 0px;
     margin-bottom: 0px;

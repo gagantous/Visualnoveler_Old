@@ -83,6 +83,7 @@
                   <li><%= link_to "Wishlist", wishlist_user_path(current_user) %></li>
                   <li><%= link_to "Completed", completed_user_path(current_user) %></li>
                   <li><%= link_to "Playing", watch_user_path(current_user) %></li>
+                  <li><%= link_to "Dropped", drop_user_path(current_user) %></li>
                   <% end %>
               </ul>
             </li>
@@ -126,7 +127,7 @@
 
           <% if user_signed_in? %>
          <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown pull-right">
+              <li class="dropdown pull-right-nav">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle"><%= current_user.name %></span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><%= link_to "My Profile", user_path(current_user) %></li>
@@ -137,9 +138,9 @@
                 </ul>
              </li>
                <% if current_user.poster_image.blank? %>
-                  <%= image_tag("default_avatar.jpg",:class => "pull-right",:style =>"max-width: 50px; max-height: 50px;")  %>
+                  <%= image_tag("default_avatar.jpg",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;")  %>
                <% else %>
-                  <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right",:style =>"max-width: 50px; max-height: 50px;")  %>
+                  <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;")  %>
                <% end %>
           </ul>
           <% end %>

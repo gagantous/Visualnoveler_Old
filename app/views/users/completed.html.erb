@@ -4,11 +4,8 @@
 <div class="container-fluid">
 	<div class="row vnindex-row">
 
-		<div class="col-md-12">
-			<h2 class="vnindex-heading">Completed</h2>
-		</div>
-	
-		 <%= render :partial => 'list', :collection => @lib  %>
+		<%= render 'layouts/vn_title',:title => "Completed" %>
+		<%= render :partial => 'list', locals: {lib: @lib}  %>
 	
 	</div>
 </div>

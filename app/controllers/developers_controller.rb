@@ -3,7 +3,7 @@ class DevelopersController < ApplicationController
 	before_action :authenticate_user!, :only => [:edit,:new,:update]
 	def show
 		@developer = Developer.find(params[:id])
-		@vns = @developer.vns
+		@vn = @developer.vns
 	end
 
 	def new

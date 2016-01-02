@@ -1,12 +1,8 @@
-<% vn_lib = [] %>
-<% lib.each do |lib| %>
-<% vn_lib << lib.vn %>
-<% end %>
-
 <div class="col-md-12">
+
 		<div class="tab-content" style="padding-top:0px;">
 		    <div role="tabpanel" class="tab-pane fade in active" id="default-vnlist">
-			<% vn_lib.each do |vn| %>
+			<% @vn.each do |vn| %>
 		    	<div class="vn-column">
 		    		<%= link_to vn_path(vn) do %>
 		    			<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "vn-index-poster") %>
@@ -32,7 +28,7 @@
 		    </div> <!-- tabpanel vnlist !-->
 
 		    <div role="tabpanel" class="tab-pane fade" id="vnlist-summary">
-		    	<% vn_lib.each do |vn| %>
+		    	<% @vn.each do |vn| %>
 		      	<div class="row row-vnlist-summary">
 		    		<div class="panel panel-default"><div class="panel-body">
 		    		<div class="col-md-3">

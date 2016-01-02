@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :publishers
   resources :contests do
     get :nominate, on: :member
+    get :crop, on: :member
+    post :nominate_update, on: :member
   end
   resources :developers do
     get :search, on: :collection

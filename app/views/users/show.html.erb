@@ -128,7 +128,7 @@
 			</div></div> <!---panels -->
 		</div>
 
-		<% if post == @posts.first && current_user != @user %>
+		<% if post == @posts.first && current_user != @user && user_signed_in? %>
 			<div class="col-md-3">
 				<h3 style="margin-top:0px;"> <%= link_to "#{@similar_lib.count} Shared Visual Novels",similar_user_path(@user) %></h3>
 				<% @similar_lib.first(4).each do |lib| %>

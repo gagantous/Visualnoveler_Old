@@ -14,8 +14,9 @@
 		<div class="row">
 			<div class="col-md-4">
 				<%= character.name %>
-				<%= link_to 'some item','' %>
 				<%= image_tag(character.image_url,class:"img-responsive",:style =>"width:200px;height:auto;max-height:200px;") %>
+
+				<%= link_to 'Crop Image',crop_contest_path(@contest,:char_id => character.id) %>
 			</div>
 			<div class="col-md-4">
 				<%= character.details %>

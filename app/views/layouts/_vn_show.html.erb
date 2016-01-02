@@ -1,12 +1,8 @@
-<% vn_lib = [] %>
-<% lib.each do |lib| %>
-<% vn_lib << lib.vn %>
-<% end %>
-
 <div class="col-md-12">
+
 		<div class="tab-content" style="padding-top:0px;">
 		    <div role="tabpanel" class="tab-pane fade in active" id="default-vnlist">
-			<% vn_lib.each do |vn| %>
+			<% @vn.each do |vn| %>
 		    	<div class="vn-column">
 		    		<%= link_to vn_path(vn) do %>
 		    			<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "vn-index-poster") %>
@@ -28,11 +24,12 @@
 		    	</div>
 		    <% end %>
 		    	<div class="clearfix"></div>
+		    		<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
 
 		    </div> <!-- tabpanel vnlist !-->
 
 		    <div role="tabpanel" class="tab-pane fade" id="vnlist-summary">
-		    	<% vn_lib.each do |vn| %>
+		    	<% @vn.each do |vn| %>
 		      	<div class="row row-vnlist-summary">
 		    		<div class="panel panel-default"><div class="panel-body">
 		    		<div class="col-md-3">
@@ -42,11 +39,7 @@
 		    		</div>
 		    		<div class="col-md-9">
 	    				<a href=<%= vn_path(vn) %>><h3>
-	    					<% if vn.name.length > 30 %>
-	    						<span class="bottom" style="font-size:14px !important; color:black;"><%= vn.name %>
-	    					<% else %>
 	    						<span class="bottom" style="color:black;"><%= vn.name %>
-	    					<% end %>
 	    				</span></h3></a>	
     					<ul class="list-inline vnindex-genre" style="padding-bottom:10px;">
     						<% vn.genres.limit(2).each do |genre| %>
@@ -60,5 +53,6 @@
     			</div>
     				<% end %> <!-- row !-->
     			<div class="clearfix"></div>
+    			<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
     		</div> <!-- end of long summary tab !-->
 </div>	</div> <!-- end of tab-content + col 12 !-->
