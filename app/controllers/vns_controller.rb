@@ -107,7 +107,7 @@ class VnsController < ApplicationController
 	end
 
 	def index
-		@vn = Vn.all.paginate(:page => params[:page], :per_page => 35)
+		@vn = Vn.where(:isFeatured => true).paginate(:page => params[:page], :per_page => 35)
 		#@vn = Vn.all.where(:isFeatured => true)
 		#offset = rand(Vn.count)
 		@random = Vn.limit(5).order("RANDOM()")

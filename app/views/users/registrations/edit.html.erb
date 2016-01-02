@@ -23,11 +23,12 @@
         <div class="col-md-4 col-md-offset-1">
           <% if current_user.poster_image.url.present? %>
             <%= image_tag(current_user.poster_image.url,:class =>"formthumbnail") %>
+             <%= link_to "Crop Profile Picture", crop_user_path(@user), :class => "btn btn-info", style: "margin-top: 15px;margin-bottom:15px;"%>
           <% end %>
 
          <%= f.input :poster_image, :label => "Upload an image" %>
 
-           <%= f.input :password, autocomplete: "off", placeholder: "Only if you want to change password else blank", required: false %>
+           <%= f.input :password, autocomplete: "off", placeholder: "Can be left blank if not changing", required: false, label: "Change Password" %>
            <%= f.input :password_confirmation,placeholder: "Confirm password", required: false %>
        
        </div>
