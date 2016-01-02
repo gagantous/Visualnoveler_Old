@@ -1,6 +1,6 @@
 
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.visualnoveler.com"
+SitemapGenerator::Sitemap.default_host = "https://www.visualnoveler.com"
 
 SitemapGenerator::Sitemap.create do
 
