@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'pages/about'
   get 'pages/resources'
+  get 'pages/recommendation'
   root 'pages#home'
   post 'pages/subscribe' , :path => "subscribe"
   get 'search' => 'pages#search'

@@ -5,6 +5,7 @@ SitemapGenerator::Sitemap.default_host = "https://www.visualnoveler.com"
 SitemapGenerator::Sitemap.create do
 
   add '/pages/about'
+  add '/pages/recommendation'
   add '/pages/help'
   add '/pages/resources'
   add '/genres'

@@ -1,0 +1,14 @@
+<% title "Recommendation Visual Novels from around the Web" %>
+<% description ("A list of recommended visual novels by users around the Web.") %>
+
+<div class="container">
+	<div class="row">
+		<h2>Recommended Visual Novel for Newcomers</h2>
+		<% for i in 1..8 do %>
+			<div class="col-md-12">
+
+			<%= link_to image_tag("recommendation/vn-recommendation-#{i}.jpg",class:"img-responsive",alt: "vn recommendation"),asset_url("recommendation/vn-recommendation-#{i}.jpg") %>
+			</div>
+		<% end %>
+	</div>
+</div>
