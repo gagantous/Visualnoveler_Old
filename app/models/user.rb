@@ -19,8 +19,14 @@ class User < ActiveRecord::Base
     accepts_nested_attributes_for :library_entries
     accepts_nested_attributes_for :posts
     extend FriendlyId
+
     friendly_id :name, use: [:slugged, :finders]
 
+
+    def should_generate_new_friendly_id?
+      slug.blank? || name_changed?
+    end
+    
     def set_default_role
       # set default role and default settings
       self.bio = "A short bio about me"
@@ -41,8 +47,8 @@ class User < ActiveRecord::Base
 
     private 
       def image_size
-        if poster_image.size > 7.megabytes
-          errors.add(:poster_image,"Should be less than 7 mb")
+        if poster_image.size > 4.megabytes
+          errors.add(:poster_image,"Should be less than 4 mb")
         end
       end
 

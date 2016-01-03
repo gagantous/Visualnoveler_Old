@@ -35,15 +35,8 @@ class VnsController < ApplicationController
 	def rate
 		@vn = Vn.find(params[:id])
 		type = params[:rating]
-		if type == "perfect"
-			# perfect = 10, great = 8 , good = 6 , awful = 4
-			rate_vn(10)
-		elsif type =="great"
-			rate_vn(8)
-		elsif type =="good"
-			rate_vn(6)
-		elsif type =="awful"
-			rate_vn(4)
+		if type != nil
+			rate_vn(type)
 		else
 			redirect_to :back, notice: 'Nothing happened, perhaps a bug?'
 		end

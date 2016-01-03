@@ -6,6 +6,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   process crop: :poster_image
+  #process resize_to_fill: [220,220]
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
       storage :fog

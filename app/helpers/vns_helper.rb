@@ -1,6 +1,31 @@
 module VnsHelper
 	#helper method to make ratings
-
+	def rating_string(rating)
+		string = ""
+		case rating
+			when 10
+				string = "Perfect"
+			when 9
+				string = "Great"
+			when 8
+				string = "Very Good"
+			when 7
+				string = "Good"
+			when 6
+				string = "Fine"
+			when 5
+				string = "Average"
+			when 4
+				string = "Bad"
+			when 3
+				string = "Very Bad"
+			when 2
+				string = "Horrible"
+			when 1
+				string = "Waste of time"
+		end
+		return string
+	end
 	def get_review_icon(rating)
 		
 		rating = rating.to_f
@@ -32,21 +57,12 @@ module VnsHelper
 	end
 
 	def rate_vn(rating)
-		types =[10,8,6,4] #Perfect, Great, Good, Awful
-		min_ratings_required = 20 #min number of ratings required before ratings update
+		min_ratings_required = 25 #min number of ratings required before ratings update
+		avg_total_number = 0.0
+		avg_count = 0.0 
 		@vn = Vn.find(params[:id])
 		libentry = current_user.library_entries.find_or_create_by(vn_id: @vn.id)
-		case rating
-			when 10
-				rating_type = "Perfect"
-			when 8
-				rating_type = "Great"
-			when 6
-				rating_type = "Good"
-			when 4
-				rating_type = "Awful"
-		end
-			if libentry.rating != rating
+			if libentry.rating != rating.to_i
 				if @vn.rating_number.blank?
 					@vn.rating_number = 5 #set default rating to 5 if somehow rating ended up to be empty
 				end
@@ -54,14 +70,22 @@ module VnsHelper
 				libentry.update_attribute(:rating,rating)
 				libentry.save
 				#get all score counts
-				score_perfect = @vn.library_entries.where(rating:10).count
-				score_great = @vn.library_entries.where(rating:8).count
-				score_good = @vn.library_entries.where(rating:6).count 
-				score_awful = @vn.library_entries.where(rating:4).count
-				message = "Successfully rated #{@vn.name} as #{rating_type}"
+				# score_perfect = @vn.library_entries.where(rating:rating.to_i).count
+				# score_great = @vn.library_entries.where(rating:8).count
+				# score_good = @vn.library_entries.where(rating:6).count 
+				# score_awful = @vn.library_entries.where(rating:4).count
+				message = "Successfully rated #{@vn.name} with a score of #{rating}"
 				warning_text = " but value will only update if there are at least #{min_ratings_required} ratings"
-				if score_perfect + score_great + score_good + score_awful > min_ratings_required
-					@vn.rating_number = ((score_perfect * 10.0 + score_great * 8.0 + score_good * 6.0 + score_awful*4) / (score_perfect + score_great + score_good + score_awful))
+				vn_lib = @vn.library_entries.where.not(:rating => nil)
+				#iterate and get avg total 
+				vn_lib.each do |lib|
+					avg_total_number += lib.rating
+					avg_count += 1
+				end
+				if vn_lib.count > min_ratings_required
+			
+					@vn.rating_number = (avg_total_number / avg_count).round(2)
+					# @vn.rating_number = ((score_perfect * 10.0 + score_great * 8.0 + score_good * 6.0 + score_awful*4) / (score_perfect + score_great + score_good + score_awful))
 					@vn.save
 					warning_text = ""
 				end
@@ -72,7 +96,7 @@ module VnsHelper
 				end
 				
 			else #if already have same type of ratings, redirect and inform user
-				flash[:danger] = "You have already rated #{@vn.name} as #{rating_type}"
+				flash[:danger] = "You have already rated #{@vn.name} with a rating of #{rating}!"
 				redirect_to :back
 			end
 	end

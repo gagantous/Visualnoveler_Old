@@ -71,7 +71,7 @@ Rails.application.routes.draw do
   #   get :wishlist, on: :member
   #   get :drop, on: :member
   # end
-  resources :users,only: [:show] do
+  resources :users,only: [:show,:index] do
     member do
       get :watch
       get :library
@@ -81,9 +81,11 @@ Rails.application.routes.draw do
       get :completed
       get :crop
       get :similar
+      get :discover
       put :update_avatar
     end
  end
+
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks",:registrations => :registrations,:passwords => "passwords" }
   as :user do
     get "/login" => "devise/sessions#new"

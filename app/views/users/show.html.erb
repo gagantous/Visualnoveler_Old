@@ -53,7 +53,7 @@
  			<% @lib.each do |lib| vn = lib.vn %>
  					<div class="user-favcolumn removecharacterpadding">
  					<%= link_to vn_path(vn) do %>
- 						 <%= image_tag(vn.image_poster,:class => "user-favimg") %>
+ 						 <%= image_tag(vn.image_poster,:class => "img-responsive") %>
  					<% end %>
  					</div>
  			<% end %>

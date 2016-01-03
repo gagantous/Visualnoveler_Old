@@ -5,6 +5,9 @@
   background-color: white;
 
 }
+html, body {
+  overflow-x: hidden;
+}
 .navbar{
   margin-bottom: 0px;
 }
@@ -920,6 +923,7 @@ background-size: cover;
   width: 72px;
   height: 76px;
   float: left;
+  overflow: hidden;
 }
 
 
