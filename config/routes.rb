@@ -71,7 +71,16 @@ Rails.application.routes.draw do
   #   get :wishlist, on: :member
   #   get :drop, on: :member
   # end
-  resources :users,only: [:show,:index] do
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks",:registrations => :registrations,:passwords => "passwords",confirmations: 'confirmations' }
+  as :user do
+    get "/login" => "devise/sessions#new"
+    get "/register" => "devise/registrations#new"
+    get "/edit" => "devise/registrations#edit"
+    delete "/logout" => "devise/sessions#destroy"
+  end
+
+    resources :users,only: [:show,:index] do
     member do
       get :watch
       get :library
@@ -85,14 +94,6 @@ Rails.application.routes.draw do
       put :update_avatar
     end
  end
-
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks",:registrations => :registrations,:passwords => "passwords" }
-  as :user do
-    get "/login" => "devise/sessions#new"
-    get "/register" => "devise/registrations#new"
-    get "/edit" => "devise/registrations#edit"
-    delete "/logout" => "devise/sessions#destroy"
-  end
   
 
   post 'vns/:id/favourite' => 'vns#favourite'
