@@ -24,6 +24,9 @@ gem 'pg_search'
 gem 'carrierwave'
 gem 'carrierwave-crop'
 gem "mini_magick"
+
+#announcements
+gem "starburst"
 # authentication
 gem 'devise'
 gem "pundit"

@@ -6,6 +6,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   process crop: :image_coverpage
+  process :quality => 75
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
       storage :fog

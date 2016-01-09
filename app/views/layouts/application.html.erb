@@ -87,7 +87,6 @@
                   <% end %>
               </ul>
             </li>
-
             <li class="dropdown logotitle-dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle button-nav"><span class="logotitle">Discover</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -101,6 +100,10 @@
                   <li><%= link_to 'All Developers',all_developers_path %></li>
               </ul>
             </li>
+
+
+            <li class="dropdown logotitle-dropdown">
+               <a href="http://forums.visualnoveler.com" class="button-nav"><span class="logotitle">Forums</span></a> </li>
              <% if user_signed_in? %>
           <% if current_user.admin? || current_user.mod? %> 
             <li class="dropdown logotitle-dropdown">
@@ -199,7 +202,7 @@
       </div>
  </div>
 
-
+<%= render :partial => "announcements/starburst/announcement_bootstrap" %>
 
 <%= yield %>
  

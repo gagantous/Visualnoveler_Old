@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'developers/typeahead/:search' => 'developers#typeahead'
 
   get 'discourse/sso' => 'discourse_sso#sso'
+  mount Starburst::Engine => "/starburst"
  # get 'json/vns' => "pages#test"
   resources :characters do
     get :search, on: :collection
