@@ -1,0 +1,2 @@
+module DiscourseSsoHelper
+end
