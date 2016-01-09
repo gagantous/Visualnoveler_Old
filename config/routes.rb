@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'typeahead/:search' => 'pages#typeahead'
   get 'genres/typeahead/:search' => 'genres#typeahead'
   get 'developers/typeahead/:search' => 'developers#typeahead'
+
+  get 'discourse/sso' => 'discourse_sso#sso'
  # get 'json/vns' => "pages#test"
   resources :characters do
     get :search, on: :collection
