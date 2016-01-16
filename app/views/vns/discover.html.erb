@@ -14,20 +14,21 @@
 
 		</div>	
 		<div class="row">
-			<div class="col-md-12">
 
 				<% Genre.all.each do |genre| %>
+
+			<div class="col-md-2">
 				    <label class="checkbox-inline">
 				      <%= check_box_tag 'genre_ids[]',genre.id %>
 						<span style="font-weight:normal;"><%= genre.name %> </span>
 				     </label>
+				  </div>
 				 <% end %>
           <!--   <div class="col-md-2">
             	<%= select_tag 'rating_type', options_for_select(["Sort by highest Rating", "Sort by lowest Rating"]),{:class => "select optional form-control"} %>
 			</div> -->
 			<% end %>
 			
-		</div>
 		</div>
 		<h3>Some random visual novels</h3>
 		<% @random.each do |vn| %>
