@@ -40,6 +40,12 @@ class UsersController < ApplicationController
     @lib_watched = @lib.where(status: "watch")
   end
 
+  def update_lib_notes
+
+    @user = User.find(params[:id])
+    @lib = @user.library_entries
+  end
+
   def similar
     @user = User.find(params[:id])
     @user_lib = @user.library_entries

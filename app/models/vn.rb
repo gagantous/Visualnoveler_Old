@@ -9,7 +9,7 @@ class Vn < ActiveRecord::Base
     has_many :reviews, dependent: :destroy
     has_many :vn_publishers, dependent: :destroy
     has_many :publishers, :through => :vn_publishers
-    enum status: {"Not Translated" => 0,"Translated" => 1,"Ongoing Translation" => 2}
+    enum status: {"Not Translated" => 0,"Translated" => 1,"Ongoing Translation" => 2,"OELVN" => 3}
     belongs_to :developer
     belongs_to :franchise
     mount_uploader :image_coverpage, AvatarUploader
@@ -31,6 +31,7 @@ class Vn < ActiveRecord::Base
  	before_save :edit_youtubeurl
   	attr_accessor :characterurl
   	include PgSearch
+  	#:associated_against => { genres: [:name]},
   	pg_search_scope :search_by_name, :against => :name,:using => {
                     :tsearch => {:prefix => true}
                   }

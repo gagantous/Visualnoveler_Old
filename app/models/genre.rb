@@ -11,4 +11,11 @@ class Genre < ActiveRecord::Base
   pg_search_scope :search_by_name, :against => :name,:using => {
                     :tsearch => {:prefix => true}
                   }
+  # scope :highest_vns, -> {
+  # 	select('genres.*',).
+  # 	joins(:vns).                                                   
+  # 	group('developers.id').
+  # 	order('vns_count DESC')
+
+  # }
 end

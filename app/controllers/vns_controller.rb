@@ -12,6 +12,10 @@ class VnsController < ApplicationController
 		@vn.reviews.build
 	end
 
+	def discover
+		@random = Vn.limit(5).order("RANDOM()")
+	end
+
 	def simple_create
 		@vn = Vn.new
 		authorize @vn
@@ -30,6 +34,13 @@ class VnsController < ApplicationController
 		#@vn = Vn.all.where(:isFeatured => true)
 		#offset = rand(Vn.count)
 		@random = Vn.limit(5).order("RANDOM()")
+	end
+
+	def search
+	   @vn = Vn.joins(:genres).where('genres.id' => params['genre_ids']).group('vns.id').having("count(genres.id) = ?",params['genre_ids'].count) unless params['genre_ids'].blank?
+        if params['genre_ids'].blank?
+          @vn = []
+        end
 	end
 
 	def rate
@@ -55,14 +66,14 @@ class VnsController < ApplicationController
 		libentry = current_user.library_entries.find_or_create_by(vn_id: @vn.id)
 		if type == "favourite" 
 			libentry.update_attribute(:favourite,true)
-			post = libentry.posts.build(detail: "#{current_user.name} has recently added #{@vn.name} to his favourites.",user_id: current_user.id)
+			post = libentry.posts.build(detail: "#{current_user.name} has recently added #{@vn.name} to their favourites.",user_id: current_user.id)
 			if post.save 
 				redirect_to :back
 				flash[:success] = post.detail
 			end
 		elsif type == "unfavourite"
 			libentry.update_attribute(:favourite,false)
-			post = libentry.posts.build(detail: "#{current_user.name} has recently removed #{@vn.name} from his favourites.",user_id: current_user.id)
+			post = libentry.posts.build(detail: "#{current_user.name} has recently removed #{@vn.name} from genre favourites.",user_id: current_user.id)
 			if post.save 
 				redirect_to :back
 				flash[:success] = post.detail
@@ -82,10 +93,10 @@ class VnsController < ApplicationController
 			post = libentry.posts.build(detail: "#{current_user.name} has started playing #{@vn.name}",user_id: current_user.id)
 		elsif type == "drop"
 			libentry.update_attribute :status, "drop"
-			post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from his library",user_id: current_user.id)
+			post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from genre library",user_id: current_user.id)
 		elsif type == "wishlist"
 			libentry.update_attribute :status, "wishlist"
-			post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to his wishlist",user_id: current_user.id)
+			post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to genre wishlist",user_id: current_user.id)
 		elsif type =="complete"
 			libentry.update_attribute :status, "complete"
 			post = libentry.posts.build(detail: "#{current_user.name} has completed #{@vn.name}",user_id: current_user.id)
@@ -103,7 +114,7 @@ class VnsController < ApplicationController
 		@vn = Vn.where(:isFeatured => true).paginate(:page => params[:page], :per_page => 35)
 		#@vn = Vn.all.where(:isFeatured => true)
 		#offset = rand(Vn.count)
-		@random = Vn.limit(5).order("RANDOM()")
+		
 	end
 
 	def new

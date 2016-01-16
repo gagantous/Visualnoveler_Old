@@ -15,8 +15,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
+<div id="wrap">
+  <div id="main">
    <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -90,7 +90,7 @@
             <li class="dropdown logotitle-dropdown">
               <a href="#" data-toggle="dropdown" class="dropdown-toggle button-nav"><span class="logotitle">Discover</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                  <li><%= link_to 'Devblog', "http://blog.visualnoveler.com" %></li>
+                  <li><%= link_to 'Visual Novels', discover_vns_path %></li>
                   <li><%= link_to 'Genres', genres_path  %></li>
                   <li><%= link_to 'Developer',developers_path %></li>
                   <li><%= link_to 'Users', users_path %></li>
@@ -205,7 +205,23 @@
 <%= render :partial => "announcements/starburst/announcement_bootstrap" %>
 
 <%= yield %>
- 
+
+</div> </div>
+ <footer class="footer">
+  <div class="container">
+    <div class="row">
+        
+      <ul class="list-inline" style="padding-top:7px;padding-bottom:7px;">
+        <li class="footer-text"style="font-size:14px !important;"> &copy; 2016 Visualnoveler</li>
+        <li> <%= link_to 'About' ,pages_about_path ,class: "footer-text" %> </li>
+        <li> <%= link_to 'Development Blog' ,"http://blog.visualnoveler.com" ,class: "footer-text" %> </li>
+        <li> <%= link_to 'Visual Novel Resources' ,pages_resources_path ,class: "footer-text" %> </li>
+        <li> <%= link_to 'Recommendation Charts' ,pages_recommendation_path ,class: "footer-text" %> </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
 <!-- 

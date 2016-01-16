@@ -1,6 +1,11 @@
 jQuery ->
   $('a.fancybox').fancybox({parent: "body"})
 
+
+# $ ->
+#   $(".typeahead").bind "typeahead:select", ->
+#     window.location = "http://localhost:3000/vns";
+
 jQuery -> 
   users = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
@@ -16,7 +21,10 @@ jQuery ->
   $('.typeahead').typeahead(null, {
       name: "mysearch"
       source: users.ttAdapter()
+    
   })
+
+
 
 jQuery ->
  $(".fancyframe").fancybox

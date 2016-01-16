@@ -1,0 +1,17 @@
+<% title "Edit Library Entries" %>
+
+<div class="container">
+  <div class="row vnindex-row ">
+  	
+	<%= simple_form_for @lib, html: { multipart: true }  do |f| %>
+	<div class="row">
+		<div class="col-md-12">
+			<%= f.input :notes,input_html:{style:"max-width:800px;",'rows' => 5} %>
+		</div>
+		<div class="col-md-12">
+		<%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Updating..."} %>
+		</div>
+	</div>
+	<% end %>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<% title "Search Visual Novels" %>
+<% description "A list of featured visual novels in Visualnoveler and also random visual novels for you to discover!" %>
+<div class="container-fluid">
+  <div class="row vnindex-row">
+
+    <%= render 'layouts/vn_title',:title => "Search Visual Novels" %>
+    <%= render 'layouts/vn_show_simple',locals:{vn: @vn} %> 
+    
+  </div>
+</div>

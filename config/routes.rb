@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   end
   resources :screenshots, except: [:index]
   resources :comments
-  resources :library_entries, except: [:new, :edit]
+  resources :library_entries, except: [:new]
   resources :posts
 
   namespace :admin do
@@ -68,6 +68,8 @@ Rails.application.routes.draw do
     get :top, on: :collection
     get :translated, on: :collection
     get :walkthroughs, on: :collection
+    get :discover, on: :collection
+    get :search, on: :collection
   end
   # resources :users do
   #   get :watch, on: :member

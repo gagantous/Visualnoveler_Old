@@ -129,7 +129,7 @@
 		</div>
 
 		<% if post == @posts.first && current_user != @user && user_signed_in? %>
-			<div class="col-md-3">
+			<div class="col-md-3 shared-lib">
 				<h3 style="margin-top:0px;"> <%= link_to "#{@similar_lib.count} Shared Visual Novels",similar_user_path(@user) %></h3>
 				<% @similar_lib.first(4).each do |lib| %>
 					<%= link_to image_tag(lib.vn.image_poster_url,:alt => lib.vn.name, :class=> "similar-thumbnail",:style =>"float:left;"), vn_path(lib.vn)	 %>
@@ -168,11 +168,16 @@
 		<div class="row">
 
 		<div class="col-md-2">
-			<%= display_avatar(comment.post_author,"img-responsive") %>
+			<%= display_avatar_no_sign_in(comment.post_author,"img-responsive") %>
 		</div>
 		<div class="col-md-7" id ="show_comment">
 			<p><span class="text-primary default-text"><%= link_to comment.post_author.name,user_path(comment.post_author) %> </span><span class="vn-postdate"> 5 minutes ago</span></p> 
 		<p><%= comment.detail %> </p>
+		<% if current_user == @user %>
+		<%= button_to comment,:method=>:delete,:class =>"btn btn-danger pull-right", style:"position:relative;bottom:37px;",data:{ disable_with: "Deleting comment...."} do %>
+			 	<i class="fa fa-trash-o"></i>
+				<% end %>
+		<% end %>
 		</div>
 
 		</div>

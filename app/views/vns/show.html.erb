@@ -74,7 +74,7 @@
 			<br>
 			<span class="vn-contentpadding "><span class="vn-label">Status:</span> <%= @vn.status %> </span>
 			<br>
-			<% if @vn.alias %>
+			<% if !@vn.alias.blank? %>
 			<span class="vn-contentpadding "><span class="vn-label">Alias:</span> <%= @vn.alias %> </span>
 			<br> <% end %>
 			<% unless @vn.buy_1.blank? && @vn.buy_2.blank? && @vn.buy_3.blank? && @vn.buy_4.blank? %>
@@ -156,28 +156,28 @@
 			 		<div class="col-md-3">
 			 		<% unless @vn.image_1.blank? %>
 			 		<%= link_to @vn.image_1.url, :class => 'fancybox', :rel =>'group' do %>
-					 <%= image_tag("#{@vn.image_1.url(:thumb)}",:alt => "#{@vn.name} screenshot 1", :class=> "vn-thumbnail img-thumbnail") %>
+					 <%= image_tag("#{@vn.image_1.url(:thumb)}",:alt => "#{@vn.name} screenshot 1", :class=> "img-thumbnail") %>
 					 <% end %>
 			 		</div> <% end %>
 
 			 		<div class="col-md-3">
 			 		<% unless @vn.image_2.blank? %>
 					 <%= link_to @vn.image_2.url, :class => 'fancybox', :rel =>'group' do %>
-					 <%= image_tag("#{@vn.image_2.url(:thumb)}",:alt => "#{@vn.name} screenshot 2", :class=> "vn-thumbnail img-thumbnail") %>
+					 <%= image_tag("#{@vn.image_2.url(:thumb)}",:alt => "#{@vn.name} screenshot 2", :class=> "img-thumbnail") %>
 					 <% end %>
 					</div> <% end %>
 
 			 		<div class="col-md-3">
 			 		<% unless @vn.image_3.blank? %>
 					<%= link_to @vn.image_3.url, :class => 'fancybox', :rel =>'group' do %>
-					 <%= image_tag("#{@vn.image_3.url(:thumb)}",:alt => "#{@vn.name} screenshot 3", :class=> "vn-thumbnail img-thumbnail") %>
+					 <%= image_tag("#{@vn.image_3.url(:thumb)}",:alt => "#{@vn.name} screenshot 3", :class=> " img-thumbnail") %>
 					 <% end %>
 					</div> <% end %>
 
 			 		<div class="col-md-3">
 			 		<% unless @vn.image_4.blank? %>
 					 <%= link_to @vn.image_4.url, :class => 'fancybox', :rel =>'group' do %>
-					 <%= image_tag("#{@vn.image_4.url(:thumb)}",:alt => "#{@vn.name} screenshot 4", :class=> "vn-thumbnail img-thumbnail") %>
+					 <%= image_tag("#{@vn.image_4.url(:thumb)}",:alt => "#{@vn.name} screenshot 4", :class=> "img-thumbnail") %>
 					 <% end %>
 					</div> <% end %>
 
@@ -232,7 +232,7 @@
 		<% end %>
 		<div class="col-md-6 col-xs-12">
 			<% unless @vn.route_url.blank? %>
-				<h3>Character Route Walkthroughs</h3>
+				<h3>Walkthrough</h3>
 				<%= link_to image_tag("fuwa.png",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive vn-walkthroughimg",:style =>"float:left;"),@vn.route_url, :rel => "nofollow",:target =>"_blank"  %>
 			<% end %>
 		</div>
@@ -324,7 +324,7 @@
 	<div class="row otherss-padding">
 		<div class="col-md-12">
 		<% unless @screenshots.blank? %>
-			<h3>Other Screenshots</h3>
+			<h3>Screenshots</h3>
 			<% @screenshots.each do |ss| %>
 				<div class="col-md-3">
 					<%= link_to ss.image.url, :class => 'fancybox', :rel =>'ss' do %>
