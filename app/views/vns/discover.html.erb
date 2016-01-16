@@ -19,7 +19,7 @@
 				<% Genre.all.each do |genre| %>
 				    <label class="checkbox-inline">
 				      <%= check_box_tag 'genre_ids[]',genre.id %>
-						<span style="font-weight:normal;size:120%;"><%= genre.name %> </span>
+						<span style="font-weight:normal;"><%= genre.name %> </span>
 				     </label>
 				 <% end %>
           <!--   <div class="col-md-2">

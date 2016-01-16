@@ -52,7 +52,7 @@ class CharactersController < ApplicationController
 
 	private
 		def char_params
-			params.require(:character).permit(:name, :summary,:voiceactor,:vn_name,:vn_id,:img_string,{ :vn_ids => [] })
+			params.require(:character).permit(:name,:role, :summary,:voiceactor,:vn_name,:vn_id,:img_string,{ :vn_ids => [] })
 		end
 
 end

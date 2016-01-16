@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116082443) do
+ActiveRecord::Schema.define(version: 20160116142952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20160116082443) do
     t.string   "voiceactor"
     t.integer  "vn_id"
     t.string   "img_string"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "role",       default: 0
   end
 
   add_index "characters", ["vn_id"], name: "index_characters_on_vn_id", using: :btree

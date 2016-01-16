@@ -188,7 +188,7 @@ class VnsController < ApplicationController
 		def vn_params
 			params.require(:vn).permit(:name,:status,:route_url,:franchise_id,:characterurl,:remote_image_coverpage_url,:remote_image_1_url,:remote_image_2_url,:remote_image_3_url,:remote_image_4_url,
 			:bio,:trailer_url,:image_coverpage_crop_x,:image_coverpage_crop_y, :image_coverpage_crop_w, :image_coverpage_crop_h,:rating_number,:isFeatured,
-			 { characters_attributes: [:id,:_destroy,:name,:summary,:voiceactor,:remote_img_string_url,:img_string,] },:release_date, :summary,:alias,
+			 { characters_attributes: [:id,:_destroy,:name,:role,:summary,:voiceactor,:remote_img_string_url,:img_string,] },:release_date, :summary,:alias,
 			 { :genre_ids => [] }, :developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id,{ :publisher_ids => [] },
 			 {screenshots_attributes: [:id,:_destroy,:name,:alt,:image,:remote_image_url] } ,:remote_image_poster_url,
 			 {reviews_attributes: [:details,:rating,:status,:vn_id,:user_id,:_destroy] },:buy_1,:buy_2,:buy_3,:buy_4)

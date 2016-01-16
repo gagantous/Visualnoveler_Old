@@ -206,7 +206,8 @@
 					<% end %>
 				</div>
 				<div class="col-md-6 vn-characterbottompadding">
-					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5 vnpage-charname" %>
+					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5 vnpage-charname" %> <br>
+					<span class="character-role"><%= char.role unless char.role == "Not Set" %> </span>
 				</div>
 			
 		</div> 
@@ -320,8 +321,9 @@
 </div></div>
 </section>
 
-<div class="container ">
-	<div class="row otherss-padding">
+<div class="otherss-padding">
+<div class="container">
+	<div class="row ">
 		<div class="col-md-12">
 		<% unless @screenshots.blank? %>
 			<h3>Screenshots</h3>
@@ -335,5 +337,6 @@
 		<% end %>
 	</div>
 	</div>
+</div>
 </div>
 
