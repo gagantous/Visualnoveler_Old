@@ -13,7 +13,7 @@
 			</h2>
 
 		</div>	
-		<div class="row">
+		<div class="col-md-12">
 
 				<% Genre.all.each do |genre| %>
 
@@ -30,7 +30,9 @@
 			<% end %>
 			
 		</div>
-		<h3>Some random visual novels</h3>
+		<div class="col-md-12">
+			<h3 style="margin-top:30px !important;">Some random visual novels</h3>
+		</div>
 		<% @random.each do |vn| %>
 		<div class="vn-column">
 			<%= link_to vn_path(vn) do %>
