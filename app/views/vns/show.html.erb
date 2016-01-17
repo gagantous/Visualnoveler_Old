@@ -202,7 +202,7 @@
 		<div class="col-md-2 col-xs-4 removecharacterpadding">
 				<div class="col-md-6 adjustcharacter">
 					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
-						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "vnchar-img img-thumbnail") %>
+						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "img-circle img-thumbnail") %>
 					<% end %>
 				</div>
 				<div class="col-md-6 vn-characterbottompadding">
@@ -216,7 +216,6 @@
 			<% end %>
 		</div>
 	</div>
-</div>
 </section>
 
 <div class="container">

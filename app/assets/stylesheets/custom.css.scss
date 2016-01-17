@@ -21,10 +21,12 @@ body:before {
   clear:both;
 }
 #main {overflow:auto;
-  padding-bottom: 50px;}  /* must be same height as the footer */
+  padding-bottom: 50px;
+  min-height:450px;}  /* must be same height as the footer */
 
-
-#wrap {min-height: 100%;}
+#wrap {
+  min-height: 100%;
+}
 
 .footer > a:hover, a:visited, a:link, a:active
 {
@@ -47,9 +49,11 @@ body:before {
 html, body {
   overflow-x: hidden;
   height: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 .navbar{
   margin-bottom: 0px;
+  overflow: visible;
 }
 .btn:focus,.btn:active {
    outline: none !important;
