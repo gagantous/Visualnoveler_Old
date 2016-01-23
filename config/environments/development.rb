@@ -38,13 +38,17 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    address: "smtp.sparkpostmail.com",
-    port: 587,
-    authentication: "plain",
-    enable_starttls_auto: true,
     user_name: 'SMTP_Injection',
-    password: ENV["SPARKPOST_PASSWORD"]
+    password: ENV["SPARKPOST_PASSWORD"],
+    address: 'smtp.sparkpostmail.com',
+    authentication: "plain",
+    port: 587,
+    enable_starttls_auto: true,
+    domain: 'visualnoveler.com',
+    from: 'noreply@visualnoveler.com'
+
     }
+
 
 
 

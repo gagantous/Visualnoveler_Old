@@ -78,12 +78,14 @@ Rails.application.configure do
     # enable_starttls_auto: true,
     # user_name: ENV["GMAIL_USERNAME"],
     # password: ENV["GMAIL_PASSWORD"]
-    address: "smtp.sparkpostmail.com",
-    port: 587,
-    authentication: "plain",
-    enable_starttls_auto: true,
     user_name: 'SMTP_Injection',
-    password: ENV["SPARKPOST_PASSWORD"]
+    password: ENV["SPARKPOST_PASSWORD"],
+    address: 'smtp.sparkpostmail.com',
+    authentication: "plain",
+    port: 587,
+    enable_starttls_auto: true,
+    domain: 'visualnoveler.com',
+    from: 'noreply@visualnoveler.com'
     }
 
   config.i18n.fallbacks = true
