@@ -1,8 +1,8 @@
  <div class="container">
     <div class="row">
        <%= image_tag "landingbg.jpg",:class =>"wrapper" %>
-       <div class="col-md-9 col-md-offset-4 col-xs-12 col-xs-offset-1" col-  style="padding-top:16%;">
-          <h2 style="color:white;font-weight:bold;font-size:30px;" class="home-cta">Track & Discover Visual Novels</h2>
+       <div class="col-xs-12 text-center" style="padding-top:16%">
+          <h2 style="color:white;font-weight:bold;font-size:30px" class="home-cta">Track & Discover Visual Novels</h2>
           <p class="default-font home-emailtext">Get ongoing updates on the development of Visualnoveler</p>
           <%= form_tag pages_subscribe_path,class:"form-inline email-form",method: :post do %>
               <%= email_field(:email, :address, {id: "email", placeholder: "email address", class: "emailaddress form-control"}) %>
