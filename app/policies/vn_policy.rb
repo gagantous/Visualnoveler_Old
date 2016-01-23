@@ -15,7 +15,7 @@ class VnPolicy
   end
 
   def edit?
-    @current_user.admin?
+    @current_user.admin? or @current_user.mod?
   end
 
   def crop?

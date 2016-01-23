@@ -3,29 +3,21 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 .navbar-default{
   background-color: white;
-
 }
-
-body:before {
-  content:"";
-  height:100%;
-  float:left;
-  width:0;
-  margin-top:-32767px;
+html {
+    position: relative;
+    min-height: 100%;
 }
-.footer{
+body {
+    margin: 0 0 50px; /* bottom = footer height */
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
     background-color: #3E3D48;
-      position: relative;
-  margin-top: -50px; /* negative value of footer height */
-  height: 50px;
-  clear:both;
-}
-#main {overflow:auto;
-  padding-bottom: 50px;
-  min-height:450px;}  /* must be same height as the footer */
-
-#wrap {
-  min-height: 100%;
 }
 
 .footer > a:hover, a:visited, a:link, a:active
@@ -47,13 +39,14 @@ body:before {
   font-size: 12px;
 }
 html, body {
-  overflow-x: hidden;
-  height: 100%;
+  //overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
-.navbar{
+.navbar,.navbar-default {
   margin-bottom: 0px;
-  overflow: visible;
+}
+#content {
+  min-height: 520px;
 }
 .btn:focus,.btn:active {
    outline: none !important;
@@ -119,6 +112,12 @@ html, body {
     color: #fff;
     background-color: #dd4b39;
     border-color: rgba(0,0,0,0.2);
+}
+.user-discoverimg{
+  height: 160px;
+  width: 250px;
+  display: block;
+  max-width: 100%;
 }
 
 .padding-search{
@@ -195,15 +194,23 @@ html, body {
   }
 }
 
-// Mobile Phone CSS only
+// mobile Phone CSS only
 @media (max-width: 460px) {
   .vnindex-heading{
     top: -10px !important;
   }
+  .emailaddress{
+    position: relative;
+    left: 55px;
+  }
    .emailbutton {
     position: relative;
     top: 20px; 
-    left: 60px; 
+    right: 10px; 
+  }
+
+  .vnchar-rowpadding{
+    padding-right: 60px;
   }
   .home-registerbtn{
     position: relative;
@@ -225,11 +232,11 @@ html, body {
   }
   .content{
     position: absolute;
-    top: 100%;
     width: 100%;
     left: 0;
     height: auto;
     background: white;
+    overflow: auto;
   }
   .home-emailtext{
     color:#fff; 
@@ -245,7 +252,10 @@ html, body {
   .vn-ratingdiv {
      padding-left: 25px !important;
   }
-
+  .vn-navbuttons{
+    float: right;
+    margin-top: 15px;
+  }
 }
 
 // Tablet
@@ -263,6 +273,9 @@ html, body {
   .btn-vnlist{
     position:relative;
     bottom:10px;
+  }
+  .vn-navbuttons{
+
   }
 
 // mobile and tablet
@@ -413,7 +426,6 @@ html, body {
     height: 335px !important;
   }
   .adjustcharacter {
-    left: 15px;
     margin-bottom: 20px;
   }
 
@@ -446,6 +458,21 @@ html, body {
   .shared-lib{
     display: none; 
   }
+  .favourites-col{
+    padding-top: 25px;
+  }
+  //Adjust footer for mobile 
+ body {
+    margin: 0 0 75px !important; /* bottom = footer height */
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 75px !important;
+    width: 100%;
+    background-color: #3E3D48;
+}
 
 }
 // Tablet + Desktop
@@ -485,7 +512,13 @@ html, body {
   }
 }
 
+// settings for specific table sizes
+@media (min-width: 462px) and (max-width: 767px) {
+  .vn-navbuttons{
+    margin-top: 25px;
+  }
 
+}
 .removepadding {
   padding-right: 0px !important;
   padding-left: 0px !important;
@@ -598,10 +631,6 @@ html, body {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-  .vn-index-poster {
-     width: 220px;
-     height: 284px;
-  }
 // VN column in index VN page
 
 
@@ -917,7 +946,12 @@ background-size: cover;
   background-color: white;
  // height: 400px;
 }
-
+.favourites-div{
+  background-color: red;
+}
+.favourites-inner-row{
+  padding-left: 15px;
+}
 .user-image-div {
   padding-left: 0px;
   padding-right: 0px;
@@ -1032,9 +1066,6 @@ textarea {
 	font-family: "klavika", Helvetica, Arial, sans-serif;
 
 }
-
-
-
 
 .emailaddress{ 
   width: 230px;
@@ -1333,7 +1364,7 @@ body {
 .custom-input {
     height: 34px;
     padding: 6px 12px;
-    font-size: 14px;
+    font-sizes: 14px;
     line-height: 1.42857143;
     color: #555555;
     background-color: #fff;
@@ -1346,3 +1377,14 @@ body {
     -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   }
+
+.footer-home {
+  position: absolute;
+        top: 100%;
+        width: 100%;
+        left: 0;
+        height: auto;
+        background: white;
+        z-index: 10000 !important;
+  
+}

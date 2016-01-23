@@ -13,10 +13,12 @@
         <div class="col-md-4">
              <%= f.input :name, required: false, autofocus: true %>
         </div>
+         <div class="col-md-2">
+              <% if !@user.admin? %>
+               <%= f.input :role, required: false, autofocus: true %>
+              <% end %>
+        </div>
        
-        <div class="col-md-4">
-        <%= f.input :email, required: true, autofocus: true,required: false  %>
-      </div>
     </div>
     <div class="row">
       <div class="col-md-4">
@@ -27,18 +29,17 @@
     
  
     <div class="col-md-6">
-        <% if current_user.poster_image.url.present? %>
-          <%= image_tag(current_user.poster_image.url,:class =>"formthumbnail") %>
-        <% end %>
+     
+        <%= display_avatar(@user,"formthumbnail") %>
 
-       <%= f.input :poster_image, :label => "Upload an image" %>
     </div>
   
   </div>
-  <div class="row">
+  <div class="row" >
     <div class="col-md-12">
-        <div class="form-actions">
+        <div class="form-actions" style="padding-top:25px;padding-left:10px;">
           <%= f.button :submit, "Update",class: "register-button",:style =>"width: 100px;" %>
+        <%= link_to "Back", :back, :class => "btn btn-danger", style: "margin-left:150px;"%>
         </div>
     </div>
 <% end %>
@@ -47,7 +48,6 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
  -->
      <div class="col-md-12">
-        <%= link_to "Back", :back, :class => "btn btn-danger", style: "margin-top: 35px;"%>
      </div>
   </div>
 

@@ -31,6 +31,10 @@ class UserPolicy
   	return true
   end
 
+  def edit?
+    @current_user.admin?
+  end
+
   def favourite?
   	return true
   end

@@ -1,7 +1,8 @@
 <% title @user.name + "'s Profile" %>
 <% description @user.name + "'s Profile." " Start tracking Visual Novels and discover other hidden Visual Novel gems at Visualnoveler" %>
-<div class="container usercoverbg" style="margin-top:25px;">
-	<div class="row">
+<div class="container " style="margin-top:25px;">
+	<div class="row usercoverbg">
+	<div class="tester">
  		 <div class="usercol user-image-div">
  		 <% if @user.poster_image.blank? %>
  		 	<%= image_tag("default_avatar.jpg",:class=>"userpic",:alt =>"user avatar") %>
@@ -21,35 +22,30 @@
  				<p><%= @user.bio %></p>
  			</div>
  			<div class="user-buttons">
-
-				<div class="dropdown">
-					
+				<div class="dropdown">	
 					<%= link_to library_user_path(@user), :class => "btn blue-button library-list"  do %>
-					<span class="button-text">Library List</span>
-				<% end %>
-				<%= link_to '', :class => "btn blue-button dropdown-toggle",'data-toggle' => 'dropdown',id: 'dropdownMenu1','aria-haspopup' => true, 'aria-expanded' => true,type: "button"  do %>
-					<span class="button-text">Library View</span>
-    			<span class="caret"></span>
-				<% end %>
-				  <ul class="dropdown-menu" style="left:auto;right:200px;" aria-labelledby="dropdownMenu1">
-					<li><%= link_to 'Completed', completed_user_path(@user) %></li>
-				    <li><%= link_to 'Watching', watch_user_path(@user) %></li>
-				    <li><%= link_to 'Dropped', drop_user_path(@user) %></li>
-				    <li><%= link_to 'Wishlist', wishlist_user_path(@user) %></li>
-				</ul>
-
+						<span class="button-text">Library List</span>
+					<% end %>
+					<%= link_to '', :class => "btn blue-button dropdown-toggle",'data-toggle' => 'dropdown',id: 'dropdownMenu1','aria-haspopup' => true, 'aria-expanded' => true,type: "button"  do %>
+						<span class="button-text">Library View</span>
+	    				<span class="caret"></span>
+					<% end %>
+				  	<ul class="dropdown-menu" style="left:auto;right:200px;" aria-labelledby="dropdownMenu1">
+						<li><%= link_to 'Completed', completed_user_path(@user) %></li>
+					    <li><%= link_to 'Watching', watch_user_path(@user) %></li>
+					    <li><%= link_to 'Dropped', drop_user_path(@user) %></li>
+					    <li><%= link_to 'Wishlist', wishlist_user_path(@user) %></li>
+					</ul>
 				</div>
-
-
-
 			</div>
  		</div>
- 		<div class="col-md-3">
+ 	</div>
+ 		<div class="col-md-3 favourites-col">
  			<%= link_to favourite_user_path(@user) do %>
- 				<h4 class ="logotitle">Favourites</h4>
+ 				<h4 style="color:black;">Favourites</h4>
  			<% end %>
  			
- 			<div class="row">
+ 			<div class="row favourites-inner-row">
  			<% @lib.each do |lib| vn = lib.vn %>
  					<div class="user-favcolumn removecharacterpadding">
  					<%= link_to vn_path(vn) do %>
@@ -95,7 +91,7 @@
 					<i class="fa fa-trash-o"></i>
 				<% end %>
 				<% end %>
-				<div class="col-md-2">
+				<div class="col-md-2 col-xs-4">
 					<% if post.library_entry %>
 					<%= link_to image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left"), vn_path(vn)  %>
 					<% else %>
@@ -106,7 +102,7 @@
 						<% end %>
 					<% end %>
 				</div>
-				<div class="col-md-10">
+				<div class="col-md-10 col-xs-8">
 					<h4><%= post.detail %></h4>
 					<hr>
 					<div class="row">
@@ -167,7 +163,7 @@
 		<% @comments.each do |comment| %> 
 		<div class="row">
 
-		<div class="col-md-2">
+		<div class="col-md-2 col-xs-4">
 			<%= display_avatar_no_sign_in(comment.post_author,"img-responsive") %>
 		</div>
 		<div class="col-md-7" id ="show_comment">
