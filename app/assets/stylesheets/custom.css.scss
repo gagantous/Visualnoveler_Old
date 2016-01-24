@@ -208,7 +208,11 @@ html, body {
     top: 20px; 
     right: 10px; 
   }
-
+  // to ensure that bootstrap colummns float in columns properly
+  .removecharacterpadding{
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
   .vnchar-rowpadding{
    // padding-right: 60px;
   }
