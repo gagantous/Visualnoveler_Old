@@ -192,31 +192,34 @@
 <section id="vn-character">
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12 col-xs-12">
 			<a href=<%= characters_vn_path(@vn) %>><h3>Characters</h3> </a>
 		</div>
-			<% @showcharacters.each_slice(6) do |charRow| %>
+			
+			<% @showcharacters.in_groups_of(6,false) do |charRow| %>
 
 		<div class="row vnchar-rowpadding">
-			<% charRow.each do |char| %>
-		<div class="col-md-2 col-xs-3 col-sm-3 removecharacterpadding">
-				<div class="col-md-6 adjustcharacter">
+		<% charRow.each do |char| %>
+		<div class="col-md-2 col-xs-4 col-sm-2 removecharacterpadding">
+				<div class="col-md-6 col-sm-12 col-xs-12 adjustcharacter">
 					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
 						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "img-circle img-thumbnail") %>
 					<% end %>
 				</div>
-				<div class="col-md-6 col-sm-9 vn-characterbottompadding">
+				<div class="col-md-6 col-sm-12 col-xs-12 vn-characterbottompadding">
 					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5 vnpage-charname" %> <br>
 					<span class="character-role"><%= char.role unless char.role == "Not Set" %> </span>
 				</div>
 			
+		</div>
+		<% end %>
 		</div> 
 		<% end %> 
-		</div>
-			<% end %>
+			<!-- row and container below !-->
 		</div>
 	</div>
 </section>
+
 
 <div class="container">
 	<div class="row">

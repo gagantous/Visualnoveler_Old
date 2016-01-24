@@ -7,23 +7,32 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-10 col-sm-10 col-xs-12">
-		<%= get_review_icon(review.rating) %>
-		<span class="vn-ratingdiv">Score: <%= review.rating%></span>
-		<div class="vn-reviewdate pull-right">
-			<span class="vn-postdate "><%= time_ago_in_words(review.created_at) %></span>
+	<div class="col-md-10 col-sm-12 col-xs-12">
+		<div class="row">
+			<div class="col-md-5 col-xs-5 col-sm-4">
+					<%= get_review_icon(review.rating) %>
+				</div>
+				<div class="col-md-2 col-xs-3 col-sm-3">
+					<span class="vn-ratingdiv">Score: <%= review.rating%></span>
+				</div>
+				<div class="col-md-4 col-xs-4 col-sm-5">
+					<span class="vn-review-postdate "><%= time_ago_in_words(review.created_at) %></span>
+				</div>
+			<div class="vn-reviewdetails col-md-12 col-xs-12">
+				<%= markdown(review.details.truncate(1400)) %>
+			</div>
+		
+			<div class="col-md-12 col-xs-12">
+				<% if review.details.length > 1400 %>
+					<%= link_to 'View More',vn_review_path(review.vn,review),class: "btn blue-button" %>
+				<% end %>
+				<% if user_signed_in? %>
+					<% if current_user.id == review.user_id || current_user.admin? || current_user.mod? %>
+					<%= link_to 'Edit Review',edit_vn_review_path(@vn,review),class: "btn blue-button pull-right" %>
+					<% end %> 
+				<% end %>
+			</div>
 		</div>
-		<div class="vn-reviewdetails">
-			<%= markdown(review.details.truncate(1400)) %>
-		</div>
-		<% if review.details.length > 1400 %>
-				<%= link_to 'View More',vn_review_path(review.vn,review),class: "btn blue-button" %>
-		<% end %>
-		<% if user_signed_in? %>
-			<% if current_user.id == review.user_id || current_user.admin? || current_user.mod? %>
-				<%= link_to 'Edit Review',edit_vn_review_path(@vn,review),class: "btn blue-button pull-right" %>
-			<% end %> 
-		<% end %>
 	</div>
 
 </div>

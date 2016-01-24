@@ -73,7 +73,7 @@ class VnsController < ApplicationController
 			end
 		elsif type == "unfavourite"
 			libentry.update_attribute(:favourite,false)
-			post = libentry.posts.build(detail: "#{current_user.name} has recently removed #{@vn.name} from genre favourites.",user_id: current_user.id)
+			post = libentry.posts.build(detail: "#{current_user.name} has recently removed #{@vn.name} from their favourites.",user_id: current_user.id)
 			if post.save 
 				redirect_to :back
 				flash[:success] = post.detail
@@ -93,10 +93,10 @@ class VnsController < ApplicationController
 			post = libentry.posts.build(detail: "#{current_user.name} has started playing #{@vn.name}",user_id: current_user.id)
 		elsif type == "drop"
 			libentry.update_attribute :status, "drop"
-			post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from genre library",user_id: current_user.id)
+			post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from their library",user_id: current_user.id)
 		elsif type == "wishlist"
 			libentry.update_attribute :status, "wishlist"
-			post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to genre wishlist",user_id: current_user.id)
+			post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to their wishlist",user_id: current_user.id)
 		elsif type =="complete"
 			libentry.update_attribute :status, "complete"
 			post = libentry.posts.build(detail: "#{current_user.name} has completed #{@vn.name}",user_id: current_user.id)

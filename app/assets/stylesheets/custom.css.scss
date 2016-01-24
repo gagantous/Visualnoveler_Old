@@ -210,7 +210,7 @@ html, body {
   }
 
   .vnchar-rowpadding{
-    padding-right: 60px;
+   // padding-right: 60px;
   }
   .home-registerbtn{
     position: relative;
@@ -250,7 +250,6 @@ html, body {
   }
 
   .vn-ratingdiv {
-     padding-left: 25px !important;
   }
   .vn-navbuttons{
     float: right;
@@ -342,8 +341,8 @@ html, body {
   }
 
    .adjustcharacter {
-    left: 15px;
     margin-bottom: 15px;
+    left: 20px;
   }
   .vn-reviewposter {
     width: 93px !important;
@@ -357,7 +356,6 @@ html, body {
   }
 
   .vn-ratingdiv {
-     padding-left: 50px;
   }
 
   .vn-reviewdate{
@@ -376,6 +374,9 @@ html, body {
     position:relative;
     top:6px;
   }
+  .review-username{
+    padding-left: 15px;
+  }
   .row-vnlist-summary {
     margin-right:100px;
   }
@@ -386,6 +387,8 @@ html, body {
  
   .vn-characterbottompadding {
     padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .vn-score{
@@ -445,8 +448,15 @@ html, body {
   }
 
   .vn-ratingdiv {
-     padding-left: 90px;
+     
   }
+  #vn-review-section{
+  p{
+    //line-height: 1.2em;
+    font-size: 17px !important;
+    line-height: 1.6em;
+  }
+}
 }
 
 // small Tablets + mobile
@@ -460,6 +470,10 @@ html, body {
   }
   .favourites-col{
     padding-top: 25px;
+  }
+  .adjustcharacter {
+    margin-bottom: 15px;
+    left: 0px !important
   }
   //Adjust footer for mobile 
  body {
@@ -1164,6 +1178,8 @@ textarea {
     color: rgba(0,39,59,.35);   
     font-weight: 500;
     font-size: 17px;
+    position: relative;
+    top: 19px;
 }
 
 
@@ -1378,6 +1394,11 @@ body {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   }
 
+.vn-ratingdiv{
+  font-size: 1.2em;
+  position: relative;
+  top: 19px;
+}
 .footer-home {
   position: absolute;
         top: 100%;
