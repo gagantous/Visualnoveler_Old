@@ -194,7 +194,7 @@ html, body {
   }
 }
 
-// mobile Phone CSS only
+// mobile CSS
 @media (max-width: 460px) {
   .vnindex-heading{
     top: -10px !important;
@@ -208,11 +208,7 @@ html, body {
     top: 20px; 
     right: 10px; 
   }
-  // to ensure that bootstrap colummns float in columns properly
-  .removecharacterpadding{
-    padding-right: 15px !important;
-    padding-left: 15px !important;
-  }
+
   .vnchar-rowpadding{
    // padding-right: 60px;
   }
@@ -261,7 +257,7 @@ html, body {
   }
 }
 
-// Tablet
+// tablet
 @media (max-width: 1196px) and (min-width:600px) {
   .vn-pull-right {
     float: right !important;
@@ -463,7 +459,7 @@ html, body {
 }
 }
 
-// small Tablets + mobile
+// small tablet + mobile
 @media (max-width: 700px) {
   .vn-menuright {
     float: none !important;
@@ -493,7 +489,7 @@ footer {
 }
 
 }
-// Tablet + Desktop
+// tablet + desktop
 @media (min-width: 460px) {
   .vnindex-row {
     margin-left: 100px !important;
@@ -561,7 +557,14 @@ footer {
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-
+//specific character css for vn show page 
+@media (max-width: 519px) {
+  // to ensure that bootstrap colummns float in columns properly
+  .removecharacterpadding{
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+}
 
 .nav-library {
   color: black;
