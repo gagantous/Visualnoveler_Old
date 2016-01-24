@@ -199,6 +199,9 @@ html, body {
   .vnindex-heading{
     top: -10px !important;
   }
+  .favourites-inner-row{
+    padding-left: 15px;
+  }
   .emailaddress{
     position: relative;
     left: 55px;
@@ -970,9 +973,7 @@ background-size: cover;
 .favourites-div{
   background-color: red;
 }
-.favourites-inner-row{
-  padding-left: 15px;
-}
+
 .user-image-div {
   padding-left: 0px;
   padding-right: 0px;
@@ -1304,7 +1305,7 @@ body {
 .radio-ratinglabel {
   padding-right: 15px;
 }
-.tester{
+.usercol-div{
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -1405,6 +1406,10 @@ body {
   font-size: 1.2em;
   position: relative;
   top: 19px;
+}
+.removefavouritepadding{
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .footer-home {
   position: absolute;
