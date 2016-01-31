@@ -1,9 +1,10 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-8 col-xs-12">
 			<div class="panel panel-default">
   			<div class="panel-body">
-		<table class="table table-responsive">
+  		<div class="table-responsive">
+		<table class="table">
 			<h2>User List</h2>
 			<thead><tr>
 				<th>Avatar</th>
@@ -31,6 +32,7 @@
 			<% end %>
 			</tbody>
 		</table>
+		</div>
 			</div></div>
 			<%= will_paginate @user, renderer: BootstrapPagination::Rails %>
 		</div>

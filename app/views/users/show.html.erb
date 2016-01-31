@@ -10,7 +10,7 @@
  			 <%= image_tag("#{@user.poster_image.url}",:class => "userpic",:alt =>"user avatar") %>
  		 <% end %>
  		</div>
- 		<div class="col-md-6">
+ 		<div class="col-md-6 col-xs-12">
  			<h3 class="user-name"><%= @user.name %>
  			<% if @user == current_user %>
  			<a href=<%= edit_path %> class="a-inherit" data-no-turbolink="true">
@@ -21,26 +21,32 @@
  			<div class="user-bio">
  				<p><%= @user.bio %></p>
  			</div>
- 			<div class="user-buttons">
-				<div class="dropdown">	
-					<%= link_to library_user_path(@user), :class => "btn blue-button library-list"  do %>
-						<span class="button-text">Library List</span>
-					<% end %>
-					<%= link_to '', :class => "btn blue-button dropdown-toggle",'data-toggle' => 'dropdown',id: 'dropdownMenu1','aria-haspopup' => true, 'aria-expanded' => true,type: "button"  do %>
-						<span class="button-text">Library View</span>
-	    				<span class="caret"></span>
-					<% end %>
-				  	<ul class="dropdown-menu" style="left:auto;right:200px;" aria-labelledby="dropdownMenu1">
-						<li><%= link_to 'Completed', completed_user_path(@user) %></li>
-					    <li><%= link_to 'Watching', watch_user_path(@user) %></li>
-					    <li><%= link_to 'Dropped', drop_user_path(@user) %></li>
-					    <li><%= link_to 'Wishlist', wishlist_user_path(@user) %></li>
-					</ul>
+ 			<div class="row">
+	 			<div class="user-buttons">
+	 				<div class="col-md-3 col-xs-6">
+						<%= link_to library_user_path(@user), :class => "btn blue-button library-list"  do %>
+							<span class="button-text">Library List</span>
+						<% end %>
+					</div>
+					<div class="col-md-3 col-xs-6">
+					<div class="dropdown">	
+						<%= link_to '', :class => "btn blue-button dropdown-toggle",'data-toggle' => 'dropdown',id: 'dropdownMenu1','aria-haspopup' => true, 'aria-expanded' => true,type: "button"  do %>
+							<span class="button-text">Library View</span>
+		    				<span class="caret"></span>
+						<% end %>
+					  	<ul class="dropdown-menu" style="" aria-labelledby="dropdownMenu1">
+							<li><%= link_to 'Completed', completed_user_path(@user) %></li>
+						    <li><%= link_to 'Watching', watch_user_path(@user) %></li>
+						    <li><%= link_to 'Dropped', drop_user_path(@user) %></li>
+						    <li><%= link_to 'Wishlist', wishlist_user_path(@user) %></li>
+						</ul>
+					</div>
+					</div>
 				</div>
 			</div>
  		</div>
  	</div>
- 		<div class="col-md-3 favourites-col">
+ 		<div class="col-md-3 favourites-col col-xs-12">
  			<%= link_to favourite_user_path(@user) do %>
  				<h4 style="color:black;">Favourites</h4>
  			<% end %>

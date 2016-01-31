@@ -3,6 +3,7 @@
 		<div class="col-md-12 col-xs-12 col-sm-12">
 			<div class="panel panel-default">
   			<div class="panel-body">
+  		<div class=" table-responsive">
 		<table class="table">
 			<h2>Review List</h2>
 			<thead><tr>
@@ -15,14 +16,15 @@
 			<% @review.each do |review| %>
 			<% vn = review.vn %>
 				<tr>
-				<td><%= link_to review.user.name, vn_review_path(vn,review) %> </td>
-				<td><%= review.details.first(150) %></td>
+				<td ><%= link_to review.user.name, vn_review_path(vn,review) %> </td>
+				<td ><%= review.details.first(50) %></td>
 				<td><%= link_to 'Edit',edit_vn_review_path(vn,review) %></td>
 				<td><%= time_ago_in_words(review.updated_at) %></td>
 				</tr>
 			<% end %>
 			</tbody>
 		</table>
+		</div>
 			</div></div>
 		
 			<%= will_paginate @review, renderer: BootstrapPagination::Rails %>
