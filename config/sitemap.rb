@@ -30,7 +30,6 @@ SitemapGenerator::Sitemap.create do
     add user_path(user), lastmod: user.updated_at
     # add watch_user_path(user), lastmod: user.updated_at
     # add favourite_user_path(user), lastmod: user.updated_at
-    add library_user_path(user), lastmod: user.updated_at
    # add drop_path(user), lastmod: user.updated_at
    # add wishlist_path(user), lastmod: user.updated_at
   end
@@ -39,10 +38,10 @@ SitemapGenerator::Sitemap.create do
     add genre_path(genre), lastmod: genre.updated_at
   end
 
-  Developer.find_each do |developer|
-    # Removed because too spammy for now
-    # add developer_path(developer), lastmod: developer.updated_at
-  end
+  # Developer.find_each do |developer|
+  #   # Removed because too spammy for now
+  #   # add developer_path(developer), lastmod: developer.updated_at
+  # end
 
   # Put links creation logic here.
   #
