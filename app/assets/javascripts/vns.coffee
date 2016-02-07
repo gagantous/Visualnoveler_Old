@@ -1,6 +1,11 @@
 jQuery ->
   $('a.fancybox').fancybox({parent: "body"})
 
+# jQuery ->
+#   $('a.vn-tooltip-related').popover();
+
+jQuery ->
+  $('.vn-tooltip-related').tooltip();
 
 # $ ->
 #   $(".typeahead").bind "typeahead:select", ->

@@ -86,7 +86,7 @@ Rails.application.routes.draw do
     delete "/logout" => "devise/sessions#destroy"
   end
 
-    resources :users,only: [:show,:index,:update] do
+    resources :users,only: [:show,:index,:update,:edit] do
     member do
       get :watch
       get :library

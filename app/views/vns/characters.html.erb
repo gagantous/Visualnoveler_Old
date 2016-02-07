@@ -6,9 +6,10 @@
 <% end %>
 <div class="vncharacter"><div class="container">
 	<div class="row">
-		<div class="col-md-11">
+		<div class="col-md-12">
 			<div class="row">
 				<div class="panel panel-default"> <div class="panel-body">
+					<h2 class="text-center"><%= link_to "#{@vn.name}",vn_path(@vn) %> </h2><h4 class="text-center" style="padding-bottom:30px;">Character List</h4>
 					<% if @characters.blank? %>
 						<h3>We don't have any character details for <%= @vn.name%> </h3>
 						<p>There are no characters pages for <%=@vn.name%> yet. Check back next time or help to contribute to the page!</p>

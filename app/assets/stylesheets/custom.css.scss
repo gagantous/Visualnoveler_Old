@@ -1440,6 +1440,57 @@ body {
     max-width: 50%;
     height: auto;
 }
+.tooltip {
+  font-size: 18px;
+
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#franchise-related > a {
+  display: inline-block;
+
+}
+ul.img-list-hover {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul.img-list-hover li {
+  display: inline-block;
+  height: 155px;
+  position: relative;
+  width: 125px;
+  float: left;
+}
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 155px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 125px;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+ul.img-list-hover li:hover span.text-content {
+  opacity: 1;
+}
+
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.4em;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 .footer-home {
   position: absolute;
