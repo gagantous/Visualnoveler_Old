@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
  	 rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 	 after_filter :store_location
 	 before_filter :redirect_subdomain
+	 layout :layout_by_resource
 
 	def store_location
 	  # store last url - this is needed for post-login redirect to whatever the user last visited.
@@ -58,6 +59,14 @@ class ApplicationController < ActionController::Base
 	  end
 
 	  	protected
+
+		def layout_by_resource  
+  		  if is_a?(Devise::SessionsController) && action_name == "new" || is_a?(Devise::RegistrationsController) && action_name == "new"
+  		  	"none"
+  		  else 
+  		  	"application"
+  		  end
+		end
 		def configure_permitted_parameters
 		      devise_parameter_sanitizer.for(:sign_up) << :name
 		      

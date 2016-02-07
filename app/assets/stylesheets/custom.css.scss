@@ -283,6 +283,14 @@ html, body {
 // mobile and tablet
 
 @media (max-width: 1196px) {
+
+  .collapsing {
+    -moz-transition: height 0.15s ease;
+    -ms-transition: height 0.15s ease;
+    -o-transition: height 0.15s ease;
+    transition: height 0.15s ease;
+    -webkit-transition: height 0.15s;
+  }
   .row-vnlist-summary {
     margin-right:25px;
   }
@@ -371,6 +379,10 @@ html, body {
 //desktop 
 @media (min-width: 1200px) { 
   //VN Show page
+  .usernav-name{
+   position: relative;
+   top: 5px
+  }
   .vnindex-heading{
     display:inline;
     padding-left:45px;
@@ -1306,7 +1318,6 @@ body {
   padding-right: 15px;
 }
 .usercol-div{
-  padding-left: 10px;
   padding-right: 10px;
 }
 
@@ -1411,6 +1422,21 @@ body {
   padding-left: 0px;
   padding-right: 0px;
 }
+.links-shared{
+    text-decoration: none;
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    display: inline-block;
+    opacity: 0.6;
+    transition: opacity ease 0.5s;
+}
+.shared-links-div{
+  position: relative;
+  bottom: 15px;
+}
+
+
 .footer-home {
   position: absolute;
         top: 100%;

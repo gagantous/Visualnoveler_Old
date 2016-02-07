@@ -3,7 +3,7 @@ class GenresController < ApplicationController
 
 	def show
 		@genre = Genre.find(params[:id])
-		@vn = @genre.vns
+		@vn = @genre.vns.paginate(:page => params[:page], :per_page => 30)
 	end
 
 	def new

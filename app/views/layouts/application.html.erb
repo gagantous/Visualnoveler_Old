@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="description" content="<%= if content_for?(:description) then yield(:description) else 'Start tracking Visual Novels and discover other hidden Visual Novel gems at Visualnoveler' end %>">
+  <meta name="description" content="<%= if content_for?(:description) then yield(:description) else 'Start tracking and discovering other visual novels at Visualnoveler with a growing community.' end %>">
 
   <title>
-    <%= if content_for?(:title) then yield(:title) + ' | ' end %>
+    <%= if content_for?(:title) then yield(:title) + ' - ' end %>
     Visualnoveler
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -126,7 +126,7 @@
           <% if user_signed_in? %>
          <ul class="nav navbar-nav navbar-right">
               <li class="dropdown pull-right-nav">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle"><%= current_user.name %></span> <b class="caret"></b></a>
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle usernav-name"><%= current_user.name %></span> <b class="caret usernav-name"></b></a>
                 <ul class="dropdown-menu">
                     <li><%= link_to "My Profile", user_path(current_user) %></li>
                     <li><%= link_to "Edit Profile", edit_path %></li>

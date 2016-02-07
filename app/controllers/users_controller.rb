@@ -86,8 +86,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-     @user = User.find(params[:id])
+     #@user = User.find(params[:id])
      authorize @user
+  end
+
+  def change_password
+    @user = User.find(params[:id])
   end
 
   def update_avatar
@@ -104,7 +108,8 @@ class UsersController < ApplicationController
         flash[:success] = "You have successfully updated your profile!"
         redirect_to user_path(@user)
       else
-        render :edit
+        flash[:danger] = "There was an error updating your profile"
+        render 'change_password'
       end
   end
   def crop
@@ -114,7 +119,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-       params.require(:user).permit(:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h,:name,:bio,:role)
+       params.require(:user).permit(:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h,:name,:bio,:role,:current_password,:password,:password_confirmation)
     end
 
 end

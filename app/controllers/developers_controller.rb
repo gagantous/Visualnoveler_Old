@@ -3,7 +3,7 @@ class DevelopersController < ApplicationController
 	before_action :authenticate_user!, :only => [:edit,:new,:update]
 	def show
 		@developer = Developer.find(params[:id])
-		@vn = @developer.vns
+		@vn = @developer.vns.paginate(:page => params[:page], :per_page => 2)
 	end
 
 	def new

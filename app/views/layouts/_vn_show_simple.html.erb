@@ -24,7 +24,8 @@
 		    	</div>
 		    <% end %>
 		    	<div class="clearfix"></div>
-
+		    	
+    			<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
 		    </div> <!-- tabpanel vnlist !-->
 
 		    <div role="tabpanel" class="tab-pane fade" id="vnlist-summary">
@@ -56,5 +57,7 @@
     			</div>
     				<% end %> <!-- row !-->
     			<div class="clearfix"></div>
+    			
+    			<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
     		</div> <!-- end of long summary tab !-->
 </div>	</div> <!-- end of tab-content + col 12 !-->

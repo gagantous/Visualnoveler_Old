@@ -1,5 +1,5 @@
 <% title @user.name + "'s Profile" %>
-<% description @user.name + "'s Profile." " Start tracking Visual Novels and discover other hidden Visual Novel gems at Visualnoveler" %>
+<% description @user.name + "'s Profile." " Start tracking and discovering other visual novels at Visualnoveler with a growing community" %>
 <div class="container " style="margin-top:25px;">
 	<div class="row usercoverbg">
 	<div class="usercol-div">
@@ -84,64 +84,12 @@
 <% end %>
 
 <div class="user-post" style="padding-top:10px;">
-<div class="container user-playing">
-	<% @posts.each do |post| %>
-	<% vn = post.library_entry.vn if post.library_entry %>
-
-	<div class="row">
-		<div class="col-md-9">
-			<div class="panel panel-default">
-		  	<div class="panel-body">
-		  		<% if current_user == @user %>
-				<%= button_to post,:method=>:delete,:class =>"btn btn-danger user-postdelete",data:{ disable_with: "Deleting Post...."} do %>
-					<i class="fa fa-trash-o"></i>
-				<% end %>
-				<% end %>
-				<div class="col-md-2 col-xs-4">
-					<% if post.library_entry %>
-					<%= link_to image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left"), vn_path(vn)  %>
-					<% else %>
-						<% if !@user.poster_image.blank? %>
-							<%= image_tag(@user.poster_image.url,:alt => "#{@user.name}",:class =>"img-responsive pull-left") %>
-						<% else %>
-							 <%= image_tag("default_avatar.jpg",:alt => "#{@user.name}",:class =>"img-responsive pull-left") %>
-						<% end %>
-					<% end %>
-				</div>
-				<div class="col-md-10 col-xs-8">
-					<h4><%= post.detail %></h4>
-					<hr>
-					<div class="row">
-						<div class="col-md-12">
-							<% if post.library_entry %>
-							<ul class="list-inline">
-							<% vn.genres.each do |genre| %>
-								<li><%= link_to genre.name,genre_path(genre) %></li>
-							<% end %>
-							</ul>
-							<% end %>
-						</div>
-						<div class="col-md-4">
-						<h5 class="user-time vn-postdate"><%= time_ago_in_words(post.created_at) %> ago.</h5>	
-						</div>		
-							<!-- end of nested divs-->
-					</div>
-				</div>
-			</div></div> <!---panels -->
-		</div>
-
-		<% if post == @posts.first && current_user != @user && user_signed_in? %>
-			<div class="col-md-3 shared-lib">
-				<h3 style="margin-top:0px;"> <%= link_to "#{@similar_lib.count} Shared Visual Novels",similar_user_path(@user) %></h3>
-				<% @similar_lib.first(4).each do |lib| %>
-					<%= link_to image_tag(lib.vn.image_poster_url,:alt => lib.vn.name, :class=> "similar-thumbnail",:style =>"float:left;"), vn_path(lib.vn)	 %>
-				<% end %>	
-			</div>
-		<% end %>
-	</div><!---row -->
-	<% end %>
-
-	<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+<div class="container user-playing userpost-container">
+	<%= render 'library_entries',locals:{posts: @posts} %>
+	<div id="with-button">
+		<%= will_paginate @posts,renderer: BootstrapPagination::Rails %>
+	</div>
+	 	<!-- <button id="load_more_posts" class="btn btn-primary" data-remote="true">Load More Posts </button> -->
 </div></div>
 
 <div class="container">
