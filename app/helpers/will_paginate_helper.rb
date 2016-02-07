@@ -45,9 +45,9 @@ module WillPaginateHelper
       end
     end
 
-    def gap
-      tag("li", tag("span", ELLIPSIS), class: "disabled")
-    end
+    # def gap
+    #   tag("li", tag("span", ELLIPSIS), class: "disabled")
+    # end
 
     def previous_page
       num = @collection.current_page > 1 && @collection.current_page - 1
