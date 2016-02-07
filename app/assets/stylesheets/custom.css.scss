@@ -1435,7 +1435,11 @@ body {
   position: relative;
   bottom: 15px;
 }
-
+.img-responsive-half{
+    display: block;
+    max-width: 50%;
+    height: auto;
+}
 
 .footer-home {
   position: absolute;
