@@ -26,7 +26,7 @@ class VnsController < ApplicationController
 	end
 
 	def walkthroughs
-		@vn = Vn.where("route_url is NOT NULL and route_url != ''").paginate(:page => params[:page], :per_page => 1)
+		@vn = Vn.where("route_url is NOT NULL and route_url != ''").paginate(:page => params[:page], :per_page => 25)
 	end
 
 	def top
@@ -110,7 +110,7 @@ class VnsController < ApplicationController
 	end
 
 	def index
-		@vn = Vn.where(:isFeatured => true).paginate(:page => params[:page], :per_page => 3)
+		@vn = Vn.where(:isFeatured => true).paginate(:page => params[:page], :per_page => 25)
 		#@vn = Vn.all.where(:isFeatured => true)
 		#offset = rand(Vn.count)
 		
