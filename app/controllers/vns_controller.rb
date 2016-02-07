@@ -22,7 +22,7 @@ class VnsController < ApplicationController
 	end
 
 	def translated
-		@vn = Vn.where(:status => 1).paginate(:page => params[:page], :per_page => 35)
+		@vn = Vn.where(:status => 1).paginate(:page => params[:page], :per_page => 25)
 	end
 
 	def walkthroughs
@@ -30,7 +30,7 @@ class VnsController < ApplicationController
 	end
 
 	def top
-		@vn = Vn.order("rating_number DESC NULLS LAST").paginate(:page => params[:page], :per_page => 35)
+		@vn = Vn.order("rating_number DESC NULLS LAST").paginate(:page => params[:page], :per_page => 25)
 		#@vn = Vn.all.where(:isFeatured => true)
 		#offset = rand(Vn.count)
 	end

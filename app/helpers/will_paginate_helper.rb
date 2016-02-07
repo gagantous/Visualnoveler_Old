@@ -62,7 +62,7 @@ module WillPaginateHelper
     def ul_class
       ["pagination", @options[:class]].compact.join(" ")
     end
-    protected
+    
     def link(text, target, attributes = {})
       if target.is_a? Fixnum
         attributes[:rel] = rel_value(target)
