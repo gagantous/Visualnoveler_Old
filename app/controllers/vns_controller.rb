@@ -96,25 +96,34 @@ class VnsController < ApplicationController
 		@vn = Vn.find(params[:id])
 		type = params[:type]
 		libentry = current_user.library_entries.find_or_create_by(vn_id: @vn.id)
-		 if type == "watch" 
-			libentry.update_attribute :status, "watch"
-			post = libentry.posts.build(detail: "#{current_user.name} has started playing #{@vn.name}",user_id: current_user.id)
-		elsif type == "drop"
-			libentry.update_attribute :status, "drop"
-			post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from their library",user_id: current_user.id)
-		elsif type == "wishlist"
-			libentry.update_attribute :status, "wishlist"
-			post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to their wishlist",user_id: current_user.id)
-		elsif type =="complete"
-			libentry.update_attribute :status, "complete"
-			post = libentry.posts.build(detail: "#{current_user.name} has completed #{@vn.name}",user_id: current_user.id)
-		end
-		if post.save 
-			redirect_to :back
-			flash[:success] = post.detail
+		prevent_duplicate = false
+		if type != libentry.status 
+			 if type == "watch" 
+				libentry.update_attribute :status, "watch"
+				post = libentry.posts.build(detail: "#{current_user.name} has started playing #{@vn.name}",user_id: current_user.id)
+			elsif type == "drop"
+				libentry.update_attribute :status, "drop"
+				post = libentry.posts.build(detail: "#{current_user.name} has dropped #{@vn.name} from their library",user_id: current_user.id)
+			elsif type == "wishlist"
+				libentry.update_attribute :status, "wishlist"
+				post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to their wishlist",user_id: current_user.id)
+			elsif type =="complete"
+				libentry.update_attribute :status, "complete"
+				post = libentry.posts.build(detail: "#{current_user.name} has completed #{@vn.name}",user_id: current_user.id)
+			end
 		else
-			redirect_to :back
-			flash[:danger] = "There is a bug with VN Status code"
+			prevent_duplicate = true
+		end
+		if !prevent_duplicate 
+			if post.save 
+				redirect_to :back
+				flash[:success] = post.detail
+			else
+				redirect_to :back
+				flash[:danger] = "There is a bug with saving the library entry post, contact the developer for assistance!"
+			end
+		else
+			
 		end
 	end
 
