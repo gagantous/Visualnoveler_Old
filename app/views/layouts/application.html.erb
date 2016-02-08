@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta name="description" content="<%= if content_for?(:description) then yield(:description) else 'Start tracking and discovering other visual novels at Visualnoveler with a growing community.' end %>">
-
   <title>
     <%= if content_for?(:title) then yield(:title) + ' - ' end %>
     Visualnoveler
@@ -110,7 +109,7 @@
             <% end %> <% end %>
 
             <li class="logotitle-dropdown">
-             <a href=<%= pages_about_path %> class="button-nav"><span class="logotitle">About</span> </a>
+             <a href=<%= about_path %> class="button-nav"><span class="logotitle">About</span> </a>
            </li>
 
             <% if !user_signed_in? %>
@@ -170,10 +169,10 @@
     <div class="row">        
       <ul class="list-inline" style="padding-top:7px;padding-bottom:7px;">
         <li class="footer-text"style="font-size:14px !important;"> &copy; 2016 Visualnoveler</li>
-        <li> <%= link_to 'About' ,pages_about_path ,class: "footer-text" %> </li>
+        <li> <%= link_to 'About' ,about_path ,class: "footer-text" %> </li>
         <li> <%= link_to 'Development Blog' ,"http://blog.visualnoveler.com" ,class: "footer-text" %> </li>
-        <li> <%= link_to 'Visual Novel Resources' ,pages_resources_path ,class: "footer-text" %> </li>
-        <li> <%= link_to 'Recommendation Charts' ,pages_recommendation_path ,class: "footer-text" %> </li>
+        <li> <%= link_to 'Visual Novel Resources' ,resources_path ,class: "footer-text" %> </li>
+        <li> <%= link_to 'Recommendation Charts' ,recommendation_path ,class: "footer-text" %> </li>
       </ul>
     </div>
   </div>
@@ -198,12 +197,12 @@
       <br><br>
 
     <ul class="list-inline">
-      <li><%= link_to omniauth_authorize_path(:user,"facebook"),class: 'btn btn-facebook' do %>
+      <li><%= link_to omniauth_authorize_path(:user,"facebook"),class: 'btn btn-facebook',:rel => "nofollow" do %>
        <span class="fa fa-facebook" style="padding-right:2px;"></span>
        <%= "Facebook" %>
       <% end %></li>
 
-      <li><%= link_to omniauth_authorize_path(:user,"google_oauth2"),class: 'btn btn-googleauth' do %>
+      <li><%= link_to omniauth_authorize_path(:user,"google_oauth2"),class: 'btn btn-googleauth',:rel => "nofollow" do %>
      <span class="fa fa-google" style="padding-right:2px;"></span>
      <%= "Google" %>
       <% end %> </li>

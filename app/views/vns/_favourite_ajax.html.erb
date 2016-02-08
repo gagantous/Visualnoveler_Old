@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+	<% if current_user.library_entries.exists?(vn_id: @vn.id,favourite: true) %>
+ 		<%= link_to favourite_vn_path(@vn, type: "unfavourite"), method: :post,:class => "btn ghost-buttonimg vn-button" ,remote: true do %>
+			<i class="fa fa-times"></i>
+		<% end %>
+	<% else %>
+		<%= link_to favourite_vn_path(@vn, type: "favourite"),:class => "btn ghost-buttonimg vn-button", method: :post ,remote: true do %>
+			<i class="fa fa-heart"></i>
+		<% end %>
+	<% end %>
+<% end %> 

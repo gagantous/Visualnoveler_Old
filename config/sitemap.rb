@@ -19,6 +19,9 @@ SitemapGenerator::Sitemap.create do
 
   Vn.find_each do |vn|
     add vn_path(vn), lastmod: vn.updated_at
+    if !vn.walkthrough_content.blank?
+      add walkthrough_vn_path(vn), lastmod: vn.updated_at
+    end
     # removed because too spammy
     # add characters_vn_path(vn),lastmod: vn.updated_at
     vn.reviews.each do |review|

@@ -54,9 +54,13 @@
  			<div class="row favourites-inner-row">
  			<% @lib.each do |lib| vn = lib.vn %>
  					<div class="user-favcolumn removefavouritepadding">
+ 					<ul class="img-list-hover-fav"><li>	
  					<%= link_to vn_path(vn) do %>
- 						 <%= image_tag(vn.image_poster,:class => "img-responsive") %>
+ 						 <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "user-favimg") %>
+ 						 <span class="text-content-fav"><span><%= vn.name %></span></span>
  					<% end %>
+
+					</li></ul>
  					</div>
  			<% end %>
  			</div>

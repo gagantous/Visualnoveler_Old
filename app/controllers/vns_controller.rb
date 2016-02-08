@@ -1,6 +1,6 @@
 class VnsController < ApplicationController
 	include VnsHelper
-	before_action :authenticate_user!, :only => [:edit,:crop,:new,:update]
+	before_action :authenticate_user!, :only => [:edit,:crop,:new,:update,:edit_walkthrough]
 	def show
 		@vn = Vn.find(params[:id])
 		@showcharacters = @vn.characters.all
@@ -10,6 +10,15 @@ class VnsController < ApplicationController
 		@positive_reviews = @vn.reviews.where("rating > ?",5).paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
 		@negative_reviews = @vn.reviews.where("rating < ?",5).paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
 		@vn.reviews.build
+	end
+	# walkthrough page
+	def walkthrough
+		@vn = Vn.find(params[:id])
+	end
+
+	def edit_walkthrough
+		@vn = Vn.find(params[:id])
+		authorize @vn
 	end
 
 	def discover
@@ -128,7 +137,11 @@ class VnsController < ApplicationController
 		if @vn.update(vn_params)
 			
 			flash[:success] = "Visual Novel is updated successfully!"
-			redirect_to vn_path(@vn)
+			if params[:vn][:reroute].blank?
+				redirect_to vn_path(@vn)
+			else
+				redirect_to walkthrough_vn_path(@vn)
+			end
 			#redirect_to recipe_path(@recipe)
 		else
 			flash[:danger] = "Failed to update the visual novel, perhaps you submitted an empty review or missed fields when creating a VN?"
@@ -190,7 +203,7 @@ class VnsController < ApplicationController
 			 { characters_attributes: [:id,:_destroy,:name,:role,:summary,:voiceactor,:remote_img_string_url,:img_string,] },:release_date, :summary,:alias,
 			 { :genre_ids => [] }, :developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id,{ :publisher_ids => [] },
 			 {screenshots_attributes: [:id,:_destroy,:name,:alt,:image,:remote_image_url] } ,:remote_image_poster_url,
-			 {reviews_attributes: [:details,:rating,:status,:vn_id,:user_id,:_destroy] },:buy_1,:buy_2,:buy_3,:buy_4)
+			 {reviews_attributes: [:details,:rating,:status,:vn_id,:user_id,:_destroy] },:buy_1,:buy_2,:buy_3,:buy_4,:walkthrough_content)
 		end
 
 end

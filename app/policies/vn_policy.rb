@@ -14,6 +14,10 @@ class VnPolicy
     @current_user.admin?
   end
 
+  def edit_walkthrough?
+    @current_user.admin? or @current_user.mod?
+  end
+
   def edit?
     @current_user.admin? or @current_user.mod?
   end

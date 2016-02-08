@@ -1,0 +1,8 @@
+<% for i in (10).downto(1) do %> 
+	<% if current_user.library_entries.exists?(vn_id: @vn.id,rating: i) %>
+		<li class="list-group-item-info">
+	<% else %> 
+		<li> 
+	<% end %>
+	<%= link_to i.to_s + " - " + rating_string(i), rate_vn_path(@vn, rating: i), method: :post,remote: true %> <li>
+<% end %>

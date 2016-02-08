@@ -1,0 +1,11 @@
+//$(".vn-container").hide();
+$('#vn-favourite').html("<%= escape_javascript(render("favourite_ajax"))%>");
+$('#vn-status').html("<%= escape_javascript(render("status_ajax"))%>");
+$('#vn-rate').html("<%= escape_javascript(render("rate_ajax"))%>");
+// $(".vn-container").fadeIn();
+ // $(document).ready(function () {
+ //        $(".vn-container .pagination a").on("click", function(){
+ //          $.getScript(this.href);
+ //          return false;
+ //        });
+ //      });

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116142952) do
+ActiveRecord::Schema.define(version: 20160208051438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -252,8 +252,8 @@ ActiveRecord::Schema.define(version: 20160116142952) do
 
   create_table "vns", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.text     "summary"
     t.string   "release_date"
     t.string   "image_poster"
@@ -268,13 +268,14 @@ ActiveRecord::Schema.define(version: 20160116142952) do
     t.string   "trailer_url"
     t.string   "slug"
     t.integer  "franchise_id"
-    t.integer  "status",          default: 0
+    t.integer  "status",              default: 0
     t.string   "route_url"
     t.string   "buy_1"
     t.string   "buy_2"
     t.string   "buy_3"
     t.string   "buy_4"
     t.string   "alias"
+    t.text     "walkthrough_content"
   end
 
   add_index "vns", ["developer_id"], name: "index_vns_on_developer_id", using: :btree

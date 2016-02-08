@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
-  get 'pages/home'
-  get 'pages/help'
-  get 'pages/contact'
-  get 'pages/about'
-  get 'pages/resources'
-  get 'pages/recommendation'
-  get 'pages/blogs'
+  #move old urls to new site structure
+  get 'pages/help',to: redirect('/help',status: 301)
+  get 'pages/contact',to: redirect('/contact',status: 301)
+  get 'pages/about', to: redirect('/about',status: 301)
+  get 'pages/resources',to: redirect('/resources',status: 301)
+  get 'pages/recommendation',to: redirect('/recommendation',status: 301)
+  #get 'pages/blogs',to: redirect('/blogs',status: 301)
+  get '/help' => 'pages#help'
+  get '/contact' => 'pages#contact'
+  get '/about' => 'pages#about'
+  get '/about' => 'pages#about'
+  get '/resources' => 'pages#resources'
+  get '/recommendation' => 'pages#recommendation'
+  #get '/blogs' => 'pages#blogs'
   root 'pages#home'
   post 'pages/subscribe' , :path => "subscribe"
   get 'search' => 'pages#search'
@@ -62,6 +69,8 @@ Rails.application.routes.draw do
     put :favourite, on: :member
     put :status, on: :member
     put :rate, on: :member
+    get :walkthrough, on: :member
+    get :edit_walkthrough, on: :member
     get :characters, on: :member
     get :crop, on: :member
     get :screenshots, on: :member
@@ -105,6 +114,8 @@ Rails.application.routes.draw do
 
   post 'vns/:id/favourite' => 'vns#favourite'
   post 'vns/:id/status' => 'vns#status'
+  post 'vns/:id/rate' => 'vns#rate'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

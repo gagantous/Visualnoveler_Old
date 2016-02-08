@@ -465,11 +465,11 @@ html, body {
   .vn-ratingdiv {
      
   }
-  #vn-review-section{
+  #vn-review-section,#vn-walkthrough{
   p{
     //line-height: 1.2em;
     font-size: 17px !important;
-    line-height: 1.6em;
+    line-height: 1.35em;
   }
 }
 }
@@ -1028,15 +1028,17 @@ background-size: cover;
 
 .user-favimg {
   width: 72px;
-  height: 76px;
+  height: 97px;
 }
 .user-favcolumn {
   width: 72px;
-  height: 76px;
+  height: 97px;
   float: left;
   overflow: hidden;
 }
-
+.row-upperpadding{
+  padding-top: 25px;
+}
 
 //horizontal checkbox styling
 .checkbox_container {
@@ -1440,15 +1442,7 @@ body {
     max-width: 50%;
     height: auto;
 }
-.tooltip {
-  font-size: 18px;
 
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-#franchise-related > a {
-  display: inline-block;
-
-}
 ul.img-list-hover {
   list-style-type: none;
   margin: 0;
@@ -1492,6 +1486,53 @@ span.text-content span {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+ul.img-list-hover-fav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul.img-list-hover-fav li {
+  display: inline-block;
+  height: 97.875px;
+  position: relative;
+  width: 72px;
+  float: left;
+}
+span.text-content-fav {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 97.875px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 72px;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+ul.img-list-hover-fav li:hover span.text-content-fav {
+  opacity: 1;
+}
+
+span.text-content-fav span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.85em;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
 .footer-home {
   position: absolute;
         top: 100%;

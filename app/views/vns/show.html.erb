@@ -35,17 +35,9 @@
  			<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit", 'data-no-turbolink' =>"true" do %>
 				<i class="fa fa-pencil"></i>
 			<% end %>
- 			<% if user_signed_in? %>
-			<% if current_user.library_entries.exists?(vn_id: @vn.id,favourite: true) %>
- 			<%= link_to favourite_vn_path(@vn, type: "unfavourite"), method: :put,:class => "btn ghost-buttonimg vn-button" do %>
-				<i class="fa fa-times"></i>
-			<% end %>
-			<% else %>
-			<%= link_to favourite_vn_path(@vn, type: "favourite"),:class => "btn ghost-buttonimg vn-button", method: :put do %>
-				<i class="fa fa-heart"></i>
-			<% end %>
-				<% end %>
-			  <% end %> 
+			<div id ="vn-favourite">
+ 				<%= render 'favourite_ajax',locals:{vn: @vn} %>
+			</div>
 			<%= image_tag("#{@vn.image_poster.url}",:alt => "@vn.name", :class=> "vn-poster") %>
 
 			<% if !@vn.trailer_url.blank? %>
@@ -95,58 +87,28 @@
  			<span class="default-text vn-score">Score: <%= @vn.rating_number%> </span>
  			<!-- start of buttons -->
  			<div class="vn-pull-right">
- 				
 			 <% if user_signed_in? %>
-
- 			<div class="btn-group status-dropdown" role="group">
-   			 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i>
-      			Status
-     		 <span class="caret"></span>
-   			 </button>
-   			 <ul class="dropdown-menu">
-				<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "watch") %> 
-			     	<li class="list-group-item-info"> <% else %> <li>
-			    <% end %>
-		 			<%= link_to "Playing", status_vn_path(@vn, type: "watch"), method: :post %>
-		 		</li>
-
-		      <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "wishlist") %> 
-			     	<li class="list-group-item-info"> <% else %> <li>
-			    <% end %>
-		 			<%= link_to "Wishlist", status_vn_path(@vn, type: "wishlist"), method: :post %>
-		 		</li>
-
-		        <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "drop") %> 
-			     	<li class="list-group-item-info"> <% else %> <li>
-			    <% end %>
-		 			<%= link_to "Dropped", status_vn_path(@vn, type: "drop"), method: :post %>
-		 		</li>
-
-		 		 <% if current_user.library_entries.exists?(vn_id: @vn.id,status: "complete") %> 
-			     	<li class="list-group-item-info"> <% else %> <li>
-			    <% end %>
-		 			<%= link_to "Completed", status_vn_path(@vn, type: "complete"), method: :post %>
-		 		</li>
-		    </ul>
-  			</div>
-  			<div class="btn-group" role="group">
-  				<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-star"></i>
-  					Rate
-  					<span class="caret"></span>
-  				</button>
-  				<ul class="dropdown-menu">
-  						<% for i in (10).downto(1) do %> 
-  						<% if current_user.library_entries.exists?(vn_id: @vn.id,rating: i) %>
-			     		<li class="list-group-item-info"> <% else %> <li> <% end %>
-
-  						<%= link_to i.to_s + " - " + rating_string(i), rate_vn_path(@vn, rating: i), method: :put %> <li>
-  						<% end %>
-  				</ul>
-  			</div>
-
- 				<% end %>
+				<div class="btn-group status-dropdown" role="group">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars"></i>
+			      			Status
+			   			<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" id="vn-status">
+			 			<%= render 'status_ajax',locals:{vn: @vn} %>
+ 					</ul>
+				</div>
+	  			<div class="btn-group" role="group">
+	  				<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-star"></i>
+	  					Rate
+	  					<span class="caret"></span>
+	  				</button>
+	  				<ul class="dropdown-menu" id="vn-rate">
+	  					<%= render 'rate_ajax',locals:{vn:@vn} %>
+	  				</ul>
+	  			</div>
+ 			<% end %>
  				<!--  end of buttons -->
-			</div>
+		</div>
 	 	<hr>
 			
 			
@@ -230,7 +192,7 @@
 	<div class="row">
 		<% unless @franchise.blank? %>
 		<div class="col-md-6 col-xs-12">
-			<h3> Related </h3>
+			<h3> Related Visual Novels</h3>
 				<% @franchise.vns.each do |vn| %>	
 						<% if @vn != vn %> 
 
@@ -248,7 +210,7 @@
 		<div class="col-md-6 col-xs-12">
 			<% unless @vn.route_url.blank? %>
 				<h3>Walkthrough</h3>
-				<%= link_to image_tag("fuwa.png",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive vn-walkthroughimg",:style =>"float:left;"),@vn.route_url, :rel => "nofollow",:target =>"_blank"  %>
+				<%= link_to image_tag("fuwa.png",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive vn-walkthroughimg",:style =>"float:left;"),walkthrough_vn_path(@vn), :rel => "nofollow",:target =>"_blank"  %>
 			<% end %>
 		</div>
 	</div>
