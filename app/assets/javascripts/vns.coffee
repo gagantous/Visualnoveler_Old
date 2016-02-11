@@ -17,7 +17,7 @@ jQuery ->
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   limit: 10,
   #local http://localhost:3000/json/vns.json
-  remote: {url:'/typeahead/%QUERY'
+  remote: {url:'/api/vns/%QUERY'
    , wildcard: '%QUERY'
    }
   })
@@ -25,8 +25,14 @@ jQuery ->
   users.initialize();
   $('.typeahead').typeahead(null, {
       name: "mysearch"
+      display: 'name'
       source: users.ttAdapter()
-    
+      templates: {
+         suggestion: Handlebars.compile('<div class="tt-row"><a href="{{vn_url}}">
+                                          <ul class="list-inline"><li><div class="col-md-4 removepadding">
+                                          <img class="img-responsive" src="{{image_poster.image_poster.url}}"/>
+                                          </div><div class="col-md-8"><strong>{{name}}</strong></div></li></ul></a></div>')
+      }     
   })
 
 

@@ -101,7 +101,9 @@ class UsersController < ApplicationController
     flash[:success] = "it worked"
     redirect_to user_path(@user)
   end
-
+  def setup
+    @user = User.find(params[:id])
+  end
   def update
       @user = User.find(params[:id])
       authorize @user

@@ -21,7 +21,7 @@ class PagesController < ApplicationController
 
     @vn = Vn.search_by_name(params[:search])
     @name = @vn.select('name').map(&:name)
-    render json: @name
+    render json: @name,root: false
   end
 
   def subscribe

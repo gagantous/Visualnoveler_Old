@@ -22,7 +22,14 @@ Rails.application.routes.draw do
 
   get 'discourse/sso' => 'discourse_sso#sso'
   mount Starburst::Engine => "/starburst"
- # get 'json/vns' => "pages#test"
+
+  #API routes
+  scope :api do 
+    get 'vns/:search' => 'api#vn'
+  end
+  #get 'api/vns/:search' => 'api#vn'
+
+
   resources :characters do
     get :search, on: :collection
   end
@@ -107,6 +114,7 @@ Rails.application.routes.draw do
       get :similar
       get :discover
       get :change_password
+      get :setup
       put :update_avatar
     end
  end

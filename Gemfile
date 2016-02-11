@@ -34,6 +34,8 @@ gem 'omniauth'
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
+#API
+gem 'active_model_serializers'
 #cloud
 gem "fog"
 
@@ -43,7 +45,7 @@ gem 'spring',        group: :development
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+#gem 'jbuilder', '~> 2.0'
 gem "cocoon"
 gem 'dotenv-rails', :groups => [:development]
 gem 'sitemap_generator'
@@ -60,7 +62,6 @@ gem 'redcarpet'
 
 group :development do
     gem 'sqlite3'
-	
 end
 
 group :production do

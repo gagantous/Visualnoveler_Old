@@ -4,5 +4,5 @@
 	<% else %> 
 		<li> 
 	<% end %>
-	<%= link_to i.to_s + " - " + rating_string(i), rate_vn_path(@vn, rating: i), method: :post,remote: true %> <li>
+	<%= link_to i.to_s + " - " + rating_string(i), rate_vn_path(@vn, rating: i), method: :post,remote: true,class:'status-item' %> <li>
 <% end %>
