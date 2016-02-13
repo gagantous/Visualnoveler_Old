@@ -1,6 +1,9 @@
-<div class="container">
-	<div class="row">
-		<h2><%= @publisher.name %></h2>
-		<p> Under construction</p>
+<% title @publisher.name + ' Published Visual Novels' %>
+<% description "Visual novels published by #{@publisher.name} are found over here. Start tracking and discovering other visual novels at Visualnoveler with a growing community" %>
+<div class="container-fluid">
+	<div class="row vnindex-row">
+		<%= render 'layouts/vn_title',:title => "Published Visual Novels by #{@publisher.name}" %>
+		<%= render 'layouts/vn_show',locals:{vn: @vn} %>	
+
 	</div>
 </div>

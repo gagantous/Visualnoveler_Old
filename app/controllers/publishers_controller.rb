@@ -2,6 +2,7 @@ class PublishersController < ApplicationController
 	before_action :authenticate_user!, :only => [:edit,:new,:update]
 	def show
 		@publisher = Publisher.find(params[:id])
+		@vn = @publisher.vns.paginate(:page => params[:page], :per_page => 20)
 	end
 
 	def new
@@ -38,6 +39,15 @@ class PublishersController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def destroy
+		@publisher = Publisher.find(params[:id])
+		authorize @publisher
+	  	if @publisher.destroy
+	 		flash[:success] = "Publisher Removed"
+	 		redirect_to admin_publisher_path
+	    end
 	end
 
 	private
