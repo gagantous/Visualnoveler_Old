@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     @lib_wishlist = @lib.where(status: "wishlist")
     @lib_dropped = @lib.where(status: "drop")
     @lib_watched = @lib.where(status: "watch")
+    render :layout => 'none'
   end
 
   def update_lib_notes
