@@ -17,7 +17,7 @@ jQuery ->
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   limit: 10,
   #local http://localhost:3000/json/vns.json
-  remote: {url:'/api/vns/%QUERY'
+  remote: {url:'/api/vns/search/%QUERY'
    , wildcard: '%QUERY'
    }
   })

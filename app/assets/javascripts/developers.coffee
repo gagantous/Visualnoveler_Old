@@ -16,5 +16,6 @@ jQuery ->
   users.initialize();
   $('.typeahead-developers').typeahead(null, {
       name: "mysearch"
+      display: "name"
       source: users.ttAdapter()
   })

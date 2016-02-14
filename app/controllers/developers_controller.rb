@@ -13,8 +13,7 @@ class DevelopersController < ApplicationController
 
 	def typeahead
 	    @developer = Developer.search_by_name(params[:search])
-	    @name = @developer.select('name').map(&:name)
-	    render json: @name
+	    render json: @developer,root: false
  	 end
 
 	def all

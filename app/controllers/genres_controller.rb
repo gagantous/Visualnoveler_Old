@@ -12,8 +12,7 @@ class GenresController < ApplicationController
 	end
 	def typeahead
 	    @genre = Genre.search_by_name(params[:search])
-	    @name = @genre.select('name').map(&:name)
-	    render json: @name
+	    render json: @genre,root: false
  	 end
 
 	def all
