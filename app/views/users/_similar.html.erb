@@ -1,5 +1,5 @@
   <tr>
-    <td><%= similar_counter %></td>
+    <td><%= image_tag(similar.vn.image_poster,class:"library-vn-poster") %></td>
   <!--   <td><%= similar.vn_id %></td> -->
     <td class="summary-text"><%= link_to similar.vn.name,vn_path(similar.vn),style: "font-size:1em;color:black;" %></td>
     <td style="padding-left:26px; font-style:italic;"><%= user[similar_counter].rating %></td>
@@ -13,3 +13,6 @@
     	<% end %>
     </td> -->
   </tr>
+
+
+

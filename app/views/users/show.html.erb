@@ -1,5 +1,6 @@
 <% title @user.name + "'s Profile" %>
 <% description @user.name + "'s Profile." " Start tracking and discovering other visual novels at Visualnoveler with a growing community" %>
+<section id="user">
 <div class="container " style="margin-top:25px;">
 	<div class="row usercoverbg">
 	<div class="usercol-div">
@@ -11,13 +12,12 @@
  		 <% end %>
  		</div>
  		<div class="col-md-6 col-xs-12">
- 			<h3 class="user-name"><%= @user.name %>
+ 			<h1><%= @user.name %> </h1>
  			<% if @user == current_user %>
  			<a href=<%= edit_path %> class="a-inherit" data-no-turbolink="true">
- 			<%= fa_icon "pencil" %>
+ 			<%= fa_icon "pencil",class:"fa-lg" %>
  			</a>
  			<% end %>
- 			</h3>
  			<div class="user-bio">
  				<p><%= @user.bio %></p>
  			</div>
@@ -145,3 +145,4 @@
 	<%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
 		</div>
 </div></div>
+</section>

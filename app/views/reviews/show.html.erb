@@ -5,7 +5,7 @@
 	<div class="row" style="padding-top:20px;">
 		<div class="panel panel-default"><div class="panel-body">
 
-	<h2 style="padding-bottom:10px;">&nbsp;&nbsp;<%= @review.user.name %>'s review of <%= link_to @review.vn.name,vn_path(@review.vn) %></h2>
+	<h1 style="padding-bottom:10px;">&nbsp;&nbsp;<%= @review.user.name %>'s review of <%= link_to @review.vn.name,vn_path(@review.vn) %></h1>
 
 		<div class="col-md-2 col-sm-2 col-xs-12">
 			<%= link_to image_tag(@review.user.poster_image.url,class: "img-responsive vn-reviewposter"),user_path(@review.user) %>

@@ -1,10 +1,43 @@
+$font-size-base: 14px;
+$font-size-h1: 26px;
+$font-size-h2: 20px; 
+$font-size-h3: 18px; 
+$font-size-h4: 16px; 
+$font-size-h5: $font-size-base;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+
 .navbar-default{
   background-color: white;
 }
 
+//Typography
+#vn-item h1 {
+  font-size: 24px;
+  display: inline;
+}
+#vn-item h2{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  font-style: italic;
+  display: inline;
+}
+#review h3 {
+  display: inline;
+  font-size: 18px;
+}
+#user h1{
+  font-size: 20px;
+  display: inline-block;
+}
+#vn-character,#franchise-related,#vn-screenshot{
+ h3{
+    font-size: 24px;
+  }
+}
 html {
     position: relative;
     min-height: 100%;
@@ -21,6 +54,8 @@ footer {
     background-color: #3E3D48;
 }
 
+// custom headers
+h1{}
 .footer > a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
@@ -1078,9 +1113,6 @@ background-size: cover;
 .user-buttons {
   padding-top: 18px;
 }
-.user-name {
-  position: relative;
-}
 .user-image {
   width: 300px;
   height: 250px
@@ -1161,10 +1193,7 @@ background-size: cover;
     height: auto;
   }
 }
-h2{
 
-	font-size: 2.0em;
-}
 .navbar-inner {
 	background: transparent;
 }

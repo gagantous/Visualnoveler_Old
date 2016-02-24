@@ -4,7 +4,7 @@
 <div class="container-fluid">
 	<div class="row vnindex-row">
 		<div class="col-md-12" style="padding-bottom:20px;">
-			<h2>Random Genres</h2>
+			<h1>Random Genres</h1>
 		 
 			<%= simple_form_for Genre.new,url:search_genres_path, :method => "get", class: "form-inline",style:"" do |f| %>
 			   <%= link_to 'All Genres', all_genres_path,style:"font-size:1.4em; padding-right:40px;position:relative;top:8px;" %>

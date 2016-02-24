@@ -46,42 +46,39 @@
 				<i class="fa fa-youtube-play fa-3x dd"></i>
 			<% end %> <% end %>
 
-			<span class="vn-contentpadding">
 				<ul class="list-inline">
 					<% @vn.genres.each do |genre| %>
 						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre),:class =>"vn-genre summary-text" %></li>
 					<% end %>
 				</ul>
-			</span>
 
-			<span class="vn-contentpadding "><% if !@vn.publishers.blank? %><span class="vn-label">Publishers:</span> 
+			<% if !@vn.publishers.blank? %><span class="vn-label">Publishers:</span> 
 				<% @vn.publishers.each do |publisher| %>
 				<%= link_to publisher.name,publisher_path(publisher) %>
 				<% end %>
-			</span>
 			<br> <% end %>
-			<span class="vn-contentpadding "><span class="vn-label">Developer:</span> <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %> </span>
+			<span class="vn-label">Developer:</span> <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %>
 			<br> <% end %>
-			<span class="vn-contentpadding"><span class="vn-label">Release Date:</span> <%= @vn.release_date %> </span>
+			<span class="vn-label">Release Date:</span> <%= @vn.release_date %>
 			<br>
-			<span class="vn-contentpadding "><span class="vn-label">Status:</span> <%= @vn.status %> </span>
+			<span class="vn-label">Status:</span> <%= @vn.status %>
 			<br>
 			<% if !@vn.alias.blank? %>
-			<span class="vn-contentpadding "><span class="vn-label">Alias:</span> <%= @vn.alias %> </span>
+			<span class="vn-label">Alias:</span> <h2><%= @vn.alias %> </h2>
 			<br> <% end %>
 			<% unless @vn.buy_1.blank? && @vn.buy_2.blank? && @vn.buy_3.blank? && @vn.buy_4.blank? %>
-				<span class="vn-contentpadding "><span class="vn-label">Purchase:</span><%= get_purchase_location(@vn.buy_1) %> <%= get_purchase_location(@vn.buy_2) %> 
+				<span class="vn-label">Purchase:</span><%= get_purchase_location(@vn.buy_1) %> <%= get_purchase_location(@vn.buy_2) %> 
 					<%= get_purchase_location(@vn.buy_3) %> <%= get_purchase_location(@vn.buy_4) %>
-				</span>
+				
 			<% end %>
 		</div>
 	</div>
 		</div>
 		<div class="col-lg-9 col-md-9">
 			<% if @vn.name.length > 30 %>
-			 	<span class="h3 vn-contentpadding" style="font-size:19px !important;"><%= @vn.name %> </span>
+			 	<h1 style="font-size:19px !important;"><%= @vn.name %> </h1>
 			<% else %>
-			 	<span class="h3 vn-contentpadding"><%= @vn.name %> </span>
+			 	<h1><%= @vn.name %> </h1>
 			 <% end %>
 			  
  			<span class="default-text vn-score">Score: <%= @vn.rating_number%> </span>
@@ -112,7 +109,7 @@
 	 	<hr>
 			
 			
-			<span class="vn-contentpadding summary-text"><%= @vn.summary %> </span>
+			<span class="summary-text"><%= @vn.summary %> </span>
 			 <div class="vn-thumbnail-img">
 			 	<div class="row">
 			 		<div class="col-md-3">
@@ -230,9 +227,9 @@
 				<div class="row">
 					<div class="caption col-md-6 col-sm-6 col-lg-7 col-xs-12">
 						<% if @vn.name.length > 40 %> 
-							<span class="caption-subject">Reviews</span>
+							<h3 class="caption-subject">Reviews</h3>
 						<% else %>
-							<span class="caption-subject"> <%= @vn.name%> Reviews</span>
+							<h3 class="caption-subject"> <%= @vn.name %> Reviews</h3>
 						<% end %>
 					</div>
 					<div class="actions col-md-6 col-sm-6 col-lg-5 col-xs-12 mobile-review-tab">
@@ -314,6 +311,7 @@
 </div></div>
 </section>
 
+<section id="vn-screenshot">
 <div class="otherss-padding">
 <div class="container">
 	<div class="row ">
@@ -332,4 +330,4 @@
 	</div>
 </div>
 </div>
-
+</div>

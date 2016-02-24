@@ -5,12 +5,12 @@
 
 			<%= simple_form_for Vn.new, :method => :get, url: search_vns_path do |f| %>
 		<div class="col-md-12">
-			<h2 style="">Advanced Visual Novel Search
+			<h1 style="">Advanced Visual Novel Search
 
 				 <%= f.button :button, class: "btn btn-primary",style:"position:relative;top:0px;" do %>
                   <i class="fa fa-search 6x"></i>
              <% end %>
-			</h2>
+			</h1>
 
 		</div>	
 		<div class="col-md-12">
@@ -31,7 +31,7 @@
 			
 		</div>
 		<div class="col-md-12">
-			<h3 style="margin-top:30px !important;">Some random visual novels</h3>
+			<h2 style="margin-top:30px !important;">Random visual novels</h2>
 		</div>
 		<% @random.each do |vn| %>
 		<div class="vn-column">
