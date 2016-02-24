@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     authorize @user
   	@posts = @user.posts.paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
     @lib = @user.library_entries.where(favourite: true).limit(8)
+    @recent_ratings = @user.library_entries.where.not(:rating => nil).order('updated_at DESC').limit(5)
     if user_signed_in?
       if current_user == @user 
         @new_post =  @user.posts.build

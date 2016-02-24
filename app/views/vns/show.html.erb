@@ -198,7 +198,7 @@
 
     					<ul class="img-list-hover"><li>
 						 <%= link_to vn_path(vn) do %>
-							 <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "related-thumbnail",:style =>"float:left;") %>
+							 <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "related-thumbnail",:style =>"") %>
 								<span class="text-content"><span><%= vn.name %></span></span>
 						 <% end %>
 
@@ -207,33 +207,45 @@
 		<% end %>
 	</div>
 		<% end %>
+		<% unless @vn.route_url.blank? %>
 		<div class="col-md-6 col-xs-12">
-			<% unless @vn.route_url.blank? %>
-				<h3>Walkthrough</h3>
+				<h3>Route Walkthroughs</h3>
 				<% if @vn.walkthrough_content.blank? %>
-					<%= link_to image_tag("fuwa.png",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive vn-walkthroughimg",:style =>"float:left;"),@vn.route_url, :rel => "nofollow",:target =>"_blank"  %>
+					<%= link_to image_tag("vn-review.jpg",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive",:style =>"float:left;"),@vn.route_url, :rel => "nofollow",:target =>"_blank"  %>
 				<% else %>
-					<%= link_to image_tag("fuwa.png",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive vn-walkthroughimg",:style =>"float:left;"),walkthrough_vn_path(@vn),:target =>"_blank"  %>
+					<%= link_to image_tag("vn-review.jpg",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive",:style =>"float:left;"),walkthrough_vn_path(@vn),:target =>"_blank"  %>
 				<% end %>
-			<% end %>
 		</div>
+		<% end %>
 	</div>
 </div>
 </section>	
 
-<section id = "review">
+<section id = "review" style="margin-top:30px;">
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
-			<h3> Reviews</h3>
-			<div class="panel panel-default">
- 			<div class="panel-body">
- 				<ul class="nav nav-tabs" role="tablist">
- 					<li role="presentation" class="active"><a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Recent</a></li>
- 					<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Positive</a></li>
- 					<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Negative</a></li>
- 					<li role="presentation"><a href="#write" aria-controls="settings" role="tab" data-toggle="tab">Write a Review</a></li>
- 				</ul>
+			<div class="portlet">
+				<div class="portlet-title">
+				<div class="row">
+					<div class="caption col-md-6 col-sm-6 col-lg-7 col-xs-12">
+						<% if @vn.name.length > 40 %> 
+							<span class="caption-subject">Reviews</span>
+						<% else %>
+							<span class="caption-subject"> <%= @vn.name%> Reviews</span>
+						<% end %>
+					</div>
+					<div class="actions col-md-6 col-sm-6 col-lg-5 col-xs-12 mobile-review-tab">
+						<div class="btn-group mobile-review-buttongroup" data-toggle="buttons">
+							<a href="#recent" aria-controls="recent" role="tab" data-toggle="tab" class="btn grey-salsa">Recent</a>
+							<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="btn grey-salsa">Positive</a>
+							<a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" class="btn grey-salsa">Negative</a>
+							<a href="#write" aria-controls="settings" role="tab" data-toggle="tab" class="btn grey-salsa">Write a Review</a>
+						</div>
+					</div>
+				</div>
+				</div>
+ 			<div class="portlet-body">
  			<div class="row"> 
  				<div class="tab-content">
 			

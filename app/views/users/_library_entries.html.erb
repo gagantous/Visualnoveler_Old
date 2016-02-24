@@ -1,15 +1,16 @@
-<% @posts.each do |post| %>
-  <% vn = post.library_entry.vn if post.library_entry %>
+
 
   <div class="row">
-    <div class="col-md-9">
-      <div class="panel panel-default">
-        <div class="panel-body">
+    <div class="col-md-8">
+      <% @posts.each do |post| %>
+      <div class="row">
+       <div class="panel panel-default"><div class="panel-body">
+          <% vn = post.library_entry.vn if post.library_entry %>
           <% if current_user == @user %>
-        <%= button_to post,:method=>:delete,:class =>"btn btn-danger user-postdelete",data:{ disable_with: "Deleting Post...."} do %>
-          <i class="fa fa-trash-o"></i>
-        <% end %>
-        <% end %>
+            <%= button_to post,:method=>:delete,:class =>"btn btn-danger user-postdelete",data:{ disable_with: "Deleting Post...."} do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          <% end %>
         <div class="col-md-2 col-xs-4">
           <% if post.library_entry %>
           <%= link_to image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left"), vn_path(vn)  %>
@@ -40,16 +41,35 @@
               <!-- end of nested divs-->
           </div>
         </div>
-      </div></div> <!---panels -->
-    </div>
-
-    <% if post == @posts.first && current_user != @user && user_signed_in? %>
-      <div class="col-md-3 shared-lib">
-        <h3 style="margin-top:0px;"> <%= link_to "#{@similar_lib.count} Shared Visual Novels",similar_user_path(@user) %></h3>
-        <% @similar_lib.first(4).each do |lib| %>
-          <%= link_to image_tag(lib.vn.image_poster_url,:alt => lib.vn.name, :class=> "similar-thumbnail",:style =>"float:left;"), vn_path(lib.vn)   %>
-        <% end %> 
       </div>
+      </div></div> <!---panels -->
     <% end %>
+    </div> <!-- col-md-8 !-->
+
+    <% if user_signed_in? %>
+      <div class="col-md-4 col-xs-12 col-sm-12 shared-lib">
+        <div class="panel panel-default"><div class="panel-body">
+
+          <h4>Recent Ratings</h4>
+            <% @recent_ratings.each do |lib| %>
+              <div class="row user-recent-ratingpadding">
+                <div class="col-md-3 col-xs-3">
+                  <%= image_tag(lib.vn.image_poster,class:"img-responsive") %>
+                </div>
+                <div class="col-md-9 col-xs-9">
+                  <%= lib.vn.name %>
+                    <div class="progress rating-progress">
+                      <% percentage = number_to_percentage(lib.rating*10,precision: 0) %>
+                      <div class="progress-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="10" style="width: <%= percentage %>">
+                        <%= lib.rating %>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            <% end %>
+        </div></div>
+
+       
+      </div>
+    <% end %> <!-- end col-md-4 part !-->
   </div><!---row -->
-  <% end %>

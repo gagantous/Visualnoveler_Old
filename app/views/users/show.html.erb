@@ -29,7 +29,12 @@
 						<% end %>
 					</div>
 					<div class="col-md-3 col-xs-6">
-					<div class="dropdown">	
+						<% if current_user != @user && user_signed_in? %>
+							 <%= link_to similar_user_path(@user),class:"btn blue-button" do %>
+	           					 <span class="button-text"><%= @similar_lib.count %> Shared VNs</span>
+	        				 <% end %>
+        				 <% end %>
+					<!-- <div class="dropdown">	
 						<%= link_to '', :class => "btn blue-button dropdown-toggle",'data-toggle' => 'dropdown',id: 'dropdownMenu1','aria-haspopup' => true, 'aria-expanded' => true,type: "button"  do %>
 							<span class="button-text">Library View</span>
 		    				<span class="caret"></span>
@@ -40,7 +45,7 @@
 						    <li><%= link_to 'Dropped', drop_user_path(@user) %></li>
 						    <li><%= link_to 'Wishlist', wishlist_user_path(@user) %></li>
 						</ul>
-					</div>
+					</div> -->
 					</div>
 				</div>
 			</div>

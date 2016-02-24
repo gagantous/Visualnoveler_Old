@@ -23,7 +23,7 @@ SitemapGenerator::Sitemap.create do
       add walkthrough_vn_path(vn), lastmod: vn.updated_at
     end
     # removed because too spammy
-    # add characters_vn_path(vn),lastmod: vn.updated_at
+    add characters_vn_path(vn),lastmod: vn.updated_at
     vn.reviews.each do |review|
       add vn_review_path(vn,review),lastmod: review.updated_at
     end
@@ -31,10 +31,7 @@ SitemapGenerator::Sitemap.create do
 
   User.find_each do |user|
     add user_path(user), lastmod: user.updated_at
-    # add watch_user_path(user), lastmod: user.updated_at
-    # add favourite_user_path(user), lastmod: user.updated_at
-   # add drop_path(user), lastmod: user.updated_at
-   # add wishlist_path(user), lastmod: user.updated_at
+    add library_user_path(user), lastmod: user.updated_at
   end
 
   Genre.find_each do |genre|
