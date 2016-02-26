@@ -1,13 +1,11 @@
 <% title 'Crop Image' %>
-<div class="container">
+<div class="container" style="padding-top:25px;">
 	<div class="row">
 		<div class="col-md-12">
-<%= simple_form_for @contest do |f| %>
+<%= simple_form_for @bracket do |f| %>
 	
-  <%= f.simple_fields_for :contest_characters,@character do |c| %>
+  <%= f.simple_fields_for :bracket_characters,@character do |c| %>
 	  <%= c.cropbox :image %>
-
-	  <%= c.cropbox :details %>
 	  <%= c.submit 'Crop',:class => "btn btn-danger",:style =>'margin-top: 50px; width: 120px;' %>
   <% end %>
 <% end %>

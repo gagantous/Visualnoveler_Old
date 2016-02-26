@@ -54,7 +54,7 @@
             <% @recent_ratings.each do |lib| %>
               <div class="row user-recent-ratingpadding">
                 <div class="col-md-3 col-xs-3">
-                  <%= image_tag(lib.vn.image_poster,class:"img-responsive") %>
+                  <%= image_tag(lib.vn.image_poster.url(:thumb),class:"img-responsive") %>
                 </div>
                 <div class="col-md-9 col-xs-9">
                   <%= lib.vn.name %>

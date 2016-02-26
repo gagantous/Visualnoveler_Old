@@ -3,9 +3,9 @@
 		<div class="col-md-12">
 			<h1>Nominate</h1>
 		</div>
-	<%= simple_form_for @contest,:url => nominate_update_contest_path,:method => :post do |c| %>
+	<%= simple_form_for @bracket,:url => nominate_update_bracket_path,:method => :post do |c| %>
 
- 	 	<%= c.simple_fields_for :contest_characters,@character do |f| %>
+ 	 	<%= c.simple_fields_for :bracket_characters,@character do |f| %>
 			<div class="col-lg-3">
 			  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Name', error: 'Name is mandatory, please specify one',required: false  %>
 			 </div>

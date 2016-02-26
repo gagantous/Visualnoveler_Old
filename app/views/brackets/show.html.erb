@@ -1,0 +1,46 @@
+
+		<div class="first-bracket">
+			<% @characters.each_slice(2) do |slice| %>
+				<ul class="bracket-ul-first">
+					<% slice.each do |character| %>
+				
+						<li>
+						<div class="bracket-info">
+							<%= image_tag(character.image,class: "bracket-image") %> 
+							<div class="first-bracket-line"></div>
+
+						</div>
+						</li>
+					
+					<% end %>
+				</ul>
+			<% end %>
+		</div>	
+		<div class="second-bracket">
+			<ul class="bracket-ul-second">
+				<div class="first-bracket-line-vertical"></div>	
+				<%= image_tag("bracket.jpg",class: "secondbracket-image") %>
+			</ul>
+			<ul class="bracket-ul-second">
+				<div class="first-bracket-line-vertical"></div>	
+				<%= image_tag("bracket.jpg",class: "secondbracket-image") %>
+			</ul>
+			<ul class="bracket-ul-second">
+				<div class="first-bracket-line-vertical"></div>	
+				<%= image_tag("bracket.jpg",class: "secondbracket-image") %>
+			</ul>
+			<ul class="bracket-ul-second">
+				<div class="first-bracket-line-vertical"></div>	
+				<%= image_tag("bracket.jpg",class: "secondbracket-image") %>
+			</ul>
+			<ul class="bracket-ul-second">
+				<div class="first-bracket-line-vertical"></div>	
+				<%= image_tag("bracket.jpg",class: "secondbracket-image") %>
+			</ul>
+			<ul class="bracket-ul-second">
+				<div class="first-bracket-line-vertical"></div>	
+				<%= image_tag("bracket.jpg",class: "secondbracket-image") %>
+			</ul>	
+		</div>
+
+	

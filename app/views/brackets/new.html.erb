@@ -1,0 +1,28 @@
+
+<div class="container">
+	<div class="row">
+		<h1>New Bracket</h1>
+
+		<%= simple_form_for @bracket do |f| %>
+
+
+		<div class="col-lg-12">
+		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Bracket Name', error: 'Name is mandatory, please specify one',required: false  %>
+
+		 </div>
+
+		  <div class="col-lg-7">
+		 
+			<%= f.input :details,:input_html => {:rows => 15},label: 'Details and Rules of the Bracket' %>
+		</div>
+
+
+
+		<div class="col-lg-12">
+		  <%= f.button :submit , class: "btn btn-primary" %>
+		</div>
+		<% end %>
+
+	</div>
+
+</div>

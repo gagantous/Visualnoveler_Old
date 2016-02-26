@@ -1,9 +1,12 @@
-class ContestUploader < CarrierWave::Uploader::Base
+# encoding: utf-8
+
+class PosterUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process crop: :image
+  process crop: :image_coverpage
+  process :quality => 75
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
       storage :fog
@@ -20,7 +23,9 @@ class ContestUploader < CarrierWave::Uploader::Base
     def extension_white_list
      %w(jpg jpeg gif png)
     end
-
+  version :thumb do
+    process :resize_to_fit => [88, 123]
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:

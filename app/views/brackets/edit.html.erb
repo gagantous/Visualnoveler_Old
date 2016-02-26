@@ -2,20 +2,20 @@
 <div class="container">
 	<div class="row">
 
-		<%= simple_form_for @contest do |f| %>
+		<%= simple_form_for @bracket do |f| %>
 
 
 		<div class="col-lg-12">
-		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Contest Name', error: 'Name is mandatory, please specify one',required: false  %>
+		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Bracket Name', error: 'Name is mandatory, please specify one',required: false  %>
 
 		 </div>
 
 		  <div class="col-lg-7">
 		 
-			<%= f.input :details,:input_html => {:rows => 15},label: 'Details and Rules of the Contest' %>
+			<%= f.input :details,:input_html => {:rows => 15},label: 'Details and Rules of the Bracket' %>
 		</div>
 
-		<%= f.simple_fields_for :contest_characters do |c| %>
+		<%= f.simple_fields_for :bracket_characters do |c| %>
 			<div class="col-lg-12">
 			  <%= c.input :name, input_html: {style: "width:200px;"}, label: 'Name', error: 'Name is mandatory, please specify one',required: false  %>
 			 </div>
@@ -23,7 +23,7 @@
 			 	<%= c.input :image %>
 			 	<%= image_tag c.object.image.url, :style =>"width:200px;height:auto;max-height:200px;" if c.object.image? %>
 
-				<%= link_to 'Crop Image',crop_contest_path(@contest,:char_id => c.object.id) %>
+				<%= link_to 'Crop Image',crop_bracket_path(@bracket,:char_id => c.object.id) %>
 			 </div>
 			  <div class="col-lg-4">
 			 

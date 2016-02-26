@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
     enum role: [:user,:mod,:admin]
     after_initialize :set_default_role, :if => :new_record?
+    before_create :add_to_list
   # validates :name, presence: true
     has_many :library_entries, dependent: :destroy
     has_many :posts, dependent: :destroy
@@ -25,6 +26,11 @@ class User < ActiveRecord::Base
 
     def should_generate_new_friendly_id?
       slug.blank? || name_changed?
+    end
+
+    def add_to_list
+      gb = Gibbon::Request.new(api_key: "fed2ee444de2a19b223023584a313766-us12")
+      subscribe = gb.lists("ab585714dd").members.create(body: {email_address: self.email, status: "subscribed"})
     end
     
     def set_default_role

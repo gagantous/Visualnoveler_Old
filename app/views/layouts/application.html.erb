@@ -100,10 +100,10 @@
              <% if user_signed_in? %>
           <% if current_user.admin? || current_user.mod? %> 
             <li class="dropdown logotitle-dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle button-nav"><span class="logotitle">Contests</span> <b class="caret"></b></a>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle button-nav"><span class="logotitle">Brackets</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                  <li><%= link_to 'View Contests', contests_path  %></li>
-                  <li><%= link_to 'Create Contests',new_contest_path %></li>
+                  <li><%= link_to 'View Brackets', brackets_path  %></li>
+                  <li><%= link_to 'Create Brackets',new_bracket_path %></li>
               </ul>
             </li>
             <% end %> <% end %>

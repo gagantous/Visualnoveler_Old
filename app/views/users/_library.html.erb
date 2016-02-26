@@ -1,5 +1,5 @@
   <tr>
-    <td><%= image_tag(library.vn.image_poster,class:"library-vn-poster") %></td>
+    <td><%= image_tag(library.vn.image_poster.url(:thumb),class:"library-vn-poster") %></td>
     <td class="summary-text"><%= link_to library.vn.name,vn_path(library.vn),style: "font-size:1em;color:black;" %></td>
     <td style="padding-left:26px; font-style:italic;"><%= library.rating %></td>
     <td> 

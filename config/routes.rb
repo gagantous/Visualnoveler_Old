@@ -39,9 +39,11 @@ Rails.application.routes.draw do
   end
   resources :franchises
   resources :publishers
-  resources :contests do
+  resources :brackets do
     get :nominate, on: :member
     get :crop, on: :member
+    get :make, on: :member
+    get :setup, on: :member
     post :nominate_update, on: :member
   end
   resources :developers do

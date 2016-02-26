@@ -12,7 +12,9 @@ $font-size-h5: $font-size-base;
 .navbar-default{
   background-color: white;
 }
-
+body.bracket-body{
+  background-color: #35424B;
+}
 //Typography
 #vn-item h1 {
   font-size: 24px;
@@ -254,7 +256,7 @@ html, body {
   .home-registerbtn{
     position: relative;
     top: 25px;
-    left: 85px;
+    
   }
   .home-cta{
     font-size: 20px !important;
@@ -1791,6 +1793,66 @@ img.center {
   margin-top: 15px;
 }
 
+//Bracket
+.first-bracket{
+  width: 220px;
+  float: left;
+}
+.second-bracket{
+  width: 220px;
+  float: left;
+ // margin-top: 70px;
+}
+.bracket-image{
+  height: 75px;
+  width: 75px;
+  border: 3px solid #337AB7;
+}
+.secondbracket-image{
+  height: 75px;
+  width: 75px;
+  border: 3px solid #337AB7;
+}
+.bracket-info{
+
+}
+.bracket-line{
+
+}
+.first-bracket-line{
+  width: 108px;
+  border-top: solid #337AB7;
+  position: relative;
+  /* top: 55px; */
+  bottom: 40px;
+  left: 73px;
+}
+.first-bracket-line-vertical{
+    height: 101px;
+    border-left: solid 1px #337AB7;
+    display: inline-block;
+    position: relative;
+    top: 55px;
+}
+
+.bracket-progress{
+  margin-bottom: -3px;
+  height: 12px;
+  position: relative;
+  right: 6px;
+}
+.bracket-ul-first{
+  list-style-type:none;
+  margin-bottom: 20px;
+}
+
+.bracket-ul-first li {
+  padding-top: 20px;
+}
+.bracket-ul-second {
+  padding-left: 0px;
+  list-style-type: none;
+}
 .bs-wizard {margin-top: 40px;}
 
 /*Form Wizard*/

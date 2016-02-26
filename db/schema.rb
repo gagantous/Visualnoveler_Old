@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208051438) do
+ActiveRecord::Schema.define(version: 20160225075856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bracket_characters", force: :cascade do |t|
+    t.integer  "bracket_id"
+    t.integer  "character_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "name"
+    t.string   "image"
+    t.text     "details"
+  end
+
+  create_table "brackets", force: :cascade do |t|
+    t.string   "name"
+    t.text     "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "ready"
+  end
 
   create_table "character_vns", force: :cascade do |t|
     t.integer  "vn_id"
@@ -45,23 +63,6 @@ ActiveRecord::Schema.define(version: 20160208051438) do
     t.integer  "wall_author_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-  end
-
-  create_table "contest_characters", force: :cascade do |t|
-    t.integer  "contest_id"
-    t.integer  "character_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "name"
-    t.string   "image"
-    t.text     "details"
-  end
-
-  create_table "contests", force: :cascade do |t|
-    t.string   "name"
-    t.text     "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "developers", force: :cascade do |t|

@@ -2,37 +2,29 @@
     <div class="row">
        <%= image_tag "landingbg.jpg",:class =>"wrapper" %>
        <div class="col-xs-12 text-center" style="padding-top:16%">
-          <h2 style="color:white;font-weight:bold;font-size:30px" class="home-cta">Track & Discover Visual Novels</h2>
-          <p class="default-font home-emailtext">Get ongoing updates on the development of Visualnoveler</p>
-          <%= form_tag pages_subscribe_path,class:"form-inline email-form",method: :post do %>
-              <%= email_field(:email, :address, {id: "email", placeholder: "email address", class: "emailaddress form-control"}) %>
-                <%= button_tag "Subscribe", type: 'submit', class: "btn btn-primary emailbutton" %> 
-                <% end %>      
-            </form>
+          <strong><h1 style="color:white;" class="home-cta">Track & Discover Visual Novels</h1></strong>
+          <h2 class="default-font home-emailtext">Sign up for the Beta</h2>
+          <% unless user_signed_in? %>
+            <ul class="list-inline" style="padding-left:10px;padding-top:20px;">
+              <li><%= link_to omniauth_authorize_path(:user,"facebook"),class: 'btn btn-facebook btn-lg' do %>
+               <span class="fa fa-facebook" style="padding-right:2px;"></span>
+               <%= "Facebook" %>
+              <% end %></li>
+
+              <li><%= link_to omniauth_authorize_path(:user,"google_oauth2"),class: 'btn btn-googleauth btn-lg' do %>
+             <span class="fa fa-google" style="padding-right:2px;"></span>
+             <%= "Google" %>
+              <% end %> </li>
+
+              <li> <%= link_to register_path,class: 'btn btn-github btn-lg home-registerbtn' do %>
+               <%= "Register" %>
+              <% end %>
+            </li>
+            </ul>
+          <% end %>
         </div>
             
-         <div class="col-md-9 col-md-offset-4 col-xs-12"style="padding-top:100px;">
-           <% unless user_signed_in? %>
-          <h2 class="home-signup">Sign up for the Beta</h2>
          
-          <ul class="list-inline" style="padding-left:10px;">
-            <li><%= link_to omniauth_authorize_path(:user,"facebook"),class: 'btn btn-facebook btn-lg' do %>
-             <span class="fa fa-facebook" style="padding-right:2px;"></span>
-             <%= "Facebook" %>
-            <% end %></li>
-
-            <li><%= link_to omniauth_authorize_path(:user,"google_oauth2"),class: 'btn btn-googleauth btn-lg' do %>
-           <span class="fa fa-google" style="padding-right:2px;"></span>
-           <%= "Google" %>
-            <% end %> </li>
-
-             <%= link_to register_path,class: 'btn btn-github btn-lg home-registerbtn' do %>
-             <%= "Register" %>
-            <% end %>
-          </ul>
-
-          <% end %>
-         </div>
 
          
 </div>

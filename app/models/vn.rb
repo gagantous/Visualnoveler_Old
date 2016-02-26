@@ -18,7 +18,7 @@ class Vn < ActiveRecord::Base
 	mount_uploader :image_2, ScreenshotUploader
 	mount_uploader :image_3, ScreenshotUploader
 	mount_uploader :image_4, ScreenshotUploader
-	mount_uploader :image_poster, AvatarUploader
+	mount_uploader :image_poster, PosterUploader
  	validates :name, presence: true, uniqueness: {case_sensitive: false}
  	validate :cover_size
 	accepts_nested_attributes_for :characters

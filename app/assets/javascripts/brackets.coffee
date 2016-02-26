@@ -18,7 +18,7 @@ jQuery ->
 
 class CarrierWaveCropper
   constructor: ->
-    $('#contestcharacter_image_cropbox').Jcrop
+    $('#bracketcharacter_image_cropbox').Jcrop
       aspectRatio: 1
       boxWidth: 950
       boxHeight: 650
@@ -27,15 +27,15 @@ class CarrierWaveCropper
       onChange: @update
 
   update: (coords) =>
-    $('#contestcharacter_image_crop_x').val(coords.x)
-    $('#contestcharacter_image_crop_y').val(coords.y)
-    $('#contestcharacter_image_crop_w').val(coords.w)
-    $('#contestcharacter_image_crop_h').val(coords.h)
+    $('#bracketcharacter_image_crop_x').val(coords.x)
+    $('#bracketcharacter_image_crop_y').val(coords.y)
+    $('#bracketcharacter_image_crop_w').val(coords.w)
+    $('#bracketcharacter_image_crop_h').val(coords.h)
     @updatePreview(coords)
 
   updatePreview: (coords) =>
-    $('#contestcharacter_image_previewbox').css
-      width: Math.round(100/coords.w * $('#contestcharacter_image_cropbox').width()) + 'px'
-      height: Math.round(100/coords.h * $('#contestcharacter_image_cropbox').height()) + 'px'
+    $('#bracketcharacter_image_previewbox').css
+      width: Math.round(100/coords.w * $('#bracketcharacter_image_cropbox').width()) + 'px'
+      height: Math.round(100/coords.h * $('#bracketcharacter_image_cropbox').height()) + 'px'
       marginLeft: '-' + Math.round(100/coords.w * coords.x) + 'px'
       marginTop: '-' + Math.round(100/coords.h * coords.y) + 'px'
