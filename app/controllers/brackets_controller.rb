@@ -3,6 +3,10 @@ class BracketsController < ApplicationController
 	def show
 		@bracket = Bracket.find(params[:id])
 		@characters = @bracket.bracket_characters
+		@second_round_count = @characters.count / 2
+		@third_round_count = @second_round_count / 2
+		@fourth_round_count = @third_round_count / 2
+		@fifth_round_count = @fourth_round_count / 2
     	render :layout => 'bracket'
 	end
 	

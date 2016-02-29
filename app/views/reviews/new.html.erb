@@ -8,9 +8,14 @@
 		<%= simple_form_for([@vn,@review]) do |f| %>
 
 		<div class="row">
-		<div class="col-lg-8">
-		  <%= f.input :details,input_html: {:rows => 21} %>
-		 </div>	
+			<div class="col-lg-6 removepadding" >
+			 	 <%= f.input :details,input_html: {:rows => 21,id: "markdown"},label: false %>
+			 </div>	
+			 <div class="col-lg-6 removepadding">
+			 	<div class="panel panel-default">
+					<div id="preview" class="panel-body" style=" height: 432px;"> </div>
+				</div>
+			 </div>
 		</div>
 		
 		<div class="row">

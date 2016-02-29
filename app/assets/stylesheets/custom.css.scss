@@ -12,6 +12,9 @@ $font-size-h5: $font-size-base;
 .navbar-default{
   background-color: white;
 }
+#preview{
+  overflow-y: scroll;
+}
 body.bracket-body{
   background-color: #35424B;
 }
@@ -571,7 +574,7 @@ html, body {
   p{
     //line-height: 1.2em;
     font-size: 17px !important;
-    line-height: 1.35em;
+    // line-height: 1.35em;
   }
 }
 }
@@ -1794,14 +1797,30 @@ img.center {
 }
 
 //Bracket
+#bracket{
+  width: 1100px;
+}
 .first-bracket{
   width: 220px;
   float: left;
 }
-.second-bracket{
+.second-bracket {
   width: 220px;
   float: left;
  // margin-top: 70px;
+}
+
+.third-bracket {
+  width: 220px;
+  float: left;
+}
+.fourth-bracket {
+  width: 220px;
+  float: left;
+}
+.fifth-bracket {
+  width: 220px;
+  float: left;
 }
 .bracket-image{
   height: 75px;
@@ -1812,27 +1831,107 @@ img.center {
   height: 75px;
   width: 75px;
   border: 3px solid #337AB7;
+  margin-top: 30px;
+}
+.thirdbracket-image{
+  height: 75px;
+  width: 75px;
+  border: 3px solid #337AB7;
+  position: relative;
+  right: 7px;
+}
+
+.fourthbracket-image{
+  height: 75px;
+  width: 75px;
+  border: 3px solid #337AB7;
+  position: relative;
+  right: 7px;
+}
+
+.fifthbracket-image{
+  height: 75px;
+  width: 75px;
+  border: 3px solid #337AB7;
+  position: relative;
+  right: 7px;
 }
 .bracket-info{
 
+}
+.bracket-name{
+  position: relative; 
+  top: 100px;
+  color:white;
+  font-weight:normal;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 .bracket-line{
 
 }
 .first-bracket-line{
-  width: 108px;
-  border-top: solid #337AB7;
+  width: 116px;
+  border-top: solid 3px #337AB7;
   position: relative;
   /* top: 55px; */
   bottom: 40px;
   left: 73px;
 }
+
+.second-bracket-line{
+  width: 142px;
+  border-top: solid 3px #337AB7;
+  position: relative;
+  bottom: 40px;
+  left: 80px;
+}
+
+.third-bracket-line{
+  width: 145px;
+  border-top: solid 3px #337AB7;
+  position: relative;
+  bottom: 40px;
+  left: 75px;
+}
+
+.fourth-bracket-line{
+  width: 188px;
+  border-top: solid 3px #337AB7;
+  position: relative;
+  bottom: 40px;
+  left: 75px;
+}
 .first-bracket-line-vertical{
-    height: 101px;
-    border-left: solid 1px #337AB7;
+    height: 105px;
+    border-left: solid 3px #337AB7;
     display: inline-block;
     position: relative;
-    top: 55px;
+    top: 65px;
+    left: 6px;
+}
+
+.second-bracket-line-vertical{
+    height: 215px;
+    border-left: solid 3px #337AB7;
+    display: inline-block;
+    position: relative;
+    top: 114px;
+}
+.third-bracket-line-vertical{
+    height: 427px;
+    border-left: solid 3px #337AB7;
+    display: inline-block;
+    position: relative;
+    top: 209px;
+}
+
+.fourth-bracket-line-vertical{
+    height: 848px;
+    border-left: solid 3px #337AB7;
+    display: inline-block;
+    position: relative;
+    top: 421px;
 }
 
 .bracket-progress{
@@ -1843,15 +1942,30 @@ img.center {
 }
 .bracket-ul-first{
   list-style-type:none;
-  margin-bottom: 20px;
+}
+.first-bracket ul {
+  margin-bottom: 0px;
 }
 
 .bracket-ul-first li {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 .bracket-ul-second {
   padding-left: 0px;
   list-style-type: none;
+  margin-bottom: 55px;
+}
+
+.bracket-ul-third {
+  padding-left: 0px;
+  list-style-type: none;
+  margin-bottom: 172px;
+}
+
+.bracket-ul-fourth {
+  padding-left: 0px;
+  list-style-type: none;
+  margin-bottom: 384px;
 }
 .bs-wizard {margin-top: 40px;}
 

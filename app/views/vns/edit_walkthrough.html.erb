@@ -8,9 +8,18 @@
 			<% end %>
 		</h2>
 		<%= simple_form_for @vn do |f| %>
-			<%= f.input :walkthrough_content,:input_html => {:rows => 30} %>
+			<div class="col-md-6 removepadding">
+				<%= f.input :walkthrough_content,:input_html => {:rows => 30,id: "markdown"},label: false %>
+			</div>
 			<%= f.hidden_field :reroute,value: "edit_walkthrough" %>
-			<%= f.submit 'Update Walkthrough' , class: "btn btn-primary",data:{ disable_with: "Updating..."} %>
+			<div class="col-md-6 removepadding"> 
+		 		<div class="panel panel-default">
+					<div id="preview" class="panel-body" style=" height: 610px;"> </div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<%= f.submit 'Update Walkthrough' , class: "btn btn-primary",data:{ disable_with: "Updating..."} %>
+			</div>
 		<% end %>
 	</div>
 </div>

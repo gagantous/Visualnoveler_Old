@@ -1,16 +1,24 @@
+
 <div class="container">
 	<div class="row">
 
-	<h1 style="display:inline;">Edit Review</h1><%= link_to image_path("markdown.png"), :class => 'fancybox',:style =>"text-decoration:none;", :rel =>'?' do %>
+	<h2 style="display:inline;">Edit Review</h2><%= link_to image_path("markdown.png"), :class => 'fancybox',:style =>"text-decoration:none;", :rel =>'?' do %>
 			     <i class="fa fa-question-circle fa-2x"></i>
 			     <% end %>
 
 		<%= simple_form_for @review, url: vn_review_path do |f| %>
 
 		<div class="row">
-		<div class="col-lg-8">
-		  <%= f.input :details,input_html: {:rows => 21} %>
+		<div class="col-lg-6 removepadding" >
+		  
+			
+		 	 <%= f.input :details,input_html: {:rows => 21,id: "markdown"},label: false %>
 		 </div>	
+		 <div class="col-lg-6 removepadding">
+		 	<div class="panel panel-default">
+				<div id="preview" class="panel-body" style=" height: 432px;"> </div>
+			</div>
+		 </div>
 		</div>
 		
 		<div class="row">
