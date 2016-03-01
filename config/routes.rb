@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   end
   #get 'api/vns/:search' => 'api#vn'
 
-
   resources :characters do
     get :search, on: :collection
   end
@@ -50,6 +49,9 @@ Rails.application.routes.draw do
     get :search, on: :collection
     get :all, on: :collection
   end
+
+  resources :news
+  resources :news_images
   resources :screenshots, except: [:index]
   resources :comments
   resources :library_entries, except: [:new]
@@ -83,7 +85,6 @@ Rails.application.routes.draw do
     get :characters, on: :member
     get :crop, on: :member
     get :screenshots, on: :member
-    get :simple_create, on: :collection
     get :top, on: :collection
     get :translated, on: :collection
     get :walkthroughs, on: :collection

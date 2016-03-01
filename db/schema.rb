@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225075856) do
+ActiveRecord::Schema.define(version: 20160301145918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,26 @@ ActiveRecord::Schema.define(version: 20160225075856) do
 
   add_index "library_entries", ["user_id"], name: "index_library_entries_on_user_id", using: :btree
   add_index "library_entries", ["vn_id"], name: "index_library_entries_on_vn_id", using: :btree
+
+  create_table "news", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+  end
+
+  add_index "news", ["user_id"], name: "index_news_on_user_id", using: :btree
+
+  create_table "news_images", force: :cascade do |t|
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "news_id"
+  end
+
+  add_index "news_images", ["news_id"], name: "index_news_images_on_news_id", using: :btree
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"
@@ -286,6 +306,8 @@ ActiveRecord::Schema.define(version: 20160225075856) do
   add_foreign_key "character_vns", "vns"
   add_foreign_key "library_entries", "users"
   add_foreign_key "library_entries", "vns"
+  add_foreign_key "news", "users"
+  add_foreign_key "news_images", "news"
   add_foreign_key "posts", "library_entries"
   add_foreign_key "posts", "users"
   add_foreign_key "posts", "vns"

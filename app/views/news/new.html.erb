@@ -1,29 +1,27 @@
 <div class="container">
 	<div class="row">
-		<h2 style="display:inline;">Write a Review</h2><%= link_to image_path("markdown.png"), :class => 'fancybox',:style =>"text-decoration:none;", :rel =>'?' do %>
+		<h2 style="display:inline;">Write a new Entry</h2><%= link_to image_path("markdown.png"), :class => 'fancybox',:style =>"text-decoration:none;", :rel =>'?' do %>
 			     <i class="fa fa-question-circle fa-2x"></i>
 		<% end %>
-		<button class="btn btn-primary" type="button" data-toggle ="modal" data-target="#myModal"> 
+		<button class="btn btn-primary btn-xs btn-markdown-upload" type="button" data-toggle ="modal" data-target="#myModal"> 
 			<i class="fa fa-picture-o fa-lg"></i> 
 		</button>
-		<%= simple_form_for([@vn,@review]) do |f| %>
 
-		<div class="row">
-			<div class="col-lg-6 removepadding" >
-			 	 <%= f.input :details,input_html: {:rows => 21,id: "markdown"},label: false %>
+		<%= simple_form_for @news do |f| %>
+				<%= f.input :title %>
+			<div class="col-lg-6 removepadding markdown-post" >
+			 	 <%= f.input :content,input_html: {:rows => 21,id: "markdown"},label: false %>
 			 </div>	
-			 <div class="col-lg-6 removepadding">
+			 <div class="col-lg-6 removepadding markdown-post">
 			 	<div class="panel panel-default">
 					<div id="preview" class="panel-body" style=" height: 432px;"> </div>
 				</div>
 			 </div>
-		</div>
+		
 		
 		<div class="row">
 		<div class="col-lg-12">
-			<%= f.input :rating,collection: 0..10,input_html:{style:"width:120px;"},:selected => 5,:required => false %>
-			<%= f.hidden_field :user_id,value: current_user.id %>
-			<%= f.hidden_field :vn_id,value: @vn.id %>
+	
 		  <%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Posting.."} %>
 		 </div>
 		</div>
@@ -41,7 +39,7 @@
         <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @screenshot,remote: true,html: {:multipart => true } do |f| %>
+        <%= simple_form_for @image,remote: true,html: {:multipart => true } do |f| %>
         	<%= f.input :image %>
       </div>
       <div class="modal-footer">

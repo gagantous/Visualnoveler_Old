@@ -12,8 +12,20 @@ $font-size-h5: $font-size-base;
 .navbar-default{
   background-color: white;
 }
+.share-button {
+  text-transform: none;
+}
+.share-button:before {
+  background: none;
+}
 #preview{
   overflow-y: scroll;
+}
+.markdown-post {
+  margin-top:10px;
+}
+.btn-markdown-upload {
+  margin-left: 10px;
 }
 body.bracket-body{
   background-color: #35424B;
@@ -59,8 +71,60 @@ footer {
     background-color: #3E3D48;
 }
 
+#news-markdown {
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+  }
+  .news-meta {
+    font-size: 0.82em;
+    font-family: "Open Sans", sans-serif;
+    display: inline-block;
+    font-weight: 500;
+    color: #9EABB3;
+  }
+  .read-more:hover{
+   background-color: #738bd7;
+   color: white;
+  }
+  .news-hr {
+    margin-top: 22px;
+    margin-bottom: 42px !important;
+  }
+  h1{
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .news-post {
+    padding-top:  3.33em;
+    padding-bottom: 3.66em;
+  }
+  .title-link {
+     color: #3a3a3a;
+  }
+  .title-link a {
+    text-decoration: none;
+    color: #3a3a3a;
+
+  }
+  .news-meta a {
+    color: #9EABB3;
+  }
+  .author {
+    padding-left: 30px;
+  }
+
+  a:hover {
+    transition: color 0.3s ease;
+    color: #2c9ab7;
+  }
+}
 // custom headers
-h1{}
+
 .footer > a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
@@ -407,6 +471,12 @@ html, body {
     height: 185px;
   }
 
+  #preview > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
   span.text-content {
     background: rgba(0,0,0,0.5);
     color: white;
@@ -619,8 +689,12 @@ footer {
 }
 // tablet + desktop
 @media (min-width: 460px) {
+  .container-news{
+    width: 90%;
+    max-width: 808px;
+  }
   .vnindex-row {
-    margin-left: 100px !important;
+    margin-left: 70px !important;
   }
   .vn-menuright {
     float: right;

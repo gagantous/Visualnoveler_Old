@@ -26,13 +26,16 @@ class ScreenshotsController < ApplicationController
 	def create	
     	@screenshot = Screenshot.new(ss_params) 
     	if @screenshot.save
-    		 flash[:success] = "Added image successfully"
-    		 redirect_to :back
+    		 respond_to do |format|
+    		 	format.js
+    		 	format.html
+    		 end
     	else
     		render :action=>"new"
     	end
 
 	end
+
 
 	def destroy
 		@screenshot = Screenshot.find(params[:id])

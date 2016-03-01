@@ -14,14 +14,15 @@
 
 		</div>	
 		<div class="col-md-12">
-		
-			
-					<% Genre.all.each do |genre| %>
-				    <label class="checkbox-inline">
-				      <%= check_box_tag 'genre_ids[]',genre.id %>
-						<span style="font-weight:normal;"><%= genre.name %> </span>
-				    </label>
-					 <% end %>
+			<% Genre.all.each do |genre| %>
+
+				<div class="col-md-2">
+		    		<label class="checkbox-inline">
+		     	 	<%= check_box_tag 'genre_ids[]',genre.id %>
+					<span style="font-weight:normal;"><%= genre.name %> </span>
+		    		</label>
+		    	</div>
+			 <% end %>
 
 		<% end %>
 	</div>

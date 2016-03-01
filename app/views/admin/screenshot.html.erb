@@ -13,7 +13,7 @@
 			<tbody>
 			<% @screenshot.each do |ss| %>
 				<tr>
-				<td><%= link_to ss.vn.name, screenshot_path(ss) %> </td>
+				<td><%= link_to ss.vn.name, screenshot_path(ss) unless ss.vn.blank? %> </td>
 				<td><%= link_to 'Edit',edit_screenshot_path(ss) %></td>
 				<td><%= time_ago_in_words(ss.updated_at) %></td>
 				</tr>

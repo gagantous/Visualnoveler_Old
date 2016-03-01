@@ -25,11 +25,6 @@ class VnsController < ApplicationController
 		@random = Vn.limit(5).order("RANDOM()")
 	end
 
-	def simple_create
-		@vn = Vn.new
-		authorize @vn
-	end
-
 	def translated
 		@vn = Vn.where(:status => 1).paginate(:page => params[:page], :per_page => 25)
 	end

@@ -1,0 +1,11 @@
+var imageURL = "<%= @picture.image.url %>"; 
+var prependURL = "<img src=\'";
+var appendURL = "\'>";
+$('#markdown').insertAtCaret(prependURL + imageURL + appendURL);
+
+$markdowntext = $('#markdown').val();
+$targetDiv = $('#preview')[0];
+$converter = new showdown.Converter();
+var html = $converter.makeHtml($markdowntext);
+$targetDiv.innerHTML = html;
+$('#markdown-upload').modal('toggle');

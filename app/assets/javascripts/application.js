@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require jquery.jcrop
 //= require twitter/typeahead
 //= require twitter/typeahead/bloodhound
@@ -23,6 +24,7 @@
 //= require_tree .
 //= require starburst/starburst
 //= require fancybox
+//= require share-button
 /*
 
 Copyright (C) 2011 by Yehuda Katz

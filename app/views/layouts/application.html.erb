@@ -8,6 +8,8 @@
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
   <%= favicon_link_tag %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -43,7 +45,6 @@
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Creation</li>
                   <li><%= link_to "Create Visual Novel", new_vn_path %></li>
-                  <li><%= link_to "Create Visual Novel Simple", simple_create_vns_path %></li>
                   <li><%= link_to "Create Character", new_character_path %></li>
                   <li><%= link_to "Create Developer", new_developer_path %></li>
                   <li><%= link_to "Create Publisher", new_publisher_path %></li>

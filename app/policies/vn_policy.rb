@@ -10,10 +10,6 @@ class VnPolicy
     @current_user.admin?
   end
 
-  def simple_create?
-    @current_user.admin?
-  end
-
   def edit_walkthrough?
     @current_user.admin? or @current_user.mod?
   end
