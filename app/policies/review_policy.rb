@@ -19,7 +19,7 @@ class ReviewPolicy
   end
  
   def update?
-    @current_user.admin? or @current_user.mod?
+    @current_user.admin? or @current_user.mod? or @current_user == @user
   end
 
   def destroy?

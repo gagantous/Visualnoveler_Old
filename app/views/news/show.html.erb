@@ -3,25 +3,15 @@
 
 <script>
 	$(function() {
-
     var shareButton = new ShareButton({ui:{"flyout":"middle right"}});
-
 	});
-  </script>
-<section id ="news-markdown">
+ </script>
 
+<section id ="news-markdown">
 <div class="container container-news">
 	<div class="row">
 		<div class="col-md-12 news-post">
-			<div class="news-meta">
-			 	<%= @news.created_at.strftime("%d %b %Y") %>
-			 	<span class="author"><%= link_to @news.user.name,user_path(@news.user) %>
-			 	</span>
-			 </div>
-
- 			<h1> <%= link_to @news.title,news_path(@news),class: "title-link" %> </h1>
-			<%= markdown(@news.content) %>
-			<share-button class= "btn blue-button share-button"></share-button>
+			<%= render 'layouts/news_full',locals:{news: @news} %>
 		</div>
 	</div>
 </div>

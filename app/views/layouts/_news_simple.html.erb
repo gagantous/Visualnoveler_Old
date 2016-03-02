@@ -1,0 +1,25 @@
+<% @news.each do |news| %>
+	<div class="news">
+		<div class="news-meta">
+			<%= news.created_at.strftime("%d %b %Y") %>
+			<span class="author">
+				<%= link_to news.user.name,user_path(news.user) %>
+			</span>
+			<ul class="tags-list list-inline">
+				<% news.tags.each do |tag| %>
+				<li><%= link_to tag.name, tag_path(tag),class:"tags-item" %> </li>
+				<% end %>
+			</ul>
+		</div>
+
+		<h1> <%= link_to news.title,news_path(news),class: "title-link" %> </h1>
+		<%= image_tag(news.featured_image.url) unless news.featured_image.blank? %>
+		<% if news.content.length > 400 %>
+			<%= markdown(HTML_Truncator.truncate(news.content,100)) %>
+		<% else %>
+			<% markdown(news.content) %>
+		<% end %>
+		<%= link_to 'Read More',news_path(news),class:"btn blue-button read-more" unless news.content.length < 400 %>
+		<hr class="news-hr">
+	</div>
+<% end %>

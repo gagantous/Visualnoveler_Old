@@ -17,6 +17,10 @@ SitemapGenerator::Sitemap.create do
   add '/genres/all'
   add '/developers/all'
 
+  News.find_each do |news|
+    add news_path(news),lastmod: news.updated_at
+  end
+  
   Vn.find_each do |vn|
     add vn_path(vn), lastmod: vn.updated_at
     if !vn.walkthrough_content.blank?

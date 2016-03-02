@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 	def new
 		@vn = Vn.find(params[:vn_id])
 		@review = @vn.reviews.build
-		@screenshot = Screenshot.new
+		@image = NewsImage.new
 		#authorize @review
 	end
 
@@ -40,7 +40,7 @@ class ReviewsController < ApplicationController
 
 	def edit
 		@review = Review.find(params[:id])
-		@screenshot = Screenshot.new
+		@image = NewsImage.new
 		authorize @review
 	end
 

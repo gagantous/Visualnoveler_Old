@@ -19,6 +19,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "gibbon"
 gem 'nprogress-rails'
 gem 'pg_search'
+gem 'acts-as-taggable-on', '~> 3.4'
 #image & attachments 
 gem 'carrierwave'
 gem 'carrierwave-crop'

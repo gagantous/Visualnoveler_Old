@@ -1,12 +1,13 @@
-
 <div class="container">
 	<div class="row">
-	<h2 style="display:inline;">Edit Review</h2><%= link_to image_path("markdown.png"), :class => 'fancybox',:style =>"text-decoration:none;", :rel =>'?' do %>
-			     <i class="fa fa-question-circle fa-2x"></i>
-		<% end %>
-		<button class="btn btn-primary btn-xs btn-markdown-upload" type="button" data-toggle ="modal" data-target="#markdown-upload"> 
-			<i class="fa fa-picture-o fa-lg"></i> 
-		</button>
+		<div class="edit-news-wrapper">
+			<h2 style="display:inline;">Edit Review</h2><%= link_to image_path("markdown.png"), :class => 'fancybox',:style =>"text-decoration:none;", :rel =>'?' do %>
+				     <i class="fa fa-question-circle fa-2x"></i>
+			<% end %>
+			<button class="btn btn-primary btn-xs btn-markdown-upload" type="button" data-toggle ="modal" data-target="#markdown-upload"> 
+				<i class="fa fa-picture-o fa-lg"></i> 
+			</button>
+		</div>
 		<%= simple_form_for @review, url: vn_review_path do |f| %>
 
 		<div class="row">
@@ -39,22 +40,4 @@
 	</div>
 </div>
 
-<div class="modal fade" id="markdown-upload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for @screenshot,remote: true,html: {:multipart => true } do |f| %>
-        	<%= f.input :image %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        	<%= f.submit "Upload", class:"btn btn-primary" %>
-         <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'layouts/markdown_image' %>

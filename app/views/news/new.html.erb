@@ -1,13 +1,20 @@
+<% title "Create News Entry" %>
+
 <div class="container">
 	<div class="row">
-		<h2 style="display:inline;">Write a new Entry</h2><%= link_to image_path("markdown.png"), :class => 'fancybox',:style =>"text-decoration:none;", :rel =>'?' do %>
-			     <i class="fa fa-question-circle fa-2x"></i>
-		<% end %>
-		<button class="btn btn-primary btn-xs btn-markdown-upload" type="button" data-toggle ="modal" data-target="#myModal"> 
-			<i class="fa fa-picture-o fa-lg"></i> 
-		</button>
-
+		<div class="edit-news-wrapper">
+			<h2 style="display:inline;">Create News Entry</h2><%= link_to image_path("markdown.png"), :class => 'fancybox',:style =>"text-decoration:none;", :rel =>'?' do %>
+				     <i class="fa fa-question-circle fa-2x"></i>
+			<% end %>
+			<button class="btn btn-primary btn-xs btn-markdown-upload" type="button" data-toggle ="modal" data-target="#markdown-upload"> 
+				<i class="fa fa-picture-o fa-lg"></i> 
+			</button>
+      	  	<%= link_to 'Upload Featured Image','#',class:"file-upload-clicker btn btn-info",style:"margin-left:25px;" %>
+      		<input id="file-upload-text" class="custom-input" type="text" hidden="true">
+		</div>
 		<%= simple_form_for @news do |f| %>
+			<%= f.input :tag_list,input_html: {style: "width:400px;",:value => @news.tag_list.join(", ")} %>
+        	<%= f.input :featured_image, input_html: { hidden: true ,style:"display:none;",class:"file-upload-real" },label: false %>
 				<%= f.input :title %>
 			<div class="col-lg-6 removepadding markdown-post" >
 			 	 <%= f.input :content,input_html: {:rows => 21,id: "markdown"},label: false %>
@@ -22,7 +29,7 @@
 		<div class="row">
 		<div class="col-lg-12">
 	
-		  <%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Posting.."} %>
+		  <%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Posting.."},style:"margin-bottom:35px;" %>
 		 </div>
 		</div>
 
@@ -31,22 +38,4 @@
 	</div>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for @image,remote: true,html: {:multipart => true } do |f| %>
-        	<%= f.input :image %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        	<%= f.submit "Upload", class:"btn btn-primary" %>
-         <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'layouts/markdown_image' %>

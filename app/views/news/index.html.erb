@@ -1,33 +1,17 @@
 <% title "Visual Novel News" %>
 
 
-
+<section id ="news-index">
 <section id ="news-markdown">
 <div class="container container-news">
 	<div class="row">
 		<div class="col-md-12 news-post">
 
-		<% @news.each do |news| %>
-		<div class="news">
-				<div class="news-meta">
-			 		<%= news.created_at.strftime("%d %b %Y") %>
-			 		<span class="author"><%= link_to news.user.name,user_path(news.user) %>
-			 		</span>
-			 	</div>
-
- 			<h1> <%= link_to news.title,news_path(news),class: "title-link" %> </h1>
- 			<% if news.content.length > 400 %>
-				<%= markdown(HTML_Truncator.truncate(news.content,100)) %>
-			<% else %>
-				<% markdown(news.content) %>
-			<% end %>
-
-			<%= link_to 'Read More',news_path(news),class:"btn blue-button read-more" %>
-			<hr class="news-hr">
-		</div>
-		<% end %>
+		<%= render 'layouts/news_simple',locals:{news: @news} %>
+		<%= will_paginate @news,:page_links => false %>
 		</div>
 	</div>
 </div>
 
+</section>
 </section>

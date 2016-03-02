@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-    enum role: [:user,:mod,:admin]
+    enum role: [:user,:mod,:admin,:writer]
     after_initialize :set_default_role, :if => :new_record?
     before_create :add_to_list
   # validates :name, presence: true

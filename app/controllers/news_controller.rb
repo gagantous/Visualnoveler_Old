@@ -1,6 +1,7 @@
 class NewsController < ApplicationController
+	before_action :authenticate_user!, :except => [:index,:show]
 	def index
-		@news = News.all
+		@news = News.paginate(:page => params[:page], :per_page => 3).order("created_at desc")
 	end
 
 	def show
@@ -9,14 +10,17 @@ class NewsController < ApplicationController
 	def new
 		@news = News.new
 		@image = NewsImage.new
+		authorize @news
 	end
 	def edit
 		@news = News.find(params[:id])
 		@image = NewsImage.new
+		authorize @news
 	end
 
 	def create	
     	@news = current_user.news.build(char_params)
+    	authorize @news
     	if @news.save
     		flash[:success] = "News created!"
     		redirect_to :back
@@ -29,6 +33,7 @@ class NewsController < ApplicationController
 
 	def destroy
 		@news = News.find(params[:id])
+		authorize @news
 	  	if @news.destroy
 	 		flash[:success] = "News deleted!"
 	 		redirect_to :back
@@ -49,6 +54,6 @@ class NewsController < ApplicationController
 
 	private
 		def char_params
-			params.require(:news).permit(:title,:content,:user_id,:news_image_id)
+			params.require(:news).permit(:title,:content,:user_id,:news_image_id,:featured_image,:tag_list)
 		end
 end

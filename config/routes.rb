@@ -30,7 +30,6 @@ Rails.application.routes.draw do
   #get 'api/vns/:search' => 'api#vn'
 
   resources :characters do
-    get :search, on: :collection
   end
   resources :genres do
     get :search, on: :collection
@@ -38,19 +37,13 @@ Rails.application.routes.draw do
   end
   resources :franchises
   resources :publishers
-  resources :brackets do
-    get :nominate, on: :member
-    get :crop, on: :member
-    get :make, on: :member
-    get :setup, on: :member
-    post :nominate_update, on: :member
-  end
   resources :developers do
     get :search, on: :collection
     get :all, on: :collection
   end
 
   resources :news
+  resources :tags,only: [:index,:show]
   resources :news_images
   resources :screenshots, except: [:index]
   resources :comments
