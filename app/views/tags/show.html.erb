@@ -1,18 +1,16 @@
 <% title @tag.name %>
-<section id ="news-markdown">
 
+
+<section id ="news-markdown">
 <div class="container container-news">
-	<div class="row">
+	<div class="row news-post">
 		<div class="col-md-12">
 
 		<h1 style="margin-top:40px;margin-bottom:40px;"><span style="font-size:18px;">News tagged with</span> <%= @tag.name %></h1>
 		<hr>
 		</div>
-		<div class="news">
 			
-			<%= render 'layouts/news_simple',locals:{news: @news} %>
-		</div>
+		<%= render 'layouts/news_simple',locals:{news: @news} %>
 	</div>
 </div>
-
 </section>
