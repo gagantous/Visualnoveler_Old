@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
 	before_action :authenticate_user!, :except => [:index,:show]
+	include ApplicationHelper
 	def index
 		@news = News.paginate(:page => params[:page], :per_page => 3).order("created_at desc")
 	end
@@ -8,6 +9,7 @@ class NewsController < ApplicationController
 		@news = News.find(params[:id])
 		# @tags = @news.
 		@related = @news.find_related_tags.limit(3).order("RANDOM()")
+		@news_description = ActionView::Base.full_sanitizer.sanitize(markdown(@news.content)).truncate(200).html_safe
 		if @related.blank?
 			@random = true
 			@related = News.limit(3).order("RANDOM()")
