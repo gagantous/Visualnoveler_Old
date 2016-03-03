@@ -3,7 +3,26 @@
 
 <script>
 	$(function() {
-    var shareButton = new ShareButton({ui:{"flyout":"middle right"}});
+		var options = {
+			ui: {
+				flyout: "bottom right"
+			 },
+			networks: {
+				linkedin: {
+					enabled: false
+				},
+				whatsapp: {
+					enabled: false
+				},
+				pinterest: {
+					enabled: false
+				},
+				email: {
+					enabled: false
+				}
+			}
+		}
+    	var shareButton = new ShareButton('.share-button',options);
 	});
  </script>
 

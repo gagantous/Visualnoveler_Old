@@ -12,10 +12,12 @@
 		</ul>
 		<%= link_to 'Edit Post',edit_news_path(@news),'data-no-turbolink' =>"true", class:"btn blue-button",style:"color:white; margin-left:65px;" if user_signed_in? && (current_user.admin? || current_user.mod? || current_user.writer?) %>
 	</div>
- 	<h1> <%= link_to @news.title,news_path(@news),class: "title-link" %> </h1>
+ 	<h1> <span class="title-link"><%= @news.title %> </span> </h1>
  	<%= image_tag(@news.featured_image.url,alt: @news.title) unless @news.featured_image.blank? %>
 	<%= markdown(@news.content) %>
-	<share-button class= "btn blue-button share-button"></share-button>
+	<div class="news-share-div">
+		<share-button class= "btn blue-button share-button"></share-button>
+	</div>
 	<div class="news-related">
 		<hr>
 		<% if @random %>
