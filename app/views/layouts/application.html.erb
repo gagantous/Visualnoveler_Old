@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="description" content="<%= if content_for?(:description) then yield(:description) else 'Start tracking and discovering other visual novels at Visualnoveler with a growing community.' end %>">
+  <meta name="description" property="og:description" content="<%= if content_for?(:description) then yield(:description) else 'Start tracking and discovering other visual novels at Visualnoveler with a growing community.' end %>">
   <title>
     <%= if content_for?(:title) then yield(:title) + ' - ' end %>
     Visualnoveler

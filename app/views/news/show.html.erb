@@ -1,5 +1,6 @@
 <% title @news.title %>
 <% description @news_description %>
+
 <script>
 	$(function() {
 		var options = {
@@ -21,10 +22,6 @@
 				},
 				twitter: {
 					description: "<%= @news.title %>"
-				},
-				facebook: {
-					title: "<%= @news.title %>",
-					description: "<%= @news_description %>"
 				}
 			}
 		}
