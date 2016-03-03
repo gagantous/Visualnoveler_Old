@@ -30,7 +30,7 @@ class NewsController < ApplicationController
     	authorize @news
     	if @news.save
     		flash[:success] = "News created!"
-    		redirect_to :back
+    		redirect_to news_path(@news)
     	else
     		flash[:success] = "Failed to create News"
     		redirect_to :back
