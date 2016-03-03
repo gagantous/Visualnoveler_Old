@@ -6,7 +6,14 @@ class NewsController < ApplicationController
 
 	def show
 		@news = News.find(params[:id])
+		# @tags = @news.
+		@related = @news.find_related_tags.limit(3).order("RANDOM()")
+		if @related.blank?
+			@random = true
+			@related = News.limit(3).order("RANDOM()")
+		end
 	end
+
 	def new
 		@news = News.new
 		@image = NewsImage.new

@@ -4,8 +4,8 @@
 <section id ="news-index">
 <section id ="news-markdown">
 <div class="container container-news">
-	<div class="row">
-		<div class="col-md-12 news-post">
+	<div class="row news-post">
+		<div class="col-md-12">
 
 		<%= render 'layouts/news_simple',locals:{news: @news} %>
 		<%= will_paginate @news,:page_links => false %>

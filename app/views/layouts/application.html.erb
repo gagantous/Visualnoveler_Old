@@ -103,9 +103,9 @@
                <a href="http://forums.visualnoveler.com" class="button-nav"><span class="logotitle">Forums</span></a> 
              </li>
            
-            <li class="logotitle-dropdown">
+            <!-- <li class="logotitle-dropdown">
              <a href=<%= about_path %> class="button-nav"><span class="logotitle">About</span> </a>
-           </li>
+           </li> -->
 
             <% if !user_signed_in? %>
             <li class ="logotitle-dropdown">
@@ -165,7 +165,6 @@
       <ul class="list-inline" style="padding-top:7px;padding-bottom:7px;">
         <li class="footer-text"style="font-size:14px !important;"> &copy; 2016 Visualnoveler</li>
         <li> <%= link_to 'About' ,about_path ,class: "footer-text" %> </li>
-        <li> <%= link_to 'Development Blog' ,"http://blog.visualnoveler.com" ,class: "footer-text" %> </li>
         <li> <%= link_to 'Visual Novel Resources' ,resources_path ,class: "footer-text" %> </li>
         <li> <%= link_to 'Recommendation Charts' ,recommendation_path ,class: "footer-text" %> </li>
       </ul>

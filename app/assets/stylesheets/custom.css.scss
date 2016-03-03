@@ -99,6 +99,9 @@ footer {
     display: block;
     height: auto;
   }
+  p{
+    margin: 16px 0 16px;
+  }
   .news-meta {
     font-size: 0.82em;
     font-family: "Open Sans", sans-serif;
@@ -106,6 +109,7 @@ footer {
     font-weight: 500;
     color: #9EABB3;
   }
+
   .read-more:hover{
    background-color: #738bd7;
    color: white;
@@ -696,6 +700,9 @@ html, body {
     padding-top: 15px;
     position: relative;
     right: 10px;
+  }
+  .news-related-title{
+    margin-bottom: 25px; 
   }
   .mobile-review-buttongroup{
     padding-bottom: 10px;

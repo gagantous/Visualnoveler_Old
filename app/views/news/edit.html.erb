@@ -10,6 +10,7 @@
 				<i class="fa fa-picture-o fa-lg"></i> 
 			</button>
       	  	<%= link_to 'Upload Featured Image','#',class:"file-upload-clicker btn btn-info",style:"margin-left:25px;" %>
+      	  	<%= image_tag(@news.featured_image,style:"display:inline-block;height:auto;max-width:10%;") unless @news.featured_image.blank? %>
      	 	<input id="file-upload-text" class="custom-input" type="text" hidden="true">
 		</div>
 		<%= simple_form_for @news do |f| %>
@@ -21,7 +22,9 @@
 			 </div>	
 			 <div class="col-lg-6 removepadding markdown-post">
 			 	<div class="panel panel-default">
-					<div id="preview" class="panel-body" style=" height: 432px;"> </div>
+			 		<section id="news-markdown">
+						<div id="preview" class="panel-body" style=" height: 432px;"> </div>
+					</div>
 				</div>
 			 </div>
 		

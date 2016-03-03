@@ -1,7 +1,7 @@
 class News < ActiveRecord::Base
   belongs_to :user
   has_many :images,dependent: :destroy, foreign_key: "news_id",class_name: "NewsImage"
-  mount_uploader :featured_image, NewsUploader
+  mount_uploader :featured_image, NewsFeaturedUploader
   acts_as_taggable
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
