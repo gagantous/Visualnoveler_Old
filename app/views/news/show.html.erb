@@ -1,6 +1,5 @@
 <% title @news.title %>
-<% description @news.content %>
-
+<% description ActionView::Base.full_sanitizer.sanitize(markdown(@news.content)).truncate(200).html_safe %>
 <script>
 	$(function() {
 		var options = {
@@ -19,6 +18,9 @@
 				},
 				email: {
 					enabled: false
+				},
+				twitter: {
+					description: "<%= @news.title %>"
 				}
 			}
 		}
