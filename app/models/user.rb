@@ -30,8 +30,8 @@ class User < ActiveRecord::Base
     end
 
     def add_to_list
-      gb = Gibbon::Request.new(api_key: "fed2ee444de2a19b223023584a313766-us12")
-      subscribe = gb.lists("ab585714dd").members.create(body: {email_address: self.email, status: "subscribed"})
+      gb = Gibbon::Request.new(api_key: ENV["MAILCHIMP_API_KEY"] )
+      subscribe = gb.lists(ENV["MAILCHIMP_LIST_KEY"]).members.create(body: {email_address: self.email, status: "subscribed"})
     end
     
     def set_default_role
