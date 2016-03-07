@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   #get 'api/vns/:search' => 'api#vn'
 
   resources :characters do
+    get :search, on: :collection
   end
   resources :genres do
     get :search, on: :collection

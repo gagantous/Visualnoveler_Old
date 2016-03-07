@@ -10,7 +10,7 @@ class Character < ActiveRecord::Base
  	#note to self this is a "HACK" to get nested fields working, fix this when u can
 	crop_uploaded :image_coverpage  
 
-    enum role: {"Not Set" => 0,"Heroine" => 1,"Supporting" => 2,"Protagonist" => 3}
+    enum role: {"Not Set" => 0,"Main" => 1,"Supporting" => 2,"Protagonist" => 3}
 	include PgSearch
   	pg_search_scope :search_by_name, :against => :name,:using => {
                     :tsearch => {:prefix => true}
