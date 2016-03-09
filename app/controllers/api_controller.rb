@@ -6,6 +6,6 @@ class ApiController < ApplicationController
 
 	def vn_typeahead
 		@vn = Vn.all
-		render json: @vn,root: false
+		render json: @vn,root: false,each_serializer: VnTypeaheadSerializer
 	end
 end
