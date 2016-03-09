@@ -19,7 +19,7 @@
  			</a>
  			<% end %>
  			<div class="user-bio">
- 				<p><%= @user.bio %></p>
+ 				<p><%= markdown(@user.bio) %></p>
  			</div>
  			<div class="row">
 	 			<div class="user-buttons">
