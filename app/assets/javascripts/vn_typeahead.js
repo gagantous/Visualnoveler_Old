@@ -13,7 +13,7 @@ function initializeTypeahead(typeaheadInputBox, dataSource)
   },
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   prefetch: {
-        url: dataSource
+        url: dataSource 
       }
   
 });
