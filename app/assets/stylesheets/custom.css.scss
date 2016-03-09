@@ -1331,7 +1331,7 @@ background-size: cover;
   // width: 600px;
 }
 
-.vn-reviewdetails img {
+.vn-reviewdetails img ,.user-bio img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -1971,6 +1971,11 @@ img.center {
 
 .character-edit-thumbnail{
   width: 75px;
+  height: auto;
+}
+#preview img {
+  display: block;
+  max-width: 100%;
   height: auto;
 }
 
