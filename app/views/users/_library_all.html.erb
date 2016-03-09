@@ -1,0 +1,17 @@
+  <tr>
+    <td><%= image_tag(library_all.vn.image_poster.url(:thumb),class:"library-vn-poster") %></td>
+    <td class="summary-text"><%= link_to library_all.vn.name ,vn_path(library_all.vn),style: "font-size:1em;color:black;" %></td>
+    <td><%= status_text(library_all.status) %></td>
+    <td style="padding-left:26px; font-style:italic;"><%= library_all.rating %></td>
+    <td> 
+      <% if !library_all.notes.blank? %>
+        <% if user_signed_in? && current_user.id == library_all.user.id %>
+          <%= link_to library_all.notes,edit_library_entry_path(library_all),style:"text-decoration:none;color:black;" %>
+        <% else %>
+           <%= library_all.notes %>
+        <% end %>
+      <% elsif user_signed_in? && current_user.id == library_all.user.id  %>
+        <%= link_to 'Add',edit_library_entry_path(library_all) %>
+      <% end %>
+    </td>
+  </tr>

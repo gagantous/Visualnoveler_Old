@@ -3,6 +3,7 @@
 <section id ="vn-walkthrough">
 <div class="container">
 	<div class="row row-upperpadding">
+		<div class="col-md-9">
 		<div class="panel panel-default"><div class="panel-body">
 			<h1 class="text-center"><%= link_to "#{@vn.name}",vn_path(@vn) %> </h1><h2 class="text-center" style="padding-bottom:10px;">Character Route Walkthroughs</h2>
 			<%= markdown(@vn.walkthrough_content) unless @vn.walkthrough_content.blank? %>
@@ -13,6 +14,7 @@
 				<%= link_to 'Edit Walkthrough',edit_walkthrough_vn_path(@vn),class:"btn btn-primary" %>
 			<% end %>
 		</div></div>
+	</div>
 	</div>
 </div>
 </section>

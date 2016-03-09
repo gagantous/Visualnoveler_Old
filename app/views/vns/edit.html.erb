@@ -68,7 +68,13 @@
 		 	 
 
   			<%= f.input :image_coverpage %>
-  			<%= image_tag f.object.image_coverpage.url, :class => "formthumbnail" if f.object.image_coverpage? %>
+  			<% if f.object.image_coverpage? %>
+	  			<label> 
+	  				<%= f.check_box :remove_image_coverpage %>
+	  				Remove Cover Image
+	  			</label>
+	  			<%= image_tag f.object.image_coverpage.url, :class => "formthumbnail" %>
+	  		<% end %>
 
 		 </div>
 		  <div class="col-lg-2">
@@ -106,7 +112,7 @@
 			 </div>
 
 			 <div class="col-md-2">
-			 	<%= image_tag char.object.img_string.url, :style => "width:60px;height:100px;" if char.object.img_string? %>
+			 	<%= image_tag char.object.img_string.url, :class => 'character-edit-thumbnail' if char.object.img_string? %>
 			 </div>
 
 			 <div class="col-md-2">

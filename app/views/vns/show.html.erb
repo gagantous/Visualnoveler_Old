@@ -38,7 +38,7 @@
 			<div id ="vn-favourite">
  				<%= render 'favourite_ajax',locals:{vn: @vn} %>
 			</div>
-			<%= image_tag("#{@vn.image_poster.url}",:alt => "@vn.name", :class=> "vn-poster") %>
+			<%= image_tag("#{@vn.image_poster.url}",:alt => "#{@vn.name}", :class=> "vn-poster") %>
 
 			<% if !@vn.trailer_url.blank? %>
 			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
@@ -204,14 +204,10 @@
 		<% end %>
 	</div>
 		<% end %>
-		<% unless @vn.route_url.blank? %>
+		<% unless @vn.walkthrough_content.blank? %>
 		<div class="col-md-6 col-xs-12">
-				<h3>Route Walkthroughs</h3>
-				<% if @vn.walkthrough_content.blank? %>
-					<%= link_to image_tag("vn-review.jpg",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive",:style =>"float:left;"),@vn.route_url, :rel => "nofollow",:target =>"_blank"  %>
-				<% else %>
-					<%= link_to image_tag("vn-review.jpg",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive",:style =>"float:left;"),walkthrough_vn_path(@vn),:target =>"_blank"  %>
-				<% end %>
+			<h3>Route Walkthroughs</h3>
+			<%= link_to image_tag("vn-review.jpg",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive",:style =>"float:left;"),walkthrough_vn_path(@vn),:target =>"_blank"  %>
 		</div>
 		<% end %>
 	</div>

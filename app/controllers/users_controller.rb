@@ -124,7 +124,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-       params.require(:user).permit(:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h,:name,:bio,:role,:current_password,:password,:password_confirmation)
+       params.require(:user).permit(:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h,:name,:bio,:role,:current_password,:password,:password_confirmation,:library_image,:library_image_type)
     end
 
 end

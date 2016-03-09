@@ -55,9 +55,9 @@ module VnsHelper
 			return link_to(image_tag("mg_logo.png",alt:"mangagamer logo",style:"position:relative;bottom:1px;padding-left:15px;padding-right:10px;"),url,:rel => "nofollow",:target =>"_blank").html_safe
 		else
 			if url.include?("jlist")
-				return link_to('Jlist',url,:rel => "nofollow",:target =>"_blank",style:"color:black;padding-right:10px;".html_safe)
+				return link_to('Jlist',url,:rel => "nofollow",:target =>"_blank",style:"padding-right:10px;".html_safe)
 			elsif url.include?("jastusa")
-				return link_to('JAST',url,:rel => "nofollow",:target =>"_blank",style:"color:black;padding-right:10px;".html_safe)
+				return link_to('JAST',url,:rel => "nofollow",:target =>"_blank",style:"padding-right:10px;".html_safe)
 			end
 		end
 	end

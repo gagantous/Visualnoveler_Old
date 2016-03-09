@@ -1,38 +1,66 @@
 <% title @user.name + "'s Visual Novel List" %>
 
+<% if @user.library_image? && (@user.library_image_type == "cover" || @user.library_image_type == "") %>
+	<style>
+		body{
+			background: url(<%= asset_path(@user.library_image.url) %>) no-repeat center center fixed !important; 
+		  -webkit-background-size: cover !important;
+		  -moz-background-size: cover !important;
+		  -o-background-size: cover !important;
+		  background-size: cover !important;
+		}
+	</style>
+<% elsif @user.library_image? && @user.library_image_type != "" %>
+	<style>
+		body {
+			background-image: url(<%= asset_path(@user.library_image.url) %>);
+		    background-attachment: fixed;
+		    background-repeat: no-repeat;
+		  	background-position: bottom right;
+		}
+	</style>
+
+<% end %>
+
+
 <div class="container" style="margin-top:25px;">
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-10">
     <div class="panel panel-default">
   <div class="panel-body">
-  	<h1 style="margin-top:10px;margin-bottom:25px;"><%= link_to @user.name, user_path(@user) %>'s visual novel library</h3>
+  	<h1 style="margin-top:10px;margin-bottom:25px;"><%= link_to @user.name, user_path(@user) %>'s visual novel library
+  	<div class="pull-right">
+  		<%= link_to 'Home', vns_path %>
+  	</div>
+  	</h1>
 	  <ul class="nav nav-pills">
-		<li class="active"><a data-toggle="tab" class="nav-library" href="#home">All</a></li>
-		<li><a data-toggle="tab" href="#watch" class="nav-library">Watching</a></li>
+		<li class="active"><a data-toggle="tab" href="#watch" class="nav-library">Playing</a></li>
 		<li><a data-toggle="tab" href="#complete" class="nav-library">Completed</a></li>
 		<li><a data-toggle="tab" href="#wishlist" class="nav-library">Wishlist</a></li>
 		<li><a data-toggle="tab" href="#favourite" class="nav-library">Favourites</a></li>
 		<li><a data-toggle="tab" href="#drop" class="nav-library">Dropped</a></li>
+		<li><a data-toggle="tab" class="nav-library" href="#home">All</a></li>
 	  </ul>
 
 	<div class="tab-content">
-	  <div id="home" class="tab-pane fade in active">
+	  <div id="home" class="tab-pane fade">
 	  		<div class="table-responsive">
 		  	<table class="table table-hover">
 		    <thead>
 		      	<th>Image</th>
 		        <th>Visual Novel Title</th>
+		        <th>Status</th>
 		        <th>Rating</th>
 		        <th>Library Notes</th>
 		  
 		    </thead>
 		    <tbody>
-	     	 <%= render :partial => 'library', :collection => @lib  %>
+	     	 <%= render :partial => 'library_all', :collection => @lib  %>
 	  		</tbody>
 	      	</table>
 	     	 </div>
 	  </div>
-	  <div id="watch" class="tab-pane fade">
+	  <div id="watch" class="tab-pane fade in active">
 	  		<div class="table-responsive">
 	 		<table class="table table-hover">
 		    <thead>
@@ -54,7 +82,7 @@
 	    	<table class="table table-hover">
 		    <thead>
 		      <tr>
-		      	<th>#</th>
+		      	<th>Image</th>
 		        <th>Visual Novel Title</th>
 		        <th>Rating</th>
 		        <th>Library Notes</th>

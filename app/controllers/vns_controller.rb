@@ -169,7 +169,6 @@ class VnsController < ApplicationController
 
 	def screenshots
 		@vn = Vn.find(params[:id])
-		@vn.screenshots.build
 		authorize @vn
 	end
 
@@ -207,7 +206,7 @@ class VnsController < ApplicationController
 			 { characters_attributes: [:id,:_destroy,:name,:role,:summary,:voiceactor,:remote_img_string_url,:img_string,] },:release_date, :summary,:alias,
 			 { :genre_ids => [] }, :developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id,{ :publisher_ids => [] },
 			 {screenshots_attributes: [:id,:_destroy,:name,:alt,:image,:remote_image_url] } ,:remote_image_poster_url,
-			 {reviews_attributes: [:details,:rating,:status,:vn_id,:user_id,:_destroy] },:buy_1,:buy_2,:buy_3,:buy_4,:walkthrough_content)
+			 {reviews_attributes: [:details,:rating,:status,:vn_id,:user_id,:_destroy] },:buy_1,:buy_2,:buy_3,:buy_4,:walkthrough_content,:remove_image_coverpage)
 		end
 
 end

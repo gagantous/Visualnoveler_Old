@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302155428) do
+ActiveRecord::Schema.define(version: 20160309093421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(version: 20160302155428) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
     t.boolean  "favourite"
     t.text     "notes"
   end
@@ -240,6 +239,8 @@ ActiveRecord::Schema.define(version: 20160302155428) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "library_image"
+    t.string   "library_image_type"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -295,7 +296,6 @@ ActiveRecord::Schema.define(version: 20160302155428) do
     t.string   "slug"
     t.integer  "franchise_id"
     t.integer  "status",              default: 0
-    t.string   "route_url"
     t.string   "buy_1"
     t.string   "buy_2"
     t.string   "buy_3"

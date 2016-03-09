@@ -3,7 +3,7 @@ class LibraryEntryPolicy
   
   def initialize(current_user, model)
     @current_user = current_user
-    @user = model
+    @user = model.user
   end
 
   def edit?

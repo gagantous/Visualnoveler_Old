@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     has_many :comments, dependent: :destroy,:foreign_key => "post_author_id",:class_name =>"Comment"
     has_many :reviews
     mount_uploader :poster_image, UserImageUploader
+    mount_uploader :library_image, DefaultUploader
     crop_uploaded :poster_image
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -54,8 +55,8 @@ class User < ActiveRecord::Base
 
     private 
       def image_size
-        if poster_image.size > 4.megabytes
-          errors.add(:poster_image,"Should be less than 4 mb")
+        if poster_image.size > 2.megabytes || library_image.size > 2.megabytes
+          errors.add(:poster_image,"Image size is too big, it should be less than 2mb.")
         end
       end
 

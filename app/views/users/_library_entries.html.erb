@@ -1,17 +1,10 @@
 
-
-  <div class="row">
-    <div class="col-md-8">
       <% @posts.each do |post| %>
       <div class="row">
        <div class="panel panel-default"><div class="panel-body">
           <% vn = post.library_entry.vn if post.library_entry %>
-          <% if current_user == @user %>
-            <%= button_to post,:method=>:delete,:class =>"btn btn-danger user-postdelete",data:{ disable_with: "Deleting Post...."} do %>
-              <i class="fa fa-trash-o"></i>
-            <% end %>
-          <% end %>
-        <div class="col-md-2 col-xs-4">
+          
+        <div class="col-md-2 col-xs-4 col-sm-4">
           <% if post.library_entry %>
           <%= link_to image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left"), vn_path(vn)  %>
           <% else %>
@@ -28,15 +21,22 @@
           <div class="row">
             <div class="col-md-12">
               <% if post.library_entry %>
-              <ul class="list-inline">
-              <% vn.genres.each do |genre| %>
-                <li><%= link_to genre.name,genre_path(genre) %></li>
-              <% end %>
-              </ul>
+                <ul class="list-inline">
+                  <% vn.genres.each do |genre| %>
+                    <li><%= link_to genre.name,genre_path(genre) %></li>
+                 <% end %>
+                </ul>
               <% end %>
             </div>
             <div class="col-md-4">
-            <h5 class="user-time vn-postdate"><%= time_ago_in_words(post.created_at) %> ago.</h5> 
+              <h5 class="user-time vn-postdate"><%= time_ago_in_words(post.created_at) %> ago.</h5> 
+            </div>
+            <div class="col-md-2 col-md-offset-6">
+              <% if current_user == @user %>
+            <%= button_to post,:method=>:delete,:class =>"btn btn-danger pull-right",data:{ disable_with: "Deleting Post...."} do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          <% end %>
             </div>    
               <!-- end of nested divs-->
           </div>
@@ -44,32 +44,5 @@
       </div>
       </div></div> <!---panels -->
     <% end %>
-    </div> <!-- col-md-8 !-->
 
-    <% if user_signed_in? %>
-      <div class="col-md-4 col-xs-12 col-sm-12 shared-lib">
-        <div class="panel panel-default"><div class="panel-body">
 
-          <h4>Recent Ratings</h4>
-            <% @recent_ratings.each do |lib| %>
-              <div class="row user-recent-ratingpadding">
-                <div class="col-md-3 col-xs-3">
-                  <%= image_tag(lib.vn.image_poster.url(:thumb),class:"img-responsive") %>
-                </div>
-                <div class="col-md-9 col-xs-9">
-                  <%= lib.vn.name %>
-                    <div class="progress rating-progress">
-                      <% percentage = number_to_percentage(lib.rating*10,precision: 0) %>
-                      <div class="progress-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="10" style="width: <%= percentage %>">
-                        <%= lib.rating %>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            <% end %>
-        </div></div>
-
-       
-      </div>
-    <% end %> <!-- end col-md-4 part !-->
-  </div><!---row -->
