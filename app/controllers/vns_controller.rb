@@ -30,7 +30,7 @@ class VnsController < ApplicationController
 	end
 
 	def walkthroughs
-		@vn = Vn.where("route_url is NOT NULL and route_url != ''").paginate(:page => params[:page], :per_page => 25)
+		@vn = Vn.where("walkthrough_content is NOT NULL and walkthrough_content != ''").paginate(:page => params[:page], :per_page => 25)
 	end
 
 	def top

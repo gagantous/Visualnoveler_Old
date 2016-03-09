@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   #API routes
   scope :api do 
     get 'vns/search/:search' => 'api#vn'
+    get 'vns/all/typeahead' => 'api#vn_typeahead'
   end
   #get 'api/vns/:search' => 'api#vn'
 
