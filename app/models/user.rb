@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
      :omniauthable, :omniauth_providers => [:facebook,:google_oauth2]
     validate :image_size
-    validates :name, presence: true
+    validates :name, presence: true,uniqueness: {case_sensitive: false}
     accepts_nested_attributes_for :library_entries
     accepts_nested_attributes_for :posts
     extend FriendlyId

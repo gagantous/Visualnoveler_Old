@@ -1963,7 +1963,10 @@ img.center {
   max-width: 100%;
   height: auto;
 }
-
+.footer-social > li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .bs-wizard {margin-top: 40px;}
 
 /*Form Wizard*/
