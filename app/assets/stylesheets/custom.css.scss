@@ -929,12 +929,11 @@ footer {
 
 
 .vn-column{
-
+  position: relative;
   width: 220px;
-  height: 380px; // to standardize posters
-  margin-right: 5px;
+  height: 305.8px; // to standardize posters
+  margin: 15px 10px 15px 10px;  
   float: left;
-  margin-left: 15px;
   .inline-nopadding {
      padding-right: 0px;
      margin-right: 0px;
@@ -942,13 +941,29 @@ footer {
   .vngenre-padding{
      margin-left: 6px;
   }
-
+  .vn-column-data{
+    background: -webkit-linear-gradient(bottom,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.01) 100%);
+    background: linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.01) 100%);
+    border-radius: 0 0 3px 3px;
+    bottom: 0;
+    color: #fff;
+    padding: 10px;
+    padding-top: 40px;
+    position: absolute;
+    text-align: left;
+    text-shadow: 0 0 1px rgba(0,0,0,0.59);
+    width: 100%;
+  }
+  .vn-poster-name{
+    font-size: 0.9em;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   .vn-index-poster {
      width: 220px;
-     height: 284px;
+     height: 305.8px;
   }
-  .joker{ width: 220px;
-     height: 284px;}
 
   .text-title {
     font-size: 2.0em;
@@ -960,14 +975,6 @@ footer {
     margin-bottom: 0px;
   }
 
-  .bottom {
-    position:relative;
-    bottom: 20px;
-    right: 0px;
-    color: black;
-    //background: rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-  }
   .vnindex-genre {
     position: relative;
     bottom: 25px;

@@ -5,6 +5,18 @@
 			<%= link_to "Playing", status_vn_path(@vn, type: "watch"), method: :post,remote: true %>
 		</li>
 
+		<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "complete") %> 
+		<li class="list-group-item-info"> <% else %> <li>
+			<% end %>
+			<%= link_to "Completed", status_vn_path(@vn, type: "complete"), method: :post,remote: true %>
+		</li>
+
+		<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "backlog") %> 
+		<li class="list-group-item-info"> <% else %> <li>
+			<% end %>
+			<%= link_to "Backlog", status_vn_path(@vn, type: "backlog"), method: :post,remote: true %>
+		</li>
+		
 		<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "wishlist") %> 
 		<li class="list-group-item-info"> <% else %> <li>
 			<% end %>
@@ -15,10 +27,4 @@
 		<li class="list-group-item-info"> <% else %> <li>
 			<% end %>
 			<%= link_to "Dropped", status_vn_path(@vn, type: "drop"), method: :post,remote: true %>
-		</li>
-
-		<% if current_user.library_entries.exists?(vn_id: @vn.id,status: "complete") %> 
-		<li class="list-group-item-info"> <% else %> <li>
-			<% end %>
-			<%= link_to "Completed", status_vn_path(@vn, type: "complete"), method: :post,remote: true %>
 		</li>

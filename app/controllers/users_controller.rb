@@ -40,6 +40,7 @@ class UsersController < ApplicationController
     @lib_wishlist = @lib.where(status: "wishlist")
     @lib_dropped = @lib.where(status: "drop")
     @lib_watched = @lib.where(status: "watch")
+    @lib_backlog = @lib.where(status: "backlog")
     render :layout => 'none'
   end
 

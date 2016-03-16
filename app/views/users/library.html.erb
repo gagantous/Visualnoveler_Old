@@ -37,6 +37,7 @@
 		<li class="active"><a data-toggle="tab" href="#watch" class="nav-library">Playing</a></li>
 		<li><a data-toggle="tab" href="#complete" class="nav-library">Completed</a></li>
 		<li><a data-toggle="tab" href="#wishlist" class="nav-library">Wishlist</a></li>
+		<li><a data-toggle="tab" href="#backlog" class="nav-library">Backlog</a></li>
 		<li><a data-toggle="tab" href="#favourite" class="nav-library">Favourites</a></li>
 		<li><a data-toggle="tab" href="#drop" class="nav-library">Dropped</a></li>
 		<li><a data-toggle="tab" class="nav-library" href="#home">All</a></li>
@@ -125,6 +126,23 @@
 		    </thead>
 		   <tbody>
 	     	 <%= render :partial => 'library', :collection => @lib_fav  %>
+	     	</tbody>
+	      </table>
+	      </div>
+	  </div>
+	  <div id="backlog" class="tab-pane fade">
+	  	<div class="table-responsive">
+	  	<table class="table table-hover">
+		    <thead>
+		      <tr>
+		      	<th>Image</th>
+		        <th>Visual Novel Title</th>
+		        <th>Rating</th>
+		        <th>Library Notes</th>
+		      </tr>
+		    </thead>
+		   <tbody>
+	     	 <%= render :partial => 'library', :collection => @lib_backlog  %>
 	     	</tbody>
 	      </table>
 	      </div>

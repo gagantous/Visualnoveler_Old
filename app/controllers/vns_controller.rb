@@ -105,6 +105,9 @@ class VnsController < ApplicationController
 			elsif type =="complete"
 				libentry.update_attribute :status, "complete"
 				post = libentry.posts.build(detail: "#{current_user.name} has completed #{@vn.name}",user_id: current_user.id)
+			elsif type =="backlog"
+				libentry.update_attribute :status, "backlog"
+				post = libentry.posts.build(detail: "#{current_user.name} has added #{@vn.name} to his backlog",user_id: current_user.id)
 			end
 		else
 			prevent_duplicate = true

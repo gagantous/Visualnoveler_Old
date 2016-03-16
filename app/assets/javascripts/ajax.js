@@ -1,7 +1,10 @@
 $(document).on('ajax:beforeSend', '.status-item', function(e) {
     $(this).append("<i class='fa fa-spinner fa-spin' style='margin-left:15px;'></i>");
 });
-
+$(document).on('ajax:error', '.status-item', function(e) {
+    // if There's an error, we remove the spinning indicator
+    $("i",this).remove();
+});
 
 $(document).on('ajax:beforeSend', '.status-fav', function(e) {
     $(".ajax-fav").replaceWith("<i class='fa fa-spinner fa-spin'></i>");

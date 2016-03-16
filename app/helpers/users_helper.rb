@@ -8,6 +8,8 @@ module UsersHelper
 			return "Dropped"
 		elsif text == "wishlist"
 			return "Wishlist"
+		elsif text =="backlog"
+			return "Backlog"
 		else
 			return "Favourite"
 		end
