@@ -10,13 +10,12 @@ $(document).on('ajax:beforeSend', '.status-fav', function(e) {
     $(".ajax-fav").replaceWith("<i class='fa fa-spinner fa-spin'></i>");
 });
 
-// Show poster info only when vn image has loaded successfully
-$(".vn-column").children().hide();
-$(".vn-index-poster").load(function(){
-    $(this).closest(".vn-column").children().show();
-
+$(document).ready(function(){
+    $(".vn-column").children(".vn-column-data").hide();
+    $(".vn-index-poster").load(function(){
+        $(this).closest(".vn-column").children(".vn-column-data").show();
+    });
 });
-
 // Input text at mouse cursor position at textarea
 jQuery.fn.extend({
 insertAtCaret: function(myValue){
