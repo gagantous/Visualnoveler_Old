@@ -10,7 +10,13 @@ $(document).on('ajax:beforeSend', '.status-fav', function(e) {
     $(".ajax-fav").replaceWith("<i class='fa fa-spinner fa-spin'></i>");
 });
 
+$(document).ready(function(){
+    $(".vn-column").hide();
+    $(".vn-index-poster").load(function(){
+        $(this).closest(".vn-column").show();
 
+    });
+});
 // Input text at mouse cursor position at textarea
 jQuery.fn.extend({
 insertAtCaret: function(myValue){
