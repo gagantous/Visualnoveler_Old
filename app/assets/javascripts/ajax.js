@@ -11,9 +11,9 @@ $(document).on('ajax:beforeSend', '.status-fav', function(e) {
 });
 
 $(document).ready(function(){
-    $(".vn-column").hide();
+    $(".vn-column").children().hide();
     $(".vn-index-poster").load(function(){
-        $(this).closest(".vn-column").show();
+        $(this).closest(".vn-column").children().show();
 
     });
 });
