@@ -506,11 +506,11 @@ html, body {
 
   .vn-youtube {
     position: absolute;
-    top: 180px;
-    left: 120px;
+    top: 45%;
+    left: 50%;
     opacity: 0.9;
-   // transform: translate(-50%, -50%);
     /* bring your own prefixes */
+    transform: translate(-50%, -50%);
   }
 
   .vn-poster {

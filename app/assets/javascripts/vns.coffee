@@ -28,6 +28,7 @@ jQuery ->
   $('.typeahead').typeahead(null, {
       name: "mysearch"
       display: 'name'
+      limit: 8
       source: users.ttAdapter()
       templates: {
          suggestion: Handlebars.compile('<div class="tt-row"><a href="{{vn_url}}">

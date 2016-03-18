@@ -38,7 +38,7 @@
 			<div id ="vn-favourite">
  				<%= render 'favourite_ajax',locals:{vn: @vn} %>
 			</div>
-			<%= image_tag("#{@vn.image_poster.url}",:alt => "#{@vn.name}", :class=> "vn-poster") %>
+			<%= image_tag("#{@vn.image_poster.url}",:alt => "#{@vn.name}", :class=> "img-responsive") %>
 
 			<% if !@vn.trailer_url.blank? %>
 			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
