@@ -35,12 +35,12 @@ class UsersController < ApplicationController
   def library
     @user = User.find(params[:id])
     @lib = @user.library_entries.order("status ASC").joins(:vn).order('vns.name')
-    @lib_fav = @user.library_entries.where(favourite: true)
-    @lib_completed = @lib.where(status: "complete")
-    @lib_wishlist = @lib.where(status: "wishlist")
-    @lib_dropped = @lib.where(status: "drop")
-    @lib_watched = @lib.where(status: "watch")
-    @lib_backlog = @lib.where(status: "backlog")
+    @lib_fav = @user.library_entries.where(favourite: true).joins(:vn).order('vns.name')
+    @lib_completed = @lib.where(status: "complete").joins(:vn).order('vns.name')
+    @lib_wishlist = @lib.where(status: "wishlist").joins(:vn).order('vns.name')
+    @lib_dropped = @lib.where(status: "drop").joins(:vn).order('vns.name')
+    @lib_watched = @lib.where(status: "watch").joins(:vn).order('vns.name')
+    @lib_backlog = @lib.where(status: "backlog").joins(:vn).order('vns.name')
     render :layout => 'none'
   end
 
