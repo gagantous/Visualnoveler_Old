@@ -6,9 +6,10 @@ class VnsController < ApplicationController
 		@showcharacters = @vn.characters.all
 		@franchise = @vn.franchise
 		@screenshots = @vn.screenshots
-		@recent_reviews = @vn.reviews.all.paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
-		@positive_reviews = @vn.reviews.where("rating > ?",5).paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
-		@negative_reviews = @vn.reviews.where("rating < ?",5).paginate(:page => params[:page], :per_page => 4).order('created_at DESC')
+		@recent_reviews = @vn.reviews.all.order('created_at DESC').limit(5)
+		@positive_reviews = @vn.reviews.where("rating > ?",5).order('created_at DESC').limit(5)
+		@negative_reviews = @vn.reviews.where("rating < ?",5).order('created_at DESC').limit(5)
+		@lib_entry = current_user.library_entries.where(vn_id: @vn.id).first unless !user_signed_in?
 		@vn.reviews.build
 	end
 	# walkthrough page
@@ -23,6 +24,7 @@ class VnsController < ApplicationController
 
 	def discover
 		@random = Vn.limit(5).order("RANDOM()")
+		@genres = Genre.all.order('name ASC')
 	end
 
 	def translated

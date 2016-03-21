@@ -222,10 +222,18 @@
 				<div class="portlet-title">
 				<div class="row">
 					<div class="caption col-md-6 col-sm-6 col-lg-7 col-xs-12">
-						<% if @vn.name.length > 40 %> 
-							<h3 class="caption-subject">Reviews</h3>
+						<% if @recent_reviews.blank? %>
+							<% if @vn.name.length > 40 %> 
+								<h3 class="caption-subject">Reviews</h3>
+							<% else %>
+								<h3 class="caption-subject"> <%= @vn.name %> Reviews</h3>
+							<% end %>
 						<% else %>
-							<h3 class="caption-subject"> <%= @vn.name %> Reviews</h3>
+							<% if @vn.name.length > 40 %> 
+								<h3 class="caption-subject"><%= link_to "Reviews",vn_reviews_path(@vn) %></h3>
+							<% else %>
+								<h3 class="caption-subject"> <%= link_to @vn.name + " Reviews",vn_reviews_path(@vn) %> </h3>
+							<% end %>
 						<% end %>
 					</div>
 					<div class="actions col-md-6 col-sm-6 col-lg-5 col-xs-12 mobile-review-tab">
@@ -245,7 +253,7 @@
 			    <div role="tabpanel" class="tab-pane fade in active" id="recent">
 			    	  <% unless @recent_reviews.blank? %>
 				    	  <%= render :partial => 'review', :collection => @recent_reviews  %>
-						  <%= will_paginate @recent_reviews, renderer: BootstrapPagination::Rails %>
+				    	  <!-- SHOW ALL REVIEWS !-->
 					  <% else %>
 					  <h4><i class="fa fa-magic fa-2x" style="color:#000080;"></i> No Reviews</h4>
 					  <p>Nobody has written a review for <b><%= @vn.name %></b> yet. Come and write a review about <%= @vn.name %> to let the community know of your thoughts!</p>
@@ -253,12 +261,10 @@
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="messages">
 			    	  <%= render :partial => 'review', :collection => @positive_reviews  %>
-					 <%= will_paginate @positive_reviews, renderer: BootstrapPagination::Rails %>
 				</div>
 
 			    <div role="tabpanel" class="tab-pane" id="settings">
 			       	 <%= render :partial => 'review', :collection => @negative_reviews  %>
-					 <%= will_paginate @negative_reviews, renderer: BootstrapPagination::Rails %>
 			    </div>
 
 			    <div role="tabpanel" class="tab-pane" id="write">
@@ -332,4 +338,10 @@
 	</div>
 </div>
 </div>
+</div>
+
+<!-- Modal -->
+
+<div id="Library_Entry_Modal">
+	<%= render 'library_entry_modal',locals:{vn: @vn,entry: @lib_entry} %>
 </div>

@@ -41,6 +41,11 @@ class UsersController < ApplicationController
     @lib_dropped = @lib.where(status: "drop").joins(:vn).order('vns.name')
     @lib_watched = @lib.where(status: "watch").joins(:vn).order('vns.name')
     @lib_backlog = @lib.where(status: "backlog").joins(:vn).order('vns.name')
+    @avg_lib_score = @lib.where.not(rating: nil)
+    @avg_lib_playingScore = @lib_watched.where.not(rating: nil)
+    @avg_lib_completedScore = @lib_completed.where.not(rating: nil)
+    @avg_lib_favScore = @lib_fav.where.not(rating: nil)
+    
     render :layout => 'none'
   end
 

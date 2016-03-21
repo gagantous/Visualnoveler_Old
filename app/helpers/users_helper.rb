@@ -16,6 +16,15 @@ module UsersHelper
 
 	end
 
+	def compute_average(library)
+		avg_score = 0.0
+		library.each do |lib|
+	      avg_score += lib.rating
+	    end
+   		avg_score = (avg_score / library.count.to_f)
+   		return avg_score.round(1)
+	end
+
 	def library_css
 		return "<style>
 body{

@@ -1,0 +1,10 @@
+<% title "#{@vn.name} Reviews" %>
+<% description ("Read #{@vn.name} Reviews in Visualnoveler - #{@vn.summary.truncate(120)} ") %>
+<section id="vn-review-section">
+<div class="container">
+	<div class="row" style="padding-top:20px;">
+		<h1><%= link_to @vn.name,vn_path(@vn)%> Reviews </h1>
+		<%= render :partial => 'review', collection: @reviews  %>
+	</div>
+</div>
+</section>

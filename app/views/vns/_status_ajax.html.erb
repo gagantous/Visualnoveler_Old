@@ -28,6 +28,11 @@
 			<% end %>
 			<%= link_to "Dropped", status_vn_path(@vn, type: "drop"), method: :post,remote: true,class:"status-item" %>
 		</li>
+		<% if current_user.library_entries.exists?(vn_id: @vn.id) %> 
+		<li>
+			<a href ="#" data-toggle="modal" data-target="#removeLibraryEntry">Remove from Library</a>
+		</li>
+		<% end %>
 
 		
 

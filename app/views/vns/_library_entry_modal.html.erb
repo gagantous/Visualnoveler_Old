@@ -1,0 +1,20 @@
+<div id="removeLibraryEntry" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Remove Library Entry?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to remove <%= @vn.name %> from your library?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to 'Remove', @lib_entry,method: :delete,class:"btn btn-danger" unless @lib_entry.blank? %>
+      </div>
+    </div>
+
+  </div>
+</div>

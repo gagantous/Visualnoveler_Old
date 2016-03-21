@@ -28,7 +28,7 @@
 	<div class="col-md-10">
     <div class="panel panel-default">
   <div class="panel-body">
-  	<h1 style="margin-top:10px;margin-bottom:25px;"><%= link_to @user.name, user_path(@user) %>'s visual novel library
+  	<h1 style="margin-top:10px;margin-bottom:40px;"><%= link_to @user.name, user_path(@user) %>'s visual novel library
   	<div class="pull-right">
   		<%= link_to 'Home', vns_path %>
   	</div>
@@ -164,8 +164,31 @@
 	      </table>
 	  </div>
 	  </div>
-
-	</div>    
+	</div>  
+	<!-- panels and main divs below !-->
+	<ul class="list-inline user-library-list-inline">
+		<li>
+			<% unless @avg_lib_score.blank? %>
+				Average Rating: <%= compute_average(@avg_lib_score) %>
+			<% end %>
+		</li>
+		<li>
+			<% unless @avg_lib_playingScore.blank? %>
+				Average Playing Rating: <%= compute_average(@avg_lib_playingScore) %>
+				<% else %>
+			<% end %>
+		</li>
+		<li>
+			<% unless @avg_lib_completedScore.blank? %>
+				Average Completed Rating: <%= compute_average(@avg_lib_completedScore) %>
+			<% end %>
+		</li>
+		<li>
+			<% unless @avg_lib_favScore.blank? %>
+				Average Favourite Rating: <%= compute_average(@avg_lib_favScore) %>
+			<% end %>
+		</li>
+	</ul>  
 	  </div></div>
 	 </div>
 </div></div>

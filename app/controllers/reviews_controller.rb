@@ -13,10 +13,10 @@ class ReviewsController < ApplicationController
 	end
 
 	def index
-		@reviews = Review.limit(12).order("RANDOM()")
+		@vn = Vn.find(params[:vn_id])
+		@reviews = @vn.reviews.order("created_at DESC")
 		
 	end
-
 
 	def destroy
 		@review = Review.find(params[:id])

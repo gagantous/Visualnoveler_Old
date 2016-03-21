@@ -19,6 +19,14 @@ class LibraryEntriesController < ApplicationController
 			redirect_to session[:previous_url] 
 		end
 	end
+	def destroy
+		@lib = LibraryEntry.find(params[:id])
+		authorize @lib
+	  	if @lib.destroy
+	 		flash[:success] = "Visual Novel library entry successfully deleted!"
+	 		redirect_to :back
+	    end
+	end
 
 	private
 

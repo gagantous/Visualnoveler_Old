@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
   #move old urls to new site structure
-  get 'pages/help',to: redirect('/help',status: 301)
-  get 'pages/contact',to: redirect('/contact',status: 301)
-  get 'pages/about', to: redirect('/about',status: 301)
-  get 'pages/resources',to: redirect('/resources',status: 301)
-  get 'pages/recommendation',to: redirect('/recommendation',status: 301)
+  get '/resources',to: redirect('/faq',status: 301)
   #get 'pages/blogs',to: redirect('/blogs',status: 301)
   get '/help' => 'pages#help'
+  get '/faq' => 'pages#faq'
   get '/contact' => 'pages#contact'
-  get '/about' => 'pages#about'
   get '/about' => 'pages#about'
   get '/resources' => 'pages#resources'
   get '/recommendation' => 'pages#recommendation'
