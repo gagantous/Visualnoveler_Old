@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta name="description" property="og:description" content="<%= if content_for?(:description) then yield(:description) else 'Start tracking and discovering other visual novels at Visualnoveler with a growing community.' end %>">
+  <meta property="og:image" content="<%= if content_for?(:image_url) then yield(:image_url) end %>">
   <title>
     <%= if content_for?(:title) then yield(:title) + ' - ' end %>
     Visualnoveler
@@ -45,7 +46,7 @@
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Creation</li>
                   <li><%= link_to "Create Visual Novel", new_vn_path %></li>
-                  <li><%= link_to "Create News", new_news_path %></li>
+                  <li><%= link_to "Create News", new_news_path,'data-no-turbolink' =>"true" %></li>
                   <li><%= link_to "Create Character", new_character_path %></li>
                   <li><%= link_to "Create Developer", new_developer_path %></li>
                   <li><%= link_to "Create Publisher", new_publisher_path %></li>
@@ -130,9 +131,9 @@
                 </ul>
              </li>
                <% if current_user.poster_image.blank? %>
-                  <%= image_tag("default_avatar.jpg",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;")  %>
+                  <%= image_tag("default_avatar.jpg",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;margin-top:5px;")  %>
                <% else %>
-                  <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;")  %>
+                  <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;margin-top:5px;")  %>
                <% end %>
           </ul>
           <% end %>

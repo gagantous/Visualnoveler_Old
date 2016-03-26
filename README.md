@@ -1,12 +1,16 @@
-#Visualnoveler website
-This is the Github repository of Visualnoveler, which will be a website for users to track and discover new visual novels.
+##Visualnoveler 
+Visualnoveler is a webapp for fans of visual novels to track and discover new visual novels. Users are able to manage their library and compare their visual novel libraries with others.
 
 This website is still in alpha status and undergoing active development.
 
 ###Current development Roadmap
+	- Visual Novel Translation Status
+	- News
+	- Upvote / Downvote reviews
+	- Better User UI
 
 ####Recent Development
-- Database is populated, it's cleanup time. (About 1500++ Visual novels in the database)
+- Added blog section
 - Added VN route walkthroughs in Fuwanovel to the website, a sample can be seen here
 - Added a main library section alongside with the previous library filters. Demo
 - Added Google+ and Facebook Authentication so people don't have to fill in forms anymore
@@ -14,10 +18,11 @@ This website is still in alpha status and undergoing active development.
 - Added Translated VN section
 - Other less important stuff
 
-####What's next?
-- Add Search + Autocomplete
-- Add Franchises for VNs
-- UI changes to the VN columns
-- Mobile responsive VN page
 
-The next major upcoming changes would be the Contest section where people would be able to create a bracket to determine their favourite character/VN (Maybe other stuff) or do a simple poll instead if they find it too complex.
+####User Permissions
+
+An admin has superpowers
+A mod can do everything except deleting visual novels
+A writer has normal rights + access to the news section
+A user has normal rights
+

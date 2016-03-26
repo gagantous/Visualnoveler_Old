@@ -288,7 +288,7 @@
 				     	<div class="col-md-10 col-md-offset-2">
 				     		<%= f.input :rating,collection: 0..10,input_html:{style:"width:120px;"},:selected => 5,:required => false %>
 				     		 <%= f.button :submit ,"Submit Review", class: "btn btn-success pull-right vn-reviewbutton",data:{ disable_with: "Posting.."} %>
-				     		 <%= link_to "Write a full Review",new_vn_review_path(@vn),class: "btn blue-button pull-right vn-fullbutton" %>
+				     		 <%= link_to "Write a full Review",new_vn_review_path(@vn),class: "btn blue-button pull-right vn-fullbutton",'data-no-turbolink' =>"true" %>
 							<%= f.hidden_field :user_id,value: current_user.id %>
 							<%= f.hidden_field :vn_id,value: @vn.id %>
 				     	</div>
