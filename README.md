@@ -21,8 +21,8 @@ This website is still in alpha status and undergoing active development.
 
 ####User Permissions
 
-An admin has superpowers
-A mod can do everything except deleting visual novels
-A writer has normal rights + access to the news section
-A user has normal rights
+- An admin has superpowers
+- A mod can do everything except deleting visual novels
+- A writer has normal rights + access to the news section
+- A user has normal rights
 
