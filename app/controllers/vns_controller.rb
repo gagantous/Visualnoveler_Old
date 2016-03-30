@@ -6,6 +6,7 @@ class VnsController < ApplicationController
 		@showcharacters = @vn.characters.all
 		@franchise = @vn.franchise
 		@screenshots = @vn.screenshots
+		@translation = @vn.translation
 		@recent_reviews = @vn.reviews.all.order('created_at DESC').limit(5)
 		@positive_reviews = @vn.reviews.where("rating > ?",5).order('created_at DESC').limit(5)
 		@negative_reviews = @vn.reviews.where("rating < ?",5).order('created_at DESC').limit(5)
@@ -20,6 +21,19 @@ class VnsController < ApplicationController
 	def edit_walkthrough
 		@vn = Vn.find(params[:id])
 		authorize @vn
+	end
+
+	def translation
+		@vn = Vn.find(params[:id])
+		@translation = @vn.translation
+		@posts = @vn.translation_posts
+	end
+
+	def edit_translation
+		@vn = Vn.find(params[:id])
+		@vn.build_translation if @vn.translation.nil?
+
+		#@vn.translation_status.build
 	end
 
 	def discover
@@ -42,10 +56,7 @@ class VnsController < ApplicationController
 	end
 
 	def search
-	   @vn = Vn.joins(:genres).where('genres.id' => params['genre_ids']).group('vns.id').having("count(genres.id) = ?",params['genre_ids'].count) unless params['genre_ids'].blank?
-        if params['genre_ids'].blank?
-          @vn = []
-        end
+		@vn = Vn.joins(:genres).where('genres.id' => params['genre_ids']).group('vns.id').having("count(genres.id) = ?",params['genre_ids'].count) unless params['genre_ids'].blank?
 	end
 
 	def rate
@@ -60,6 +71,7 @@ class VnsController < ApplicationController
 
 	def edit
 		@vn = Vn.find(params[:id])
+		@translation = @vn.translation
 		authorize @vn
 		@character = @vn.characters
     	#@vn.characters.build
@@ -211,7 +223,8 @@ class VnsController < ApplicationController
 			 { characters_attributes: [:id,:_destroy,:name,:role,:summary,:voiceactor,:remote_img_string_url,:img_string,] },:release_date, :summary,:alias,
 			 { :genre_ids => [] }, :developer_id,:vn_id,:image_poster,:image_coverpage,:image_1,:image_2,:image_3,:image_4,:genre_id,{ :publisher_ids => [] },
 			 {screenshots_attributes: [:id,:_destroy,:name,:alt,:image,:remote_image_url] } ,:remote_image_poster_url,
-			 {reviews_attributes: [:details,:rating,:status,:vn_id,:user_id,:_destroy] },:buy_1,:buy_2,:buy_3,:buy_4,:walkthrough_content,:remove_image_coverpage)
+			 {reviews_attributes: [:details,:rating,:status,:vn_id,:user_id,:_destroy] },:buy_1,:buy_2,:buy_3,:buy_4,:walkthrough_content,:remove_image_coverpage,
+			 { translation_attributes: [:id,:_destroy,:website,:progress,:content] },{ translation_posts_attributes: [:id,:_destroy,:post,:created_at] })
 		end
 
 end

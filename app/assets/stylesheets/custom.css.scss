@@ -1979,6 +1979,21 @@ img.center {
     padding-right: 20px;
   }
 }
+.vn-translation {
+  h1 {
+    display: block;
+  }
+  h2 {
+    font-size: 20px !important;
+    display: block !important;
+  }
+  ul {
+    font-size: 16px;
+  }
+}
+.translation-content {
+  padding-top: 15px;
+}
 .bs-wizard {margin-top: 40px;}
 
 /*Form Wizard*/

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309093421) do
+ActiveRecord::Schema.define(version: 20160328052225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -215,6 +215,28 @@ ActiveRecord::Schema.define(version: 20160309093421) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
   add_index "tags", ["slug"], name: "index_tags_on_slug", using: :btree
 
+  create_table "translation_posts", force: :cascade do |t|
+    t.text     "post"
+    t.integer  "vn_id"
+    t.integer  "translation_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "translation_posts", ["translation_id"], name: "index_translation_posts_on_translation_id", using: :btree
+  add_index "translation_posts", ["vn_id"], name: "index_translation_posts_on_vn_id", using: :btree
+
+  create_table "translations", force: :cascade do |t|
+    t.integer  "vn_id"
+    t.string   "website"
+    t.float    "progress"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "content"
+  end
+
+  add_index "translations", ["vn_id"], name: "index_translations_on_vn_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -320,6 +342,9 @@ ActiveRecord::Schema.define(version: 20160309093421) do
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "vns"
   add_foreign_key "screenshots", "vns"
+  add_foreign_key "translation_posts", "translations"
+  add_foreign_key "translation_posts", "vns"
+  add_foreign_key "translations", "vns"
   add_foreign_key "vn_chars", "characters"
   add_foreign_key "vn_chars", "vns"
   add_foreign_key "vn_genres", "genres"

@@ -1,0 +1,15 @@
+<div class="row nested-fields">
+	<div class="col-md-12" style="margin-left:15px;">
+		<h3>Translation Post</h3>
+	</div>
+	<div class="col-md-6" style="margin-left:30px;">
+		<%= f.input :post,input_html:{:rows => 4},label: false   %>
+		<%= f.input :created_at,as: :date %>
+	</div>
+
+	<div class="col-md-3">
+  	 	 <%= link_to_remove_association "Remove Post", f,:class => 'btn btn-default'  %>
+  	 	<%= link_to 'Destroy',f.object,class: "btn btn-danger",style:"margin-left:25px;",method: :delete %>
+  	 </div>
+   	
+ </div>

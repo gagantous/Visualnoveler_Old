@@ -33,19 +33,22 @@ Rails.application.routes.draw do
     get :search, on: :collection
     get :all, on: :collection
   end
-  resources :franchises
-  resources :publishers
+
   resources :developers do
     get :search, on: :collection
     get :all, on: :collection
   end
 
+  resources :franchises
+  resources :publishers
   resources :news
+  resources :translations
   resources :tags,only: [:index,:show]
   resources :news_images
   resources :screenshots, except: [:index]
   resources :comments
   resources :library_entries, except: [:new]
+  resources :translation_posts, except: [:index,:show]
   resources :posts
 
   namespace :admin do
@@ -73,6 +76,8 @@ Rails.application.routes.draw do
     put :rate, on: :member
     get :walkthrough, on: :member
     get :edit_walkthrough, on: :member
+    get :edit_translation, on: :member
+    get :translation, on: :member
     get :characters, on: :member
     get :crop, on: :member
     get :screenshots, on: :member

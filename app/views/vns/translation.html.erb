@@ -1,0 +1,57 @@
+<% title "#{@vn.name} Translation Status" %>
+
+<section id="vn-item">
+<div class="container vn-show-padding">
+	<div class="row vnindex-row">
+		<div class="panel panel-default"><div class="panel-body panel-vnshow">
+		<div class="col-lg-3">
+			<%= image_tag("#{@vn.image_poster.url}",:alt => "#{@vn.name}", :class=> "img-responsive") %>
+				<ul class="list-inline">
+					<% @vn.genres.each do |genre| %>
+						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre),:class =>"vn-genre summary-text" %></li>
+					<% end %>
+				</ul>
+
+			<% if !@vn.publishers.blank? %><span class="vn-label">Publishers:</span> 
+				<% @vn.publishers.each do |publisher| %>
+				<%= link_to publisher.name,publisher_path(publisher) %>
+				<% end %>
+			<br> <% end %>
+			<span class="vn-label">Developer:</span> <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %>
+			<br> <% end %>
+			<span class="vn-label">Release Date:</span> <%= @vn.release_date %>
+			<br>
+			<span class="vn-label">Status:</span> <%= @vn.status %>
+			<br>
+			<% if !@vn.alias.blank? %>
+				<span class="vn-label">Alias:</span> <h2><%= @vn.alias %> </h2>
+			<% end %>
+	
+		</div>
+		<div class="col-lg-9 vn-translation">
+			<h1><%= link_to @vn.name, vn_path(@vn) %></h1>
+
+			<h2>Translation Status</h2>
+			<table class="table table-bordered">
+				<thead>
+					<th>Date</th>
+					<th>Translation Update</th>
+				</thead>
+				<% @posts.each do |update| %>
+				<tr>
+					<td><%= update.created_at.strftime("%B %d, %Y") %></td>
+					<td><%= update.post %> </td>
+				</tr>
+				<% end %>
+				</thead>
+			</table	>
+			<div class="translation-content">
+				<h3>Staff</h3>
+				<%= markdown(@translation.content) %>
+			</div>
+		</div>
+		</div></div>
+		<!-- end !-->
+	</div>
+</div>
+</section>

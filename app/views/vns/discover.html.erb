@@ -5,26 +5,25 @@
 		<%= simple_form_for Vn.new, :method => :get, url: search_vns_path do |f| %>
 		<div class="col-md-12">
 			<h1 style="">Advanced Visual Novel Search </h1>
-                <%= text_field_tag :search, params[:search], class: "form-control typeahead", placeholder: "Search Visual Novels",style:"width:300px;" %>
-				 <%= f.button :button, class: "btn btn-primary",style:"position:relative;top:0px;" do %>
-                  <i class="fa fa-search 6x"></i>
-             	 <% end %>
-
-
-		</div>	
-		<div class="col-md-12">
-			<% @genres.each do |genre| %>
-
-				<div class="col-md-2">
-		    		<label class="checkbox-inline">
-		     	 	<%= check_box_tag 'genre_ids[]',genre.id %>
-					<span style="font-weight:normal;"><%= genre.name %> </span>
-		    		</label>
-		    	</div>
+		</div>
+		<div class="col-md-8" style="padding-top:15px;">
+			<% @genres.each_slice(6) do |slice| %>
+				<div class="row">
+					<% slice.each do |genre| %>
+						<div class="col-md-2">
+				    		<label class="checkbox-inline">
+				     	 	<%= check_box_tag 'genre_ids[]',genre.id %>
+							<span style="font-weight:normal;"><%= genre.name %> </span>
+				    		</label>
+				    	</div>
+			    	<% end %>
+			    </div>
 			 <% end %>
-
+		</div>
+		<div class="col-md-8" style="padding-top:20px;">
+			 <%= f.button :button,"Search Visual Novel", class: "btn btn-primary",style:"" %>
+		</div>
 		<% end %>
-	</div>
 
 		<div class="col-md-12">
 			<h2 style="margin-top:30px !important;">Random visual novels</h2>

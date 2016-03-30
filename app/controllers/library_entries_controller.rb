@@ -8,10 +8,7 @@ class LibraryEntriesController < ApplicationController
 	def update
 		@lib = LibraryEntry.find(params[:id])
 		if @lib.update(lib_params)
-
-  		# 	respond_to do |format| 
-  		# 		format.js
- 			# end                   
+		authorize @lib         
 			flash[:success] = "Library Entry is updated successfully!"
 			redirect_to library_user_path(@lib.user)  
 		else

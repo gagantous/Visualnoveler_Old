@@ -11,8 +11,11 @@
 		 <div class="col-lg-3">
 		  <%= f.input :alias, input_html: {style: "width:200px;"}, label: 'Alias of Visual Novel' %>
 		 </div>
-		 <div class="col-lg-3" style="padding-top:25px;">
+		 <div class="col-lg-5" style="padding-top:25px;">
 		 	<%= link_to 'Edit Walkthrough',edit_walkthrough_vn_path(@vn),class:"btn btn-primary" %>
+		
+		 		<%= link_to 'Edit Translation',edit_translation_vn_path(@vn),class:"btn btn-primary",style:"margin-left:25px;" %>
+		 	
 		 </div>
 		 <div class="col-lg-12">
 		 
