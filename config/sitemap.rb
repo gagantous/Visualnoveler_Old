@@ -31,6 +31,9 @@ SitemapGenerator::Sitemap.create do
     vn.reviews.each do |review|
       add vn_review_path(vn,review),lastmod: review.updated_at
     end
+    if !vn.translation.blank?
+      add translation_vn_path(vn,review),lastmod: review.updated_at
+    end
   end
 
   User.find_each do |user|

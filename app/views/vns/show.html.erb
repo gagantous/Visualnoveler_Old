@@ -73,7 +73,11 @@
 			<% end %>
 			<% unless @translation.blank? %> 
 				<div class="text-center" style="padding-top:15px;">
-				<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#3498db !important;" %> 
+				<% if @vn.status == "Translated" %>
+					<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#A7B4BB !important;" %> 
+				<% else %>
+					<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#3498db !important;" %> 
+				<% end %>
 				</div>
 			<% end %>
 		</div>
