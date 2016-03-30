@@ -32,7 +32,7 @@ SitemapGenerator::Sitemap.create do
       add vn_review_path(vn,review),lastmod: review.updated_at
     end
     if !vn.translation.blank?
-      add translation_vn_path(vn),lastmod: review.updated_at
+      add translation_vn_path(vn),lastmod: vn.updated_at
     end
   end
 
