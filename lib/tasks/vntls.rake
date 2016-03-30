@@ -158,7 +158,7 @@ require 'rake'
 	scrape_vntls("http://vntls.org/project/rose-guns-days/","Rose Guns Days")
 	scrape_vntls("http://vntls.org/project/saya-no-uta/","Saya no Uta")
 	scrape_vntls("http://vntls.org/project/sayonara-wo-oshiete/","Sayonara wo Oshiete ~Comment te Dire Adieu~")
-	scrape_vntls("http://vntls.org/project/trample-on-schatten/","Trample on "Schatten!!" ~Kagefumi no Uta~")
+	scrape_vntls("http://vntls.org/project/trample-on-schatten/","Trample on \"Schatten!!\" ~Kagefumi no Uta~")
 	scrape_vntls("http://vntls.org/project/seinarukana/","Seinarukana -The Spirit of Eternity Sword 2-")
 	scrape_vntls("http://vntls.org/project/sengoku-rance/","Sengoku Rance")
 	scrape_vntls("http://vntls.org/project/sharin/","Sharin no Kuni, Himawari no Shoujo")
