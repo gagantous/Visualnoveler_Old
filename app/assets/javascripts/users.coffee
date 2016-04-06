@@ -15,6 +15,24 @@ jQuery ->
     event.preventDefault()
     $("#show_comment").hide();
 
+jQuery -> 
+  users = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  limit: 10,
+  #local http://localhost:3000/json/vns.json
+  remote: {url:'users/typeahead/%QUERY'
+   , wildcard: '%QUERY'
+   }
+  })
+
+  users.initialize();
+  $('.typeahead-users').typeahead(null, {
+      name: "mysearch"
+      display: "name"
+      source: users.ttAdapter()
+  })
+
 jQuery ->
   new CarrierWaveCropper()
 

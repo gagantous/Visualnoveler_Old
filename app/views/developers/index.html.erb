@@ -1,50 +1,25 @@
-<% title "Discover Visual Novels by Developers" %>
-<% description "Visual novels are sorted by Developers in this page. Start tracking and discovering other visual novels at Visualnoveler and manage your visual novel list." %>
+<% title "All Developers for visual novels" %>
+<% description "This is a list of all the developers for visual novels in Visualnoveler. Start tracking and discovering other visual novels at Visualnoveler with a growing community" %>
 
-<div class="container-fluid">
-	<div class="row vnindex-row">
-		<div class="col-md-12" style="padding-bottom:20px;">
-			<h1>Random Developers</h1>
-		 
-			<%= form_tag(search_developers_path, :method => "get", class: "form-inline",style:"") do %>
-			   <%= link_to 'All Developers', all_developers_path,style:"font-size:1.4em; padding-right:40px;position:relative;top:8px;" %>
-			
-			 <%= text_field_tag :search, params[:search], class: "customform-input typeahead-developers", placeholder: "Search Developers" %>
+<div class="container">
+	<div class="row">
+		<h1>All Developers Categories
+		</h1>
+		<%= form_tag(search_developers_path, :method => "get", class: "",style:"") do %>
 		
-			<%= button_tag(type: "submit", class: "btn btn-primary",style:"position:relative;top:5px;") do %>
-                  <i class="fa fa-search 6x"></i>
-             <% end %>
-  		    <% end %>
-		</div>
+		 <%= text_field_tag :search, params[:search], class: "customform-input typeahead-developers", placeholder: "Search Developers" %>
 	
-	<!-- 	<% @developers.each do |developer| %>
-		<% vn = developer.vns.order("RANDOM()").limit(1).first %>
-
-		<% if vn %>
-<div class="vn-column">
-
-			<%= link_to developer_path(developer) do %>
-			<%= image_tag("#{vn.image_poster}",:alt => vn.name, :class=> "vn-index-poster") %>
-			<% end %>
-	<div class="panel panel-default">
-		<div class="panel-body panel-vnindex">
-
-
-		<a href=<%= developer_path(developer) %>><h4>
-			
-				<span class="bottom"><%= vn.developer.name %>
-			
-		</span></h4>	</a>	
-			<ul class="list-inline vnindex-genre text-left">
-						<li class="vngenre-padding inline-nopadding"><i><%= link_to vn.name.truncate(30),vn_path(vn) ,:style =>"font-size: 1.1em;" %></i></li>
-				</ul>
-			
-			
-		</div>
-	</div>
-</div>
-<% end %>
-<% end %> -->
-
+		<%= button_tag(type: "submit", class: "btn btn-primary",style:"position:relative;top:5px;") do %>
+              <i class="fa fa-search 6x"></i>
+         <% end %>
+		<% end %>
+		<% @developers.each do |developer| %>
+			<div class="col-md-3" style="padding-bottom:20px;">
+				<h4><%= link_to developer.name + "(#{developer.vns.count})", developer_path(developer),style: "color:black;" %></h4>
+			</div>
+		<% end %>
+		<div class="col-md-12">
+	 		<%= will_paginate @developers, renderer: BootstrapPagination::Rails %>
+	 	</div>
 	</div>
 </div>

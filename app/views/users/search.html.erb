@@ -1,0 +1,20 @@
+<% title "Search Users" %>
+<% description "Discover new random users in Visualnoveler. Start tracking and discovering visual novels today!." %>
+<div class="container" style="padding-bottom:10px;">
+	<div class="row">
+
+		<h1>Search Users</h1>
+
+		<% @users.each do |user| %>
+		<div class="col-md-3 col-xs-6">
+			
+			<h4><%= user.name.truncate(32) %> </h4>
+			<% if user.poster_image.blank? %>
+				<%= link_to image_tag("default_avatar.jpg",class:"img-circle img-responsive-half",alt: user.name),user_path(user) %>
+			<% else %>
+				<%= link_to image_tag(user.poster_image,class:"img-circle img-responsive-half",alt: user.name),user_path(user) %>
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>

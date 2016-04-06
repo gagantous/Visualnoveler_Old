@@ -1,7 +1,18 @@
-<% title "Discover Users" %>
+<% title "Search Users" %>
 <% description "Discover new random users in Visualnoveler. Start tracking and discovering visual novels today!." %>
 <div class="container" style="padding-bottom:10px;">
 	<div class="row">
+
+		<h1>Users</h1>
+		<%= form_tag(search_users_path, :method => "get") do %>
+		
+			<%= text_field_tag :search, params[:search], class: "customform-input typeahead-users", placeholder: "Search Users" %>
+	
+			<%= button_tag(type: "submit", class: "btn btn-primary",style:"position:relative;top:5px;") do %>
+              <i class="fa fa-search 6x"></i>
+         <% end %>
+		<% end %>
+
 		<% @random.each do |user| %>
 		<div class="col-md-3 col-xs-6">
 			

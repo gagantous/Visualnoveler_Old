@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328052225) do
+ActiveRecord::Schema.define(version: 20160404110919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -219,8 +219,11 @@ ActiveRecord::Schema.define(version: 20160328052225) do
     t.text     "post"
     t.integer  "vn_id"
     t.integer  "translation_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.boolean  "pending"
+    t.text     "pending_vn_names"
+    t.string   "actual_vn_name"
   end
 
   add_index "translation_posts", ["translation_id"], name: "index_translation_posts_on_translation_id", using: :btree

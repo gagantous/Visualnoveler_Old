@@ -1,0 +1,46 @@
+<% title "Discover Visual Novels by genres" %>
+<% description "Visual novels are sorted by genres in this page. Start tracking and discovering other visual novels at Visualnoveler and manage your visual novel list." %>
+
+<div class="container-fluid">
+	<div class="row vnindex-row">
+		<div class="col-md-12" style="padding-bottom:20px;">
+			<h1>Random Genres</h1>
+		 
+			<%= simple_form_for Genre.new,url:search_genres_path, :method => "get", class: "form-inline",style:"" do |f| %>
+			   <%= link_to 'All Genres', all_genres_path,style:"font-size:1.4em; padding-right:40px;position:relative;top:8px;" %>
+  				
+			 <%= text_field_tag :search, params[:search], class: "customform-input typeahead-genres", placeholder: "Search Genres" %>
+		
+			<%= f.button :button, class: "btn btn-primary",style:"position:relative;top:5px;" do %>
+                  <i class="fa fa-search 6x"></i>
+             <% end %>
+  		    <% end %>
+		</div>
+	
+<!--
+<% @genres.each do |genre| %>
+		<% vn = genre.vns.order("RANDOM()").first %>
+		<% if vn %>
+			<div class="vn-column">
+				<%= link_to genre_path(genre) do %>
+			<%= image_tag("#{vn.image_poster}",:alt => vn.name, :class=> "vn-index-poster") %>
+			<% end %>
+				<div class="panel panel-default">
+				<div class="panel-body panel-vnindex">
+					<a href=<%= genre_path(genre) %>><h4>
+					<span class="bottom"><%= genre.name %>
+					</span></h4>	</a>	
+					<ul class="list-inline vnindex-genre text-left">
+						<li class="vngenre-padding inline-nopadding"><i><%= link_to vn.name.truncate(30),vn_path(vn),:style =>"font-size: 1.1em;" %></i></li>
+					</ul>
+			
+			
+				</div>
+				</div>
+			</div>
+	<% end %>
+
+<% end %>
+!-->
+	</div>
+</div>

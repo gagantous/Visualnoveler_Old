@@ -15,7 +15,7 @@ class GenresController < ApplicationController
 	    render json: @genre,root: false
  	 end
 
-	def all
+	def index
 		@genres = Genre.all.order("name ASC")
 	end
 

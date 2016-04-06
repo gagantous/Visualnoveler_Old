@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="row">
+
+	<h1>Update Translation Post</h1>
+		<p>Assign the translation post to the correct visual novel by entering <strong>only the exact name of the visual novel.</strong></p>
+
+		<p style="margin-bottom:20px;">An empty actual vn name would bring it's current status back to pending.</p>
+		<%= simple_form_for @post do |f| %>
+
+			<div class="col-lg-4">
+		 		<%= f.input :actual_vn_name,hint: "Enter the exact name of the visual novel" %>
+			</div>
+
+			<div class="col-lg-6">
+		 		<%= f.input :pending_vn_names,readonly: true,input_html: {rows:3}%>
+			 </div>
+
+			<div class="col-lg-8">
+				<%= f.input :created_at,disabled: true,as: :date %>
+			</div>
+			
+			<div class="col-lg-6">
+				<%= f.input :post, readonly: true %>
+			</div>
+
+			<div class="col-lg-12">
+			  <%= f.button :submit , class: "btn btn-primary" %>
+			</div>
+
+		<% end %>
+
+		<div class="col-lg-12">
+			<%= link_to 'Delete Post', @post,class: "btn btn-danger",style:"margin-top:50px", method: :delete,data: { confirm: 'Are you sure?' } %>
+		</div>
+
+
+	</div>
+
+</div>

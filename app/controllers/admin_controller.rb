@@ -10,6 +10,10 @@ class AdminController < ApplicationController
 		@publishers = Publisher.all
 	end
 
+	def translation
+		@translations = TranslationPost.where(pending: true).paginate(:page => params[:page], :per_page => 100)
+	end
+
 	def vn_featured
 		@vn = Vn.where(isFeatured: true).order("updated_at DESC")
 		if !current_user.admin? && !current_user.mod? 

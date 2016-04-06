@@ -16,16 +16,12 @@ class DevelopersController < ApplicationController
 	    render json: @developer,root: false
  	 end
 
-	def all
+	def index
 		@developers = Developer.highest_vns.paginate(:page => params[:page], :per_page => 50)
 	end
 
 	def search
     	 @developers = Developer.search_by_name(params[:search])
-	end
-
-	def index
-		@developers = Developer.limit(14).order("RANDOM()")
 	end
 
 	def edit

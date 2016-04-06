@@ -43,6 +43,7 @@
                   <li><%= link_to "Screenshot listings", admin_screenshot_path %></li>
                   <li><%= link_to "Reviews listings", admin_review_path %></li>
                   <li><%= link_to "Franchise listings", admin_franchise_path %></li>
+                  <li><%= link_to "Translation Update listings", admin_translation_path %></li>
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Creation</li>
                   <li><%= link_to "Create Visual Novel", new_vn_path %></li>
@@ -92,9 +93,9 @@
                   <li><%= link_to 'Developer',developers_path %></li>
                   <li><%= link_to 'Users', users_path %></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Lists</li>
-                  <li><%= link_to 'All Genres',all_genres_path %></li>
-                  <li><%= link_to 'All Developers',all_developers_path %></li>
+                  <li class="dropdown-header">News</li>
+                  <li><%= link_to "Translation Status", tag_path("translation-status") %></li>
+                  <li><%= link_to "Development Blog", tag_path("blog") %></li>
               </ul>
             </li>
              <li class="logotitle-dropdown" style="padding-top:5px;"> 

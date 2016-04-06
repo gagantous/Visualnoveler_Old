@@ -109,9 +109,11 @@ class UsersController < ApplicationController
     flash[:success] = "it worked"
     redirect_to user_path(@user)
   end
+
   def setup
     @user = User.find(params[:id])
   end
+
   def update
       @user = User.find(params[:id])
       authorize @user
@@ -123,12 +125,22 @@ class UsersController < ApplicationController
         render 'change_password'
       end
   end
+
   def crop
     @user = User.find(params[:id])
     authorize @user
   end
 
-    private
+  def typeahead
+      @user = User.search_by_name(params[:search])
+      render json: @user,root: false
+  end
+
+  def search
+    @users = User.search_by_name(params[:search])
+  end
+
+  private
     def user_params
        params.require(:user).permit(:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h,:name,:bio,:role,:current_password,:password,:password_confirmation,:library_image,:library_image_type)
     end

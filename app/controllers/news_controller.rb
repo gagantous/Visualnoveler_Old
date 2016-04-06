@@ -2,7 +2,7 @@ class NewsController < ApplicationController
 	before_action :authenticate_user!, :except => [:index,:show]
 	include ApplicationHelper
 	def index
-		@news = News.paginate(:page => params[:page], :per_page => 3).order("created_at desc")
+		@news = News.paginate(:page => params[:page], :per_page => 5).order("created_at desc")
 	end
 
 	def show

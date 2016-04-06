@@ -14,8 +14,6 @@ SitemapGenerator::Sitemap.create do
   add '/vns/top'
   add '/vns/translated'
   add '/vns/walkthroughs'
-  add '/genres/all'
-  add '/developers/all'
 
   News.find_each do |news|
     add news_path(news),lastmod: news.updated_at

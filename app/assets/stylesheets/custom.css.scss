@@ -70,7 +70,7 @@ footer {
     background-color: #3E3D48;
 }
 
-#news-index {
+#news-index,.tags-pagination {
   .pagination {
     display: block;
   }
@@ -167,8 +167,8 @@ footer {
     margin-top: 10px;
   }
   .news-post {
-    padding-top:  3.33em;
-    padding-bottom: 3.66em;
+    padding-top:  2.5em;
+    padding-bottom: 3em;
   }
   .title-link {
      color: #3a3a3a;

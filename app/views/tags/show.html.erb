@@ -3,14 +3,15 @@
 
 <section id ="news-markdown">
 <div class="container container-news">
-	<div class="row news-post">
+	<div class="row news-post tags-pagination">
 		<div class="col-md-12">
 
-		<h1 style="margin-top:40px;margin-bottom:40px;"><span style="font-size:18px;">News tagged with</span> <%= @tag.name %></h1>
+		<h1 style="margin-top:0px;margin-bottom:20px;"><span style="font-size:18px;">News tagged with</span> <%= @tag.name %></h1>
 		<hr>
 		</div>
 			
 		<%= render 'layouts/news_simple',locals:{news: @news} %>
+		<%= will_paginate @news,:page_links => false %>
 	</div>
 </div>
 </section>

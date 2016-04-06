@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'typeahead/:search' => 'pages#typeahead'
   get 'genres/typeahead/:search' => 'genres#typeahead'
   get 'developers/typeahead/:search' => 'developers#typeahead'
+  get 'users/typeahead/:search' => 'users#typeahead'
 
   get 'discourse/sso' => 'discourse_sso#sso'
   mount Starburst::Engine => "/starburst"
@@ -67,6 +68,7 @@ Rails.application.routes.draw do
     get 'screenshot'
     get 'review'
     get 'franchise'
+    get 'translation'
   end
 
   resources :vns do
@@ -101,21 +103,22 @@ Rails.application.routes.draw do
     delete "/logout" => "devise/sessions#destroy"
   end
 
-    resources :users,only: [:show,:index,:update,:edit] do
-    member do
-      get :watch
-      get :library
-      get :wishlist
-      get :drop
-      get :favourite
-      get :completed
-      get :crop
-      get :similar
-      get :discover
-      get :change_password
-      get :setup
-      put :update_avatar
-    end
+    resources :users,only: [:show,:index,:update,:edit] do 
+      get :search, on: :collection
+      member do
+        get :watch
+        get :library
+        get :wishlist
+        get :drop
+        get :favourite
+        get :completed
+        get :crop
+        get :similar
+        get :discover
+        get :change_password
+        get :setup
+        put :update_avatar
+      end
  end
   
 

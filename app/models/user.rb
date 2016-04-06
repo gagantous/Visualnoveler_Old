@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     validates :name, presence: true,uniqueness: {case_sensitive: false}
     accepts_nested_attributes_for :library_entries
     accepts_nested_attributes_for :posts
+    include PgSearch
+    pg_search_scope :search_by_name, :against => :name,:using => {
+                    :tsearch => {:prefix => true}
+                  }
     extend FriendlyId
 
     friendly_id :name, use: [:slugged, :finders]

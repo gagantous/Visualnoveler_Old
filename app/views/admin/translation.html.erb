@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+  			<div class="panel-body">
+		<table class="table table-responsive">
+			<h2>Pending Translation Post List</h2>
+			<thead><tr>
+				<th>Pending Visual Novel Names</th>
+				<th>Date</th>
+				<th>Post</th>
+				<th>Edit</th>
+			</tr></thead>
+			<tbody>
+			<% @translations.each do |translation| %>
+				<tr>
+				<td><%= translation.pending_vn_names %> </td>
+				<td><%= translation.created_at.strftime("%d %b %Y") %></td>
+				<td><%= translation.post %></td>
+				<td><%= link_to 'Edit',edit_translation_post_path(translation) %> </td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+			</div></div>
+			<%= will_paginate @translations %>
+		</div>
+	</div>
+</div>
