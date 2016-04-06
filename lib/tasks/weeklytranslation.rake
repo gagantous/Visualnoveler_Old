@@ -34,7 +34,8 @@ require 'rake'
 			date = json_data[0]["data"]["children"][0]["data"]["created"]
 			title = json_data[0]["data"]["children"][0]["data"]["title"]
 			post = structure.slice(structure.index("Note: This is simply")..-1)
-			translation_news = News.new(title: title,user_id: 12,content: post,created_at: Time.at(date))
+			#user_id = 43 is Visualnoveler hardcoded
+			translation_news = News.new(title: title,user_id: 43,content: post,created_at: Time.at(date))
 			translation_news.tag_list.add("translation status")
 			if translation_news.save
 			#	p "News updated!"
