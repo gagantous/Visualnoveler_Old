@@ -1,6 +1,7 @@
 require 'rake'
   desc "Grab Reddit VNTLS data"
   task :reddit_vntls => :environment do
+  	failed_url = []
 	def scrape_reddit(url)
 		date = get_reddit_thread_markdown_post(url + ".json")
 		sleep(2)
@@ -46,6 +47,7 @@ require 'rake'
 			if retries_count > 0
 				retry
 			else
+				failed_url << url
 				p "WARNING, failed to scrape #{url}"
 			end
 		end
@@ -101,6 +103,9 @@ require 'rake'
 	end
 	parse_reddit_list("https://www.reddit.com/r/visualnovels/comments/2n5aeo/translation_status_updatediscussion_thread_nov_23/")
 	p "Data imported Successfully!"
+	failed_url.each do |url|
+		p url
+	end
 	#get_reddit_thread_markdown_post("https://www.reddit.com/r/visualnovels/comments/2oj1y9/translation_status_updatediscussion_dec_7/.json")
 	#scrape_reddit("https://www.reddit.com/r/visualnovels/comments/2mg43j/translation_status_updatediscussion_thread/")
 	end
