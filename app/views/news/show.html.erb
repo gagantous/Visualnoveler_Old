@@ -35,6 +35,22 @@
 	<div class="row news-post">
 		<div class="col-md-12 ">
 			<%= render 'layouts/news_full',locals:{news: @news} %>
+			<div id='discourse-comments'></div>
+			<script type="text/javascript">
+				$(function() {
+					$baseurl = "https://visualnoveler.com/news/"
+					$news_url = "<%= @news.title %>".toLowerCase()
+					$discourse_url = $baseurl + $news_url
+					  DiscourseEmbed = { discourseUrl: 'http://forums.visualnoveler.com/',
+					                     discourseEmbedUrl: $discourse_url };
+
+					  (function() {
+					    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+					    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+					    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+					  })();
+				});
+			</script>
 		</div>
 	</div>
 </div>

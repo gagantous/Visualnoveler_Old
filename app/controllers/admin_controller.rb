@@ -8,10 +8,16 @@ class AdminController < ApplicationController
 
 	def publisher
 		@publishers = Publisher.all
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
 	end
 
 	def translation
 		@translations = TranslationPost.where(pending: true).paginate(:page => params[:page], :per_page => 100)
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
 	end
 
 	def vn_featured
