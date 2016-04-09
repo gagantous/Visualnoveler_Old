@@ -10,6 +10,10 @@ module ApplicationHelper
  	   content_for :description, text
  	end
 
+  def news_title(text)
+     content_for :news_title, text
+  end
+
   def image_url(url)
     content_for :image_url, url
   end

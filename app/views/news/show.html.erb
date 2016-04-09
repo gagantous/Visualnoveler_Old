@@ -1,4 +1,4 @@
-<% title @news.title %>
+<% news_title @news.title %>
 <% description @news_description %>
 <% image_url @news.featured_image %>
 
@@ -27,7 +27,6 @@
 			}
 		}
     	var shareButton = new ShareButton('.share-button',options);
-
 					var url = window.location.href;
 					//("https://visualnoveler.com/news/" + "<%= @news.title %>").replace(/\s+/g, '-').toLowerCase()
 					  DiscourseEmbed = { discourseUrl: 'https://forums.visualnoveler.com/',
