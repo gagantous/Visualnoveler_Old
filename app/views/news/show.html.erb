@@ -38,7 +38,9 @@
 			<div id='discourse-comments'></div>
 			<script type="text/javascript">
 				$(function() {
-					var url = ("https://visualnoveler.com/news/" + "<%= @news.title %>").toLowerCase()
+					var url = window.location.href;
+					//("https://visualnoveler.com/news/" + "<%= @news.title %>").replace(/\s+/g, '-').toLowerCase()
+					alert(url);
 					  DiscourseEmbed = { discourseUrl: 'https://forums.visualnoveler.com/',
 					                     discourseEmbedUrl: url };
 					  (function() {
