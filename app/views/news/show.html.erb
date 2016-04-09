@@ -27,18 +27,20 @@
 			}
 		}
     	var shareButton = new ShareButton('.share-button',options);
-					var url = window.location.href;
-					//("https://visualnoveler.com/news/" + "<%= @news.title %>").replace(/\s+/g, '-').toLowerCase()
-					  DiscourseEmbed = { discourseUrl: 'https://forums.visualnoveler.com/',
-					                     discourseEmbedUrl: url };
-					 
-					    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-					    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-					    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-					 
 				
 	});
  </script>
+<script type="text/javascript">
+	var url = window.location.href;
+  DiscourseEmbed = { discourseUrl: 'https://forums.visualnoveler.com/',
+                     discourseEmbedUrl: url };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
 
 <section id ="news-markdown">
 <div class="container container-news">
