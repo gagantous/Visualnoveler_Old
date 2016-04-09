@@ -28,8 +28,8 @@
 		<% @related.each do |news| %>
 			<% unless news == @news %>
 				<div class="col-md-4 col-xs-6 col-sm-4">
-					<%= link_to image_tag(news.featured_image.url(:thumb),alt: news.title),news_path(news) unless news.featured_image.blank? %>
-					<h4 class="news-related-title"><%= link_to news.title,news_path(news),class: 'title-link' %> </h4>
+					<%= link_to image_tag(news.featured_image.url(:thumb),alt: news.title),news_path(news),'data-no-turbolink' =>"true" unless news.featured_image.blank? %>
+					<h4 class="news-related-title"><%= link_to news.title,news_path(news),class: 'title-link','data-no-turbolink' =>"true"%> </h4>
 				</div>
 			<% end %>
 		<% end %>
