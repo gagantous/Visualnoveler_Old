@@ -1,10 +1,17 @@
 require 'rake'
   desc "Grab Reddit VNTLS data"
   task :reddit_vntls => :environment do
-  	failed_url = []
+  	@failed_url = []
+  	@development_user_id = 12
+  	@production_user_id = 43
+
 	def scrape_reddit(url)
 		date = get_reddit_thread_markdown_post(url + ".json")
 		sleep(2)
+		if date == ""
+			p "Thread already exist!"
+			return
+		end
 		mechanize = Mechanize.new
 		page = mechanize.get(url)
 		title = page.search("a.title")
@@ -35,20 +42,26 @@ require 'rake'
 			date = json_data[0]["data"]["children"][0]["data"]["created"]
 			title = json_data[0]["data"]["children"][0]["data"]["title"]
 			post = structure.slice(structure.index("Note: This is simply")..-1)
-			#user_id = 43 is Visualnoveler hardcoded
-			translation_news = News.new(title: title,user_id: 43,content: post,created_at: Time.at(date))
-			translation_news.tag_list.add("translation status")
-			if translation_news.save
-			#	p "News updated!"
+			news = News.where(title: title)
+			if news.blank?
+				translation_news = News.new(title: title,user_id: @production_user_id,content: post,created_at: Time.at(date))
+				translation_news.tag_list.add("translation status")
+				if translation_news.save
+				#	p "News updated!"
+				end
+			else 
+				return ""
 			end
 		#	p "Success"
 		rescue Exception => e
+			p e.message
 			retries_count -= 1
 			if retries_count > 0
 				retry
 			else
-				failed_url << url
+
 				p "WARNING, failed to scrape #{url}"
+				@failed_url << url
 			end
 		end
 		return date
@@ -101,11 +114,22 @@ require 'rake'
        	end
       end
 	end
-	parse_reddit_list("https://www.reddit.com/r/visualnovels/comments/2n5aeo/translation_status_updatediscussion_thread_nov_23/")
-	p "Data imported Successfully!"
-	failed_url.each do |url|
-		p url
+
+	def get_weekly_translation_status()
+	  mechanize = Mechanize.new
+	  page = mechanize.get("https://www.reddit.com/r/visualnovels/")
+	  link = page.link_with(text: "TL status")
+	  link_filtered = link.uri.to_s.gsub!("r/visualnovels/","")
+	  translation_link = "https://www.reddit.com/r/visualnovels/comments" + link_filtered
+	  scrape_reddit(translation_link)
 	end
-	#get_reddit_thread_markdown_post("https://www.reddit.com/r/visualnovels/comments/2oj1y9/translation_status_updatediscussion_dec_7/.json")
-	#scrape_reddit("https://www.reddit.com/r/visualnovels/comments/2mg43j/translation_status_updatediscussion_thread/")
+
+	get_weekly_translation_status()
+	p "Success!"
+	# parse_reddit_list("https://www.reddit.com/r/visualnovels/comments/2n5aeo/translation_status_updatediscussion_thread_nov_23/")
+	# p "Data imported Successfully!"
+	# failed_url.each do |url|
+	# 	p url
+	# end
+	
 	end
