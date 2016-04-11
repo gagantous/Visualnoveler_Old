@@ -35,11 +35,10 @@
 	{
 	    return Text
 	        .toLowerCase()
-	        .replace(/[^\w ]+/g,'')
-	        .replace(/ +/g,'-')
-	        ;
+	        .replace(/[^a-zA-Z0-9]+/g,'-');
 	}
 	var url = "https://visualnoveler.com/news/" + convertToSlug("<%= @news.title %>")
+	alert(url);
   DiscourseEmbed = { discourseUrl: 'https://forums.visualnoveler.com/',
                      discourseEmbedUrl: url };
 
