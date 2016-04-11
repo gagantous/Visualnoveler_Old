@@ -110,17 +110,12 @@
            </li> -->
 
             <% if !user_signed_in? %>
-            <li class ="logotitle-dropdown">
-               <a href="#" class="button-nav" data-toggle="modal" data-target="#login-modal"><span class="logotitle">Login</span> </a>
-            </li>
-            <li class ="logotitle-dropdown">
-               <a href=<%= register_path %> class="button-nav"><span class="logotitle">Register</span> </a>
-            </li>
+            
             <% end %>
          </ul>
 
+         <ul class="nav navbar-nav navbar-right"> 
           <% if user_signed_in? %>
-         <ul class="nav navbar-nav navbar-right">
               <li class="dropdown pull-right-nav">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle usernav-name"><%= current_user.name %></span> <b class="caret usernav-name"></b></a>
                 <ul class="dropdown-menu">
@@ -136,8 +131,16 @@
                <% else %>
                   <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;margin-top:5px;")  %>
                <% end %>
-          </ul>
+          <% else %>
+            <li class ="logotitle-dropdown">
+               <a href="#" class="button-nav" data-toggle="modal" data-target="#login-modal"><span class="logotitle">Login</span> </a>
+            </li>
+            <li class ="logotitle-dropdown">
+               <a href=<%= register_path %> class="button-nav"><span class="logotitle">Register</span> </a>
+            </li>
           <% end %>
+          </ul>
+        
        
            <div class="input-append">
              <%= form_tag(search_path, :method => "get", class: "navbar-form", id: "search-form" ) do %>
