@@ -35,7 +35,7 @@ class Vn < ActiveRecord::Base
   	include PgSearch
   	#:associated_against => { genres: [:name]},
   	pg_search_scope :search_by_name, :against => [:name,:alias],:using => {
-                    :tsearch => {:prefix => true,:dictionary => "simple"}
+                    :tsearch => {:prefix => true}
                   }
     scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
     extend FriendlyId
