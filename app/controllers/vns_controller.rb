@@ -26,7 +26,7 @@ class VnsController < ApplicationController
 	def translation
 		@vn = Vn.find(params[:id])
 		@translation = @vn.translation
-		@posts = @vn.translation_posts
+		@posts = @vn.translation_posts.order('created_at ASC')
 	end
 
 	def edit_translation
