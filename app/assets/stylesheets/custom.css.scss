@@ -69,6 +69,9 @@ footer {
     width: 100%;
     background-color: #3E3D48;
 }
+.news-featuredimg {
+  padding-bottom: 16px;
+}
 
 #news-index,.tags-pagination {
   .pagination {
@@ -109,7 +112,7 @@ footer {
     height: auto;
   }
   p{
-    margin: 18px 0 18px;
+    margin: 0 0 18px;
   }
   .news-back{
     display: block;

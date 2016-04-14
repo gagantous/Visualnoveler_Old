@@ -13,7 +13,7 @@
 		</div>
 
 		<h1> <%= link_to news.title,news_path(news),'data-no-turbolink' =>"true",class: "title-link" %> </h1>
-		<%= image_tag(news.featured_image.url) unless news.featured_image.blank? %>
+		<%= image_tag(news.featured_image.url,class: "news-featuredimg") unless news.featured_image.blank? %>
 		<% if news.content.length > 400 %>
 			<%= markdown(HTML_Truncator.truncate(news.content,100)) %>
 		<% else %>
