@@ -24,6 +24,7 @@ $font-size-h5: $font-size-base;
 .markdown-post {
   margin-top:10px;
 }
+
 .btn-markdown-upload {
   margin-left: 10px;
 }
@@ -373,6 +374,11 @@ html, body {
 @media (max-width: 460px) {
   .vnindex-heading{
     top: -10px !important;
+  }
+
+  .navbar-nav {
+    margin: 0px;
+    padding: 7.5px 15px;
   }
   .favourites-inner-row{
     padding-left: 15px;

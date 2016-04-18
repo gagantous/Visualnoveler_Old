@@ -24,6 +24,6 @@ every 1.day, :at => '5:00 am' do
   rake "RAILS_ENV=production rake sitemap:refresh"
 end
 
-every 7.day, :at => '6:00 am' do
+every 7.days, :at => '6:00 am' do
   rake "RAILS_ENV=production rake reddit_vntls"
 end
