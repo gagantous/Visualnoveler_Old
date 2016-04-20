@@ -47,7 +47,7 @@
 			</table	>
 			<div class="translation-content">
 				<h3>Staff</h3>
-				<%= markdown(@translation.content) %>
+				<%= markdown(@translation.content) unless @translation.content.blank? %>
 			</div>
 		</div>
 		</div></div>
