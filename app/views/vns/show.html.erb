@@ -1,5 +1,5 @@
 <% title @vn.name %>
-<% description (@vn.name + " - " + @vn.summary.first(400)) %>
+<% description (@vn.name + " - " + @vn.summary %>
 <% image_url @vn.image_poster.url %>
 <% if @vn.image_coverpage.blank? %>
 	<% if user_signed_in?  %>
