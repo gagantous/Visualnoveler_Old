@@ -4,7 +4,7 @@ class TranslationPost < ActiveRecord::Base
   after_create :check_for_translation
 
   def check_for_translation
-  	if self.vn.translation.blank?
+  	if !self.vn.blank? && self.vn.translation.blank?
   		self.vn.build_translation.save
   	end
   end
