@@ -32,6 +32,7 @@ require 'rake'
 			end
 		rescue Exception => e
 			retries_count += 1
+			sleep(2.5)
 			retry if retries_count <= 3
 		end
 		#p "#{url} successfully scraped"
@@ -63,6 +64,7 @@ require 'rake'
 			p e.message
 			retries_count -= 1
 			if retries_count > 0
+				sleep(2.5)
 				retry
 			else
 
