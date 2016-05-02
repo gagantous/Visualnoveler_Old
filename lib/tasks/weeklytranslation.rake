@@ -15,6 +15,7 @@ require 'rake'
 		end
 		begin
 			mechanize = Mechanize.new
+	  		mechanize.user_agent_alias = 'Mac Safari'
 			page = mechanize.get(url)
 			title = page.search("a.title")
 			post_content = page.search(".usertext-body")[1]
@@ -107,6 +108,7 @@ require 'rake'
 	def parse_reddit_list(url)
       #loop function pagination GET
       mechanize = Mechanize.new
+	  mechanize.user_agent_alias = 'Mac Safari'
       page = mechanize.get(url)
       scrape_reddit(url)
       loop do
@@ -125,6 +127,7 @@ require 'rake'
 
 	def get_weekly_translation_status()
 	  mechanize = Mechanize.new
+	  mechanize.user_agent_alias = 'Mac Safari'
 	  page = mechanize.get("https://www.reddit.com/r/visualnovels/")
 	  link = page.link_with(text: "TL status")
 	  link_filtered = link.uri.to_s.gsub!("r/visualnovels/","")
