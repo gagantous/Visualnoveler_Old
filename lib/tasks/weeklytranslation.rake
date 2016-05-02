@@ -8,25 +8,31 @@ require 'rake'
 	def scrape_reddit(url)
 		date = get_reddit_thread_markdown_post(url + ".json")
 		sleep(2)
+		retries_count = 0
 		if date == ""
 			p "Thread already exist!"
 			return
 		end
-		mechanize = Mechanize.new
-		page = mechanize.get(url)
-		title = page.search("a.title")
-		post_content = page.search(".usertext-body")[1]
-		#lists are <li> entries whiich are visual novel updates
-		lists = post_content.search('ul > li')
-		lists.each do |list|
-			if list.text.strip.include?("-")
-				text = list.text.strip
-				update = text.sub(/.*?-/,'').strip
-				title = text.split(/-/).first.strip
-				parse_translation_update(title,update,Time.at(date))
-				#p title + " - " + update
-			else 
+		begin
+			mechanize = Mechanize.new
+			page = mechanize.get(url)
+			title = page.search("a.title")
+			post_content = page.search(".usertext-body")[1]
+			#lists are <li> entries whiich are visual novel updates
+			lists = post_content.search('ul > li')
+			lists.each do |list|
+				if list.text.strip.include?("-")
+					text = list.text.strip
+					update = text.sub(/.*?-/,'').strip
+					title = text.split(/-/).first.strip
+					parse_translation_update(title,update,Time.at(date))
+					#p title + " - " + update
+				else 
+				end
 			end
+		rescue Exception => e
+			retries_count += 1
+			retry if retries_count <= 3
 		end
 		#p "#{url} successfully scraped"
 	end

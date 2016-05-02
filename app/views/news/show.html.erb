@@ -31,13 +31,7 @@
 	});
  </script>
 <script type="text/javascript">
-	function convertToSlug(Text)
-	{
-	    return Text
-	        .toLowerCase()
-	        .replace(/[^a-zA-Z0-9]+/g,'-');
-	}
-	var url = "https://visualnoveler.com/news/" + convertToSlug("<%= @news.title %>")
+	var url = "https://visualnoveler.com/news/<%= @news.slug %>"
   DiscourseEmbed = { discourseUrl: 'https://forums.visualnoveler.com/',
                      discourseEmbedUrl: url };
 
