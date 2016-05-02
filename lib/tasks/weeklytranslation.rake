@@ -44,7 +44,8 @@ require 'rake'
 		retries_count = 5
 		begin
 			sleep(2)
-			response = Net::HTTP.get(json_url)
+			# response = Net::HTTP.get(json_url)
+			response = open(json_url,'User-Agent' => 'Mac Safari').read
 			json_data = JSON.parse (response)
 			structure = json_data[0]["data"]["children"][0]["data"]["selftext"]
 			date = json_data[0]["data"]["children"][0]["data"]["created"]
