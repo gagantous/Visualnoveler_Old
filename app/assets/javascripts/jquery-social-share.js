@@ -203,9 +203,9 @@
                 },'jsonp');
                 break;
             case "twitter":
-                $.get('https://urls.api.twitter.com/1/urls/count.json?url='+ url +'&callback=?', function(data) {
-                    appendButtons(data.count, $component);
-                },'jsonp');
+                // $.get('https://urls.api.twitter.com/1/urls/count.json?url='+ url +'&callback=?', function(data) {
+                //     appendButtons(data.count, $component);
+                // },'jsonp');
                 break;
             case "vk":
                 $.get('https://vk.com/share.php?act=count&index=1&url='+ url +'&callback=?', function() {},'jsonp');
