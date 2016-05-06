@@ -3,33 +3,11 @@
 <% image_url @news.featured_image %>
 
 <script>
-	$(function() {
-		var options = {
-			ui: {
-				flyout: "bottom right"
-			 },
-			networks: {
-				linkedin: {
-					enabled: false
-				},
-				whatsapp: {
-					enabled: false
-				},
-				pinterest: {
-					enabled: false
-				},
-				email: {
-					enabled: false
-				},
-				twitter: {
-					description: "<%= @news.title %>"
-				}
-			}
-		}
-    	var shareButton = new ShareButton('.share-button',options);
-				
-	});
- </script>
+    $("body").floatingSocialShare({
+        buttons: ["facebook", "twitter"],
+        text: "share with: "
+    });
+</script>
 <script type="text/javascript">
 	var url = "https://visualnoveler.com/news/<%= @news.slug %>"
   DiscourseEmbed = { discourseUrl: 'https://forums.visualnoveler.com/',

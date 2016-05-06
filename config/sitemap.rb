@@ -15,6 +15,11 @@ SitemapGenerator::Sitemap.create do
   add '/vns/translated'
   add '/vns/walkthroughs'
   add '/translations'
+  add '/anime-studio-sim'
+  add '/anime-studio-sim/about'
+  add '/anime-studio-sim/story'
+  add '/anime-studio-sim/characters'
+  add '/anime-studio-sim/gallery'
 
   News.find_each do |news|
     add news_path(news),lastmod: news.updated_at

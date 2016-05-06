@@ -27,5 +27,31 @@ class PagesController < ApplicationController
   def help
   end
 
+  def anime_sim_home
+
+    render :layout => 'anime_sim'
+  end
+
+  def anime_sim_about
+
+    render :layout => 'anime_sim'
+  end
+
+  def anime_sim_characters
+
+    render :layout => 'anime_sim'
+  end
+
+  def anime_sim_gallery
+
+    render :layout => 'anime_sim'
+  end
+
+  def anime_sim_story
+
+    render :layout => 'anime_sim'
+  end
+
+
   
 end

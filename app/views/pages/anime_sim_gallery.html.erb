@@ -1,0 +1,25 @@
+<% title "Gallery - Anime Studio Simulator" %>
+ <style>
+body { 
+  background: url(<%= asset_path('anime-sim/anime_sim_bg-blur.jpg') %>) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+ </style>
+
+
+ <div class="container">
+  <div class="row">
+    <div class="col-md-6 col-centered">
+      <h2>Gallery (Work in Progress)</h2>
+      <%= link_to asset_path("anime-sim/bg1.jpg"), :class => 'fancybox', :rel =>'group' do %>
+           <%= image_tag(asset_path("anime-sim/bg1.jpg"),class:"img-responsive sim-circle",style:"margin-bottom:45px;") %>
+      <% end %>
+     
+
+    </div>
+  </div>
+ </div>

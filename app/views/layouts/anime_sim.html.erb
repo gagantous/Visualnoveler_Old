@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>
+    <%= if content_for?(:title) && !content_for?(:news_title) then yield(:title)  else yield(:news_title) end %>
+  </title>
+  <link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'><link href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <%= favicon_link_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="description" content="Track and discover new visual novels in Visualnoveler. Manage your visual novel library, keep track of visual novel translations or read up on the latest visual novel news!">
+</head>
+<body>
+<script>
+    $("body").floatingSocialShare({
+        buttons: ["facebook", "twitter"],
+        text: "share with: "
+    });
+</script>
+
+<section id="anime-sim">
+<div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-transparent" style="z-index:1;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+           
+            <h1 class="hidden-xs"><a class="" href=<%= anime_studio_sim_path %>><%= image_tag(asset_path("anime-sim/anime-sim-logo-medium.png"),class:"logo",alt: "Anime Studio Simulator") %></a></h1>
+             <ul class="anime-sim-nav-list visible-xs-block">
+    <li><%= link_to 'About', anime_studio_sim_about_path %></li>
+    <li><%= link_to 'Story', anime_studio_sim_story_path %></li>
+    <li><%= link_to 'Characters', anime_studio_sim_characters_path %> </li>
+    <li><%= link_to 'Gallery', anime_studio_sim_gallery_path %></li>
+
+  </ul>
+          
+          </div><!--/.nav-collapse -->
+
+           <h1 class="visible-xs-block"><a class="" href=<%= anime_studio_sim_path %>><%= image_tag(asset_path("anime-sim/anime-sim-logo-medium.png"),class:"img-responsive",alt: "Anime Studio Simulator") %></a></h1>
+        </div><!--/.container-fluid -->
+      </nav>
+</div>
+
+ 
+
+<div class="footer hidden-xs">
+  <ul class="list-inline">
+    <li><%= link_to 'About', anime_studio_sim_about_path %></li>
+    <li><%= link_to 'Story', anime_studio_sim_story_path %></li>
+    <li><%= link_to 'Characters', anime_studio_sim_characters_path %> </li>
+    <li><%= link_to 'Gallery', anime_studio_sim_gallery_path %></li>
+
+  </ul>
+</div>
+<%= yield %>
+
+</section>
+</body>
+</html>
+<!-- 
+end of container -->
+
+
