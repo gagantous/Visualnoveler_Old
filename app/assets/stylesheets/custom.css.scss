@@ -464,6 +464,7 @@ html, body {
 // mobile and tablet
 
 @media (max-width: 1196px) {
+    //Adjust footer for mobile 
 
   .collapsing {
     -moz-transition: height 0.15s ease;
@@ -752,18 +753,7 @@ html, body {
     margin-bottom: 15px;
     left: 0px !important
   }
-  //Adjust footer for mobile 
- body {
-    margin: 0 0 75px !important; /* bottom = footer height */
-}
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 75px !important;
-    width: 100%;
-    background-color: #3E3D48;
-}
+
 
 }
 // tablet + desktop
@@ -844,6 +834,20 @@ footer {
   .removecharacterpadding{
     padding-right: 15px !important;
     padding-left: 15px !important;
+  }
+}
+// specific css for custom floating jquery share to work with visualnoveler footer
+@media (max-width: 950px) {
+   body {
+      margin: 0 0 125px !important; /* bottom = footer height */
+  }
+  footer {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 125px !important;
+      width: 100%;
+      background-color: #3E3D48;
   }
 }
 
