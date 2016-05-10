@@ -37,6 +37,7 @@ class VnsController < ApplicationController
 	end
 
 	def discover
+		@vn = Vn.new
 		@random = Vn.limit(5).order("RANDOM()")
 		@genres = Genre.all.order('name ASC')
 	end
@@ -56,7 +57,16 @@ class VnsController < ApplicationController
 	end
 
 	def search
-		@vn = Vn.joins(:genres).where('genres.id' => params['genre_ids']).group('vns.id').having("count(genres.id) = ?",params['genre_ids'].count) unless params['genre_ids'].blank?
+		status = params[:vn][:status]
+		rating = params[:vn][:rating_number]
+		genre_ids = params[:genre_ids]
+		@vn = Vn.where(nil)
+		@vn = @vn.joins(:genres).where('genres.id' => genre_ids).group('vns.id').having("count(genres.id) = ?",genre_ids.count) unless genre_ids.blank?
+		@vn = @vn.where("rating_number > ?",rating) unless rating.blank?
+		@vn = @vn.where(status: get_status(status)) unless status.blank?
+		if status.blank? && rating.blank? && genre_ids.blank?
+			@vn = nil
+		end
 	end
 
 	def rate

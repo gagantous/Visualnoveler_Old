@@ -1,5 +1,19 @@
 module VnsHelper
 	#helper method to make ratings
+	def get_status(string) 
+		case string
+			when "Not Translated"
+				return 0
+			when "Translated"
+				return 1
+			when "Ongoing Translation"
+				return 2
+			when "OELVN"
+				return 3
+		end
+		return 
+	end
+
 	def rating_string(rating)
 		string = ""
 		case rating

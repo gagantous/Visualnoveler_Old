@@ -11,6 +11,8 @@ class Vn < ActiveRecord::Base
     has_many :translation_posts, dependent: :destroy
     has_one :translation, dependent: :destroy,:class_name => "Translation", :foreign_key => "vn_id"
     enum status: {"Not Translated" => 0,"Translated" => 1,"Ongoing Translation" => 2,"OELVN" => 3}
+    #If you ever edit status, head over to vn_helper to edit the enum status else advanced search for
+    #status WILL BE BROKEN
     belongs_to :developer
     belongs_to :franchise
     mount_uploader :image_coverpage, AvatarUploader

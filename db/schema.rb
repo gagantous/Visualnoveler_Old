@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420090500) do
+ActiveRecord::Schema.define(version: 20160510125834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -251,7 +251,7 @@ ActiveRecord::Schema.define(version: 20160420090500) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
+    t.string   "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
@@ -304,10 +304,9 @@ ActiveRecord::Schema.define(version: 20160420090500) do
 
   create_table "vns", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                      null: false
+    t.string   "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.text     "summary"
-    t.string   "release_date"
     t.string   "image_poster"
     t.string   "image_coverpage"
     t.string   "image_1"
@@ -327,6 +326,7 @@ ActiveRecord::Schema.define(version: 20160420090500) do
     t.string   "buy_4"
     t.string   "alias"
     t.text     "walkthrough_content"
+    t.date     "release_date"
   end
 
   add_index "vns", ["developer_id"], name: "index_vns_on_developer_id", using: :btree

@@ -59,7 +59,7 @@
 			<br> <% end %>
 			<span class="vn-label">Developer:</span> <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %>
 			<br> <% end %>
-			<span class="vn-label">Release Date:</span> <%= @vn.release_date %>
+			<span class="vn-label">Release Date:</span> <%= @vn.release_date.to_formatted_s(:rfc822) unless @vn.release_date.blank? %>
 			<br>
 			<span class="vn-label">Status:</span> <%= @vn.status %>
 			<br>
