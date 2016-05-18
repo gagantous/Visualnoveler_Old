@@ -6,13 +6,13 @@ require 'rake'
   	@production_user_id = 43
 
 	def scrape_reddit(url)
-		date = get_reddit_thread_markdown_post(url + ".json")
+		#date = get_reddit_thread_markdown_post(url + ".json")
 		sleep(2)
 		retries_count = 0
-		if date == ""
-			p "Thread already exist!"
-			return
-		end
+		# if date == ""
+		# 	p "Thread already exist!"
+		# 	return
+		# end
 		begin
 			mechanize = Mechanize.new
 	  		mechanize.user_agent_alias = 'Mac Safari'
@@ -83,8 +83,10 @@ require 'rake'
 		#If there is only 1 result, we assume that we are posting to the correct record
 		if vns.count == 1
 			@vn = vns.first
-			translation = TranslationPost.new(post: update,created_at: date,vn_id: @vn.id)
-			if translation.save
+			@translation = TranslationPost.where(post: update,vn_id: @vn.id)
+			if @translation.blank?
+				translation = TranslationPost.new(post: update,created_at: date,vn_id: @vn.id)
+				translation.save
 				#p "Translation Update successful!"
 			end
 		elsif vns.count > 1 
@@ -92,15 +94,20 @@ require 'rake'
 			vns.each do |vn|
 				title_array << vn.name
 			end
-			translation = TranslationPost.new(post: update,created_at: date,pending: true,pending_vn_names: title_array.join(","))
-			if translation.save
-			#	p "Translation update pending approval, Multiple Vns detected"
+			@translation = TranslationPost.where(post: update,created_at: date)
+			if @translation.blank?
+				translation = TranslationPost.new(post: update,created_at: date,pending: true,pending_vn_names: title_array.join(","))
+				translation.save
+				#p "Translation Update successful!"
 			end
 		else 
 			# no records, manual action required
-			translation = TranslationPost.new(post: update,created_at: date,pending: true,pending_vn_names: title)
-			if translation.save
-				#p "Translation update pending approval, No Vns found"
+		
+			@translation = TranslationPost.where(post: update,created_at: date)
+			if @translation.blank?
+				translation = TranslationPost.new(post: update,created_at: date,pending: true,pending_vn_names: title)
+				translation.save
+				#p "Translation Update successful!"
 			end
 		end
 	end
