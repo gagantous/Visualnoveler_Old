@@ -4,6 +4,7 @@ $font-size-h2: 20px;
 $font-size-h3: 18px; 
 $font-size-h4: 16px; 
 $font-size-h5: $font-size-base;
+// $font-family-base: 'Open Sans';
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -28,16 +29,14 @@ $font-size-h5: $font-size-base;
 .btn-markdown-upload {
   margin-left: 10px;
 }
-body.bracket-body{
-  background-color: #35424B;
-}
+
 //Typography
+
 #vn-item h1 {
   font-size: 24px;
   display: inline;
 }
 #vn-item h2{
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   display: inline;
@@ -104,9 +103,12 @@ footer {
   h3{
     font-size: 22px;
   }
+  .title-link {
+    font-weight: bold;
+  }
   font-size: 18px;
   line-height: 1.8;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Lato', sans-serif;
   img {
     max-width: 100%;
     display: block;
