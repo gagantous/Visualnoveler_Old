@@ -28,16 +28,16 @@ class AdminController < ApplicationController
 	end
 
 	def vn_no_screenshot
-		@vn = Vn.created_between(6.day.ago, Time.now)
-		if !current_user.admin? && !current_user.mod? 
-			user_not_authorized
-		end
+		# @vn = Vn.created_between(6.day.ago, Time.now)
+		# if !current_user.admin? && !current_user.mod? 
+		# 	user_not_authorized
+		# end
 	end
 	def vn_other_nil
-		@vn = Vn.all#.created_between(6.day.ago, Time.now)
-		if !current_user.admin? && !current_user.mod? 
-			user_not_authorized
-		end
+		# @vn = Vn.all#.created_between(6.day.ago, Time.now)
+		# if !current_user.admin? && !current_user.mod? 
+		# 	user_not_authorized
+		# end
 	end
 
 	def vn_no_review
@@ -55,7 +55,7 @@ class AdminController < ApplicationController
 	end
 
 	def vn_not_featured
-		@vn = Vn.where(isFeatured: false).order("updated_at DESC")
+		@vn = Vn.where(isFeatured: false).order("updated_at DESC").paginate(:page => params[:page],:per_page => 30)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
