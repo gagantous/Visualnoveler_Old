@@ -7,7 +7,7 @@ require 'rake'
 
 	def scrape_reddit(url)
 		#date = get_reddit_thread_markdown_post(url + ".json")
-		sleep(2)
+		#sleep(2)
 		retries_count = 0
 		# if date == ""
 		# 	p "Thread already exist!"
@@ -26,12 +26,12 @@ require 'rake'
 					text = list.text.strip
 					update = text.sub(/.*?-/,'').strip
 					title = text.split(/-/).first.strip
-					parse_translation_update(title,update,Time.at(date))
+					parse_translation_update(title,update,Date.today)
 					#p title + " - " + update
-				else 
 				end
 			end
 		rescue Exception => e
+			p e.message
 			retries_count += 1
 			sleep(2.5)
 			retry if retries_count <= 3
@@ -80,6 +80,7 @@ require 'rake'
 	def parse_translation_update(title,update,date)
 		vns = Vn.search_by_name(title)
 		title_array = []
+		p "running parse tl"
 		#If there is only 1 result, we assume that we are posting to the correct record
 		if vns.count == 1
 			@vn = vns.first
