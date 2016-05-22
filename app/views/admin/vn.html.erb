@@ -5,11 +5,12 @@
   			<div class="panel-body">
 		<table class="table table-responsive">
 			<h2>Visual Novel List</h2>
-			<h4><%= link_to 'Featured VN',  admin_vn_featured_path %>
-				<%= link_to 'Not Featured VN',  admin_vn_not_featured_path,style:"padding-left:35px;" %>
-				<%= link_to 'No SS',  admin_vn_no_screenshot_path,style:"padding-left:35px;" %>
-				<%= link_to 'No Other SS',  admin_vn_other_nil_path,style:"padding-left:35px;" %>
-
+			<h4><%= link_to 'Featured',  admin_vn_featured_path,class:"btn btn-default" %>
+				<%= link_to 'Not Featured',  admin_vn_not_featured_path,class:"btn btn-default" %>
+				<%= link_to 'No SS',  admin_vn_no_screenshot_path,class:"btn btn-default" %>
+				<%= link_to 'No Other SS', admin_vn_other_nil_path,class:"btn btn-default" %>
+				<%= link_to 'No Review', admin_vn_no_review_path,class:"btn btn-default" %>
+				<%= link_to 'No Walkthrough',admin_vn_no_walkthrough_path,class:"btn btn-default" %>
 			</h4>
 			<thead><tr>
 				<th>Name</th>

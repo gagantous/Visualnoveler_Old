@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'vn'
     get 'vn_featured'
+    get 'vn_no_walkthrough'
+    get 'vn_no_review'
     get 'vn_not_featured'
     get 'vn_no_screenshot'
     get 'vn_other_nil'

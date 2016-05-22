@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 	def vn
-		@vn = Vn.order("updated_at DESC").paginate(:page => params[:page],:per_page => 600)
+		@vn = Vn.order("updated_at DESC").paginate(:page => params[:page],:per_page => 300)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
@@ -35,6 +35,20 @@ class AdminController < ApplicationController
 	end
 	def vn_other_nil
 		@vn = Vn.all#.created_between(6.day.ago, Time.now)
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+	end
+
+	def vn_no_review
+		@vn = Vn.includes(:reviews).where(:reviews => {:vn_id => nil}).paginate(:page => params[:page], :per_page => 50)
+		if !current_user.admin? && !current_user.mod? 
+			user_not_authorized
+		end
+	end
+
+	def vn_no_walkthrough
+		@vn = Vn.where.not("walkthrough_content is NOT NULL and walkthrough_content != ''").paginate(:page => params[:page], :per_page => 50)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end

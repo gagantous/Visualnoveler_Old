@@ -4,7 +4,7 @@
 			<div class="panel panel-default">
   			<div class="panel-body">
   			<h2>Character List 
-				<%= link_to "Characters with no VN",admin_lonely_character_path,:class => "h4",:style => "padding-left:25px;color:#337ab7;" %>   
+				<%= link_to "Characters with no VN",admin_lonely_character_path,:class => "btn btn-default" %>   
 				</h2>
 				<div class="row">
 				<%= form_tag(search_characters_path, :method => "get", class: "navbar-form", id: "search-form") do %>

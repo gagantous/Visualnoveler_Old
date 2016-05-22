@@ -4,29 +4,26 @@
 			<div class="panel panel-default">
   			<div class="panel-body">
 		<table class="table">
-			<h2>No Other Screenshot</h2>
+			<h2>Visual Novels with no review</h2>
 			<h4><%= link_to 'Back' ,admin_vn_path,class:"btn btn-default" %></h4>
 			<thead><tr>
 				<th>Name</th>
 				<th>Edit</th>
 				<th>Last updated</th>
-				<th>Featured?</th>
 			</tr></thead>
 			<tbody>
 			<% @vn.each do |vn| %>
-			<% if vn.screenshots.blank? %>
 				<tr>
 				<td><%= link_to vn.name, vn_path(vn) %> </td>
 				<td><%= link_to 'Edit',edit_vn_path(vn) %></td>
 				<td><%= time_ago_in_words(vn.updated_at) %></td>
-				<td><%= vn.isFeatured? ? 'Yes' : 'No' %></td>
 				</tr>
-			<% end %>
 			<% end %>
 			</tbody>
 		</table>
 			</div></div>
 			
+			<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
 		</div>
 	</div>
 </div>
