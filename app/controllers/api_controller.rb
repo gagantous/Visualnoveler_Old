@@ -1,6 +1,7 @@
 class ApiController < ApplicationController
 	def vn	
-		@vn = Vn.search_by_name(params[:search])
+		# set a hard limit to prevent long ajax requests
+		@vn = Vn.search_by_name(params[:search]).limit(15)
 		render json: @vn,root: false
 	end
 

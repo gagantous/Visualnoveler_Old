@@ -17,7 +17,7 @@ jQuery ->
   users = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  limit: 10,
+  limit: 8,
   remote: {url:'/api/vns/search/%QUERY'
    , wildcard: '%QUERY'
    }
