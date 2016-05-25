@@ -1,5 +1,5 @@
 class VnSerializer < ActiveModel::Serializer
-  attributes :name,:image_poster
+  attributes :name,:image_poster,:vn_url
 
   # Too much bloat
   # :id,:name,:summary,:release_date,:image_poster,:image_coverpage,:vn_url,

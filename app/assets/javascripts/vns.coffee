@@ -17,7 +17,7 @@ jQuery ->
   users = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  limit: 8,
+  limit: 6,
   remote: {url:'/api/vns/search/%QUERY'
    , wildcard: '%QUERY'
    }
@@ -28,7 +28,8 @@ jQuery ->
   $('.typeahead').typeahead(null, {
       name: "mysearch"
       display: 'name'
-      limit: 8
+      limit: 6
+      minLength: 1
       source: users.ttAdapter()
       templates: {
          suggestion: Handlebars.compile('<div class="tt-row"><a href="{{vn_url}}">
