@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def library
     @user = User.find(params[:id])
-    @lib = @user.library_entries.order("status ASC").joins(:vn).order('vns.name')
+   @lib = @user.library_entries.priority_order.joins(:vn).order('vns.name')
     @lib_fav = @user.library_entries.where(favourite: true).joins(:vn).order('vns.name')
     @lib_completed = @lib.where(status: "complete").joins(:vn).order('vns.name')
     @lib_wishlist = @lib.where(status: "wishlist").joins(:vn).order('vns.name')
