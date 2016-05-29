@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     authorize @user
-  	@posts = @user.posts.paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
+  	@posts = @user.posts.order('created_at DESC').limit(8)
     @lib = @user.library_entries.where(favourite: true).limit(8)
     @recent_ratings = @user.library_entries.where.not(:rating => nil).order('updated_at DESC').limit(5)
     if user_signed_in?

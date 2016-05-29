@@ -1,9 +1,15 @@
 
       <% @posts.each do |post| %>
       <div class="row">
-       <div class="panel panel-default"><div class="panel-body">
+       <div class="panel panel-default"><div class="panel-body" style="position:relative;">
           <% vn = post.library_entry.vn if post.library_entry %>
-          
+          <div class = "post-delete-div">
+              <% if current_user == @user %>
+               <%= link_to post,:method=>:delete,:class =>"btn btn-danger pull-right",data:{ confirm: "Are you sure?"} do %>
+                  <i class="fa fa-trash-o"></i>
+                <% end %>
+              <% end %>
+          </div>
         <div class="col-md-2 col-xs-4 col-sm-4">
           <% if post.library_entry %>
           <%= link_to image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left"), vn_path(vn)  %>
@@ -19,7 +25,7 @@
           <h4><%= post.detail %></h4>
           <hr>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-7">
               <% if post.library_entry %>
                 <ul class="list-inline">
                   <% vn.genres.each do |genre| %>
@@ -31,13 +37,7 @@
             <div class="col-md-4">
               <h5 class="user-time vn-postdate"><%= time_ago_in_words(post.created_at) %> ago.</h5> 
             </div>
-            <div class="col-md-2 col-md-offset-6">
-              <% if current_user == @user %>
-            <%= button_to post,:method=>:delete,:class =>"btn btn-danger pull-right",data:{ disable_with: "Deleting Post...."} do %>
-              <i class="fa fa-trash-o"></i>
-            <% end %>
-          <% end %>
-            </div>    
+               
               <!-- end of nested divs-->
           </div>
         </div>

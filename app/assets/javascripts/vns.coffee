@@ -29,7 +29,6 @@ jQuery ->
       name: "mysearch"
       display: 'name'
       limit: 6
-      minLength: 1
       source: users.ttAdapter()
       templates: {
          suggestion: Handlebars.compile('<div class="tt-row"><a href="{{vn_url}}">

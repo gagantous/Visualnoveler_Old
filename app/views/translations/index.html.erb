@@ -1,28 +1,30 @@
 <% title "Visual Novel Translation Status" %>
 <div class="container">
-	<div class="row">
-		<div class="col-md-12 ">
-			<h1> Visual Novel Translation Status</h1>
-			<p style="margin-bottom:25px">This is a list of the latest visual novel translation updates which are sorted by date. </p>
-			<div class="table-responsive">
- 			 <table class="table table-bordered">
-				<thead>
-					<th>Visual Novel Name</th>
-					<th>Visual Novel Translation Update</th>
-					<th> Date </th>
-				</thead>
+	<div class="row" style="margin-top:25px;">
+		<div class="col-md-12" >
+	
+			<div class="table-responsive panel-default">
+				 <div class="panel-body" style="background-color:white;">
+				 			<h1> Visual Novel Translation Status</h1>
+			<p style="margin-bottom:25px">This is a list of the latest visual novel translation updates which are sorted by date that have been added to Visualnoveler. </p>
+	 			 <table class="table">
+					<thead>
+						<th>Visual Novel Name</th>
+						<th>Visual Novel Translation Update</th>
+						<th> Date </th>
+					</thead>
 
-				<% @posts.each do |translation| %>
-				<tbody>
-				<tr>
-					<td><%= link_to translation.vn.name,vn_path(translation.vn) unless translation.vn.blank? %></td>
-					<td><%= translation.post %></td>
-					<td><%= translation.created_at.strftime("%d %b %Y") %> </td>
-				</tr>
-				</tbody>
-				<% end %>
-			</table>
-
+					<% @posts.each do |translation| %>
+					<tbody>
+					<tr>
+						<td><%= link_to translation.vn.name,vn_path(translation.vn) unless translation.vn.blank? %></td>
+						<td><%= translation.post %></td>
+						<td><%= translation.created_at.strftime("%d %b %Y") %> </td>
+					</tr>
+					</tbody>
+					<% end %>
+				</table>
+				</div>
 	 		<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 			</div>
 		</div>

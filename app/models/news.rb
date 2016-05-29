@@ -12,8 +12,8 @@ class News < ActiveRecord::Base
 	end
 	private 
       def image_size
-        if featured_image.size > 3.megabytes
-          errors.add(:featured_image,"Should be less than 3 mb")
+        if featured_image.size > 5.megabytes
+          errors.add(:featured_image,"Should be less than 5 mb")
         end
       end
 end

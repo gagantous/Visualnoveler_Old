@@ -4,8 +4,8 @@ class NewsImage < ActiveRecord::Base
     validate :image_size
      private 
       def image_size
-        if image.size > 3.megabytes
-          errors.add(:image,"Should be less than 3 mb")
+        if image.size > 5.megabytes
+          errors.add(:image,"Should be less than 5 mb")
         end
       end
 end

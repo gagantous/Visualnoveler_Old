@@ -378,7 +378,9 @@ html, body {
   .vnindex-heading{
     top: -10px !important;
   }
-
+  .library-header-text {
+    text-align: center;
+  }
   .navbar-nav {
     margin: 0px;
     padding: 7.5px 15px;
@@ -2016,6 +2018,20 @@ img.center {
   float: left;
 }
 
+.post-delete-div {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 10;
+}
+.library-pill {
+  li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+  }
+}
 .bs-wizard {margin-top: 40px;}
 
 /*Form Wizard*/

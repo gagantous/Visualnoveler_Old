@@ -7,6 +7,7 @@ class NewsFeaturedUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   # Choose what kind of storage to use for this uploader:
 
+  process resize_to_limit: [1000,565]
   storage :file
   # storage :fog
   # Override the directory where uploaded files will be stored.

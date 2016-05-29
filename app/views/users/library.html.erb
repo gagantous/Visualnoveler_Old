@@ -31,26 +31,47 @@ body {
 
 <div class="container" style="margin-top:25px;">
 <div class="row">
-	<div class="col-md-10">
+	<div class="col-md-12">
     <div class="panel panel-default">
   <div class="panel-body">
-  	<h1 style="margin-top:10px;margin-bottom:40px;"><%= link_to @user.name, user_path(@user) %>'s visual novel library
-  	<div class="pull-right">
-  		<%= link_to 'Home', vns_path %>
+  	<div class="row" style="margin-bottom:20px;">
+  		<div class="col-md-4 col-xs-6 col-sm-4">
+		  	<h2>
+		  		<%= link_to @user.name , user_path(@user),class: "btn btn-default" %>
+		  	</h2>
+	  	</div>
+
+	  	<div class="col-xs-6 visible-xs">
+		  	<h2>
+	  			<%= link_to 'Visualnoveler', vns_path,class: "btn btn-default" %>
+		  	</h2>
+	  	</div>
+
+	  	<div class="col-md-6 col-xs-12 col-sm-5">
+	  		<h1 class="library-header-text"> Visual Novel Library</h1>
+	  	</div>
+	  	<div class="col-md-2 col-xs-12 col-sm-3 hidden-xs pull-right">
+	  		<h2>
+	  		<%= link_to 'Visualnoveler', vns_path,class: "btn btn-default" %>
+	  		</h2>
+	  	</div>
   	</div>
-  	</h1>
-	  <ul class="nav nav-pills">
-		<li class="active"><a data-toggle="tab" href="#watch" class="nav-library">Playing</a></li>
-		<li><a data-toggle="tab" href="#complete" class="nav-library">Completed</a></li>
-		<li><a data-toggle="tab" href="#wishlist" class="nav-library">Wishlist</a></li>
-		<li><a data-toggle="tab" href="#backlog" class="nav-library">Backlog</a></li>
-		<li><a data-toggle="tab" href="#favourite" class="nav-library">Favourites</a></li>
-		<li><a data-toggle="tab" href="#drop" class="nav-library">Dropped</a></li>
-		<li><a data-toggle="tab" class="nav-library" href="#home">All</a></li>
-	  </ul>
+  	<div class="row">
+  		<div class="col-md-12">
+		  <ul class="nav nav-pills text-center library-pill">
+			<li class="active"><a data-toggle="tab" class="nav-library" href="#home">All</a></li>
+			<li><a data-toggle="tab" href="#watch" class="nav-library">Playing</a></li>
+			<li><a data-toggle="tab" href="#complete" class="nav-library">Completed</a></li>
+			<li><a data-toggle="tab" href="#wishlist" class="nav-library">Wishlist</a></li>
+			<li><a data-toggle="tab" href="#backlog" class="nav-library">Backlog</a></li>
+			<li><a data-toggle="tab" href="#favourite" class="nav-library">Favourites</a></li>
+			<li><a data-toggle="tab" href="#drop" class="nav-library">Dropped</a></li>
+		  </ul>
+		</div>
+	</div>
 
 	<div class="tab-content">
-	  <div id="home" class="tab-pane fade">
+	  <div id="home" class="tab-pane fade in active">
 	  		<div class="table-responsive">
 		  	<table class="table table-hover">
 		    <thead>
@@ -67,7 +88,7 @@ body {
 	      	</table>
 	     	 </div>
 	  </div>
-	  <div id="watch" class="tab-pane fade in active">
+	  <div id="watch" class="tab-pane fade">
 	  		<div class="table-responsive">
 	 		<table class="table table-hover">
 		    <thead>
@@ -175,23 +196,23 @@ body {
 	<ul class="list-inline user-library-list-inline">
 		<li>
 			<% unless @avg_lib_score.blank? %>
-				Average Rating: <%= compute_average(@avg_lib_score) %>
+				<h4>Average Rating: <%= compute_average(@avg_lib_score) %></h4>
 			<% end %>
 		</li>
 		<li>
 			<% unless @avg_lib_playingScore.blank? %>
-				Average Playing Rating: <%= compute_average(@avg_lib_playingScore) %>
+				<h4>Average Playing Rating: <%= compute_average(@avg_lib_playingScore) %></h4>
 				<% else %>
 			<% end %>
 		</li>
 		<li>
 			<% unless @avg_lib_completedScore.blank? %>
-				Average Completed Rating: <%= compute_average(@avg_lib_completedScore) %>
+				<h4>Average Completed Rating: <%= compute_average(@avg_lib_completedScore) %></h4>
 			<% end %>
 		</li>
 		<li>
 			<% unless @avg_lib_favScore.blank? %>
-				Average Favourite Rating: <%= compute_average(@avg_lib_favScore) %>
+				<h4>Average Favourite Rating: <%= compute_average(@avg_lib_favScore) %></h4>
 			<% end %>
 		</li>
 	</ul>  

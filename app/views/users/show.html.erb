@@ -34,18 +34,6 @@
 	           					 <span class="button-text"><%= @similar_lib.count %> Shared VNs</span>
 	        				 <% end %>
         				 <% end %>
-					<!-- <div class="dropdown">	
-						<%= link_to '', :class => "btn blue-button dropdown-toggle",'data-toggle' => 'dropdown',id: 'dropdownMenu1','aria-haspopup' => true, 'aria-expanded' => true,type: "button"  do %>
-							<span class="button-text">Library View</span>
-		    				<span class="caret"></span>
-						<% end %>
-					  	<ul class="dropdown-menu" style="" aria-labelledby="dropdownMenu1">
-							<li><%= link_to 'Completed', completed_user_path(@user) %></li>
-						    <li><%= link_to 'Watching', watch_user_path(@user) %></li>
-						    <li><%= link_to 'Dropped', drop_user_path(@user) %></li>
-						    <li><%= link_to 'Wishlist', wishlist_user_path(@user) %></li>
-						</ul>
-					</div> -->
 					</div>
 				</div>
 			</div>
@@ -88,9 +76,7 @@
 					 </div>
 				<% end %>
 				<%= render 'library_entries',locals:{posts: @posts} %>
-				<div id="with-button">
-					<%= will_paginate @posts,renderer: BootstrapPagination::Rails %>
-				</div>
+				
 			</div>
 			<%= render 'recent_ratings',locals:{recent_ratings: @recent_ratings} %>
 			
