@@ -80,7 +80,7 @@ require 'rake'
 	def parse_translation_update(title,update,date)
 		vns = Vn.search_by_name(title)
 		title_array = []
-		p "running parse tl"
+		#p "running parse tl"
 		#If there is only 1 result, we assume that we are posting to the correct record
 		if vns.count == 1
 			@vn = vns.first
@@ -138,8 +138,10 @@ require 'rake'
 	  mechanize = Mechanize.new
 	  mechanize.user_agent_alias = 'Mac Safari'
 	  page = mechanize.get("https://www.reddit.com/r/visualnovels/")
-	  link = page.link_with(text: "TL status")
-	  link_filtered = link.uri.to_s.gsub!("r/visualnovels/","")
+	  #link = page.link_with(text: "TL status")
+	  link = page.search(".side .md h4 a:nth-of-type(1)").attr("href").text.strip
+	  #link_filtered = link.uri.to_s.gsub!("r/visualnovels/","")
+	  link_filtered = link.gsub!("r/visualnovels/","")
 	  translation_link = "https://www.reddit.com/r/visualnovels/comments" + link_filtered
 	  scrape_reddit(translation_link)
 	end
