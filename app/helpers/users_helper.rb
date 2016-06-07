@@ -11,7 +11,7 @@ module UsersHelper
 		elsif text =="backlog"
 			return "Backlog"
 		else
-			return "Favourite"
+			return "Unspecifed"
 		end
 
 	end

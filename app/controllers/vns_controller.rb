@@ -66,7 +66,7 @@ class VnsController < ApplicationController
 		@vn = @vn.where(status: get_status(status)) unless status.blank?
 		@vn = @vn.paginate(:page => params[:page], :per_page => 25)
 		if status.blank? && rating.blank? && genre_ids.blank?
-			@vn = nil
+			@vn = @vn.limit(25)
 		end
 	end
 
