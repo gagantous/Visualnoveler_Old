@@ -13,6 +13,14 @@ $font-size-h5: $font-size-base;
 .navbar-default{
   background-color: white;
 }
+
+.navbar-default,.navbar-toggle{
+  border-color: transparent !important;
+}
+.navbar-toggle{
+  margin-top: 12px !important;
+}
+
 .share-button {
   text-transform: none;
 }
@@ -54,6 +62,9 @@ $font-size-h5: $font-size-base;
 #vn-character,#franchise-related,#vn-screenshot{
  h3{
     font-size: 24px;
+  }
+  .character-row {
+    margin-top: 20px;
   }
 }
 html {
@@ -398,8 +409,8 @@ html, body {
     right: 10px; 
   }
 
-  .vnchar-rowpadding{
-   // padding-right: 60px;
+  .vn-character-textpadding{
+    padding-left: 30px;
   }
   .home-registerbtn{
     position: relative;
@@ -487,11 +498,7 @@ html, body {
     position:relative;
     display: inline;
   }
-  //VN Show page
-  .vn-characterbottompadding {
-    padding-bottom: 20px;
-    padding-left: 30px;
-  }
+
    .vn-score{
     padding-left: 25px;
     font-size: 1.2em;
@@ -626,12 +633,6 @@ html, body {
     bottom: 5px;
   }
  
-  .vn-characterbottompadding {
-    padding-bottom: 20px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
   .vn-score{
     padding-left: 50px;
     font-size: 1.2em;
@@ -836,10 +837,7 @@ html, body {
 //specific character css for vn show page 
 @media (max-width: 519px) {
   // to ensure that bootstrap colummns float in columns properly
-  .removecharacterpadding{
-    padding-right: 15px !important;
-    padding-left: 15px !important;
-  }
+
 }
 // specific css for custom floating jquery share to work with visualnoveler footer
 @media (max-width: 950px) {
@@ -1325,11 +1323,6 @@ background-size: cover;
  }
 //horizontal checkbox styling
 
-
-.removecharacterpadding{
-  padding-right: 0px;
-  padding-left: 0px;
-}
 
 .vncharacter-padding {
  // padding-right: 10px;

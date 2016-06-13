@@ -4,6 +4,10 @@ require 'rake'
   	@failed_url = []
   	@development_user_id = 12
   	@production_user_id = 43
+  	@redundant_vns = ["Monster girl quest paradox","My Boss Wife is My Ex","Kuroinu",
+  					"Imouto Paradise 2","Kyonyuu Fantasy","Fata morgana fan disc",
+  					"Sumeragi Ryoko","Sweet Home","Oreimo Tsuzuku","Hoka no Onna","2236 A.D.",
+  					"Lovely Cation"]
 
 	def scrape_reddit(url)
 		#date = get_reddit_thread_markdown_post(url + ".json")
@@ -80,7 +84,10 @@ require 'rake'
 	def parse_translation_update(title,update,date)
 		vns = Vn.search_by_name(title)
 		title_array = []
-		#p "running parse tl"
+		if @redundant_vns.include?(title)
+			# stop parsing if title is in filtered list
+			return
+		end
 		#If there is only 1 result, we assume that we are posting to the correct record
 		if vns.count == 1
 			@vn = vns.first

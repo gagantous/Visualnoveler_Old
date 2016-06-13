@@ -166,18 +166,20 @@
 			
 			<% @showcharacters.in_groups_of(6,false) do |charRow| %>
 
-		<div class="row vnchar-rowpadding">
+		<div class="row character-row">
 		<% charRow.each do |char| %>
-		<div class="col-md-2 col-xs-4 col-sm-2 removecharacterpadding">
-				<div class="col-md-6 col-sm-12 col-xs-12 adjustcharacter">
+		<div class="col-md-2 col-xs-4 col-sm-2">
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12">
 					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
 						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "img-circle img-thumbnail") %>
 					<% end %>
 				</div>
-				<div class="col-md-6 col-sm-12 col-xs-12 vn-characterbottompadding">
+				<div class="col-md-6 col-sm-12 col-xs-12 vn-character-textpadding">
 					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5 vnpage-charname" %> <br>
 					<span class="character-role"><%= char.role unless char.role == "Not Set" %> </span>
 				</div>
+			</div>
 			
 		</div>
 		<% end %>
