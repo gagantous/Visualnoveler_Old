@@ -42,7 +42,6 @@ gem 'active_model_serializers'
 gem "fog"
 
 gem "font-awesome-rails"
-
 gem 'spring',        group: :development
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
