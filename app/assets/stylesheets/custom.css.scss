@@ -1960,6 +1960,9 @@ img.center {
     padding-top: 25px;
     height: 0;
 }
+.responsive-default iframe {
+  width:  100%;
+}
 .responsive-video iframe {
     position: absolute;
     top: 0;
