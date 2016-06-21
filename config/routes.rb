@@ -129,6 +129,7 @@ Rails.application.routes.draw do
   get '/anime-studio-sim/story' => 'pages#anime_sim_story'
   get '/anime-studio-sim/characters' => 'pages#anime_sim_characters'
   get '/anime-studio-sim/gallery' => 'pages#anime_sim_gallery'
+  get '/anime-studio-sim/presskit' => 'pages#anime_sim_press'
   post 'vns/:id/favourite' => 'vns#favourite'
   post 'vns/:id/status' => 'vns#status'
   post 'vns/:id/rate' => 'vns#rate'

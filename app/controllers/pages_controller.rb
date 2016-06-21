@@ -52,6 +52,10 @@ class PagesController < ApplicationController
     render :layout => 'anime_sim'
   end
 
+  def anime_sim_press
+    render :layout => 'none'
+  end
+
 
   
 end

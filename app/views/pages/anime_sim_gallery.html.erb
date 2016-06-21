@@ -12,12 +12,26 @@ body {
 
 
  <div class="container">
-  <div class="row">
-    <div class="col-md-6 col-centered">
-      <h2>Gallery (Work in Progress)</h2>
+  <div class="row" style="margin-bottom:45px;">
+
+      <h2>Gallery Images </h2>
+     
+     <% (1..5).each do |i| %>
+          <div class="col-md-4">
+            <%= link_to(image_tag("anime-sim/screenshots/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/screenshots/#{i}.jpg")) %>
+          </div>
+     <% end %>
+    <div class="col-md-4">
       <%= link_to asset_path("anime-sim/bg1.jpg"), :class => 'fancybox', :rel =>'group' do %>
-           <%= image_tag(asset_path("anime-sim/bg1.jpg"),class:"img-responsive sim-circle",style:"margin-bottom:45px;") %>
+           <%= image_tag(asset_path("anime-sim/bg1.jpg"),class:"img-responsive sim-circle",style:"padding-top:10px;padding-bottom:10px;") %>
       <% end %>
+    </div>
+
+      <% (1..5).each do |i| %>
+          <div class="col-md-4">
+              <%= link_to(image_tag("anime-sim/gui/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/gui/#{i}.jpg")) %>
+          </div>
+     <% end %>
      
 
     </div>
