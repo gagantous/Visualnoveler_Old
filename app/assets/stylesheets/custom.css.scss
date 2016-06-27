@@ -63,9 +63,7 @@ $font-size-h5: $font-size-base;
  h3{
     font-size: 24px;
   }
-  .character-row {
-    margin-top: 20px;
-  }
+  
 }
 html {
     position: relative;
@@ -389,6 +387,10 @@ html, body {
   .vnindex-heading{
     top: -10px !important;
   }
+
+  .character-row {
+    min-height: 220px;
+  }
   .library-header-text {
     text-align: center;
   }
@@ -466,6 +468,9 @@ html, body {
    .btn-vnlist{
     position:relative;
     bottom:10px;
+  }
+  .character-row {
+    min-height: 200px;
   }
  
 }
@@ -612,6 +617,10 @@ html, body {
 //desktop 
 @media (min-width: 1200px) { 
   //VN Show page
+
+  .character-row {
+    min-height: 110px;
+  }
   .usernav-name{
    position: relative;
    top: 5px
