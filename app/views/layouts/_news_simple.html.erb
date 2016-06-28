@@ -17,7 +17,7 @@
 		<% if news.content.length > 400 %>
 			<%= markdown(HTML_Truncator.truncate(news.content,100)) %>
 		<% else %>
-			<% markdown(news.content) %>
+			<%= markdown(news.content) %>
 		<% end %>
 		<%= link_to 'Read More',news_path(news),'data-no-turbolink' =>"true",class:"btn blue-button read-more" unless news.content.length < 400 %>
 		<hr class="news-hr">
