@@ -1,0 +1,21 @@
+<div class="row news-meta">
+	<div class="col-md-2 col-xs-3" style="min-height:78px;">
+		<%= image_tag(news.user.poster_image,class:"img-circle author-img") %>
+	</div>
+
+	<div class="col-md-8 col-xs-9">
+		<span class="author">
+			<%= link_to news.user.name,user_path(news.user) %>
+
+		</span>
+		<ul class="list-inline">
+			<% news.tags.each do |tag| %>
+			<li>
+				<%= link_to tag.name, tag_path(tag),class:"tags-item" %> 
+			</li>
+			<% end %>
+		</ul>
+		<%= news.created_at.strftime("%d %b %Y") %>
+
+	</div>
+</div>

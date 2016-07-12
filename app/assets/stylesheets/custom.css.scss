@@ -134,13 +134,10 @@ footer {
   .news-meta {
     font-size: 0.82em;
     font-family: "Open Sans", sans-serif;
-    display: inline-block;
     font-weight: 500;
     color: #9EABB3;
   }
-  .author-img {
-    margin-top: 10px;
-  }
+
   .read-more:hover{
    background-color: #738bd7;
    color: white;
@@ -611,7 +608,10 @@ html, body {
 //desktop 
 @media (min-width: 1200px) { 
   //VN Show page
-
+  .author-img {
+    width: 75%;
+    margin: 0 auto;
+  }
   .character-row {
     min-height: 110px;
   }
@@ -728,12 +728,15 @@ html, body {
      
   }
   #vn-review-section,#vn-walkthrough{
-  p{
-    //line-height: 1.2em;
-    font-size: 17px !important;
-    // line-height: 1.35em;
+    p{
+      //line-height: 1.2em;
+      font-size: 17px !important;
+      // line-height: 1.35em;
+    }
   }
-}
+  .author-img {
+    //margin-top: 10px;
+  }
 }
 
 // small tablet + mobile
@@ -2047,6 +2050,10 @@ img.center {
   margin-bottom: 5px;
 }
 .bs-wizard {margin-top: 40px;}
+
+.author-img {
+
+}
 
 /*Form Wizard*/
 .bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 10px 0;}
