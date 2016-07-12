@@ -28,11 +28,9 @@
 <div class="container vn-show-padding">
 	<div class="row">
 	
-		<div class="col-lg-3">
-			<div class="panel panel-default">
-  			<div class="panel-body panel-vnshow">
+		<div class="col-lg-3" style="position:relative;">
 
- 			<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit", 'data-no-turbolink' =>"true" do %>
+ 			<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit visible-lg-block", 'data-no-turbolink' =>"true" do %>
 				<i class="fa fa-pencil"></i>
 			<% end %>
 			<div id ="vn-favourite">
@@ -40,48 +38,7 @@
 			</div>
 			<%= image_tag("#{@vn.image_poster.url}",:alt => "#{@vn.name}", :class=> "img-responsive") %>
 
-			<% if !@vn.trailer_url.blank? %>
-			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
-		
-				<i class="fa fa-youtube-play fa-3x dd"></i>
-			<% end %> <% end %>
-
-				<ul class="list-inline">
-					<% @vn.genres.each do |genre| %>
-						<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre),:class =>"vn-genre summary-text" %></li>
-					<% end %>
-				</ul>
-
-			<% if !@vn.publishers.blank? %><span class="vn-label">Publishers:</span> 
-				<% @vn.publishers.each do |publisher| %>
-				<%= link_to publisher.name,publisher_path(publisher) %>
-				<% end %>
-			<br> <% end %>
-			<span class="vn-label">Developer:</span> <% if @vn.developer %><%= link_to @vn.developer.name, developer_path(@vn.developer) %>
-			<br> <% end %>
-			<span class="vn-label">Release Date:</span> <%= @vn.release_date.to_formatted_s(:rfc822) unless @vn.release_date.blank? %>
-			<br>
-			<span class="vn-label">Status:</span> <%= @vn.status %>
-			<br>
-			<% if !@vn.alias.blank? %>
-			<span class="vn-label">Alias:</span> <h2><%= @vn.alias %> </h2>
-			<br> <% end %>
-			<% unless @vn.buy_1.blank? && @vn.buy_2.blank? && @vn.buy_3.blank? && @vn.buy_4.blank? %>
-				<span class="vn-label">Purchase:</span><%= get_purchase_location(@vn.buy_1) %> <%= get_purchase_location(@vn.buy_2) %> 
-					<%= get_purchase_location(@vn.buy_3) %> <%= get_purchase_location(@vn.buy_4) %>
-				
-			<% end %>
-			<% unless @translation.blank? %> 
-				<div class="text-center" style="padding-top:15px;">
-				<% if @vn.status == "Translated" %>
-					<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#A7B4BB !important;" %> 
-				<% else %>
-					<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#3498db !important;" %> 
-				<% end %>
-				</div>
-			<% end %>
-		</div>
-	</div>
+			<%= render 'vn_item_panel' ,locals: {vn: @vn}%>
 		</div>
 		<div class="col-lg-9 col-md-9">
 			<% if @vn.name.length > 30 %>
@@ -245,12 +202,12 @@
 						<% end %>
 					</div>
 					<div class="actions col-md-6 col-sm-6 col-lg-5 col-xs-12 mobile-review-tab">
-						<div class="btn-group mobile-review-buttongroup" data-toggle="buttons">
-							<a href="#recent" aria-controls="recent" role="tab" data-toggle="tab" class="btn grey-salsa">Recent</a>
+						<ul class="btn-group mobile-review-buttongroup list-inline" data-toggle="buttons">
+							<a href="#recent" aria-controls="recent" role="tab" data-toggle="tab" class="btn grey-salsa active">Recent</a>
 							<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="btn grey-salsa">Positive</a>
 							<a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" class="btn grey-salsa">Negative</a>
 							<a href="#write" aria-controls="settings" role="tab" data-toggle="tab" class="btn grey-salsa">Write a Review</a>
-						</div>
+						</ul>
 					</div>
 				</div>
 				</div>

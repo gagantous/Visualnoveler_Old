@@ -18,7 +18,7 @@ $font-size-h5: $font-size-base;
   border-color: transparent !important;
 }
 .navbar-toggle{
-  margin-top: 20px !important;
+  margin-top: 17px !important;
 }
 
 .share-button {
@@ -138,19 +138,8 @@ footer {
     font-weight: 500;
     color: #9EABB3;
   }
-  .news-share-div{
-    // max-width: 100%;
-    // word-wrap: break-word;
-    // white-space: initial;
-  }
-  .news-share-div {
-    
-    // ul {
-    //     display: inline;
-    // }
-    // .sb-social{
-    //   max-width: 100%;
-    // }
+  .author-img {
+    margin-top: 10px;
   }
   .read-more:hover{
    background-color: #738bd7;
@@ -171,7 +160,6 @@ footer {
     color: #738bd7!important;
     /* font-size: 0.88889em; */
     font-weight: 700;
-    padding: 5px;
     border-radius: 4px;
   }
   .news-hr {
@@ -198,7 +186,10 @@ footer {
     color: #9EABB3;
   }
   .author {
-    padding-left: 30px;
+    display: block;
+    a {
+      color: black;
+    }
   }
 
   a:hover {
@@ -520,20 +511,23 @@ html, body {
     float: none;
   }
 
-  .vn-buttonedit{
+ 
+ // let's hide the edit button on mobile
+  .vn-buttonedit{ 
     position: absolute;
     min-width: 30px !important;
     border-radius: 0px !important;
     background-color: rgba(0,0,0,0.45);
-    top: 10px;
-    left: 241px;
+    top: 0px;
+    right: 0px;
+    margin: 0px 20px 0 0;
     padding: 0px 0px 0px 0px;
   }
 
   .vn-youtube {
     position: absolute;
     top: 42%;
-    left: 43%;
+    left: 37%;
     opacity: 0.9;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
@@ -656,8 +650,9 @@ html, body {
     min-width: 30px !important;
     border-radius: 0px !important;
     background-color: rgba(0,0,0,0.45);
-    top: 10px;
-    right: 11px;
+    top: 0px;
+    right: 0px;
+    margin: 0px 20px 0 0;
     padding: 0px 0px 0px 0px;
   }
   .vn-pull-right {
@@ -666,7 +661,7 @@ html, body {
 
   .vn-youtube {
     position: absolute;
-    top: 40%;
+    top: 38%;
     left: 50%;
     opacity: 0.9;
     /* bring your own prefixes */
@@ -922,10 +917,6 @@ html, body {
   background:#6C8CD8;
 }
 
-.panel-vnshow{
-  padding-left: 5px;
-  padding-right: 5px;
-}
 
 .panel-vnindex{
   border-top: 0px;
@@ -1496,14 +1487,16 @@ body {
 .vn-contentpadding {
   padding-left: 5px;
 }
-//fav
+//favourite button
 .vn-button{
-  position: absolute;
-  min-width: 30px !important;
-  border-radius: 0px !important;
-  background-color: rgba(0,0,0,0.45);
-  top: 10px;
-  padding: 0px 0px 0px 0px;
+    position: absolute;
+    min-width: 30px !important;
+    border-radius: 0px !important;
+    background-color: rgba(0,0,0,0.45);
+    top: 0px;
+    left: 0px;
+    margin: 0px 0px 0 15px;
+    padding: 0px 0px 0px 0px;
 }
 .vn-crop {
 
@@ -2036,6 +2029,22 @@ img.center {
     *display:inline; /* ie7 fix */
      zoom:1; /* hasLayout ie7 trigger */
   }
+}
+
+.vn-youtube,.vn-youtube:hover {
+  color: #0C090A;
+}
+.vn-youtube-circle {
+  color:black;
+  font-size: 3em !important;
+}
+.vn-youtube-play {
+  color:white;
+  left: 8px !important;
+}
+
+.vn-genres {
+  margin-bottom: 5px;
 }
 .bs-wizard {margin-top: 40px;}
 

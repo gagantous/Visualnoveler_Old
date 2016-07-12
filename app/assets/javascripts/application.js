@@ -24,7 +24,6 @@
 //= require_tree .
 //= require starburst/starburst
 //= require fancybox
-//= require share-button
 /*
 
 Copyright (C) 2011 by Yehuda Katz

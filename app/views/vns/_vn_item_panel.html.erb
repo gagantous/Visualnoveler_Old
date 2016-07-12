@@ -1,0 +1,53 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<% if !@vn.trailer_url.blank? %>
+			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-1x vn-youtube-circle"></i>
+					<i class="fa fa-play fa-stack-1x vn-youtube-play" ></i>
+				</span>
+			<% end %> 
+		<% end %>
+
+		<ul class="list-inline vn-genres">
+			<% @vn.genres.each do |genre| %>
+			<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre),:class =>"vn-genre summary-text" %></li>
+			<% end %>
+		</ul>
+
+		<% if !@vn.publishers.blank? %><span class="vn-label">Publishers:</span> 
+		<% @vn.publishers.each do |publisher| %>
+		<%= link_to publisher.name,publisher_path(publisher) %>
+		<% end %>
+		<br> <% end %>
+
+		<% if @vn.developer %>
+		<span class="vn-label">
+			Developer:
+		</span>
+		<%= link_to @vn.developer.name, developer_path(@vn.developer) %> <br> 
+		<% end %>
+
+		<span class="vn-label">Release Date:</span> <%= @vn.release_date.to_formatted_s(:rfc822) unless @vn.release_date.blank? %>
+		<br>
+		<span class="vn-label">Status:</span> <%= @vn.status %>
+		<br>
+		<% if !@vn.alias.blank? %>
+		<span class="vn-label">Alias:</span> <h2><%= @vn.alias %> </h2>
+		<br> <% end %>
+		<% unless @vn.buy_1.blank? && @vn.buy_2.blank? && @vn.buy_3.blank? && @vn.buy_4.blank? %>
+		<span class="vn-label">Purchase:</span><%= get_purchase_location(@vn.buy_1) %> <%= get_purchase_location(@vn.buy_2) %> 
+		<%= get_purchase_location(@vn.buy_3) %> <%= get_purchase_location(@vn.buy_4) %>
+
+		<% end %>
+		<% unless @translation.blank? %> 
+		<div class="text-center" style="padding-top:10px;">
+			<% if @vn.status == "Translated" %>
+			<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#A7B4BB !important;" %> 
+			<% else %>
+			<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#3498db !important;" %> 
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>

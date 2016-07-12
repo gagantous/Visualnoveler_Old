@@ -1,15 +1,27 @@
 <% @news.each do |news| %>
 	<div class="news">
 		<div class="news-meta">
-			<%= news.created_at.strftime("%d %b %Y") %>
+			<div class="row">
+			<div class="col-md-2">
+			
+			<%= image_tag(news.user.poster_image,class:"img-responsive img-circle author-img") %>
+
+		</div>
+		<div class="col-md-10">
 			<span class="author">
 				<%= link_to news.user.name,user_path(news.user) %>
+
 			</span>
-			<ul class="tags-list list-inline">
+
+			<%= news.created_at.strftime("%d %b %Y") %>
+			<ul class="list-inline">
 				<% news.tags.each do |tag| %>
-				<li><%= link_to tag.name, tag_path(tag),class:"tags-item" %> </li>
+				<li>
+					<%= link_to tag.name, tag_path(tag),class:"tags-item" %> 
+				</li>
 				<% end %>
 			</ul>
+		</div>
 		</div>
 
 		<h1> <%= link_to news.title,news_path(news),'data-no-turbolink' =>"true",class: "title-link" %> </h1>
