@@ -28,6 +28,7 @@ gem 'remotipart', '~> 1.2'
 #announcements
 gem "starburst"
 gem "html_truncator", "~>0.2"
+gem "truncate_html"
 # authentication
 gem 'devise'
 gem "pundit"

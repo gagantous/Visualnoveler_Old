@@ -8,7 +8,7 @@
 		</h1>
 		<%= image_tag(news.featured_image.url,class: "news-featuredimg") unless news.featured_image.blank? %>
 		<% if news.content.length > 400 %>
-			<%= markdown(HTML_Truncator.truncate(news.content,100)) %>
+			<%= truncate_html(markdown(news.content),length: 500) %>
 		<% else %>
 			<%= markdown(news.content) %>
 		<% end %>
