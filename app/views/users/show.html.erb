@@ -88,46 +88,10 @@
 <!-- comments !-->
 <div class="container">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-
-		<% if user_signed_in? %>
-		<div class="user-createpost">
-		<div class="row">
-			
-				<div class="col-md-9">
-					<%= simple_form_for @new_comment do |f| %>
-					<%= f.input :detail,placeholder: "Post a comment?",label: false,input_html: {style: "height:70px;"}  %>
-					<%= f.hidden_field :wall_author_id,value: @user.id %>
-		 			 <%= f.button :submit , class: "btn btn-success pull-right user-postbutton",data:{ disable_with: "Creating Comment...."} %>
-		 			 <% end %>
-				</div>
-			
-		</div>
-		</div>
-		<% end%>
-<!-- 
-		<a href="#" id="add_comment_link">Comments</a>
-		<a href="#" id="hide_comment_link">hide</a> -->
-		<% @comments.each do |comment| %> 
-		<div class="row">
-
-		<div class="col-md-2 col-xs-4">
-			<%= display_avatar_no_sign_in(comment.post_author,"img-responsive") %>
-		</div>
-		<div class="col-md-7" id ="show_comment">
-			<p><span class="text-primary default-text"><%= link_to comment.post_author.name,user_path(comment.post_author) %> </span><span class="vn-postdate"> 5 minutes ago</span></p> 
-		<p><%= comment.detail %> </p>
-		<% if current_user == @user %>
-		<%= button_to comment,:method=>:delete,:class =>"btn btn-danger pull-right", style:"position:relative;bottom:37px;",data:{ disable_with: "Deleting comment...."} do %>
-			 	<i class="fa fa-trash-o"></i>
-				<% end %>
-		<% end %>
-		</div>
-
-		</div>
-		<% end %>
 		
-	<%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
-		</div>
-</div></div>
+		<!-- No good reason for comments to exist right now
+		<%= render 'comments',comments: @comments %>
+		 !-->
+	</div>
+</div>
 </section>

@@ -40,14 +40,22 @@
 		<%= get_purchase_location(@vn.buy_3) %> <%= get_purchase_location(@vn.buy_4) %>
 
 		<% end %>
-		<% unless @translation.blank? %> 
-		<div class="text-center" style="padding-top:10px;">
-			<% if @vn.status == "Translated" %>
-			<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#A7B4BB !important;" %> 
-			<% else %>
-			<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#3498db !important;" %> 
-			<% end %>
-		</div>
+
+		<% unless @vn.walkthrough_content.blank? %>
+			<div class="text-center" style="padding-top:10px;">
+				<%= link_to 'Route Walkthrough', walkthrough_vn_path(@vn),class:"vn-label",style: "color:#1F3A93 !important;" %> 
+			</div>
 		<% end %>
+
+		<% unless @translation.blank? %> 
+			<div class="text-center" style="padding-top:10px;">
+				<% if @vn.status == "Translated" %>
+				<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#A7B4BB !important;" %> 
+				<% else %>
+				<%= link_to 'Translation Status', translation_vn_path(@vn),class:"vn-label",style: "color:#3498db !important;" %> 
+				<% end %>
+			</div>
+		<% end %>
+
 	</div>
 </div>

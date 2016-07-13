@@ -47,7 +47,10 @@
 			 	<h1><%= @vn.name %> </h1>
 			 <% end %>
 			  
- 			<span class="default-text vn-score">Score: <%= @vn.rating_number%> </span>
+ 			<span class="default-text vn-score">
+ 				Score: <%= @vn.rating_number%> 
+
+ 			</span>
  			<!-- start of buttons -->
  			<div class="vn-pull-right">
 			 <% if user_signed_in? %>
@@ -157,12 +160,7 @@
 				<%= render 'franchise',franchises: @franchise %>
 			</div>
 		<% end %>
-		<% unless @vn.walkthrough_content.blank? %>
-		<div class="col-md-6 col-xs-12">
-			<h3>Route Walkthroughs</h3>
-			<%= link_to image_tag("vn-review.jpg",:alt => @vn.name + " Character Walkthrough",:class =>"img-responsive",:style =>"float:left;"),walkthrough_vn_path(@vn),:target =>"_blank"  %>
-		</div>
-		<% end %>
+		<!-- TO-DO, include something here next time, recommendations? !-->
 	</div>
 </div>
 </section>	

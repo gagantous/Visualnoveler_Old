@@ -297,9 +297,7 @@ html, body {
   max-width: 100%;
 }
 
-.padding-search{
-  margin-top: 9px;
-}
+
 .tt-query {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -387,9 +385,7 @@ html, body {
     margin: 0px;
     padding: 7.5px 15px;
   }
-  .favourites-inner-row{
-    padding-left: 15px;
-  }
+
   .emailaddress{
     position: relative;
     left: 55px;
@@ -757,7 +753,10 @@ html, body {
     margin-bottom: 15px;
     left: 0px !important
   }
-
+  .footer-social {
+    float: none !important;
+    text-align: center;
+  }
 
 }
 // tablet + desktop
@@ -765,6 +764,9 @@ html, body {
   .container-news{
     width: 90%;
     max-width: 808px;
+  }
+  .padding-search{
+    margin-top: 9px;
   }
   .vnindex-row {
     margin-left: 70px !important;
@@ -1163,6 +1165,11 @@ body {
   left: 30px;
 }
 
+.favourites-inner-row{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .vn-user-poster {
   // width: 200px;
   width:  100px;
@@ -1279,12 +1286,12 @@ background-size: cover;
 }
 
 .user-favimg {
-  width: 72px;
-  height: 97px;
+  width: 63px;
+  height: 85px;
 }
 .user-favcolumn {
-  width: 72px;
-  height: 97px;
+  width: 63px;
+  height: 85px;
   float: left;
   overflow: hidden;
 }
@@ -1721,9 +1728,9 @@ ul.img-list-hover-fav {
 
 ul.img-list-hover-fav li {
   display: inline-block;
-  height: 97.875px;
+  height: 85px;
   position: relative;
-  width: 72px;
+  width: 63px;
   float: left;
 }
 span.text-content-fav {
@@ -1731,11 +1738,11 @@ span.text-content-fav {
   color: white;
   cursor: pointer;
   display: table;
-  height: 97.875px;
+  height: 85px;
   left: 0;
   position: absolute;
   top: 0;
-  width: 72px;
+  width: 63px;
   opacity: 0;
   -webkit-transition: opacity 500ms;
   -moz-transition: opacity 500ms;
@@ -2049,12 +2056,9 @@ img.center {
 
 #franchise-related {
   hr {
-    margin-top: 10px;
-    margin-bottom: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     border-bottom: 1px solid #dcdcdc;
-  }
-  .list-unstyled > li {
-    padding: 5px;
   }
 }
 .col-centered{

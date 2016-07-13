@@ -140,7 +140,7 @@
           <% end %>
           </ul>
         
-       
+        
            <div class="input-append">
              <%= form_tag(search_path, :method => "get", class: "navbar-form", id: "search-form" ) do %>
                 <%= text_field_tag :search, params[:search], class: "form-control typeahead", placeholder: "Search Visual Novels" %>
@@ -166,7 +166,7 @@
  <footer>
   <div class="container">
     <div class="row">      
-      <div class="col-md-9 col-centered">  
+      <div class="col-md-10 col-lg-8 col-centered">  
       <ul class="list-inline" style="padding-top:7px;padding-bottom:7px;">
         <li class="footer-text"style="font-size:14px !important;"> &copy; Visualnoveler</li>
         <li> <%= link_to 'About' ,about_path ,class: "footer-text" %> </li>
