@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/resources' => 'pages#resources'
   get '/recommendation' => 'pages#recommendation'
-  #get '/blogs' => 'pages#blogs'
+  get '/blogs' => 'pages#blogs'
   root 'pages#home'
   post 'pages/subscribe' , :path => "subscribe"
   get 'search' => 'pages#search'

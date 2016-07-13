@@ -7,7 +7,7 @@ require 'rake'
   	@redundant_vns = ["Monster girl quest paradox","My Boss Wife is My Ex","Kuroinu",
   					"Imouto Paradise 2","Kyonyuu Fantasy","Fata morgana fan disc",
   					"Sumeragi Ryoko","Sweet Home","Oreimo Tsuzuku","Hoka no Onna","2236 A.D.",
-  					"Lovely Cation","WEE 3","Grisaia trilogy","Muv Luv Trilogy"]
+  					"Lovely Cation","WEE 3","Grisaia trilogy","Muv Luv Trilogy","Trinoline"]
 
 	def scrape_reddit(url)
 		#date = get_reddit_thread_markdown_post(url + ".json")

@@ -8,6 +8,7 @@ SitemapGenerator::Sitemap.create do
   add '/recommendation'
   add '/help'
   add '/faq'
+  add '/blogs'
   add '/genres'
   add '/developers'
   add '/vns'

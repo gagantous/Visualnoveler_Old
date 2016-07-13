@@ -22,7 +22,7 @@
 		  <div class="col-lg-2">
 		  <%= f.input :rating_number,input_html: {style: "width:100px;"} %>
 		</div>
-		<div class="col-lg-2">
+		<div class="col-lg-6">
 		  <%= f.input :release_date,input_html: {style: "width:150px;"},start_year: @start_year,end_year: @end_year %>
 		</div>
 		<div class="col-lg-12">
@@ -60,16 +60,11 @@
 		  <%= f.input :isFeatured %>
 		 </div>
 		
-			 <%= f.simple_fields_for :characters do |c| %>
-				 <%= render 'character_fields', :f => c %>
-			 
-		 	<% end %>
- 
    		 <div class='links col-md-3'>
       		<%= link_to_add_association 'Add Character', f, :characters,:class => 'btn btn-default' %>
 
    		 </div>
-   		 <div class='col-md-12'>
+   		 <div class='col-md-12' style="margin-top:20px;">
 		  <%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Creating.."}  %>
 		</div>
 		<% end %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="description" property="og:description" content="<%= if content_for?(:description) then yield(:description) else 'Track and discover new visual novels in Visualnoveler. Manage your visual novel library, keep track of visual novel translations or read up on the latest visual novel news! ' end %>">
+  <meta name="description" property="og:description" content="<%= if content_for?(:description) then yield(:description) end %>">
   <meta property="og:image" content="<%= if content_for?(:image_url) then yield(:image_url) end %>">
   <title>
     <%= if content_for?(:title) && !content_for?(:news_title) then yield(:title) + ' - 
@@ -165,17 +165,22 @@
   </div>
  <footer>
   <div class="container">
-    <div class="row">        
+    <div class="row">      
+      <div class="col-md-9 col-centered">  
       <ul class="list-inline" style="padding-top:7px;padding-bottom:7px;">
-        <li class="footer-text"style="font-size:14px !important;"> &copy; 2016 Visualnoveler</li>
+        <li class="footer-text"style="font-size:14px !important;"> &copy; Visualnoveler</li>
         <li> <%= link_to 'About' ,about_path ,class: "footer-text" %> </li>
         <li> <%= link_to 'Visual Novel FAQ' , faq_path ,class: "footer-text" %> </li>
-        <li> <%= link_to 'Recommendation Charts' ,recommendation_path ,class: "footer-text" %> </li>
+        <li> <%= link_to 'Recommendations' ,recommendation_path ,class: "footer-text" %> </li>
+        <li> <%= link_to 'Blogs' ,blogs_path ,class: "footer-text" %> </li>
+        <li> <%= link_to 'Anime Studio Simulator' ,anime_studio_sim_path ,class: "footer-text" %> </li>
         <div class="pull-right list-inline footer-social" style="padding-top:7px;">
               <li><a style="color:white;" href="https://twitter.com/visualnoveler" title="Twitter"><i class="fa fa-twitter fa-lg"></i></a></li>
               <li><a style="color:white;" href="https://facebook.com/visualnoveler" title="Facebook"><i class="fa fa-facebook fa-lg"></i></a></li>
         </div>
       </ul>
+    </div>
+    <!-- !-->
     </div>
   </div>
 </footer>

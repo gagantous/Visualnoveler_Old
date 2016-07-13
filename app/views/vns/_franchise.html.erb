@@ -1,0 +1,20 @@
+<h3> Related Visual Novels</h3>
+<ul class="list-unstyled">
+	<% franchises.vns.each do |vn| %>	
+	<li>
+		<% if @vn != vn %> 
+			<div class="row">
+				<div class="col-md-3 col-xs-4">
+					<%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "img-responsive",:style =>"") %>
+				</div>
+				<div class="col-md-9 col-xs-8">
+					<h5 style="margin-top:5px;"><%= link_to vn.name,vn_path(vn) %></h5>
+					<p><%= truncate(vn.summary,length: 200){ link_to "Read more", vn_path(vn) } %></p>
+				</div>
+			</div>
+		<hr>
+		<% end %>
+	<% end %>
+	</li>
+
+</ul>

@@ -153,21 +153,9 @@
 <div class="container">
 	<div class="row">
 		<% unless @franchise.blank? %>
-		<div class="col-md-6 col-xs-12">
-			<h3> Related Visual Novels</h3>
-				<% @franchise.vns.each do |vn| %>	
-						<% if @vn != vn %> 
-
-    					<ul class="img-list-hover"><li>
-						 <%= link_to vn_path(vn) do %>
-							 <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "related-thumbnail",:style =>"") %>
-								<span class="text-content"><span><%= vn.name %></span></span>
-						 <% end %>
-
-					</li></ul>
-				<% end %>
-		<% end %>
-	</div>
+			<div class="col-md-6 col-xs-12">
+				<%= render 'franchise',franchises: @franchise %>
+			</div>
 		<% end %>
 		<% unless @vn.walkthrough_content.blank? %>
 		<div class="col-md-6 col-xs-12">
