@@ -1,7 +1,7 @@
 <div class="news">
 	<%= link_to '← News', news_index_path ,class:"news-back" %>
 	
-	<%= render 'news/meta',news: @news %>
+	<%= render 'news/meta',news: @news,news_page: true %>
  	<h1> <span class="title-link"><%= @news.title %> </span> </h1>
  	<%= image_tag(@news.featured_image.url,alt: @news.title,class: "news-featuredimg") unless @news.featured_image.blank? %>
 	<%= markdown(@news.content) %>

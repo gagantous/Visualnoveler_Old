@@ -1,7 +1,7 @@
 <% @news.each do |news| %>
 	<div class="news">
 
-		<%= render 'news/meta',news: news %>
+		<%= render 'news/meta',news: news,news_page: false %>
 
 		<h1> 
 			<%= link_to news.title,news_path(news),'data-no-turbolink' =>"true",class: "title-link" %> 
