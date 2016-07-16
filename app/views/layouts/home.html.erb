@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 
   <%= favicon_link_tag %>
+  <meta property="og:image" content="<%= if content_for?(:image_url) then yield(:image_url) end %>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="description" content="Track and discover new visual novels in Visualnoveler. Manage your visual novel library, keep track of visual novel translations or read up on the latest visual novel news!">
 </head>
