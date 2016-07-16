@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
 
   def home
+    @vns = Vn.where(isFeatured: true).limit(4).order("RANDOM()")
+    @users = User.limit(6)
     render :layout => 'home'
   end
 

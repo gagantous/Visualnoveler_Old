@@ -1,6 +1,6 @@
  <style>
 body { 
-  background: url(<%= asset_path('landingbg.jpg') %>) no-repeat center center fixed; 
+  background: url(<%= asset_path('grisaia.jpg') %>) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -10,52 +10,76 @@ body {
  </style>
  <div class="container">
     <div class="row">
-       <div class="col-xs-12 text-center" style="padding-top:16%">
-          <strong><h1 style="color:white;" class="home-cta">Track & Discover Visual Novels</h1></strong>
-          <h2 class="default-font home-emailtext">Sign up for the Beta</h2>
-          <% unless user_signed_in? %>
-            <ul class="list-inline" style="padding-left:10px;padding-top:20px;">
-              <li><%= link_to omniauth_authorize_path(:user,"facebook"),class: 'btn btn-facebook btn-lg' do %>
-               <span class="fa fa-facebook" style="padding-right:2px;"></span>
-               <%= "Facebook" %>
-              <% end %></li>
+       <div class="col-xs-12 col-centered col-md-6 text-center" style="padding-top:12%">
+          <strong><h1 style="color:white;" class="home-cta">Track and Discover Visual Novels</h1></strong>
+          <h2 class="default-font home-emailtext">Create your own visual novel list, read visual novel news and stay up to date on their translation status.</h2>
+         
+          <%= link_to register_path,class: 'btn btn-lg landing-btn' do %>
+               <%= "Sign up for the beta" %>
+          <% end %>
+         
+      </div>     
+    </div> <!-- /row -->
+</div> <!-- /container full -->
 
-              <li><%= link_to omniauth_authorize_path(:user,"google_oauth2"),class: 'btn btn-googleauth btn-lg' do %>
-             <span class="fa fa-google" style="padding-right:2px;"></span>
-             <%= "Google" %>
-              <% end %> </li>
+<div class="footer-home">
+  <div class="container" style="padding-top:25px;">
 
-              <li> <%= link_to register_path,class: 'btn btn-github btn-lg home-registerbtn' do %>
-               <%= "Register" %>
-              <% end %>
-            </li>
-            </ul>
+    <div class="row">
+      <div class="col-md-6 col-centered text-center">
+        <h1>Discover Visual Novels</h1>
+         <p class="lead" style="">
+          Browse popular and translated visual novels along with their reviews and walkthroughs to decide on what to play.
+         </p>
+      </div>
+
+      <div class="col-md-6 col-centered">
+        <div class="row">
+          <% @vns.each do |vn| %>
+            <div class="col-md-3 col-xs-3">
+              <%= link_to image_tag(vn.image_poster,class:"img-responsive"),vn_path(vn) %>
+            </div>
           <% end %>
         </div>
-            
-         
-
-         
-</div>
-
-        </div> <!-- /row -->
-    
-  </div> <!-- /container full -->
-
-  <div class="footer-home">
-  <div class="container">
-    <div class="row" style="padding-bottom:40px;padding-top:25px;padding-left:25px;">
-      <div class="col-md-4">
-        <h1><i class="fa fa-bell-o" style="padding-right:10px;"></i>Visual Novel Translation Status</h1>
-        <p class="lead" style="padding-top:10px;">Keep track of translations for visual novels or eroge games. <br><br> We help to list down the latest translation data and also historic visual novel translation data.
       </div>
-      <div class="col-md-4">
-        <h1><i class="fa fa-diamond" style="padding-right:10px;"></i>Discover</h1>
-        <p class="lead" style="padding-top:10px;">Discover new visual novels that you have been missing out on before you stumbled upon here. <br><br> It's easy to find translated visual novels, popular visual novels and also other gems inside if you give it a go!</p>
+    </div>
+
+    <div class="row" style="margin-top:30px;">
+      <div class="col-md-6 ">
+        <h1 class="text-center">Create your Visual Novel List</h1>
+         <p class="lead" style="">Create your own library of visual novels and track your progress on the games. <br><br>Go ahead and rate or review your favourite visual novel as god-tier and tell the community why. </p>
       </div>
-      <div class="col-md-4">
-        <h1><i class="fa fa-book" style="padding-right:10px;"></i>Library</h1>
-        <p class="lead" style="padding-top:10px;">Create your own library of visual novels and track your progress on the game. <br><br>Go ahead and rate or review your favourite visual novel as god-tier and tell the community why. </p>
+
+      <div class="col-md-6">
+         <h1 class="text-center">Visual Novel Translation Status</h1>
+        <p class="lead" style="">Keep track of translation statuses for visual novels or eroge games. <br><br> We help to list down the latest translation data and also historic visual novel translation data.
       </div>
-  </div>
-</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-centered">
+        <h2 class="text-center" style="margin-bottom:20px;"> Fans of Visual Novels</h2>
+        <div class= "row">
+          <% @users.each do |user| %>
+            <div class="col-md-2 col-xs-4">
+              <% unless user.poster_image.blank? %>
+                <%= image_tag(user.poster_image,class:"img-responsive img-circle") %>
+              <% else %>
+                <%= image_tag("default_avatar.jpg",:class=>"img-circle img-responsive") %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:25px;margin-bottom:50px;">
+      <div class="col-md-6 col-centered text-center">
+         <%= link_to register_path,class: 'btn btn-lg landing-btn' do %>
+               <%= "Sign up for the beta" %>
+          <% end %>
+      </div>
+    </div>
+
+  </div> <!-- container !-->
+</div> <!-- footer home !-->

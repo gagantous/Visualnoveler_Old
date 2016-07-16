@@ -425,10 +425,6 @@ html, body {
     background: white;
     overflow: auto;
   }
-  .home-emailtext{
-    color:#fff; 
-    font-size:20px;
-  }
 
   .vn-reviewdate{
     position: relative;
@@ -438,10 +434,10 @@ html, body {
 
   .vn-ratingdiv {
   }
-  .vn-navbuttons{
-    float: right;
-    margin-top: 15px;
-  }
+  // .vn-navbuttons{
+  //   float: right;
+  //   margin-top: 15px;
+  // }
 }
 
 // tablet
@@ -777,15 +773,7 @@ html, body {
   .email-form{
     padding-top: 5px;
   }
-  .emailbutton {
 
-  }
-  .home-emailtext{
-    color:#fff; 
-    font-size:20px;
-    position:relative;
-    right:25px;
-  }
   .home-signup{
     color:white;
     font-weight:bold;
@@ -805,9 +793,9 @@ html, body {
 
 // settings for specific table sizes
 @media (min-width: 462px) and (max-width: 767px) {
-  .vn-navbuttons{
-    margin-top: 25px;
-  }
+  // .vn-navbuttons{
+  //   margin-top: 25px;
+  // }
 
 }
 .removepadding {
@@ -1768,12 +1756,12 @@ img.center {
 }
 .footer-home {
   position: absolute;
-        top: 100%;
-        width: 100%;
-        left: 0;
-        height: auto;
-        background: white;
-        z-index: 10000 !important; 
+  top: 100%;
+  width: 100%;
+  left: 0;
+  height: auto;
+  background: white;
+  z-index: 10000 !important; 
 }
 .tt-image{
   display: inline;
@@ -2064,4 +2052,30 @@ img.center {
 .col-centered{
     float: none;
     margin: 0 auto;
+}
+
+.home-emailtext{
+  color:#fff; 
+  font-size:20px;
+}
+
+.landing-btn {
+  background-color: #4d90fe;
+  width: 295px;
+  height: 45px;
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  //font-family: roboto;
+  //font-weight: bold;
+  //margin: 10px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.landing-btn:hover {
+  color: white;
+}
+.landing-img {
+  width: 160px;
+  height: 220.4px;
 }
