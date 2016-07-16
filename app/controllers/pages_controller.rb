@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   def home
     @vns = Vn.where(isFeatured: true).limit(4).order("RANDOM()")
-    @users = User.limit(6)
+    @users = User.where.not(:poster_image => nil).joins(:library_entries).group("users.id").having("count(library_entries.id) > ?",6).order("RANDOM()").limit(6)
     render :layout => 'home'
   end
 

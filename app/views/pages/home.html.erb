@@ -62,11 +62,7 @@ body {
         <div class= "row">
           <% @users.each do |user| %>
             <div class="col-md-2 col-xs-4">
-              <% unless user.poster_image.blank? %>
-                <%= image_tag(user.poster_image,class:"img-responsive img-circle") %>
-              <% else %>
-                <%= image_tag("default_avatar.jpg",:class=>"img-circle img-responsive") %>
-              <% end %>
+                <%= link_to image_tag(user.poster_image,class:"img-responsive img-circle"),user_path(user) %>
             </div>
           <% end %>
         </div>
