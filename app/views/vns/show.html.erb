@@ -127,7 +127,7 @@
 	<div class="row">
 		<% @showcharacters.each do |char| %>
 		<div class="col-md-4 col-lg-2 col-xs-4 col-sm-2">
-			<div class="row equal-height-panels" style="margin-top:15px;margin-bottom:15px;">
+			<div class="row equal-height-panels character-row" style="margin-top:15px;margin-bottom:15px;">
 				<div class="col-md-6 col-sm-12 col-xs-12">
 					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
 						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "img-circle img-thumbnail",style:"") %>
