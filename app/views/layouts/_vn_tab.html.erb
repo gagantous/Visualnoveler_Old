@@ -1,9 +1,9 @@
 <div role="tabpanel" class="tab-pane fade" id="vnlist-summary">
 	<div class="row row-vnlist-summary">
 		<% @vn.each do |vn| %>
-			<div class="col-md-6">
-				<div class="panel panel-default"><div class="panel-body">
-					<div class="row equal-height-panels" style="h">
+			<div class="col-md-6 col-xs-12">
+				<div class="panel panel-default equal-height-panels"><div class="panel-body">
+					<div class="row" style="h">
 						<div class="col-md-4">
 							<%= link_to image_tag(vn.image_poster,:alt => vn.name, :class=> "img-responsive"),vn_path(vn) %>
 						</div>
@@ -20,7 +20,7 @@
 									</li>
 								<% end %>
 							</ul>
-							<p class="vn-contentpadding summary-text"><%= truncate(vn.summary,length: 200){ link_to "\n\nRead more", vn_path(vn) } %> </p>
+							<p class="vn-contentpadding summary-text"><%= truncate(vn.summary,length: 300){ link_to "\n\nRead more", vn_path(vn) } %> </p>
 						</div>
 					</div>
 				</div></div> <!-- panels !-->
