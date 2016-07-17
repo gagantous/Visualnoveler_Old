@@ -1,0 +1,33 @@
+<div role="tabpanel" class="tab-pane fade" id="vnlist-summary">
+	<div class="row row-vnlist-summary">
+		<% @vn.each do |vn| %>
+			<div class="col-md-6">
+				<div class="panel panel-default"><div class="panel-body">
+					<div class="row equal-height-panels" style="h">
+						<div class="col-md-4">
+							<%= link_to image_tag(vn.image_poster,:alt => vn.name, :class=> "img-responsive"),vn_path(vn) %>
+						</div>
+						<div class="col-md-8">
+							<a href=<%= vn_path(vn) %>>
+								<h3 style="color:black;">
+									<%= vn.name %>
+								</h3>
+							</a>	
+							<ul class="list-inline vnindex-genre" style="padding-bottom:10px;">
+								<% vn.genres.limit(4).each do |genre| %>
+									<li class="vngenre-padding inline-nopadding">
+										<%= link_to genre.name,genre_path(genre),style:"color: #1F3A93; font-weight:bold;" %>
+									</li>
+								<% end %>
+							</ul>
+							<p class="vn-contentpadding summary-text"><%= truncate(vn.summary,length: 200){ link_to "\n\nRead more", vn_path(vn) } %> </p>
+						</div>
+					</div>
+				</div></div> <!-- panels !-->
+			</div>
+		<% end %> 
+		<div class="col-md-12 col-xs-12">
+			<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
+		</div>
+	</div><!-- row !-->
+</div> <!-- end of long summary tab !-->

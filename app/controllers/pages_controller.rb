@@ -13,7 +13,7 @@ class PagesController < ApplicationController
      # @vn = Vn.joins(:genres).where('genres.id' => params['genre_ids']).group('genre_id').having('count(genre_id) > 2')
       # @vn = Vn.joins(:genres).where('genres.id' => params['genre_ids']).group('vns.id')
 
-      @vn = Vn.search_by_name(params[:search]) unless params[:search].blank?
+      @vn = Vn.search_by_name(params[:search]).paginate(:page => params[:page], :per_page => 25) unless params[:search].blank?
 
     # @vn = Vn.includes(:genres).where('genres.id' => params['genre_ids']).all
      #Image.includes(:tags).where('tags.id' => params['tag_ids']).all

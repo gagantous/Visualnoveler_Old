@@ -375,9 +375,6 @@ html, body {
     top: -10px !important;
   }
 
-  .character-row {
-    min-height: 245px;
-  }
   .library-header-text {
     text-align: center;
   }
@@ -434,10 +431,10 @@ html, body {
 
   .vn-ratingdiv {
   }
-  // .vn-navbuttons{
-  //   float: right;
-  //   margin-top: 15px;
-  // }
+  .vn-navbuttons{
+    margin-left: 45px;
+    margin-top: 15px;
+  }
 }
 
 // tablet
@@ -449,9 +446,6 @@ html, body {
    .btn-vnlist{
     position:relative;
     bottom:10px;
-  }
-  .character-row {
-    min-height: 200px;
   }
  
 }
@@ -599,9 +593,7 @@ html, body {
     width: 75%;
     margin: 0 auto;
   }
-  .character-row {
-    min-height: 110px;
-  }
+
   .usernav-name{
    position: relative;
    top: 5px
@@ -2079,3 +2071,4 @@ img.center {
   width: 160px;
   height: 220.4px;
 }
+

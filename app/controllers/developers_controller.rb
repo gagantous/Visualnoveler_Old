@@ -21,7 +21,7 @@ class DevelopersController < ApplicationController
 	end
 
 	def search
-    	 @developers = Developer.search_by_name(params[:search])
+    	 @developers = Developer.search_by_name(params[:search]).paginate(:page => params[:page], :per_page => 25)
 	end
 
 	def edit

@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 	def vn
-		@vn = Vn.order("updated_at DESC").paginate(:page => params[:page],:per_page => 300)
+		@vn = Vn.order("updated_at DESC").paginate(:page => params[:page],:per_page => 100)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
@@ -106,7 +106,7 @@ class AdminController < ApplicationController
 	end
 
 	def character
-		@character = Character.order("updated_at DESC").paginate(:page => params[:page],:per_page => 100)
+		@character = Character.order("updated_at DESC").paginate(:page => params[:page],:per_page => 50)
 		if !current_user.admin? && !current_user.mod? 
 			user_not_authorized
 		end
