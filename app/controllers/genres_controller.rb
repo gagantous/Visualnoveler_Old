@@ -23,11 +23,6 @@ class GenresController < ApplicationController
     	 @genres = Genre.search_by_name(params[:search])
 	end
 
-	def index
-		@genres = Genre.limit(14).order("RANDOM()")
-		
-	end
-
 	def edit
 		@genre = Genre.find(params[:id])
 		authorize @genre
