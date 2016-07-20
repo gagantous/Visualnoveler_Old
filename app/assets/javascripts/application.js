@@ -24,6 +24,7 @@
 //= require_tree .
 //= require starburst/starburst
 //= require fancybox
+//= require best_in_place
 /*
 
 Copyright (C) 2011 by Yehuda Katz

@@ -7,13 +7,17 @@ class LibraryEntriesController < ApplicationController
 	end
 	def update
 		@lib = LibraryEntry.find(params[:id])
-		if @lib.update(lib_params)
-		authorize @lib         
-			flash[:success] = "Library Entry is updated successfully!"
-			redirect_to library_user_path(@lib.user)  
-		else
-			flash[:danger] = "Failed to update the Library Entry"
-			redirect_to session[:previous_url] 
+		authorize @lib 
+		respond_to do |format|
+			if @lib.update(lib_params)
+				format.html { flash[:success] = "Library Entry is updated successfully!"
+							  redirect_to library_user_path(@lib.user)   }
+      			format.json { respond_with_bip(@lib) } 
+			else
+				format.html { flash[:danger] = "Failed to update the Library Entry"
+							  redirect_to session[:previous_url]    }
+      			format.json { respond_with_bip(@lib) }
+			end
 		end
 	end
 	def destroy
@@ -28,6 +32,6 @@ class LibraryEntriesController < ApplicationController
 	private
 
 	def lib_params
-			params.require(:library_entry).permit(:status,:vn_id,:user_id,:name,:favourite,:notes,:id)
+			params.require(:library_entry).permit(:status,:vn_id,:user_id,:name,:favourite,:notes,:id,:rating)
 		end
 end

@@ -1,5 +1,12 @@
 <% title @user.name + "'s Visual Novel List" %>
 
+<script>
+	$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});
+
+</script>
 <% if @user.library_image? && (@user.library_image_type == "cover" || @user.library_image_type == "") %>
 	<style>
 		body{
