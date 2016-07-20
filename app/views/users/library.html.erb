@@ -3,10 +3,36 @@
 <script>
 	$(document).ready(function() {
   /* Activating Best In Place */
+ //    $( ".best_in_place" ).click(function() {
+ //  		alert( "Handler for .click() called." );
+	// });
   jQuery(".best_in_place").best_in_place();
+
+
 });
 
+
+
 </script>
+
+<script>
+// $(function() {
+
+// $( "td" ).hover(
+//   function() {
+//     $( this ).append( $( '<span class="caret"></span>' ) );
+//   }, function() {
+//     $( this ).find( "span:last" ).remove();
+//   }
+// );
+ 
+// $( "td.fade" ).hover(function() {
+//   $( this ).fadeOut( 100 );
+//   $( this ).fadeIn( 500 );
+// });
+// });
+</script>
+
 <% if @user.library_image? && (@user.library_image_type == "cover" || @user.library_image_type == "") %>
 	<style>
 		body{
