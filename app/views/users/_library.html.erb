@@ -1,16 +1,38 @@
   <tr>
-    <td><%= image_tag(library.vn.image_poster.url(:thumb),class:"library-vn-poster") %></td>
-    <td class="summary-text"><%= link_to library.vn.name,vn_path(library.vn),style: "font-size:1em;color:black;" %></td>
-    <td style="padding-left:26px; font-style:italic;"><%= library.rating %></td>
+    <td>
+      <%= image_tag(library.vn.image_poster.url(:thumb),class:"library-vn-poster") %>
+    </td>
+    <td>
+      <% if user_signed_in? && current_user.id == library.user.id %>
+        <%= link_to truncate(library.vn.name, :length => 50) ,vn_path(library.vn),style: "font-size:1em;color:black;" %>
+      <% else %>
+        <%= truncate(library.vn.name, :length => 50) %>
+      <% end %>
+    </td>
+    <td>
+      <% if user_signed_in? && current_user.id == library.user.id %>
+        <%= best_in_place library, :status, :as => :select,:collection => { watch: 'Playing', complete: 'Completed', drop: 'Dropped', wishlist: 'Wishlist',backlog: "Backlog"} , :place_holder => "Unspecified",inner_class: 'form-control' %>
+      <% else %>
+        <%= status_text(library.status) %>
+      <% end %>
+    </td>
+    <td class="text-center">
+      <% if user_signed_in? && current_user.id == library.user.id %>
+        <%= best_in_place library, :rating, :as => :select,:collection => %w(1 2 3 4 5 6 7 8 9 10) , :place_holder => "?",inner_class: 'form-control' %>
+      <% else %>
+        <%= library.rating %>
+      <% end %>
+    </td>
     <td> 
       <% if !library.notes.blank? %>
         <% if user_signed_in? && current_user.id == library.user.id %>
-          <%= link_to library.notes,edit_library_entry_path(library),style:"text-decoration:none;color:black;" %>
+          <!--<%= link_to library.notes,edit_library_entry_path(library),style:"text-decoration:none;color:black;" %> !-->
+          <%= best_in_place library, :notes, :as => :textarea, :place_holder => "Add",inner_class: 'form-control' %>
         <% else %>
            <%= library.notes %>
         <% end %>
       <% elsif user_signed_in? && current_user.id == library.user.id  %>
-        <%= link_to 'Add',edit_library_entry_path(library) %>
+         <%= best_in_place library, :notes, :as => :textarea, :place_holder => "Add",inner_class: 'form-control' %>
       <% end %>
     </td>
   </tr>
