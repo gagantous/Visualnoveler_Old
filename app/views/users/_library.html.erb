@@ -6,7 +6,7 @@
       <% if user_signed_in? && current_user.id == library.user.id %>
         <%= link_to truncate(library.vn.name, :length => 50) ,vn_path(library.vn),style: "font-size:1em;color:black;" %>
       <% else %>
-        <%= truncate(library.vn.name, :length => 50) %>
+        <%= link_to truncate(library.vn.name, :length => 50),vn_path(library.vn),style: "font-size:1em;color:black;" %>
       <% end %>
     </td>
     <td>
