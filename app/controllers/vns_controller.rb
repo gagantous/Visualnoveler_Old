@@ -196,7 +196,7 @@ class VnsController < ApplicationController
 
 	def characters
 		@vn = Vn.find(params[:id])
-		@characters = @vn.characters
+		@characters = @vn.characters.priority_order
 	end
 
 	def screenshots
