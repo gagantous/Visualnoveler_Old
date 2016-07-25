@@ -3,7 +3,7 @@ class VnsController < ApplicationController
 	before_action :authenticate_user!, :only => [:edit,:crop,:new,:update,:edit_walkthrough]
 	def show
 		@vn = Vn.find(params[:id])
-		@showcharacters = @vn.characters.all
+		@showcharacters = @vn.characters.priority_order
 		@franchise = @vn.franchise
 		@screenshots = @vn.screenshots
 		@translation = @vn.translation
