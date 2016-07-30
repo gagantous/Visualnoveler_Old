@@ -63,16 +63,18 @@ module VnsHelper
 		end
 		if url.include?("steampowered")
 			link_to(url,:rel =>"nofollow",:target =>"_blank") do
-				'<i class="fa fa-steam-square vn-purchaseicon" style="font-size:1.9em;color:black;position:relative;top:3px;"></i>'.html_safe
+				'<i class="fa fa-steam-square vn-purchaseicon" style="font-size:1.9em;color:black;position:relative;top:3px;padding-left:5px;padding-right:5px;"></i>'.html_safe
 			end			
 		elsif url.include?("mangagamer")
-			return link_to(image_tag("mg_logo.png",alt:"mangagamer logo",style:"position:relative;bottom:1px;padding-left:15px;padding-right:10px;"),url,:rel => "nofollow",:target =>"_blank").html_safe
-		else
-			if url.include?("jlist")
-				return link_to('Jlist',url,:rel => "nofollow",:target =>"_blank",style:"padding-right:10px;".html_safe)
-			elsif url.include?("jastusa")
-				return link_to('JAST',url,:rel => "nofollow",:target =>"_blank",style:"padding-right:10px;".html_safe)
-			end
+			return link_to(image_tag("mg_logo.png",alt:"mangagamer logo",style:"position:relative;bottom:1px;padding-left:5px;padding-right:5px;"),url,:rel => "nofollow",:target =>"_blank").html_safe
+		elsif url.include?("jlist")
+			return link_to(' J-List',url,:rel => "nofollow",:target =>"_blank",style:"padding-left:5px;padding-right:5px;".html_safe)
+		elsif url.include?("jastusa")
+			return link_to(' JAST',url,:rel => "nofollow",:target =>"_blank",style:"padding-left:5px;padding-right:5px;".html_safe)
+		else 
+			link_to(url,:rel =>"nofollow",:target =>"_blank") do
+				'<i class="fa fa-external-link vn-purchaseicon" style="font-size:1.25em;color:black;position:relative;top:3px;padding-left:5px;padding-right:5px;"></i>'.html_safe
+			end	
 		end
 	end
 

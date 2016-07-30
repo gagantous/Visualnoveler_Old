@@ -33,7 +33,7 @@
 		<span class="vn-label">Status:</span> <%= @vn.status %>
 		<br>
 		<% if !@vn.alias.blank? %>
-		<span class="vn-label">Alias:</span> <h2><%= @vn.alias %> </h2>
+		<span class="vn-label">Alias:</span> <span><%= @vn.alias %> </span>
 		<br> <% end %>
 		<% unless @vn.buy_1.blank? && @vn.buy_2.blank? && @vn.buy_3.blank? && @vn.buy_4.blank? %>
 		<span class="vn-label">Purchase:</span><%= get_purchase_location(@vn.buy_1) %> <%= get_purchase_location(@vn.buy_2) %> 
