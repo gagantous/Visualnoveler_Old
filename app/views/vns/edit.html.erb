@@ -103,7 +103,7 @@
 	</div>
 	<div class="row">
 		<h3>Characters</h3>
-			<%= f.simple_fields_for :characters do |char| %>
+			<%= f.simple_fields_for :characters,f.object.characters.priority_order do |char| %>
 				 <div class="col-md-4">
 			 	<%= char.input :name %>
 			 </div>
