@@ -86,7 +86,7 @@ class VnsController < ApplicationController
 		@start_year = 2000
 		@end_year = Date.today.year + 4
 		authorize @vn
-		@character = @vn.characters
+		@character = @vn.characters.priority_order
     	#@vn.characters.build
 	end
 # add to library entries favourite
