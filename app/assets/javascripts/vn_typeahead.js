@@ -2,7 +2,7 @@ $(function() {
   users = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  limit: 6,
+  limit: Infinity,
   remote: {url:'/api/vns/search/%QUERY'
    , wildcard: '%QUERY'
    }
@@ -11,7 +11,7 @@ $(function() {
   $('.typeahead').typeahead(null, {
       name: "mysearch",
       display: 'name',
-      limit: 6,
+      limit: Infinity,
       source: users.ttAdapter(),
       templates: {
          suggestion: Handlebars.compile('<div class="tt-row"><a href="{{vn_url}}"> \
