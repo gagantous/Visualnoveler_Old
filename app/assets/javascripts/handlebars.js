@@ -2252,3 +2252,11 @@ Handlebars.template = Handlebars.VM.template;
 // lib/handlebars/browser-suffix.js
 })(Handlebars);
 ;
+
+Handlebars.registerHelper('trimString', function(passedString) {
+    var theString = passedString.substring(0,60);
+    if( passedString.length > 60 ) {
+      theString += '...';
+    }
+    return new Handlebars.SafeString(theString)
+});
