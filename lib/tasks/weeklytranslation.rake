@@ -11,13 +11,8 @@ require 'rake'
   					"Onmyou Kishi Towako"]
 
 	def scrape_reddit(url)
-		#date = get_reddit_thread_markdown_post(url + ".json")
 		#sleep(2)
 		retries_count = 0
-		# if date == ""
-		# 	p "Thread already exist!"
-		# 	return
-		# end
 		begin
 			mechanize = Mechanize.new
 	  		mechanize.user_agent_alias = 'Mac Safari'
@@ -44,42 +39,17 @@ require 'rake'
 		#p "#{url} successfully scraped"
 	end
 
-	def get_reddit_thread_markdown_post(url)
-		json_url = URI(url)
-		retries_count = 5
-		begin
-			sleep(2)
-			# response = Net::HTTP.get(json_url)
-			response = open(json_url,'User-Agent' => 'Mac Safari').read
-			json_data = JSON.parse (response)
-			structure = json_data[0]["data"]["children"][0]["data"]["selftext"]
-			date = json_data[0]["data"]["children"][0]["data"]["created"]
-			title = json_data[0]["data"]["children"][0]["data"]["title"]
-			post = structure.slice(structure.index("Note: This is simply")..-1)
-			news = News.where(title: title)
-			if news.blank?
-				translation_news = News.new(title: title,user_id: @production_user_id,content: post,created_at: Time.at(date))
-				translation_news.tag_list.add("translation status")
-				if translation_news.save
-				#	p "News updated!"
-				end
-			else 
-				return ""
-			end
-		#	p "Success"
-		rescue Exception => e
-			p e.message
-			retries_count -= 1
-			if retries_count > 0
-				sleep(2.5)
-				retry
-			else
-
-				p "WARNING, failed to scrape #{url}"
-				@failed_url << url
+	def is_duplicate_translations?(update) 
+		#grab translation posts within this month to check if they are duplicates
+		translation_posts = TranslationPost.this_month
+		is_duplicate = false
+		translation_posts.each do |translation|
+			if translation.post == update
+				is_duplicate = true
+				break
 			end
 		end
-		return date
+		return is_duplicate
 	end
 
 	def parse_translation_update(title,update,date)
@@ -89,6 +59,11 @@ require 'rake'
 			# stop parsing if title is in filtered list
 			return
 		end
+		if is_duplicate_translations?(update)
+			p "duplicate detected"
+			return
+		end
+	
 		#If there is only 1 result, we assume that we are posting to the correct record
 		if vns.count == 1
 			@vn = vns.first
@@ -121,32 +96,10 @@ require 'rake'
 		end
 	end
 
-
-	def parse_reddit_list(url)
-      #loop function pagination GET
-      mechanize = Mechanize.new
-	  mechanize.user_agent_alias = 'Mac Safari'
-      page = mechanize.get(url)
-      scrape_reddit(url)
-      loop do
-        find_links = page.link_with(text: "Next Thread")
-        if find_links 
-          page = find_links.click
-          url = page.uri.to_s
-          p "Next url is #{url}"
-          scrape_reddit(url)
-        else 
-          p "Can't find anymore links"
-          break
-       	end
-      end
-	end
-
 	def get_weekly_translation_status()
 	  mechanize = Mechanize.new
 	  mechanize.user_agent_alias = 'Mac Safari'
 	  page = mechanize.get("https://www.reddit.com/r/visualnovels/")
-	  #link = page.link_with(text: "TL status")
 	  link = page.search(".side .md h4 a:nth-of-type(1)").attr("href").text.strip
 	  #link_filtered = link.uri.to_s.gsub!("r/visualnovels/","")
 	  link_filtered = link.gsub!("r/visualnovels/","")
@@ -156,10 +109,5 @@ require 'rake'
 
 	get_weekly_translation_status()
 	p "Success!"
-	# parse_reddit_list("https://www.reddit.com/r/visualnovels/comments/2n5aeo/translation_status_updatediscussion_thread_nov_23/")
-	# p "Data imported Successfully!"
-	# failed_url.each do |url|
-	# 	p url
-	# end
 	
 	end

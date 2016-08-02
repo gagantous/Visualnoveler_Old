@@ -20,8 +20,11 @@
 # Learn more: http://github.com/javan/whenever
 
 
-every 1.day, :at => '5:00 am' do
+every 3.day, :at => '5:00 am' do
   rake "sitemap:refresh"
+end
+every 7.day, :at => '10:00 am' do
+  rake "duplicate_vntls"
 end
 
 every 7.days, :at => '6:00 am' do
