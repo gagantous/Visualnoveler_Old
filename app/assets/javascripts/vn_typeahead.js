@@ -12,11 +12,7 @@ $(function() {
       name: "mysearch",
       display: 'name',
       limit: 6,
-      source: function(query, syncResults, asyncResults) {
-			    $.get('/api/vns/search/' + query, function(data) {
-			      asyncResults(data);
-			    });
-			},
+      source: users.ttAdapter(),
       templates: {
          suggestion: Handlebars.compile('<div class="tt-row"><a href="{{vn_url}}"> \
                                           <ul class="list-inline"><li><div class="col-md-4 removepadding"> \
@@ -25,6 +21,13 @@ $(function() {
    		}
    	});
 });
+
+// use pg_search remote data
+// function(query, syncResults, asyncResults) {
+// 			    $.get('/api/vns/search/' + query, function(data) {
+// 			      asyncResults(data);
+// 			    });
+// 			},
 
 $(function() {
   $(".typeahead").bind('typeahead:select',function(obj,datum,name) {
