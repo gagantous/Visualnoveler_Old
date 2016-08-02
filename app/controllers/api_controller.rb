@@ -6,7 +6,9 @@ class ApiController < ApplicationController
 	end
 
 	def vn_typeahead
-		@vn = Vn.all
-		render json: @vn,root: false,each_serializer: VnTypeaheadSerializer
+		@vn = Vn.search_by_name(params[:search]).limit(6)
+		render json: @vn,root: false
+		# @vn = Vn.all
+		# render json: @vn,root: false,each_serializer: VnTypeaheadSerializer
 	end
 end

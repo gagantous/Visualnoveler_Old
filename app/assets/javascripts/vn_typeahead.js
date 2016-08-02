@@ -3,7 +3,7 @@ $(function() {
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   limit: Infinity,
-  remote: {url:'/api/vns/search/%QUERY'
+  remote: {url:'/api/vns/typeahead/%QUERY'
    , wildcard: '%QUERY'
    }
    });
