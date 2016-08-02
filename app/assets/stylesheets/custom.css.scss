@@ -1016,17 +1016,12 @@ html, body {
     color: white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    word-wrap: break-word;
   }
   .franchise-poster {
      width: 100px;
      height: 139px;
   }
-
-  .text-title {
-    font-size: 2.0em;
-    font-weight: 500;
-  }
-
 
 }
 
