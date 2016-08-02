@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="row">
 		<% @franchise.vns.each do |vn| %>
-		<div class="col-md-12">
+		<div class="col-md-4">
 			<h3><%= vn.name %> </h3>
-			<%= link_to image_tag(vn.image_poster_url),vn_path(vn) %>
+			<%= link_to image_tag(vn.image_poster_url,class:"img-responsive"),vn_path(vn) %>
 		</div>
 		<% end %>
 	</div>

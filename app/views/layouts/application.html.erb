@@ -72,15 +72,6 @@
                   <li><%= link_to "Top Visual Novels", top_vns_path %></li>
                   <li><%= link_to "Translated Visual Novels", translated_vns_path %></li>
                   <li><%= link_to "VN Walkthroughs", walkthroughs_vns_path %></li>
-                  <% if user_signed_in? %>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">My Visual Novels</li>
-                  <li><%= link_to "Favourites", favourite_user_path(current_user) %></li>
-                  <li><%= link_to "Wishlist", wishlist_user_path(current_user) %></li>
-                  <li><%= link_to "Completed", completed_user_path(current_user) %></li>
-                  <li><%= link_to "Playing", watch_user_path(current_user) %></li>
-                  <li><%= link_to "Dropped", drop_user_path(current_user) %></li>
-                  <% end %>
               </ul>
             </li>
 

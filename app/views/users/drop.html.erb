@@ -1,9 +1,0 @@
-<% title @user.name + "'s Dropped Visual Novels" %>
-
-<div class="container-fluid">
-	<div class="row vnindex-row">
-
-		<%= render 'layouts/vn_title',:title => "Dropped" %>
-		<%= render :partial => 'list', locals: {lib: @lib}  %>
-		</div>
-</div>

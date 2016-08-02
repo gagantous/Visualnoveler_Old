@@ -64,36 +64,6 @@ class UsersController < ApplicationController
     @similar_user_lib_rating = @user_lib.order('vn_id ASC').select { |f| @similarities .include? f[:vn_id] }
   end
 
-  def watch
-	  @user = User.find(params[:id])
-    authorize @user
-  	@lib = @user.library_entries.where(status: "watch")
-  end
-
-  def wishlist
-  	@user = User.find(params[:id])
-    authorize @user
-  	@lib = @user.library_entries.where(status: "wishlist")
-  end
-
-  def favourite
-    @user = User.find(params[:id])
-    authorize @user
-    @lib = @user.library_entries.where(favourite: true)
-  end
-
-  def drop
-	   @user = User.find(params[:id])
-    authorize @user
-     @lib = @user.library_entries.where(status: "drop")
-  end
-
-  def completed
-     @user = User.find(params[:id])
-     authorize @user
-     @lib = @user.library_entries.where(status: "complete")
-  end
-
   def edit
      @user = User.find(params[:id])
      authorize @user

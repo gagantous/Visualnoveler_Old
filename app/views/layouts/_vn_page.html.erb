@@ -1,19 +1,19 @@
 <% @vn.each do |vn| %>
-<div class="vn-column">
 	<%= link_to vn_path(vn) do %>
-		<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "vn-index-poster") %>
+		<div class="vn-column">
+			<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "vn-index-poster") %>
+			<div class="vn-column-data">
+				<h4>
+					<% if vn.name.length > 30 %>
+						<span class="vn-poster-name"><%= vn.name %>
+					<% else %>
+						<span class="vn-poster-name"><%= vn.name %>
+					<% end %>
+				</h4>
+			</div>
+		</div>
 	<% end %>
-	<div class="vn-column-data">
-		<a href=<%= vn_path(vn) %>> <h4>
-			<% if vn.name.length > 30 %>
-				<span class="vn-poster-name"><%= vn.name %>
-			<% else %>
-				<span class="vn-poster-name"><%= vn.name %>
-			<% end %>
-		</h4></a>
-	</div>
-</div>
 <% end %>
 <div class="clearfix"></div>
-    <%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
+<%= will_paginate @vn, renderer: BootstrapPagination::Rails %>
 

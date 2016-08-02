@@ -80,6 +80,13 @@ footer {
     width: 100%;
     background-color: #3E3D48;
 }
+footer {
+  ul {
+    a:hover {
+      color: #3498db;
+    }
+  }
+}
 .news-featuredimg {
   padding-bottom: 16px;
 }
@@ -309,7 +316,7 @@ html, body {
 }
 
 .tt-menu {    /* used to be tt-dropdown-menu in older versions */
-  width: 310px;
+  width: 280px;
   margin-top: 4px;
   padding: 4px 0;
   background-color: #fff;
@@ -332,8 +339,11 @@ html, body {
 
 .tt-suggestion.tt-cursor,.tt-suggestion:hover {
   color: #fff;
-  background-color: #0097cf;
-
+  background-color: #C5EFF7;
+}
+.tt-suggestion:hover .tt-title {
+  //color: white;
+  font-weight: 500;
 }
 
 .tt-suggestion p {
@@ -976,6 +986,45 @@ html, body {
   .panel-vnindex{
     overflow: hidden;
     height: 72px;
+  }
+
+
+}
+
+.vn-franchise-col{
+  position: relative;
+  width: 100px;
+  height: 139px; // to standardize posters
+  margin: 10px 5px 10px 5px;  
+  float: left;
+
+  .vn-column-data{
+    background: -webkit-linear-gradient(bottom,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.01) 100%);
+    background: linear-gradient(to top,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.01) 100%);
+    border-radius: 0 0 3px 3px;
+    bottom: 0;
+    color: #fff;
+    padding: 10px;
+    padding-top: 40px;
+    position: absolute;
+    text-align: left;
+    text-shadow: 0 0 1px rgba(0,0,0,0.59);
+    width: 100%;
+  }
+  .vn-poster-name{
+    font-size: 0.9em;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .franchise-poster {
+     width: 100px;
+     height: 139px;
+  }
+
+  .text-title {
+    font-size: 2.0em;
+    font-weight: 500;
   }
 
 
@@ -2067,5 +2116,9 @@ img.center {
 .landing-img {
   width: 160px;
   height: 220.4px;
+}
+
+.admin-container {
+  margin-top: 20px;
 }
 
