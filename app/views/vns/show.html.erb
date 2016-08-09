@@ -272,24 +272,25 @@
 </section>
 
 <section id="vn-screenshot">
-<div class="otherss-padding">
 <div class="container">
 	<div class="row ">
 		<div class="col-md-12">
-		<% unless @screenshots.blank? %>
 			<h3>Screenshots</h3>
-			<% @screenshots.each do |ss| %>
-				<div class="col-md-3">
-					<%= link_to ss.image.url, :class => 'fancybox', :rel =>'ss' do %>
-						 <%= image_tag(ss.image.url(:thumb),:alt => @vn.name, :class=> "img-thumbnail") %>
-					<% end %>
+		</div>
+		<div class="col-md-12">
+			<% unless @screenshots.blank? %>
+				<div class="row">
+				<% @screenshots.each do |ss| %>
+					<div class="col-md-3">
+						<%= link_to ss.image.url, :class => 'fancybox', :rel =>'ss' do %>
+							 <%= image_tag(ss.image.url(:thumb),:alt => @vn.name, :class=> "img-thumbnail") %>
+						<% end %>
+					</div>
+				<% end %>
 				</div>
 			<% end %>
-		<% end %>
+		</div>
 	</div>
-	</div>
-</div>
-</div>
 </div>
 
 <!-- Modal -->

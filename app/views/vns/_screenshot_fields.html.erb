@@ -1,18 +1,18 @@
 <div class='nested-fields'>
-	<div class="col-md-12">
-		<h3> Add additional screenshots</h3>
-	</div>
-		 
-			<div class="col-lg-4">
-    			<%= f.input :remote_image_url %>
-			 </div>
-	
-		 	<div class="col-lg-6">
-			 	<%= f.input :image, label: 'Image' %>
-			 </div>
+
+	<div class="row">
+		<h3> Screenshot</h3>
+		<div class="col-md-4">	
+		 	<%= f.input :image, label: 'Image' %>
+	  	 	<%= link_to_remove_association "Remove Entry", f,:class => 'btn btn-default'  %>
+		</div>
 			
-	<div class="col-lg-3">
-  	 	 <%= link_to_remove_association "Remove Screenshot", f,:class => 'btn btn-default'  %>
-  	 </div>
+		<div class="col-md-3">
+	  	 	 <%= image_tag(f.object.image_url,class:"img-responsive",style:"width:60%;") %>
+	  	</div>
+	  	<div class="col-md-2">
+	  	 	<%= link_to 'Destroy',f.object,class: "btn btn-danger",style:"margin-left:25px;",method: :delete,data:{ disable_with: "Deleting Visual Novel..",confirm: "Are you sure?"} %>
+	  	</div>
+  	</div>
    	
  </div>

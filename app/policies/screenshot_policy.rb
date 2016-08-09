@@ -23,7 +23,7 @@ class ScreenshotPolicy
   end
 
   def destroy?
-    @current_user.admin?
+    @current_user.admin? or @current_user.mod?
   end
 
   
