@@ -15,7 +15,22 @@ $(document).ready(function(){
     $(".vn-index-poster").load(function(){
         $(this).closest(".vn-column").children(".vn-column-data").show();
     });
+
+    // show more characters functionality
+    $("#more-characters").click(function(e) {
+      e.preventDefault();
+      $(".hidden-character").each(function() {
+        $(this).removeClass("hidden-character");
+      });
+      $(".lazy-char-img").each(function() {
+        $(this).attr("src",$(this).attr("data-src"));
+        $(this).removeAttr("data-src");
+      });
+      $(this).hide();
+    });
 });
+
+
 // Input text at mouse cursor position at textarea
 jQuery.fn.extend({
 insertAtCaret: function(myValue){

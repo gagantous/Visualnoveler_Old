@@ -119,37 +119,24 @@
 </section>
 
 <section id="vn-character">
-<div class="container">
-	<div class="row">
-		<div class="col-md-12 col-xs-12">
-			<a href=<%= characters_vn_path(@vn) %>><h3>Characters</h3> </a>
-		</div>
-	</div>
-	<div class="row">
-		<% @showcharacters.each do |char| %>
-		<div class="col-md-4 col-lg-2 col-xs-4 col-sm-2">
-			<div class="row equal-height-panels character-row" style="margin-top:15px;margin-bottom:15px;">
-				<div class="col-md-6 col-sm-12 col-xs-12">
-					<%= link_to char.img_string.url, :class => 'fancybox', :rel =>'character' do %>
-						 <%= image_tag("#{char.img_string.url(:thumb)}",:alt => "#{char.name}", :class=> "img-circle img-thumbnail",style:"") %>
-					<% end %>
-				</div>
-				<div class="col-md-4 col-sm-12 col-xs-12">
-					<%= link_to char.name, characters_vn_path(@vn,anchor:char.name.delete(' ')), :class => "h5 vnpage-charname" %> <br>
-					<span class="character-role">
-						<% if char.role? %>
-							<%= char.role %>
-						<% else %>
-							
-						<% end %>
-					</span>
-					
-				</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-xs-12">
+				<a href=<%= characters_vn_path(@vn) %>><h3>Characters</h3> </a>
 			</div>
 		</div>
+		<div class="row">
+			<%= render partial:'character_vn_page',collection: @characters, as: :character %>
+		</div>
+
+		<% if @characters_show_more %>
+			<div class="col-md-12 text-center">
+				<h5 class="special-links">
+					<%= link_to 'View More Characters','#',id: "more-characters" %>
+				</h5>
+			</div>
 		<% end %>
 	</div>
-</div>
 </section>
 
 

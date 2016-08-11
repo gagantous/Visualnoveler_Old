@@ -10,6 +10,9 @@ $font-size-h5: $font-size-base;
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
+.special-links {
+  color: #1F3A93;
+}
 .navbar-default{
   background-color: white;
 }
@@ -410,6 +413,7 @@ html, body {
   .vn-character-textpadding{
     padding-left: 30px;
   }
+
   .home-registerbtn{
     position: relative;
     top: 25px;
@@ -2118,3 +2122,10 @@ img.center {
   margin-top: 20px;
 }
 
+.character-row {
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.hidden-character{
+  display: none;
+}

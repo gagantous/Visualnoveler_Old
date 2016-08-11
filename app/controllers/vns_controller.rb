@@ -3,7 +3,12 @@ class VnsController < ApplicationController
 	before_action :authenticate_user!, :only => [:edit,:crop,:new,:update,:edit_walkthrough]
 	def show
 		@vn = Vn.find(params[:id])
-		@showcharacters = @vn.characters.priority_order
+		@characters = @vn.characters.priority_order
+		@character_display_max = 12
+		if @characters.count > @character_display_max
+			@characters_show_more = true
+			#@l_characters = @characters.limit(12)
+		end
 		@franchise = @vn.franchise
 		@screenshots = @vn.screenshots
 		@translation = @vn.translation
@@ -12,6 +17,10 @@ class VnsController < ApplicationController
 		@negative_reviews = @vn.reviews.where("rating < ?",5).order('created_at DESC').limit(5)
 		@lib_entry = current_user.library_entries.where(vn_id: @vn.id).first unless !user_signed_in?
 		@vn.reviews.build
+		respond_to do |format|
+		  format.html
+		  format.js
+		end
 	end
 	# walkthrough page
 	def walkthrough
