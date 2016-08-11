@@ -27,6 +27,7 @@ $(document).ready(function(){
         $(this).removeAttr("data-src");
       });
       $(this).hide();
+      $('.equal-height-panels').matchHeight();
     });
 });
 
