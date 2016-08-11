@@ -9,7 +9,7 @@
 			<div class="col-md-6 col-sm-12 col-xs-12">
 				<%= link_to character.img_string.url, :class => 'fancybox', :rel =>'character' do %>
 					<% if index > @character_display_max %>
-						<img src="<%= character.img_string.url(:thumb)%>" class="img-circle img-thumbnail lazy-char-img">
+						<img data-src="<%= character.img_string.url(:thumb)%>" class="img-circle img-thumbnail lazy-char-img">
 					<% else %>
 						<%= image_tag(character.img_string.url(:thumb),:alt => character.name, :class=> "img-circle img-thumbnail") %>
 					<% end %>
