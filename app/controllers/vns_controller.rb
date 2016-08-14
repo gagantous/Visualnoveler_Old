@@ -92,8 +92,8 @@ class VnsController < ApplicationController
 	def edit
 		@vn = Vn.find(params[:id])
 		@translation = @vn.translation
-		@start_year = 2000
-		@end_year = Date.today.year + 4
+		@start_year = Date.today.year + 4
+		@end_year = 1995
 		authorize @vn
 		@character = @vn.characters.priority_order
     	#@vn.characters.build
@@ -170,8 +170,8 @@ class VnsController < ApplicationController
 
 	def new
 		@vn = Vn.new
-		@start_year = 2000
-		@end_year = Date.today.year + 4
+		@start_year = Date.today.year + 4
+		@end_year = 1995
 		authorize @vn
     	@vn.characters.build
 	end
