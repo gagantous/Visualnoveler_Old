@@ -29,7 +29,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
 	      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Twitter"
 	      sign_in_and_redirect @user, :event => :authentication
 	    else
-	      session["devise.twitter_data"] = request.env["omniauth.auth"]
+	      session["devise.twitter_data"] = request.env["omniauth.auth"].delete_if("extra")
 	      redirect_to register_path
 	    end
 	end
