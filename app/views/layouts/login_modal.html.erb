@@ -1,0 +1,42 @@
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Login to Your Account</h1><br>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true %>
+          <%= f.input :password, required: false %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="login-help">
+          <%= f.button :submit, "Log in",:class =>"login loginmodal-submit" %>
+          <%= link_to 'Register', register_path,:class =>"links" %> - <%= link_to 'Forgot Password',new_user_password_path,:class =>'links' %>
+          <br><br>
+
+          <ul class="list-inline">
+            <li>
+              <%= link_to omniauth_authorize_path(:user,"facebook"),class: 'btn btn-facebook',:rel => "nofollow" do %>
+               <span class="fa fa-facebook" style="padding-right:2px;"></span>
+               <%= "Facebook" %>
+              <% end %>
+            </li>
+             <li>
+                <%= link_to omniauth_authorize_path(:user,"twitter"),class: 'btn btn-twitter',:rel => "nofollow" do %>
+                  <span class="fa fa-twitter" style="padding-right:2px;"></span>
+                  <%= "Twitter" %>
+                <% end %> 
+            </li>
+            <li>
+              <%= link_to omniauth_authorize_path(:user,"google_oauth2"),class: 'btn btn-googleauth',:rel => "nofollow" do %>
+                <span class="fa fa-google" style="padding-right:2px;"></span>
+                <%= "Google" %>
+              <% end %> 
+            </li>
+          </ul>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div> <!--end of modal !-->

@@ -17,6 +17,11 @@ module ApplicationHelper
   def image_url(url)
     content_for :image_url, url
   end
+
+  def twitter_tags(title,description,image)
+    content_for :title, title
+  end
+
  	def markdown(text)
     options = {
       link_attributes: { rel: 'nofollow', target: "_blank" },

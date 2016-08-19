@@ -9,9 +9,9 @@
 <div class="container">
 <div class="row">
 
-<div class="col-md-4 col-md-offset-4 col-sm-offset-3 col-sm-6" style="padding-top:75px;">
+<div class="col-md-5 col-centered col-sm-7" style="padding-top:75px;">
 	<div class="panel panel-default">
-  <div class="panel-body" style="margin-left:35px;">
+  <div class="panel-body register-panel">
     <h2 class ="signup">Sign up
    <br></h2>
 <!--    <a href="#" data-toggle="modal" data-target="#login-modal" class="btn btn-dropbox" style="margin-left:40px;">Login</a> -->
@@ -20,13 +20,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true,label: false,placeholder: "Email", autofocus: true,input_html: {style: "width:260px;"} %>
-    <%= f.input :name, required: true,label: false, placeholder: "Username",input_html: {style: "width:260px;"} %>
-    <%= f.input :password, required: true,label: false, placeholder: "Password",input_html: {style: "width:260px;"} %>
+    <%= f.input :email, required: true,label: false,placeholder: "Email", autofocus: true %>
+    <%= f.input :name, required: true,label: false, placeholder: "Username" %>
+    <%= f.input :password, required: true,label: false, placeholder: "Password" %>
   </div>
 
   <div class="signup">
-    <%= f.button :submit, "Sign up",:class =>"register-button" %>
+    <%= f.button :submit, "Sign up",:class =>"register-button" ,style:"width:100% !important;" %>
   </div>
 <% end %>
 <br>

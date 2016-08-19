@@ -1,6 +1,14 @@
 <% news_title @news.title %>
 <% description @news_description %>
-<% image_url @news.featured_image %>
+<% image_url asset_url(@news.featured_image) %>
+<% content_for :twitter_tags do %>
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@visualnoveler">
+	<meta name="twitter:creator" content="@visualnoveler">
+	<meta name="twitter:title" content="<%= @news.title %>">
+	<meta name="twitter:description" content= "<%= @news_description%>">
+	<meta name="twitter:image" content="<%= asset_url(@news.featured_image) %>">
+<% end %>
 
 <script>
     $("body").floatingSocialShare({

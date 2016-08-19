@@ -32,6 +32,13 @@
  		 <%= "Google" %>
     	<% end %>
     	<br />
+
+    <% elsif provider.to_s == "twitter" %>
+     <%= link_to omniauth_authorize_path(resource_name, provider),class: 'btn btn-twitter' do %>
+     <span class="fa fa-twitter" style="padding-right:2px;"></span>
+     <%= "Twitter" %>
+      <% end %>
+      <br />
     <% end %>
 
 	</li>

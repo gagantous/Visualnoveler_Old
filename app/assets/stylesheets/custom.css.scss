@@ -17,6 +17,17 @@ $font-size-h5: $font-size-base;
   background-color: white;
 }
 
+.navbar-brand {
+  font-size: 28px !important;
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
+  color: black !important;//#7f8c8d;
+}
+
+.logo-dropdown {
+  margin-top: 1px;
+}
+
 .navbar-default,.navbar-toggle{
   border-color: transparent !important;
 }
@@ -388,6 +399,10 @@ html, body {
   .vnindex-heading{
     top: -10px !important;
   }
+
+  .register-panel {
+    padding:25px 15px;
+  }
   .character-row{
     min-height: 245px;
   }
@@ -610,6 +625,10 @@ html, body {
   .author-img {
     width: 75%;
     margin: 0 auto;
+  }
+
+  .register-panel {
+    padding:25px 65px;
   }
 
   .usernav-name{
@@ -1030,13 +1049,17 @@ html, body {
 
 }
 
-// VN column in index VN page
-
+.navLogo-home {
+  font-size: 28px !important; 
+  font-weight: 400;
+  color: white;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 /****** LOGIN MODAL ******/
 .loginmodal-container {
   padding: 30px;
-  max-width: 350px;
+  max-width: 370px;
   width: 100% !important;
   background-color: #F7F7F7;
   margin: 0 auto;
@@ -1100,7 +1123,7 @@ html, body {
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1); 
   background-color: #4d90fe;
-  padding: 17px 0px;
+  padding: 10px 0px;
   font-family: roboto;
   font-size: 14px;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
@@ -1178,7 +1201,7 @@ body {
 
 .logotitle{
   color: black; 
-  font-size: 1.15em;
+  font-size: 16px;
 }
 
 .formcharacter {
@@ -1209,14 +1232,6 @@ background-position: center center;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
-}
-
-.navLogo {
-  font-size: 1.5em;
-  font-family: 'Poiret One', cursive;
-  font-weight: bold;
-  //font-weight: bold;
-  color: black;//#7f8c8d;
 }
 
 .landing-navitems{
