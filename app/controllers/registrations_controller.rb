@@ -14,6 +14,10 @@ class RegistrationsController < Devise::RegistrationsController
     	#flash[:success] = "Welcome! You have signed up successfully. You will receive an email with instructions about how to confirm your account in a few minutes."
   	end
 
+    def after_sign_up_path_for(resource)
+      vns_path
+    end
+
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up).push(:name) 
       devise_parameter_sanitizer.for(:account_update).push(:name, :email,:bio, :password,
