@@ -22,7 +22,7 @@
               <% end %>
             </li>
              <li>
-                <%= link_to omniauth_authorize_path(:user,"twitter"),class: 'btn btn-twitter',:rel => "nofollow" do %>
+                <%= link_to omniauth_authorize_path(:user,"twitter",:include_email => true),class: 'btn btn-twitter',:rel => "nofollow" do %>
                   <span class="fa fa-twitter" style="padding-right:2px;"></span>
                   <%= "Twitter" %>
                 <% end %> 

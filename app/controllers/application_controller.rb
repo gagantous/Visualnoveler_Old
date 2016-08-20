@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 		 	 session[:previous_url] || vns_path
 		end
 		def after_sign_in_path_for(resource)
-	 		 return session[:previous_url] || user_path(current_user)
+	 		 return session[:previous_url] || vns_path
 		end
 
 	  def authenticate_user!(options={})

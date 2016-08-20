@@ -108,7 +108,7 @@
          <ul class="nav navbar-nav navbar-right"> 
           <% if user_signed_in? %>
               <li class="dropdown pull-right-nav">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle navbar-brand"><span class="logotitle usernav-name"><%= current_user.name %></span> <b class="caret usernav-name"></b></a>
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="logotitle usernav-name"><%= current_user.name %></span> <b class="caret usernav-name"></b></a>
                 <ul class="dropdown-menu">
                     <li><%= link_to "My Profile", user_path(current_user) %></li>
                     <li><%= link_to "Edit Profile", edit_path %></li>

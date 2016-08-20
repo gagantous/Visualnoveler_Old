@@ -57,6 +57,17 @@ class User < ActiveRecord::Base
         end
     end
 
+    def self.from_twitter_omniauth(auth,email)
+       where(provider: auth["provider"], uid: auth["uid"]).first_or_create do |user|
+          user.provider = auth["provider"]
+          user.uid = auth["uid"]
+          user.email = email
+          user.name = auth["info"]["name"]
+          user.password = Devise.friendly_token[0,20]
+          user.remote_poster_image_url = auth["info"]["image"].gsub('http://','https://')
+        end
+    end
+
     private 
       def image_size
         if poster_image.size > 2.megabytes || library_image.size > 2.megabytes

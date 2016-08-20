@@ -1,0 +1,45 @@
+<% title 'Sign Up' %>
+
+<!-- <div class="signup-bg" style="background: url(<%= asset_path "signup-bg2.jpg" %>)no-repeat center center fixed;">  -->
+
+<div id="bg">
+  <%= image_tag("register-bg.jpg",alt:"visualnoveler signup background") %>
+</div>
+
+<div class="container">
+<div class="row">
+
+<div class="col-md-5 col-centered col-sm-7" style="padding-top:75px;">
+	<div class="panel panel-default">
+  <div class="panel-body register-panel">
+    <h2 class ="signup">Sign up
+   <br></h2>
+
+<%= form_for @form, :url => twitter_register_path,:method => :post do |f| %>
+  <% if @form.errors.any? %>
+  <div class="alert alert-danger">
+    Please review the problems below
+    <ul style="margin-top:10px;">
+      <% @form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  
+  <% end %>
+  <div class="form-inputs">
+    <%= f.text_field :email,class: "form-control",style: "margin-bottom: 15px;",placeholder: "Email" %>
+  </div>
+
+  <div class="signup">
+    <%= button_tag "Sign up",class: "register-button form-control",style: "width:100% !important;" %>
+  </div>
+
+<% end %>
+<br>
+
+  </div>
+</div></div>
+
+</div>
+</div>

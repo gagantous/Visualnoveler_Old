@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'genres/typeahead/:search' => 'genres#typeahead'
   get 'developers/typeahead/:search' => 'developers#typeahead'
   get 'users/typeahead/:search' => 'users#typeahead'
-
+  post 'twitter_register' => 'users#twitter_register'
   get 'discourse/sso' => 'discourse_sso#sso'
   mount Starburst::Engine => "/starburst"
 

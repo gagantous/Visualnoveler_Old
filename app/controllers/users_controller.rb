@@ -110,6 +110,22 @@ class UsersController < ApplicationController
     @users = User.search_by_name(params[:search])
   end
 
+  def twitter_register
+    @form = TwitterForm.new(params[:twitter_form])
+    if @form.valid?
+      email = params[:twitter_form][:email]      
+      @user = User.from_twitter_omniauth(session["devise.twitter_data"],email)
+      if @user.persisted?
+        flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Twitter"
+        sign_in_and_redirect @user, :event => :authentication
+      else
+        redirect_to register_path 
+      end
+    else 
+      render 'callbacks/twitter',layout: 'none'
+    end
+  end
+
   private
     def user_params
        params.require(:user).permit(:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h,:name,:bio,:role,:current_password,:password,:password_confirmation,:library_image,:library_image_type)

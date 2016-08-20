@@ -266,5 +266,5 @@ Devise.setup do |config|
  #   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? 
    config.omniauth :facebook,   ENV["FACEBOOK_ID"],   ENV["FACEBOOK_SECRET"],:image_size => 'large'
    config.omniauth :google_oauth2, ENV["GOOGLE_ID"], ENV["GOOGLE_SECRET"], { }
-   config.omniauth :twitter, ENV["TWITTER_ID"], ENV["TWITTER_SECRET"], { }
+   config.omniauth :twitter, ENV["TWITTER_ID"], ENV["TWITTER_SECRET"],:image_size => 'original'
 end
