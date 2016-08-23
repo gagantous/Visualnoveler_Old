@@ -67,11 +67,29 @@ gem 'redcarpet'
 # Use Unicorn as the app server
 
 group :development do
-    gem 'sqlite3'
+	gem 'sqlite3'
+	gem 'spring-commands-rspec', group: :development
+	gem "guard-livereload",  :require => false
+	gem "guard", ">= 2.2.2", :require => false
+	gem "rack-livereload"
 end
 
 group :production do
-  gem 'unicorn'
-  gem 'pg'
-  gem 'rails_12factor'
+	gem 'unicorn'
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
+group :test do
+	gem 'capybara'
+	gem 'database_cleaner'
+	gem 'launchy'
+	gem 'selenium-webdriver'
+	gem 'shoulda-matchers', '~> 3.1'
+end
+
+group :development, :test do
+	gem 'factory_girl_rails'
+	gem 'faker'
+	gem 'rspec-rails', '~> 3.5', :require => false
 end

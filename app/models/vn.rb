@@ -33,19 +33,18 @@ class Vn < ActiveRecord::Base
  	accepts_nested_attributes_for :translation
  	accepts_nested_attributes_for :translation_posts
  	before_save :edit_youtubeurl
-  	attr_accessor :characterurl
-  	include PgSearch
-  	#:associated_against => { genres: [:name]},
-  	pg_search_scope :search_by_name, :against => [:name,:alias],:using => {
-                    :tsearch => {:prefix => true}
-                  }
-    scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
-    extend FriendlyId
-    friendly_id :name, use: [:slugged, :finders]
+	include PgSearch
+	#:associated_against => { genres: [:name]},
+	pg_search_scope :search_by_name, :against => [:name,:alias],:using => {
+                  :tsearch => {:prefix => true}
+                }
+  scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
 
  	# only accepts direct copying of youtube urls
 	def edit_youtubeurl
-		if !trailer_url.empty?
+		if !self.trailer_url.blank?
 			self.trailer_url.sub!('watch?v=','embed/')
 			if !self.trailer_url.include?("?autoplay=1")
 				self.trailer_url << "?autoplay=1"

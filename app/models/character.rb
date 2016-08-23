@@ -15,15 +15,13 @@ class Character < ActiveRecord::Base
 	pg_search_scope :search_by_name, :against => :name,:using => {
 	            :tsearch => {:prefix => true}
 	          }
-     def self.priority_order
-    order("CASE role
-      WHEN 3 THEN 0
-      WHEN 1 THEN 1
-      WHEN 2 THEN 2
-      WHEN 0 THEN 3
-     
-    END")
-
-  end
+    def self.priority_order
+	    order("CASE role
+	      WHEN 3 THEN 0
+	      WHEN 1 THEN 1
+	      WHEN 2 THEN 2
+	      WHEN 0 THEN 3 
+	    END")
+  	end
 
 end

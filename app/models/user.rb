@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
     enum role: [:user,:mod,:admin,:writer]
     after_initialize :set_default_role, :if => :new_record?
     before_create :add_to_list
@@ -35,8 +34,10 @@ class User < ActiveRecord::Base
     end
 
     def add_to_list
-      gb = Gibbon::Request.new(api_key: ENV["MAILCHIMP_API_KEY"] )
-      subscribe = gb.lists(ENV["MAILCHIMP_LIST_KEY"]).members.create(body: {email_address: self.email, status: "subscribed"})
+      if Rails.env.production?
+        gb = Gibbon::Request.new(api_key: ENV["MAILCHIMP_API_KEY"] )
+        subscribe = gb.lists(ENV["MAILCHIMP_LIST_KEY"]).members.create(body: {email_address: self.email, status: "subscribed"})
+      end
     end
     
     def set_default_role
