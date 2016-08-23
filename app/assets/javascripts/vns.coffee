@@ -1,5 +1,9 @@
 jQuery ->
-  $('a.fancybox').fancybox({parent: "body"})
+  $('a.fancybox').fancybox({padding: 0,helpers: {thumbs: {width: 100,height: 60}}})
+
+jQuery ->
+  $('a.fancybox-character').fancybox({padding: 0,helpers: {thumbs: {width: 62,height: 90}}})
+
 
 jQuery ->
   $('.vn-tooltip-related').tooltip();

@@ -1,4 +1,20 @@
 module VnsHelper
+
+	def get_character_role(character)
+		name = character.name
+		case character.role
+			when "Not Set"
+				return name
+			when "Supporting"
+				return name + " - Supporting"
+			when "Main"
+				return name + " - Main"
+			when "Protagonist"
+				return name + " - Protagonist"
+		end
+		return
+	end
+
 	#helper method to make ratings
 	def get_status(string) 
 		case string
