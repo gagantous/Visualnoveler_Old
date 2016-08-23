@@ -82,30 +82,32 @@
 			<span class="summary-text"><%= @vn.summary %> </span>
 			 <div class="vn-thumbnail-img">
 			 	<div class="row">
+			 		<% fancy_ss = mobile_device? ? 'fancybox-mobile' : 'fancybox' %>
+
 			 		<div class="col-md-3">
 			 		<% unless @vn.image_1.blank? %>
-			 		<%= link_to @vn.image_1.url, :class => 'fancybox', :rel =>'group' do %>
+			 		<%= link_to @vn.image_1.url, :class => fancy_ss, :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_1.url(:thumb)}",:alt => "#{@vn.name} screenshot 1", :class=> "img-thumbnail") %>
 					 <% end %>
 			 		</div> <% end %>
 
 			 		<div class="col-md-3">
 			 		<% unless @vn.image_2.blank? %>
-					 <%= link_to @vn.image_2.url, :class => 'fancybox', :rel =>'group' do %>
+					 <%= link_to @vn.image_2.url, :class => fancy_ss, :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_2.url(:thumb)}",:alt => "#{@vn.name} screenshot 2", :class=> "img-thumbnail") %>
 					 <% end %>
 					</div> <% end %>
 
 			 		<div class="col-md-3">
 			 		<% unless @vn.image_3.blank? %>
-					<%= link_to @vn.image_3.url, :class => 'fancybox', :rel =>'group' do %>
+					<%= link_to @vn.image_3.url, :class => fancy_ss, :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_3.url(:thumb)}",:alt => "#{@vn.name} screenshot 3", :class=> " img-thumbnail") %>
 					 <% end %>
 					</div> <% end %>
 
 			 		<div class="col-md-3">
 			 		<% unless @vn.image_4.blank? %>
-					 <%= link_to @vn.image_4.url, :class => 'fancybox', :rel =>'group' do %>
+					 <%= link_to @vn.image_4.url, :class => fancy_ss, :rel =>'group' do %>
 					 <%= image_tag("#{@vn.image_4.url(:thumb)}",:alt => "#{@vn.name} screenshot 4", :class=> "img-thumbnail") %>
 					 <% end %>
 					</div> <% end %>
@@ -269,7 +271,7 @@
 				<div class="row">
 				<% @screenshots.each do |ss| %>
 					<div class="col-md-3">
-						<%= link_to ss.image.url, :class => 'fancybox', :rel =>'group' do %>
+						<%= link_to ss.image.url, :class => fancy_ss, :rel =>'group' do %>
 							 <%= image_tag(ss.image.url(:thumb),:alt => @vn.name, :class=> "img-thumbnail") %>
 						<% end %>
 					</div>

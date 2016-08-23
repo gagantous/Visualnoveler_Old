@@ -4,6 +4,13 @@ jQuery ->
 jQuery ->
   $('a.fancybox-character').fancybox({padding: 0,helpers: {thumbs: {width: 62,height: 90}}})
 
+jQuery ->
+  $('a.fancybox-character-mobile').fancybox({padding: 0,prevEffect: 'none',nextEffect: 'none'
+                                            ,helpers: {thumbs: {width: 62,height: 90}}})
+jQuery ->
+  $('a.fancybox-mobile').fancybox({padding: 0,prevEffect: 'none',nextEffect: 'none'
+                                            ,helpers: {thumbs: {width: 100,height: 60}}})
+
 
 jQuery ->
   $('.vn-tooltip-related').tooltip();
