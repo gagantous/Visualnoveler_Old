@@ -216,10 +216,6 @@ class VnsController < ApplicationController
 	def create	
     	@vn = Vn.new(vn_params) 
     	authorize @vn 
-    	 if @vn.characterurl.blank? 
-		 else
-			 @scraper = Scraper.new(@vn,@vn.characterurl)
-		 end
     	if @vn.save
     		 redirect_to vn_path(@vn)
     		 flash[:success] = "Visual novel successfully created!"
