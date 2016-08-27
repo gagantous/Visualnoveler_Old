@@ -7,7 +7,7 @@
 		<div class="row" style="color:white;">
 			<div class="col-md-5" style="position:absolute;bottom:0px;">
 				<% if @user.poster_image.blank? %>
-		 		 	<%= image_tag("default_avatar.jpg",:class=>"userpic",:alt =>"user avatar") %>
+		 		 	<%= image_tag("default_avatar.jpg",:class=>"profile-image",:alt =>"user avatar") %>
 		 		 <% else %>
 		 			 <%= image_tag(@user.poster_image.url,:class => "profile-image",:alt =>"user avatar") %>
 		 		 <% end %>
