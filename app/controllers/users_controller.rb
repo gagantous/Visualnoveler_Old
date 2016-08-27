@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     authorize @user
   	@posts = @user.posts.order('created_at DESC').limit(8)
-    @favourites = @user.library_entries.where(favourite: true).limit(8)
-    @ratings = @user.library_entries.where.not(:rating => nil).order('updated_at DESC').limit(5)
+    @favourites = @user.library_entries.where(favourite: true).limit(10)
+    @ratings = @user.library_entries.where.not(:rating => nil).order('updated_at DESC').limit(10)
     if user_signed_in?
       if current_user == @user 
         @new_post =  @user.posts.build

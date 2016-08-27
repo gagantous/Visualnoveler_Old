@@ -2177,3 +2177,12 @@ img.center {
 .hidden-character{
   display: none;
 }
+
+@media (min-width: 992px) {
+  .col-user-leftcol {
+    width: 53%;
+  }
+  .col-user-rightcol {
+    width: 47%;
+  }
+}
