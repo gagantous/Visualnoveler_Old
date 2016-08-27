@@ -10,9 +10,11 @@
         <div class="user-favcolumn">
           <ul class="img-list-hover-fav">
             <li>  
-                <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "user-favimg") %>
-                <div class="user-rating-indicator"> <%= rating.rating %> </div>
-                <span class="text-content-fav"><span><%= vn.name %></span></span>
+                <%= link_to vn_path(vn) do %>
+                  <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "user-favimg") %>
+                  <div class="user-rating-indicator"> <%= rating.rating %> </div>
+                  <span class="text-content-fav"><span><%= vn.name %></span></span>
+                <% end %>
             </li>
           </ul>
         </div>
