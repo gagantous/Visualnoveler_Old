@@ -11,7 +11,7 @@
           <ul class="img-list-hover-fav">
             <li>  
                 <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "user-favimg") %>
-                <div class="user-rating-indicator"> 5 </div>
+                <div class="user-rating-indicator"> <%= rating.rating %> </div>
                 <span class="text-content-fav"><span><%= vn.name %></span></span>
             </li>
           </ul>
