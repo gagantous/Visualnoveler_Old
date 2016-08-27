@@ -1,0 +1,24 @@
+<% unless @ratings.blank? %>
+<div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Recent Ratings</h2>
+    </div>
+
+    <div class="col-md-12">
+      <% @ratings.each do |rating| vn = rating.vn %>
+        <div class="user-favcolumn">
+          <ul class="img-list-hover-fav">
+            <li>  
+                <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "user-favimg") %>
+                <div class="user-rating-indicator"> 5 </div>
+                <span class="text-content-fav"><span><%= vn.name %></span></span>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div> 
+</div>
+
+<% end %>

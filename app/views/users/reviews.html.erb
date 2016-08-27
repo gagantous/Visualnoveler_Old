@@ -1,0 +1,12 @@
+<% title @user.name + "'s Reviews" %>
+
+<section id="vn-review-section">
+<div class="container">
+	<div class="row" style="padding-top:20px;">
+		<div class="col-md-12">
+			<h1><%= link_to @user.name,user_path(@user)%>'s Reviews </h1>
+		</div>
+		<%= render :partial => 'reviews/review', collection: @reviews  %>
+	</div>
+</div>
+</section>

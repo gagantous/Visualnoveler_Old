@@ -1,0 +1,26 @@
+<% unless @favourites.blank? %>
+<div class="col-md-5 col-md-offset-1 col-xs-12 col-sm-12">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Favourite Visual Novels</h2>
+    </div>
+
+    <div class="col-md-12">
+      <% @favourites.each do |fav| vn = fav.vn %>
+        <div class="user-favcolumn">
+          <ul class="img-list-hover-fav">
+            <li>  
+              <%= link_to vn_path(vn) do %>
+                <%= image_tag(vn.image_poster_url,:alt => vn.name, :class=> "user-favimg") %>
+                 <span class="text-content-fav"><span><%= vn.name %></span></span>
+              <% end %>
+
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div> 
+</div>
+
+<% end %>

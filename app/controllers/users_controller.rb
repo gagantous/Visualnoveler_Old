@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     authorize @user
   	@posts = @user.posts.order('created_at DESC').limit(8)
-    @lib = @user.library_entries.where(favourite: true).limit(8)
-    @recent_ratings = @user.library_entries.where.not(:rating => nil).order('updated_at DESC').limit(5)
+    @favourites = @user.library_entries.where(favourite: true).limit(8)
+    @ratings = @user.library_entries.where.not(:rating => nil).order('updated_at DESC').limit(5)
     if user_signed_in?
       if current_user == @user 
         @new_post =  @user.posts.build
@@ -108,6 +108,11 @@ class UsersController < ApplicationController
 
   def search
     @users = User.search_by_name(params[:search])
+  end
+
+  def reviews
+    @user = User.find(params[:id])
+    @reviews = @user.reviews
   end
 
   def twitter_register

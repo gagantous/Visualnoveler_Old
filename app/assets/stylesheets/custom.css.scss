@@ -4,6 +4,8 @@ $font-size-h2: 20px;
 $font-size-h3: 18px; 
 $font-size-h4: 16px; 
 $font-size-h5: $font-size-base;
+$blue-btn-color: #4d90fe;
+$grey-color: #bdc3c7;
 // $font-family-base: 'Open Sans';
 
 @import "bootstrap-sprockets";
@@ -69,10 +71,7 @@ $font-size-h5: $font-size-base;
   display: inline;
   font-size: 18px;
 }
-#user h1{
-  font-size: 20px;
-  display: inline-block;
-}
+
 #vn-character,#franchise-related,#vn-screenshot{
  h3{
     font-size: 24px;
@@ -396,6 +395,29 @@ html, body {
 
 // mobile CSS
 @media (max-width: 460px) {
+
+  .user-post {
+    margin-bottom: 30px;
+  }
+  .user-favcolumn {
+    width: 90px !important;
+    height: 126px !important;
+  }
+  .user-time{
+    padding-top: 3px;
+    font-size: 10px !important;
+  }
+  .img-list-hover-fav {
+    li {
+      width: 90px !important;
+      height: 126px !important;
+    }
+  }
+
+  span.text-content-fav {
+    height: 116px !important; // -10px for width & height because padding: 10px;
+    width: 80px !important;
+  }
   .vnindex-heading{
     top: -10px !important;
   }
@@ -768,12 +790,7 @@ html, body {
   .mobile-review-buttongroup{
     padding-bottom: 10px;
   }
-  .shared-lib{
-    //display: none; 
-  }
-  .favourites-col{
-    padding-top: 25px;
-  }
+
   .adjustcharacter {
     margin-bottom: 15px;
     left: 0px !important
@@ -1214,11 +1231,6 @@ body {
   left: 30px;
 }
 
-.favourites-inner-row{
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 .vn-user-poster {
   // width: 200px;
   width:  100px;
@@ -1281,31 +1293,66 @@ background-size: cover;
   // font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   //   font-size: 16px;
 }
-.usercoverbg {
-  background-color: white;
- // height: 400px;
+.user-coverbg {
+  background-image: image-url('header.jpg');
+  padding-top: 50px;
+  width: 100%;
+  height: 330px;
+  position: relative;
 }
-.favourites-div{
-  background-color: red;
+.profile-coverbg-overlay {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  background: #000; 
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
 }
-
-.user-image-div {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.userpic {
-  width: 220px;
-  height: 220px;
-  border-radius: 5px;
-}
-
-.usercol {
-  width: 220px;
-  height: 220px;
-  margin-right: 35px;
-  float: left;
+.profile-img-wrapper {
+  position:absolute;
+  bottom: 0px;
 }
 
+.profile-image {
+  max-width: 120px;
+  height: auto;
+}
+
+.user-time {
+  padding-right: 10px;
+  color: rgba(0, 39, 59, 0.35);
+  font-size: 12px;
+}
+.username {
+  font-size: 20px;
+}
+.user-genres 
+
+  li {
+    a {
+      font-size: 12px;
+      font-weight: 500;
+    }
+}
+.user-nav {
+  position: absolute;
+  bottom: 10px;
+  color: #bdc3c7;
+
+  a {
+    color: #bdc3c7;
+  }
+  li {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+  }
+}
+.user-content{
+  padding-left: 20px;
+  margin-top: 10px;
+  display: inline-block;
+}
 .user-showname {
   float: left;
 }
@@ -1327,15 +1374,57 @@ background-size: cover;
 }
 
 .user-favimg {
-  width: 63px;
-  height: 85px;
+  width: 100px;
+  height: 140px;
 }
 .user-favcolumn {
-  width: 63px;
-  height: 85px;
+  width: 100px;
+  height: 140px;
   float: left;
   overflow: hidden;
 }
+
+span.text-content-fav {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+  display: table;
+  height: 130px; // -10px for width & height because padding: 10px;
+  width: 90px;
+  left: 10px;
+  top: 10px;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+.user-rating-indicator {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  width: 30px;
+  background-color: rgba(45,45,45,0.9);
+  color: white;
+}
+
+.img-list-hover-fav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  li {
+    padding: 10px;
+    display: inline-block;
+    height: 140px;
+    position: relative;
+    width: 100px;
+    float: left;
+  }
+}
+
 .row-upperpadding{
   padding-top: 25px;
 }
@@ -1463,12 +1552,6 @@ textarea {
     border-radius: 1px;
     background-color: #fc0 /* change this to any color you want! */;
 }
-.user-post{
-  .user-time{
-    //margin-top: 115px;
-  }
-}
-
 
 .vnchar-img{
   width: 80px;
@@ -1605,9 +1688,6 @@ body {
   height: 90px;
 }
 
-.vn-user-profile {
-
-}
 .vn-reviewbutton {
   position: relative;
   bottom: 50px;
@@ -1618,9 +1698,6 @@ body {
 }
 .radio-ratinglabel {
   padding-right: 15px;
-}
-.usercol-div{
-  padding-right: 10px;
 }
 
 .vn-userheader{
@@ -1644,10 +1721,6 @@ body {
 .tab-panel { padding: 5px 0; }
 .tab-content{padding:20px}
 
-
-.user-createpost {
-  margin-top: 15px;
-}
 .user-postdelete{
   // position: relative;
   // bottom: 25px;
@@ -1660,6 +1733,7 @@ body {
   position: relative;
   bottom: 10px;
 }
+
 .user-newpost-form {
   margin-bottom: 55px;
 }
@@ -1723,10 +1797,7 @@ body {
   position: relative;
   top: 19px;
 }
-.removefavouritepadding{
-  padding-left: 0px;
-  padding-right: 0px;
-}
+
 .links-shared{
     text-decoration: none;
     color: #666;
@@ -1746,52 +1817,18 @@ body {
     height: auto;
 }
 
-ul.img-list-hover {
+.img-list-hover {
   list-style-type: none;
   margin: 0;
   padding: 0;
   text-align: center;
-}
-
-
-
-
-ul.img-list-hover li:hover span.text-content {
   opacity: 1;
+  li:hover span.text-content{
+    opacity: 1;
+  }
 }
 
-ul.img-list-hover-fav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-ul.img-list-hover-fav li {
-  display: inline-block;
-  height: 85px;
-  position: relative;
-  width: 63px;
-  float: left;
-}
-span.text-content-fav {
-  background: rgba(0,0,0,0.5);
-  color: white;
-  cursor: pointer;
-  display: table;
-  height: 85px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 63px;
-  opacity: 0;
-  -webkit-transition: opacity 500ms;
-  -moz-transition: opacity 500ms;
-  -o-transition: opacity 500ms;
-  transition: opacity 500ms;
-}
-
-ul.img-list-hover-fav li:hover span.text-content-fav {
+.img-list-hover-fav li:hover span.text-content-fav {
   opacity: 1;
 }
 
@@ -1981,13 +2018,6 @@ img.center {
   box-shadow: none;
   background: #8775a7;
   border-color: #8775a7;
-}
-.user-recent-ratingpadding{
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.rating-progress{
-  margin-top: 15px;
 }
 
 .edit-news-wrapper{

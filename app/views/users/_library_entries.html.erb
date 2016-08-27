@@ -1,48 +1,36 @@
-
-      <% @posts.each do |post| %>
-      <div class="row">
-       <div class="panel panel-default"><div class="panel-body" style="position:relative;">
-          <% vn = post.library_entry.vn if post.library_entry %>
-          <div class = "post-delete-div">
-              <% if current_user == @user %>
-               <%= link_to post,:method=>:delete,:class =>"btn btn-danger pull-right",data:{ confirm: "Are you sure?"} do %>
-                  <i class="fa fa-trash-o"></i>
-                <% end %>
-              <% end %>
-          </div>
-        <div class="col-md-2 col-xs-4 col-sm-4">
-          <% if post.library_entry %>
-          <%= link_to image_tag("#{vn.image_poster.url}",:alt => "#{vn.name}", :class=> "img-responsive pull-left"), vn_path(vn)  %>
-          <% else %>
-            <% if !@user.poster_image.blank? %>
-              <%= image_tag(@user.poster_image.url,:alt => "#{@user.name}",:class =>"img-responsive pull-left") %>
+<% @posts.each do |post| %>
+        <% vn = post.library_entry.vn if post.library_entry %>
+        <div class="row" style="margin-top:5px;margin-bottom:5px;">
+          <div class="col-md-2 col-xs-3">
+            <% if post.library_entry %>
+              <%= link_to image_tag(vn.image_poster.url,:alt => "#{vn.name}", :class=> "img-responsive"), vn_path(vn)  %>
             <% else %>
-               <%= image_tag("default_avatar.jpg",:alt => "#{@user.name}",:class =>"img-responsive pull-left") %>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="col-md-10 col-xs-8">
-          <h4><%= post.detail %></h4>
-          <hr>
-          <div class="row">
-            <div class="col-md-7">
-              <% if post.library_entry %>
-                <ul class="list-inline">
-                  <% vn.genres.each do |genre| %>
-                    <li><%= link_to genre.name,genre_path(genre) %></li>
-                 <% end %>
-                </ul>
+              <% if !@user.poster_image.blank? %>
+                <%= image_tag(@user.poster_image.url,:alt => "#{@user.name}",:class =>"img-responsive") %>
+              <% else %>
+                <%= image_tag("default_avatar.jpg",:alt => "#{@user.name}",:class =>"img-responsive") %>
               <% end %>
-            </div>
-            <div class="col-md-4">
-              <span class="user-time vn-postdate"><%= time_ago_in_words(post.created_at) %> ago.</span> 
-            </div>
-               
-              <!-- end of nested divs-->
+            <% end %>
           </div>
+          <div class="col-md-10 col-xs-9">
+           <div class="panel panel-default"><div class="panel-body" style="position:relative;">
+              <p><%= post.detail %></p>
+              <div class="row" style="margin-top:20px;">
+                <div class="col-md-7 col-xs-9">
+                  <% if post.library_entry %>
+                    <ul class="list-inline user-genres">
+                      <% vn.genres.each do |genre| %>
+                        <li><%= link_to genre.name,genre_path(genre) %></li>
+                     <% end %>
+                    </ul>
+                  <% end %>
+                </div>
+                  <span class="user-time pull-right"><%= time_ago_in_words(post.created_at) %> ago</span>
+              </div>
+              <!-- row !-->
+          </div></div> <!---panels -->
         </div>
       </div>
-      </div></div> <!---panels -->
-    <% end %>
+<% end %>
 
 

@@ -109,6 +109,7 @@ Rails.application.routes.draw do
       get :search, on: :collection
       member do
         get :watch
+        get :reviews
         get :library
         get :wishlist
         get :drop

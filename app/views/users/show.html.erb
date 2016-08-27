@@ -1,83 +1,64 @@
 <% title @user.name + "'s Profile" %>
-<% description @user.name + "'s Profile." " Start tracking and discovering other visual novels at Visualnoveler with a growing community" %>
-<section id="user">
-<div class="container " style="margin-top:25px;">
-	<div class="row usercoverbg">
-	<div class="usercol-div">
- 		 <div class="usercol user-image-div">
- 		 <% if @user.poster_image.blank? %>
- 		 	<%= image_tag("default_avatar.jpg",:class=>"userpic",:alt =>"user avatar") %>
- 		 <% else %>
- 			 <%= image_tag("#{@user.poster_image.url}",:class => "userpic",:alt =>"user avatar") %>
- 		 <% end %>
- 		</div>
- 		<div class="col-md-6 col-xs-12">
- 			<h1><%= @user.name %> </h1>
- 			<% if @user == current_user %>
- 			<a href=<%= edit_path %> class="a-inherit" data-no-turbolink="true">
- 			<%= fa_icon "pencil",class:"fa-lg" %>
- 			</a>
- 			<% end %>
- 			<div class="user-bio">
- 				<p><%= markdown(@user.bio) %></p>
- 			</div>
- 			<div class="row">
-	 			<div class="user-buttons">
-	 				<div class="col-md-3 col-xs-6">
-						<%= link_to library_user_path(@user), :class => "btn blue-button library-list"  do %>
-							<span class="button-text">Library List</span>
-						<% end %>
-					</div>
-					<div class="col-md-3 col-xs-6">
-						<% if current_user != @user && user_signed_in? %>
-							 <%= link_to similar_user_path(@user),class:"btn blue-button" do %>
-	           					 <span class="button-text"><%= @similar_lib.count %> Shared VNs</span>
-	        				 <% end %>
-        				 <% end %>
-					</div>
-				</div>
-			</div>
- 		</div>
- 	</div>
- 		<div class="col-md-3 favourites-col col-xs-12">
- 				<h4 style="color:black;">Favourites</h4>
- 			
- 			<div class="row favourites-inner-row">
- 			<% @lib.each do |lib| vn = lib.vn %>
- 					<div class="user-favcolumn removefavouritepadding">
- 					<ul class="img-list-hover-fav"><li>	
- 					<%= link_to vn_path(vn) do %>
- 						 <%= image_tag(vn.image_poster_url(:thumb),:alt => vn.name, :class=> "user-favimg") %>
- 						 <span class="text-content-fav"><span><%= vn.name %></span></span>
- 					<% end %>
 
-					</li></ul>
- 					</div>
- 			<% end %>
- 			</div>
- 		</div>
- 		<!-- end !-->
- 	</div>
+<section id="user">
+<div class="user-coverbg">
+	<div class="profile-coverbg-overlay"> </div>
+	<div class="container">
+		<div class="row" style="color:white;">
+			<div class="col-md-5" style="position:absolute;bottom:0px;">
+				<% if @user.poster_image.blank? %>
+		 		 	<%= image_tag("default_avatar.jpg",:class=>"userpic",:alt =>"user avatar") %>
+		 		 <% else %>
+		 			 <%= image_tag(@user.poster_image.url,:class => "profile-image",:alt =>"user avatar") %>
+		 		 <% end %>
+
+		 		 <div class="user-content">
+			 		 <h1 class="username">
+			 		 	<%= @user.name %> 
+			 		 	<% if @user == current_user %>
+				 			<a href=<%= edit_path %> class="" style="padding-left:5px;color:inherit;" data-no-turbolink="true">
+				 				<%= fa_icon "pencil",class:"fa-md" %>
+				 			</a>
+		 				<% end %>
+			 		 </h1>
+		 			<ul class="list-unstyled list-inline user-nav" style="display:inline-block;">
+		 				<li><%= link_to 'Library',library_user_path(@user) %></li>
+		 				<li><%= link_to 'Reviews',reviews_user_path(@user) %></li>
+		 			</ul>
+		 		</div>
+			</div>
+	 	
+	 		<!-- 
+						<div class="col-md-3 col-xs-6">
+							<% if current_user != @user && user_signed_in? %>
+								 <%= link_to similar_user_path(@user),class:"btn blue-button" do %>
+		           					 <span class="button-text"><%= @similar_lib.count %> Shared VNs</span>
+		        				 <% end %>
+	        				 <% end %>
+					</div>
+					
+		 -->
+	 	</div>
+	 </div>
 </div>	
 
 <!-- post section !-->
-<div class="user-post" style="padding-top:10px;">
+<div class="user-post">
 	<div class="container">
-		<div class="user-createpost">
-			<div class="col-md-8">
-				<% if current_user == @user %>
-					<div class="user-newpost-form">
-					<%= simple_form_for @new_post do |f| %>
-						<%= f.input :detail,placeholder: "What are you doing right now?",label: false,input_html: {style: "height:100px;"}  %>
-				 		<%= f.button :submit , class: "btn btn-success pull-right user-postbutton",data:{ disable_with: "Creating Post...."} %>
-				 	<% end %>
-					 </div>
-				<% end %>
+		<div class="row">
+			<div class="col-md-6 col-xs-12">
+
+				<div class="user-bio">
+					<h2>About</h2>
+	 				<p><%= markdown(@user.bio) %></p>
+	 			</div>
+
+				<h2 style="margin-bottom:20px;">Activity </h2>
 				<%= render 'library_entries',locals:{posts: @posts} %>
 				
 			</div>
-			<%= render 'recent_ratings',locals:{recent_ratings: @recent_ratings} %>
-			
+			<%= render 'favourites',locals:{favourites: @favourites} %>
+			<%= render 'ratings',locals:{favourites: @favourites} %>
 		</div>
 	</div>
 </div>
@@ -92,4 +73,5 @@
 		 !-->
 	</div>
 </div>
+
 </section>
