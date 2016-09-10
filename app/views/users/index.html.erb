@@ -8,10 +8,10 @@
 				<%= form_tag(search_users_path, :method => "get") do %>
 					<%= text_field_tag :search, params[:search], class: "form-control typeahead-users search-query", placeholder: "Search Users" %>
 					 <div class="input-group-btn">
-		                  <%= button_tag(type: "submit", class: "btn") do %>
-		                    <span class=" glyphicon glyphicon-search"></span>
-		                  <% end %>
-		                </div>
+		             	<%= button_tag(type: "submit", class: "btn") do %>
+		                	<span class=" glyphicon glyphicon-search"></span>
+		                <% end %>
+		             </div>
 				<% end %>
 			</div>
 		</div>
