@@ -5,6 +5,7 @@ $font-size-h3: 18px;
 $font-size-h4: 16px; 
 $font-size-h5: $font-size-base;
 $blue-btn-color: #4d90fe;
+$blue-color: #4d90fe;
 $grey-color: #bdc3c7;
 // $font-family-base: 'Open Sans';
 
@@ -20,7 +21,7 @@ $grey-color: #bdc3c7;
 }
 
 .navbar-brand {
-  font-size: 28px !important;
+  font-size: 26px !important;
   font-family: 'Poiret One', cursive;
   font-weight: bold;
   color: black !important;//#7f8c8d;
@@ -253,9 +254,6 @@ html, body {
   font-size: 16px;
   padding-bottom: 10px;
 }
-.pull-right-nav{
-    display: right;
-}
 
 .btn-circle.btn-lg {
     width: 50px;
@@ -317,7 +315,10 @@ html, body {
   display: block;
   max-width: 100%;
 }
-
+.input-group .twitter-typeahead {
+  // twitter typeahead fix with bootstrap 3
+    display: table-cell !important;
+}
 
 .tt-query {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -328,9 +329,12 @@ html, body {
 .tt-hint {
   color: #999;
 }
-
+.tt-image {
+  max-width: 75px;
+  height: auto;
+}
 .tt-menu {    /* used to be tt-dropdown-menu in older versions */
-  width: 310px;
+  width: 240px;
   margin-top: 4px;
   padding: 4px 0;
   background-color: #fff;
@@ -357,12 +361,13 @@ html, body {
 }
 .tt-suggestion:hover .tt-title {
   //color: white;
-  font-weight: 500;
+  //font-weight: 500;
 }
 
 .tt-suggestion p {
   margin: 0;
 }
+
 
 .ghost-buttonimg{
   color: #fff;
@@ -389,7 +394,7 @@ html, body {
     display: block;
   }
   .pull-right-nav{
-    display: block;
+    display: inline-block;
   }
 }
 
@@ -502,15 +507,13 @@ html, body {
     position:relative;
     bottom:10px;
   }
- 
+
 }
   .btn-vnlist{
     position:relative;
     bottom:10px;
   }
-  .vn-navbuttons{
 
-  }
 
 // mobile and tablet
 
@@ -648,18 +651,16 @@ html, body {
     width: 75%;
     margin: 0 auto;
   }
-
+  .vn-navbuttons {
+    padding-left: 31px;
+  }
   .register-panel {
     padding:25px 65px;
   }
 
-  .usernav-name{
-   position: relative;
-   top: 5px
-  }
   .vnindex-heading{
     display:inline;
-    padding-left:45px;
+    padding-left:28px;
     position:relative;
     top:6px;
   }
@@ -808,11 +809,9 @@ html, body {
     max-width: 808px;
   }
   .padding-search{
-    margin-top: 9px;
+  
   }
-  .vnindex-row {
-    margin-left: 70px !important;
-  }
+
   .vn-menuright {
     float: right;
   }
@@ -973,10 +972,12 @@ html, body {
 // VN column in index VN page
 
 
+$vn-width: 200px;
+$vn-height: 278px; 
 .vn-column{
   position: relative;
-  width: 220px;
-  height: 305.8px; // to standardize posters
+  width: $vn-width;
+  height: $vn-height;
   margin: 15px 10px 15px 10px;  
   float: left;
   .inline-nopadding {
@@ -1006,8 +1007,8 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
   }
   .vn-index-poster {
-     width: 220px;
-     height: 305.8px;
+     width: $vn-width;
+     height: $vn-height;
   }
 
   .text-title {
@@ -2177,6 +2178,59 @@ img.center {
 .hidden-character{
   display: none;
 }
+.dropdown-avatar {
+  padding: 0px !important;
+  margin: 0px !important;
+  display: inline-block !important;
+  vertical-align: middle;
+}
+.usernav-name{
+  display: inline-block;
+  color: black;
+  font-size: 16px;
+}
+#search-form {
+  position: relative;
+  bottom: 4px;
+}
+#custom-search-input {
+  margin:0;
+  margin-top: 10px;
+  padding: 0;
+  .search-query {
+    padding-right: 30px;
+    padding-left: 10px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    width: 240px;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+  button {
+    border: 0;
+    background: none;
+    color: #337AB7;
+    //$blue-color
+    /** belows styles are working good */
+    padding: 5px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+  .search-query:focus + button {
+     z-index: 3; 
+  }
+}
+ 
+
+
 
 @media (min-width: 992px) {
   .col-user-leftcol {

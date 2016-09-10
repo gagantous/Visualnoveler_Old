@@ -2254,8 +2254,8 @@ Handlebars.template = Handlebars.VM.template;
 ;
 
 Handlebars.registerHelper('trimString', function(passedString) {
-    var theString = passedString.substring(0,60);
-    if( passedString.length > 60 ) {
+    var theString = passedString.substring(0,25);
+    if( passedString.length > 25 ) {
       theString += '...';
     }
     return new Handlebars.SafeString(theString)

@@ -108,7 +108,17 @@
          <ul class="nav navbar-nav navbar-right"> 
           <% if user_signed_in? %>
               <li class="dropdown pull-right-nav">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="logotitle usernav-name"><%= current_user.name %></span> <b class="caret usernav-name"></b></a>
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle dropdown-avatar">
+                  <div class="nav-user">
+                    <span class="usernav-name"><%= current_user.name %></span>
+                    <b class="caret usernav-name"></b>
+                  </div>
+                </a>
+                <% if current_user.poster_image.blank? %>
+                  <%= image_tag("default_avatar.jpg",:class => "pull-right-nav",:style =>"max-width: 60px; max-height: 60px;margin-left:5px;")  %>
+               <% else %>
+                  <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right-nav",:style =>"max-width: 60px; max-height: 60px;margin-left:5px;")  %>
+               <% end %>
                 <ul class="dropdown-menu">
                     <li><%= link_to "My Profile", user_path(current_user) %></li>
                     <li><%= link_to "Edit Profile", edit_path %></li>
@@ -117,11 +127,6 @@
                     <li><%= link_to "Logout", logout_path, :method => :delete %></li>    
                 </ul>
              </li>
-               <% if current_user.poster_image.blank? %>
-                  <%= image_tag("default_avatar.jpg",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;margin-top:5px;")  %>
-               <% else %>
-                  <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right-nav",:style =>"max-width: 50px; max-height: 50px;margin-top:5px;")  %>
-               <% end %>
           <% else %>
             <li class ="logotitle-dropdown">
                <a href="#" class="button-nav" data-toggle="modal" data-target="#login-modal"><span class="logotitle">Login</span> </a>
@@ -133,12 +138,15 @@
           </ul>
         
         
-           <div class="input-append">
+           <div class="input-group" id="custom-search-input">
+            <!-- typeahead !-->
              <%= form_tag(search_path, :method => "get", class: "navbar-form", id: "search-form" ) do %>
-                <%= text_field_tag :search, params[:search], class: "form-control typeahead", placeholder: "Search Visual Novels" %>
-              <%= button_tag(type: "submit", class: "btn btn-primary padding-search") do %>
-                  <i class="fa fa-search 6x"></i>
-              <% end %>
+                <%= text_field_tag :search, params[:search], class: "form-control search-query typeahead", placeholder: "Search Visual Novels" %>
+                <div class="input-group-btn">
+                  <%= button_tag(type: "submit", class: "btn") do %>
+                    <span class=" glyphicon glyphicon-search"></span>
+                  <% end %>
+                </div>
              <% end %>
            </div>
           </div> <!-- navbar id !-->

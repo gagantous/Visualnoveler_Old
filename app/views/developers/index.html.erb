@@ -3,16 +3,20 @@
 
 <div class="container">
 	<div class="row">
-		<h1>All Developers Categories
-		</h1>
-		<%= form_tag(search_developers_path, :method => "get", class: "",style:"") do %>
-		
-		 <%= text_field_tag :search, params[:search], class: "customform-input typeahead-developers", placeholder: "Search Developers" %>
-	
-		<%= button_tag(type: "submit", class: "btn btn-primary",style:"position:relative;top:5px;") do %>
-              <i class="fa fa-search 6x"></i>
-         <% end %>
-		<% end %>
+		<div class="col-md-12">
+			<h1>All Developers Categories
+			</h1>
+			<div class="input-group" id="custom-search-input">
+				<%= form_tag(search_developers_path, :method => "get") do %>
+				 	<%= text_field_tag :search, params[:search], class: "form-control search-query typeahead-developers", placeholder: "Search Developers" %>
+					 <div class="input-group-btn">
+		             	<%= button_tag(type: "submit", class: "btn") do %>
+		                	<span class=" glyphicon glyphicon-search"></span>
+		                <% end %>
+		             </div>
+				<% end %>
+			</div>
+		</div>
 		<% @developers.each do |developer| %>
 			<div class="col-md-3" style="padding-bottom:20px;">
 				<h4><%= link_to developer.name + "(#{developer.vns.count})", developer_path(developer),style: "color:black;" %></h4>
