@@ -1,7 +1,7 @@
 <% title @genre.name + ' Visual Novel Listings' %>
 <% description "Visual novels tagged with #{@genre.name} are found over here. Start tracking and discovering other visual novels at Visualnoveler and manage your visual novel list." %>
-<div class="container-fluid">
-	<div class="row vnindex-row">
+<div class="container">
+	<div class="row">
 		<%= render 'layouts/vn_title',:title => "#{@genre.name} Visual Novels" %>
 		<%= render 'layouts/vn_show',locals:{vn: @vn} %>	
 
