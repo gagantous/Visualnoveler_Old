@@ -12,8 +12,10 @@ $(document).on('ajax:beforeSend', '.status-fav', function(e) {
 
 $(document).ready(function(){
     $(".vn-column").children(".vn-column-data").hide();
-    $(".vn-index-poster").load(function(){
-        $(this).closest(".vn-column").children(".vn-column-data").show();
+    $(".vn-index-poster").one("load",function() {
+      $(this).closest(".vn-column").children(".vn-column-data").show();
+    }).each(function() {
+      if (this.complete) $(this).load(); 
     });
 
     // show more characters functionality
