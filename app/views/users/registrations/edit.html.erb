@@ -7,9 +7,11 @@
   <div class="col-md-9 col-centered">
     <div class="row">
       <div class="col-md-3">
+          <h2> Account Settings</h2>
+          <%= f.input :email %>
           <h2>Profile Image</h2>
           <% if current_user.poster_image.url.present? %>
-            <%= image_tag(current_user.poster_image.url,:class =>"img-responsive") %>
+            <%= image_tag(current_user.poster_image.url,:class =>"img-responsive",style:"max-width:140px;") %>
           <% end %>
           <%= f.input :poster_image, input_html: { hidden: true ,style:"display:none;",class:"file-upload-real" },label: false %>
           <%= link_to 'Upload Image','#',class:"file-upload-clicker btn btn-info",style:"margin-bottom:5px;" %>
@@ -29,15 +31,15 @@
 
         <div class="col-md-5 col-md-offset-1">
             <h2>Edit Profile</h2>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>    
             <%= f.input :name, required: false, autofocus: true %>
             <%= f.input :bio ,:input_html => {:rows => 7,id: "markdown",}%>
             <div id="preview" style=""> </div>
         </div>
 
-  
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>         
+       
  
 <!--
 <h3>Cancel my account</h3> 
