@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h1> Crop Header Image</h1>
-			<%= form_for @user,method: :put do |f| %>
+			<%= form_for @user,method: :put,url: update_header_user_path do |f| %>
 			  <%= f.cropbox :header_image %>
 			  <%= f.submit 'Crop',:class => "register-button btn",:style =>'margin-top: 50px;margin-bottom:30px; width: 120px;' %>
 			<% end %>

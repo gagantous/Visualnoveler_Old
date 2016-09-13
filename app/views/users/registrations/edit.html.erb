@@ -14,12 +14,12 @@
          <!--  <%= f.input :poster_image, input_html: { hidden: true ,style:"display:none;",class:"file-upload-real" },label: false %> -->
          <!--  <%= link_to 'Upload Image','#',class:"file-upload-clicker btn btn-info",style:"margin-bottom:5px;" %>
           <input id="file-upload-text" class="custom-input" type="text" hidden="true"> -->
-          <%= f.input :poster_image %>
+          <%= f.input :poster_image,label: false %>
           <h3> Header Background Image</h3>
           <% if current_user.header_image.url.present? %>
             <%= image_tag(current_user.header_image.url,:class =>"img-responsive",style:"max-width:260px;") %>
           <% end %>
-           <%= f.input :header_image %>
+           <%= f.input :header_image,label: false %>
           <h3>Library Settings</h3>
           <%= f.input :library_image %>
           <%= f.input :library_image_type,prompt:"Default",collection: ["cover","top left","top right","bottom right","bottom left"] %>

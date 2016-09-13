@@ -55,6 +55,13 @@ class UsersController < ApplicationController
     @lib = @user.library_entries
   end
 
+  def update_header
+    @user = current_user
+    @user.update_attributes(user_params)
+    flash[:success] = "Successfully cropped your header background image."
+    redirect_to user_path(@user)
+  end
+
   def similar
     @user = User.find(params[:id])
     @user_lib = @user.library_entries
