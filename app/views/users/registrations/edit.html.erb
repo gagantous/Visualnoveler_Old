@@ -1,23 +1,26 @@
 <% title 'Edit Profile' %>
-<div class="container">
-<div class="row">
-   
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:method => :put, :multipart => true}) do |f| %>
-  <%= f.error_notification %>
-  <div class="col-md-9 col-centered">
-    <div class="row">
+<div class="container" style="padding-bottom:25px;">
+  <div class="row">
+      <%= f.error_notification %>
       <div class="col-md-3">
           <h2> Account Settings</h2>
           <%= f.input :email %>
-          <h2>Profile Image</h2>
+          <h3>Profile Image</h3>
           <% if current_user.poster_image.url.present? %>
             <%= image_tag(current_user.poster_image.url,:class =>"img-responsive",style:"max-width:140px;") %>
           <% end %>
-          <%= f.input :poster_image, input_html: { hidden: true ,style:"display:none;",class:"file-upload-real" },label: false %>
-          <%= link_to 'Upload Image','#',class:"file-upload-clicker btn btn-info",style:"margin-bottom:5px;" %>
-          <input id="file-upload-text" class="custom-input" type="text" hidden="true">
-          
-          <h2>Library Settings</h2>
+         <!--  <%= f.input :poster_image, input_html: { hidden: true ,style:"display:none;",class:"file-upload-real" },label: false %> -->
+         <!--  <%= link_to 'Upload Image','#',class:"file-upload-clicker btn btn-info",style:"margin-bottom:5px;" %>
+          <input id="file-upload-text" class="custom-input" type="text" hidden="true"> -->
+          <%= f.input :poster_image %>
+          <h3> Header Background Image</h3>
+          <% if current_user.header_image.url.present? %>
+            <%= image_tag(current_user.header_image.url,:class =>"img-responsive",style:"max-width:260px;") %>
+          <% end %>
+           <%= f.input :header_image %>
+          <h3>Library Settings</h3>
           <%= f.input :library_image %>
           <%= f.input :library_image_type,prompt:"Default",collection: ["cover","top left","top right","bottom right","bottom left"] %>
           <% if @user.library_image? %>
@@ -27,36 +30,30 @@
                Remove Library Image
             </label>
           <% end %>
-        </div>
+      </div>
 
-        <div class="col-md-5 col-md-offset-1">
-            <h2>Edit Profile</h2>
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div class="col-md-5 col-md-offset-1">
+          <h2>Edit Profile</h2>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>    
-            <%= f.input :name, required: false, autofocus: true %>
-            <%= f.input :bio ,:input_html => {:rows => 7,id: "markdown",}%>
-            <div id="preview" style=""> </div>
-        </div>
-
-       
+          <%= f.input :name, required: false, autofocus: true %>
+          <%= f.input :bio ,:input_html => {:rows => 7,id: "markdown",}%>
+          <div id="preview" style=""> </div>
+      </div>
+  </div>
  
-<!--
-<h3>Cancel my account</h3> 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
- -->
-     
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <%= link_to "Change Password", change_password_user_path(@user), :class => "btn btn-info"%> 
-        </div>
-        <div class="col-md-5 col-md-offset-1">
-            <%= f.button :submit, "Update",class: "register-button",:style =>"width: 100px" %> 
-        </div>
-      </div>
-
-<% end %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= link_to "Change Password", change_password_user_path(@user), :class => "btn btn-info btn-sm"%> 
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        <%= f.button :submit, "Update",class: "register-button",:style =>"width: 125px;" %> 
     </div>
   </div>
+
+  </div>
 </div>
+
+
+<% end %>

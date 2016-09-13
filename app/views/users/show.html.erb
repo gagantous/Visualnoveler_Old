@@ -1,7 +1,11 @@
 <% title @user.name + "'s Profile" %>
 
 <section id="user">
-<div class="user-coverbg">
+	<% if @user.header_image.blank? %>
+		<div class="user-coverbg" style="background-image: url(<%= asset_path('header.jpg') %> )">
+	<% else %>
+		<div class="user-coverbg" style="background-image: url(<%= asset_path(@user.header_image) %> )">
+	<% end %>
 	<div class="profile-coverbg-overlay"> </div>
 	<div class="container">
 		<div class="row" style="color:white;">

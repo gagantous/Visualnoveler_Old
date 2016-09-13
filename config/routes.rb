@@ -121,6 +121,7 @@ Rails.application.routes.draw do
         get :change_password
         get :setup
         put :update_avatar
+        get :crop
       end
  end
   

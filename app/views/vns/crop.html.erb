@@ -1,9 +1,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-<%= form_for @vn do |f| %>
-  <%= f.cropbox :image_coverpage %>
-  <%= f.submit 'Crop',:class => "btn btn-danger",:style =>'margin-top: 50px; width: 120px;' %>
-<% end %>
+			<h1> Crop Visual Novel Header Image</h1>
+			<%= form_for @vn do |f| %>
+			  <%= f.cropbox :image_coverpage %>
+			  <%= f.submit 'Crop',:class => "register-button btn",:style =>'margin-top: 50px;margin-bottom:30px; width: 120px;' %>
+			<% end %>
+		</div>
+	</div>
 </div>
-</div></div>

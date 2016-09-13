@@ -1,10 +1,12 @@
-<% title 'Crop Avatar' %>
+<% title 'Crop Header Image' %>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-<%= form_for @user,:url => update_avatar_user_path,method: :put do |f| %>
-  <%= f.cropbox :poster_image %>
-  <%= f.submit 'Crop',:class => "btn btn-danger",:style =>'margin-top: 50px; width: 120px;' %>
-<% end %>
+			<h1> Crop Header Image</h1>
+			<%= form_for @user,method: :put do |f| %>
+			  <%= f.cropbox :header_image %>
+			  <%= f.submit 'Crop',:class => "register-button btn",:style =>'margin-top: 50px;margin-bottom:30px; width: 120px;' %>
+			<% end %>
+		</div>
+	</div>
 </div>
-</div></div>

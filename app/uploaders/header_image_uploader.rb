@@ -1,16 +1,12 @@
-class BracketUploader < CarrierWave::Uploader::Base
+class HeaderImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process crop: :image
-  process :resize_to_fill => [75,75]
+  process crop: :header_image
+  process :quality => 90
   # Choose what kind of storage to use for this uploader:
-  if Rails.env.production?
-      storage :fog
-  elsif Rails.env.development?
-      storage :file
-  end
+  storage :file
   # storage :fog
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

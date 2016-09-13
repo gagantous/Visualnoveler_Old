@@ -22,15 +22,15 @@ jQuery ->
   height: 700  
   parent: "body"
 
-  jQuery ->
+jQuery ->
   new CarrierWaveCropper()
 
 class CarrierWaveCropper
   constructor: ->
     $('#vn_image_coverpage_cropbox').Jcrop
       aspectRatio: 3.942
-      boxWidth: 1150
-      boxHeight: 850
+      boxWidth: 800
+      boxHeight: 500
       setSelect: [0, 0, 1500, 900]
       onSelect: @update
       onChange: @update

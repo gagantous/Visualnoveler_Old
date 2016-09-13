@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     # kinda bad for the long term, should be changed.
     #2 is the number to check if they have a min of two library_entries
     #@random = User.where.not(:poster_image => nil)
-    @random = User.where.not(:poster_image => nil).joins(:library_entries).group("users.id").having("count(library_entries.id) > ?",2).order("RANDOM()").limit(14)
+    @random = User.where.not(:poster_image => nil).joins(:library_entries).group("users.id").having("count(library_entries.id) > ?",2).order("RANDOM()").limit(12)
   end
 
   def library
@@ -71,13 +71,6 @@ class UsersController < ApplicationController
 
   def change_password
     @user = User.find(params[:id])
-  end
-
-  def update_avatar
-    @user = current_user
-    @user.update_attributes(user_params)
-    flash[:success] = "it worked"
-    redirect_to user_path(@user)
   end
 
   def setup
@@ -133,7 +126,10 @@ class UsersController < ApplicationController
 
   private
     def user_params
-       params.require(:user).permit(:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h,:name,:bio,:role,:current_password,:password,:password_confirmation,:library_image,:library_image_type)
+        #
+       params.require(:user).permit(:name,:bio,:role,:current_password,:password,
+                      :header_image,:header_image_crop_x, :header_image_crop_y, :header_image_crop_w, :header_image_crop_h,
+                      :password_confirmation,:library_image,:library_image_type)
     end
 
 end

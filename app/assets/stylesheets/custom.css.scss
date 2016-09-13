@@ -7,7 +7,10 @@ $font-size-h5: $font-size-base;
 $blue-btn-color: #4d90fe;
 $blue-color: #4d90fe;
 $grey-color: #bdc3c7;
-// $font-family-base: 'Open Sans';
+$vn-mobilewidth: 140px;
+$vn-mobileheight: 194px;
+$vn-width: 200px;
+$vn-height: 278px;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -34,9 +37,6 @@ $grey-color: #bdc3c7;
 .navbar-default,.navbar-toggle{
   border-color: transparent !important;
 }
-.navbar-toggle{
-  margin-top: 17px !important;
-}
 
 .share-button {
   text-transform: none;
@@ -55,10 +55,6 @@ $grey-color: #bdc3c7;
   margin-left: 10px;
 }
 
-//Typography
-// .vn-reviewdetails{
-//  // font-family: 'Lato';
-// }
 #vn-item h1 {
   font-size: 24px;
   display: inline;
@@ -237,10 +233,7 @@ footer {
   line-height: 30px;
   font-size: 12px;
 }
-html, body {
-  //overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
+
 .navbar,.navbar-default {
   margin-bottom: 0px;
 }
@@ -400,7 +393,10 @@ html, body {
 
 // mobile CSS
 @media (max-width: 460px) {
-
+  .vn-column {
+    width: $vn-mobilewidth !important;
+    height: $vn-mobileheight !important;
+  }
   .user-post {
     margin-bottom: 30px;
   }
@@ -527,9 +523,6 @@ html, body {
     transition: height 0.15s ease;
     -webkit-transition: height 0.15s;
   }
-  .row-vnlist-summary {
-    margin-right:25px;
-  }
   .vnindex-heading{
     top: 0px;
     padding-left:45px;
@@ -647,6 +640,10 @@ html, body {
 //desktop 
 @media (min-width: 1200px) { 
   //VN Show page
+  .vn-column {
+    width: $vn-width;
+    height: $vn-height;
+  }
   .author-img {
     width: 75%;
     margin: 0 auto;
@@ -666,9 +663,6 @@ html, body {
   }
   .review-username{
     padding-left: 15px;
-  }
-  .row-vnlist-summary {
-    margin-right:100px;
   }
    .btn-vnlist{
     position:relative;
@@ -969,11 +963,6 @@ html, body {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-// VN column in index VN page
-
-
-$vn-width: 200px;
-$vn-height: 278px; 
 .vn-column{
   position: relative;
   width: $vn-width;
@@ -1007,8 +996,8 @@ $vn-height: 278px;
     -moz-osx-font-smoothing: grayscale;
   }
   .vn-index-poster {
-     width: $vn-width;
-     height: $vn-height;
+     width: 100%;
+     height: 100%;
   }
 
   .text-title {
@@ -1295,7 +1284,7 @@ background-size: cover;
   //   font-size: 16px;
 }
 .user-coverbg {
-  background-image: image-url('header.jpg');
+  //background-image: image-url('header.jpg');
   padding-top: 50px;
   width: 100%;
   height: 330px;
@@ -2235,6 +2224,7 @@ img.center {
 @media (min-width: 992px) {
   .col-user-leftcol {
     width: 53%;
+    margin-bottom: 20px;
   }
   .col-user-rightcol {
     width: 47%;

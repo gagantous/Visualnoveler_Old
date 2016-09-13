@@ -1,12 +1,17 @@
 class RegistrationsController < Devise::RegistrationsController
    before_filter :configure_permitted_parameters
+
   protected
     def update_resource(resource, params)
 	  resource.update_without_password(params)
 	end
 
     def after_update_path_for(resource)
-      user_path(resource)
+      if params[:user][:header_image].present?
+        crop_user_path(resource) 
+      else 
+        user_path(resource) 
+      end
     end
 
     def after_inactive_sign_up_path_for(resource)
@@ -21,7 +26,8 @@ class RegistrationsController < Devise::RegistrationsController
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up).push(:name) 
       devise_parameter_sanitizer.for(:account_update).push(:name, :email,:bio, :password,
-          :password_confirmation, :current_password, :poster_image,:poster_image_crop_x, :poster_image_crop_y, :poster_image_crop_w, :poster_image_crop_h,:library_image,:library_image_type,:remove_library_image)
+          :password_confirmation,:current_password,:header_image,:header_image_crop_x,:header_imagecrop_y, :header_image_crop_w,:header_image_crop_h,
+          :poster_image,:library_image,:library_image_type,:remove_library_image)
     end
 
  
