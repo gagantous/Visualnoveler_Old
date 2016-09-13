@@ -120,7 +120,7 @@ Rails.application.routes.draw do
         get :discover
         get :change_password
         get :setup
-        put :update_header
+        post :update_header
         get :crop
       end
  end
