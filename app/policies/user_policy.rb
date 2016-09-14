@@ -11,7 +11,7 @@ class UserPolicy
   end
 
   def crop?
-    current_user.admin? or current_user == @user
+    current_user and current_user.admin? or current_user == other
   end
 
   def show?
