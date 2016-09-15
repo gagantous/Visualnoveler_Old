@@ -47,7 +47,8 @@ class VnsController < ApplicationController
 
 	def discover
 		@vn = Vn.new
-		@random = Vn.limit(5).order("RANDOM()")
+		@random = Vn.limit(8).order("RANDOM()")
+		@status = Vn.statuses
 		@genres = Genre.all.order('name ASC')
 	end
 

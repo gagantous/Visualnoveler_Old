@@ -1,48 +1,38 @@
 <% title "Search Visual Novels" %>
+<%= simple_form_for @vn, :method => :get, url: search_vns_path do |f| %>
 <div class="container">
-	<div class="row vnindex-row" style="padding-left:38px;">
+	<div class="row">
+		<div class="col-xs-12 col-vn-discover-filters">
+			<h2>Status</h2>
+			<% @status.each do |status| %>
+				<div class="radio">
+				  <label>
+				  	<%= radio_button_tag "vn[status]",status[0] %>
+				  	<%= status[0] %>
+				  </label>
+				</div>
+			<% end %>	
+			<h2>Minimum Rating</h2>
+			<%= f.input_field :rating_number %>
+			<!-- <h2>Release Date</h2>
+			<%= f.input_field :release_date,html5: true  %> -->
 
-		<%= simple_form_for @vn, :method => :get, url: search_vns_path do |f| %>
-		<div class="col-md-12">
-			<h1 style="">Advanced Visual Novel Search </h1>
-		</div>
-		<div class="row" style="margin-left:0px;margin-right:0px;">
-			<div class="col-md-2">
-				 <%= f.input :status ,selected: "",include_blank: true %>
-			
-			</div> 
-			<div class="col-md-2">
-				
-				 <%= f.input :rating_number,label: "Minimum Rating" %>
-			</div>
-		</div>
-		<div class="col-md-8">
-				<div class="row">
-					<div class="col-md-12">
-					<h2>Genre</h2>
-					<% @genres.each do |genre| %>
-						<div class="vn-advanced-genre">
-				    		<label class="checkbox-inline">
-				     	 	<%= check_box_tag 'genre_ids[]',genre.id %>
-							<span style="font-weight:normal;"><%= genre.name %> </span>
-				    		</label>
-				    	</div>
-			    	<% end %>
-			    	</div>
-			    </div>
-		</div>
-		
-		<div class="col-md-8" style="padding-top:20px;">
-			 <%= f.button :button,"Search Visual Novel", class: "btn btn-primary",style:"" %>
+			<h2>Genre</h2>
+			<% @genres.each do |genre| %>
+				<div class="checkbox genre-checkbox">
+		    		<label class="checkbox-inline">
+		     	 	<%= check_box_tag 'genre_ids[]',genre.id %>
+					<span style="font-weight:normal;"><%= genre.name %> </span>
+		    		</label>
+		    	</div>
+	    	<% end %>
+	    	 <%= f.button :button,"Search Visual Novel", class: "btn btn-primary",style:"margin-top:25px;" %>
 			 
 		</div>
-		<% end %>
-
-		<div class="col-md-12">
-			<h2 style="margin-top:30px !important;">Random visual novels</h2>
-		</div>
-
-		<% @random.each do |vn| %>
+		
+		<div class="col-xs-12 col-vn-discover-items">
+			<h1 style="">Advanced Visual Novel Search </h1>
+			<% @random.each do |vn| %>
 		    	<div class="vn-column">
 		    		<%= link_to vn_path(vn) do %>
 						<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "vn-index-poster") %>
@@ -58,6 +48,10 @@
 						</h4></a>
 					</div>
 		    	</div>
-		    <% end %>
+			<% end %>
+		</div>
+		
 	</div>
 </div>
+
+<% end %>

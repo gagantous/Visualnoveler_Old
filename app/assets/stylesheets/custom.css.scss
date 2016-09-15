@@ -2075,12 +2075,10 @@ img.center {
 .translation-content {
   padding-top: 15px;
 }
-.vn-advanced-genre{
-  width: 120px;
-  height: auto;
-  float: left;
-}
 
+.genre-checkbox {
+  //font-size: 18px;
+}
 .post-delete-div {
   position: absolute;
   bottom: 15px;
@@ -2228,5 +2226,11 @@ img.center {
   }
   .col-user-rightcol {
     width: 47%;
+  }
+  .col-vn-discover-filters {
+    width: 20%;
+  }
+  .col-vn-discover-items {
+    width: 80%;
   }
 }
