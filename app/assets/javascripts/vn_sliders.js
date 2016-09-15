@@ -2,8 +2,7 @@ $(function() {
 
   $("#vn_rating_number").ionRangeSlider({
     min: 0,
-    max: 10,
-    from: 5,
+    max: 10
 
   });
   $("#vn_release_date").ionRangeSlider({
