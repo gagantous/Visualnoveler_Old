@@ -420,7 +420,7 @@ footer {
     width: 80px !important;
   }
   .vnindex-heading{
-    top: -10px !important;
+    padding-left: 12px;
   }
 
   .register-panel {
@@ -488,7 +488,7 @@ footer {
   .vn-ratingdiv {
   }
   .vn-navbuttons{
-    margin-left: 45px;
+    margin-left: 15px;
     margin-top: 15px;
   }
 }
@@ -523,12 +523,12 @@ footer {
     transition: height 0.15s ease;
     -webkit-transition: height 0.15s;
   }
-  .vnindex-heading{
-    top: 0px;
-    padding-left:45px;
-    position:relative;
-    display: inline;
-  }
+  // .vnindex-heading{
+  //   top: 0px;
+  //   padding-left:45px;
+  //   position:relative;
+  //   display: inline;
+  // }
 
    .vn-score{
     padding-left: 25px;
@@ -649,7 +649,7 @@ footer {
     margin: 0 auto;
   }
   .vn-navbuttons {
-    padding-left: 31px;
+    padding-left: 11px;
   }
   .register-panel {
     padding:25px 65px;
@@ -657,7 +657,7 @@ footer {
 
   .vnindex-heading{
     display:inline;
-    padding-left:28px;
+    padding-left:10px;
     position:relative;
     top:6px;
   }
@@ -832,9 +832,7 @@ footer {
 
 // settings for specific table sizes
 @media (min-width: 462px) and (max-width: 767px) {
-  // .vn-navbuttons{
-  //   margin-top: 25px;
-  // }
+
 
 }
 .removepadding {
@@ -1712,7 +1710,7 @@ body {
 //     .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
 // .tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
 .tab-panel { padding: 5px 0; }
-.tab-content{padding:20px}
+.tab-content{padding:0px}
 
 .user-postdelete{
   // position: relative;

@@ -1,7 +1,7 @@
 <% title "Search Visual Novels" %>
 <%= simple_form_for @vn, :method => :get, url: search_vns_path do |f| %>
 <div class="container">
-	<div class="row">
+	<div class="row" style="margin-bottom:25px;">
 		<div class="col-xs-12 col-vn-discover-filters">
 			<h2>Status</h2>
 			<% @status.each do |status| %>

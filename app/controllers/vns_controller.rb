@@ -70,6 +70,8 @@ class VnsController < ApplicationController
 		status = params[:vn][:status]
 		rating = params[:vn][:rating_number]
 		genre_ids = params[:genre_ids]
+		@status = Vn.statuses
+		@genres = Genre.all.order('name ASC')
 		@vn = Vn.where(nil)
 		@vn = @vn.joins(:genres).where('genres.id' => genre_ids).group('vns.id').having("count(genres.id) = ?",genre_ids.count) unless genre_ids.blank?
 		@vn = @vn.where("rating_number > ?",rating) unless rating.blank?
