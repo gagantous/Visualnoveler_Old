@@ -92,7 +92,7 @@ class UsersController < ApplicationController
         redirect_to user_path(@user)
       else
         flash[:danger] = "There was an error updating your profile"
-        render 'change_password'
+        redirect_to :back
       end
   end
 
