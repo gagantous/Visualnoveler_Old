@@ -24,7 +24,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'carrierwave'
 gem 'carrierwave-crop'
 gem "mini_magick"
-gem 'remotipart', '~> 1.2'
+gem 'remotipart', git: 'git@github.com:JangoSteve/remotipart.git'
 #announcements
 gem "starburst"
 gem "html_truncator", "~>0.2"

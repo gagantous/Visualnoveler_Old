@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
           </button>
               <% if user_signed_in? %>
-          <% if current_user.admin? || current_user.mod? || current_user.writer? %> 
+          <% if current_user.is_staff? %> 
          <ul class ="nav navbar-nav logo-dropdown">
             <li class="dropdown">   
           <a class="navbar-brand" data-toggle="dropdown" class="dropdown-toggle" href=<%= vns_path %>>Visualnoveler</a>

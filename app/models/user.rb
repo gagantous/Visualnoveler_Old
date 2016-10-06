@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    enum role: [:user,:mod,:admin,:writer]
+    enum role: [:user,:mod,:admin,:writer,:helper]
     after_initialize :set_default_role, :if => :new_record?
     before_create :add_to_list
   # validates :name, presence: true
@@ -68,6 +68,10 @@ class User < ActiveRecord::Base
           user.password = Devise.friendly_token[0,20]
           user.remote_poster_image_url = auth["info"]["image"].gsub('http://','https://')
         end
+    end
+
+    def is_staff?
+      return admin? || mod? || writer? || helper?
     end
 
     private 

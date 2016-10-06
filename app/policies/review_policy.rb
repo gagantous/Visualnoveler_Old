@@ -7,7 +7,7 @@ class ReviewPolicy
   end
 
   def edit?
-    @current_user.admin? or @current_user.mod? or @current_user == @user
+    @current_user.admin? or @current_user.mod? or @current_user.helper? or @current_user == @user
   end
 
   def new?
@@ -19,11 +19,11 @@ class ReviewPolicy
   end
  
   def update?
-    @current_user.admin? or @current_user.mod? or @current_user == @user
+    @current_user.admin? or @current_user.mod? or @current_user.helper? or @current_user == @user
   end
 
   def destroy?
-    @current_user.admin? or @current_user.mod? or @current_user == @user
+    @current_user.admin? or @current_user.mod? or @current_user.helper? or @current_user == @user
   end
 
   

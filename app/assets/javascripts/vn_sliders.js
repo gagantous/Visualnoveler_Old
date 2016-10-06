@@ -1,6 +1,6 @@
 $(function() {
 
-  $("#vn_rating_number").ionRangeSlider({
+  $(".rating-discover-vn").ionRangeSlider({
     min: 0,
     max: 10
 

@@ -6,16 +6,16 @@ class TranslationPostPolicy
   end
 
   def edit?
-    @current_user.admin? or @current_user.mod?
+    @current_user.admin? or @current_user.mod? or @current_user.helper?
   end
 
  
   def update?
-    @current_user.admin? or @current_user.mod?
+    @current_user.admin? or @current_user.mod? or @current_user.helper?
   end
 
   def destroy?
-    @current_user.admin? or @current_user.mod?
+    @current_user.admin? or @current_user.mod? or @current_user.helper?
   end
 
   
