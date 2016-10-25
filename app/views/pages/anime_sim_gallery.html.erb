@@ -14,25 +14,19 @@ body {
  <div class="container">
   <div class="row" style="margin-bottom:45px;">
 
+      <% fancy_char = mobile_device? ? 'fancybox-character-mobile' : 'fancybox-character' %>
       <h2>Gallery Images </h2>
      
-     <% (1..5).each do |i| %>
+     <% (1..14).each do |i| %>
           <div class="col-md-4">
-            <%= link_to(image_tag("anime-sim/screenshots/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/screenshots/#{i}.jpg")) %>
+            <%= link_to(image_tag("anime-sim/screenshots/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/screenshots/#{i}.jpg"),:class => "fancybox", :rel =>'group' ) %>
           </div>
      <% end %>
     <div class="col-md-4">
-      <%= link_to asset_path("anime-sim/bg1.jpg"), :class => 'fancybox', :rel =>'group' do %>
+      <%= link_to asset_path("anime-sim/bg1.jpg"), :class => fancy_char, :rel =>'group' do %>
            <%= image_tag(asset_path("anime-sim/bg1.jpg"),class:"img-responsive sim-circle",style:"padding-top:10px;padding-bottom:10px;") %>
       <% end %>
-    </div>
-
-      <% (1..5).each do |i| %>
-          <div class="col-md-4">
-              <%= link_to(image_tag("anime-sim/gui/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/gui/#{i}.jpg")) %>
-          </div>
-     <% end %>
-     
+    </div>     
 
     </div>
   </div>

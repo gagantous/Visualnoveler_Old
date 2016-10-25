@@ -13,12 +13,11 @@ body {
   font-size: 1.25em;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 10px;
   color: #bdc3c7 !important;
 }
 .press-list a {
-
-  color: #bdc3c7 !important;
+  color: #3498db;
+  
 }
 .press-list {
   margin-top: 10px;
@@ -31,14 +30,24 @@ body {
   <div class="row">
     <div class="col-md-3" style="">
       <h1 style="font-size:1.6em;">Anime Studio Simulator</h1>
-      <h2 style="color:#bdc3c7;"> Presskit</h2>
+      <h2 style="color:#bdc3c7;"> Info</h2>
       <ul class="list-unstyled press-list">
-        <li><a href="#description">Description</a></li>
-        <li><a href="#story">Story</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#screenshots">Screenshots</a></li>
-        <li><a href="#about">About Visualnoveler</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li>
+          <strong>Developer:</strong>
+          <br>Visualnoveler
+        </li>
+        <li>
+          <strong>Contact:</strong>
+          <br>wraithseeker@visualnoveler.com
+        </li>
+        <li>
+          <strong>Release Date:</strong>
+          <br>November 1, 2016
+        </li>
+        <li>
+          <strong>Website:</strong>
+          <br><a href="https://visualnoveler.com/anime-studio-sim">Anime Studio Simulator</a>
+        </li>
       </ul>
     </div>
     <div class="col-md-9" style="">
@@ -53,31 +62,24 @@ body {
       <p>With newly-gained investment funds and the help of her friends, she hopes to turn her dream into reality. Will Yukari and her team make an unforgettable impression on the anime industry... or collapse from the pressure of creating their own anime series?</p>
 
       <h2 id="features">Features</h2>
-      <p>Anime Studio Simulator features choice-driven gameplay, which affects the story and ending. It will have about (4-6) different endings depending on the actions you take and how well you produce your anime.</p>
+      <p>Anime Studio Simulator features choice-driven gameplay, which affects the story and ending. It will have 6 different endings depending on the actions you take and how well you produce your anime.</p>
 
       <p>Random events occur in the game based on the state of your team and your anime series. This will provide additional replay value beyond the multiple endings</p>
 
       <h2 id="screenshots">Screenshots</h2>
 
       <div class="row">
-        <% (1..19).each do |i| %>
-          <div class="col-md-4">
-            <%= link_to(image_tag("anime-sim/screenshots/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/screenshots/#{i}.jpg")) %>
-          </div>
-        <% end %>
+         <% (1..14).each do |i| %>
+              <div class="col-md-4">
+                <%= link_to(image_tag("anime-sim/screenshots/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/screenshots/#{i}.jpg")) %>
+              </div>
+         <% end %>
       </div>
 
-      <h2> GUI Screenshots</h2>
-      <div class="row">
-        <% (1..5).each do |i| %>
-          <div class="col-md-4">
-              <%= link_to(image_tag("anime-sim/gui/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/gui/#{i}.jpg")) %>
-          </div>
-        <% end %>
-      </div>
       <h2>Promotional Image</h2>
       <div class="row">
         <div class="col-md-12">
+              <%= link_to(image_tag("anime-sim/promo_new.png",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/main.png")) %>
               <%= link_to(image_tag("anime-sim/main.png",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/main.png")) %>
           </div>
       </div>
@@ -86,8 +88,7 @@ body {
       <a href="https://visualnoveler.com" style="color:#4285F4;" target="_blank">Visualnoveler</a> is a website where fans can track and discover visual novels, as well as manage and compare lists of visual novels they’ve played. Additionally, it provides accessible information about visual novels for newcomers to the genre.
 
       </p>
-      <h2 id="contact">Contact</h2>
-        <p>wraithseeker@visualnoveler.com</p>
+      
 
     </div>
   </div>

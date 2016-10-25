@@ -546,28 +546,6 @@ footer {
     float: none;
   }
 
- 
- // let's hide the edit button on mobile
-  .vn-buttonedit{ 
-    position: absolute;
-    min-width: 30px !important;
-    border-radius: 0px !important;
-    background-color: rgba(0,0,0,0.45);
-    top: 0px;
-    right: 0px;
-    margin: 0px 20px 0 0;
-    padding: 0px 0px 0px 0px;
-  }
-
-  .vn-youtube {
-    position: absolute;
-    top: 34%;
-    left: 37%;
-    opacity: 0.9;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-  }
-
   .vn-poster {
   // width: 200px;
     display: inline;
@@ -678,27 +656,8 @@ footer {
     height: 140px; 
   }
 
-  .vn-buttonedit{
-    position: absolute;
-    min-width: 30px !important;
-    border-radius: 0px !important;
-    background-color: rgba(0,0,0,0.45);
-    top: 0px;
-    right: 0px;
-    margin: 0px 20px 0 0;
-    padding: 0px 0px 0px 0px;
-  }
   .vn-pull-right {
     float: right;
-  }
-
-  .vn-youtube {
-    position: absolute;
-    top: 34%;
-    left: 50%;
-    opacity: 0.9;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
   }
 
   .vn-poster {
@@ -847,6 +806,16 @@ footer {
   padding-right: 10px;
 }
 
+.vn-buttonedit{
+  position: absolute;
+  min-width: 30px !important;
+  border-radius: 0px !important;
+  background-color: rgba(0,0,0,0.45);
+  top: 0%;
+  right: 0%;
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+}
 .library-list {
   margin-right: 45px !important;
 }
@@ -877,6 +846,18 @@ footer {
       width: 100%;
       background-color: #3E3D48;
   }
+}
+
+
+.vn-youtube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0.9;
+  -webkit-transform: translate(-50%, -50%); 
+  -moz-transform: translate(-50%, -50%); 
+  -ms-transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
 }
 
 .nav-library {
@@ -1214,10 +1195,13 @@ body {
   width: 150px;
   height: auto;
 }
-.vn-favourite{
-  position: relative;
-  left: 30px;
+.status-fav{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  margin: 0px !important;
 }
+
 
 .vn-user-poster {
   // width: 200px;
@@ -2112,6 +2096,9 @@ img.center {
   height: 350px;
   width: auto;
   overflow: auto;
+}
+.vn-poster-image-wrapper {
+  position: relative;
 }
 
 #franchise-related {

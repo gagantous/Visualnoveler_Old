@@ -29,16 +29,26 @@
 	<div class="row">
 	
 		<div class="col-lg-3" style="position:relative;">
-			<% if user_signed_in? %>
- 				<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit visible-lg-block", 'data-no-turbolink' =>"true" do %>
-				<i class="fa fa-pencil"></i>
-			<% end %>
-			<% end %>
-			<div id ="vn-favourite">
- 				<%= render 'favourite_ajax',locals:{vn: @vn} %>
+			
+			<div class="vn-poster-image-wrapper">
+				<%= image_tag("#{@vn.image_poster.url}",:alt => "#{@vn.name}", :class=> "img-responsive") %>
+				<div id ="vn-favourite">
+ 					<%= render 'favourite_ajax',locals:{vn: @vn} %>
+				</div>
+				<% if user_signed_in? %>
+ 					<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit", 'data-no-turbolink' =>"true" do %>
+						<i class="fa fa-pencil"></i>
+					<% end %>
+				<% end %>
+				<% if !@vn.trailer_url.blank? %>
+					<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
+						<span class="fa-stack fa-lg">
+							<i class="fa fa-circle fa-stack-1x vn-youtube-circle"></i>
+							<i class="fa fa-play fa-stack-1x vn-youtube-play" ></i>
+						</span>
+					<% end %> 
+				<% end %>
 			</div>
-			<%= image_tag("#{@vn.image_poster.url}",:alt => "#{@vn.name}", :class=> "img-responsive") %>
-
 			<%= render 'vn_item_panel' ,locals: {vn: @vn}%>
 		</div>
 		<div class="col-lg-9 col-md-9">
@@ -192,13 +202,15 @@
  				<div class="tab-content">
 			
 			    <div role="tabpanel" class="tab-pane fade in active" id="recent">
-			    	  <% unless @recent_reviews.blank? %>
-				    	  <%= render :partial => 'review', :collection => @recent_reviews  %>
-				    	  <!-- SHOW ALL REVIEWS !-->
-					  <% else %>
-					  <h4><i class="fa fa-magic fa-2x" style="color:#000080;"></i> No Reviews</h4>
-					  <p>Nobody has written a review for <b><%= @vn.name %></b> yet. Come and write a review about <%= @vn.name %> to let the community know of your thoughts!</p>
-					  <% end %>
+		    		<% unless @recent_reviews.blank? %>
+			    		<%= render :partial => 'review', :collection => @recent_reviews  %>
+			    	  <!-- SHOW ALL REVIEWS !-->
+				  	<% else %>
+				  		<div class="col-md-12">
+						  	<h4><i class="fa fa-magic fa-2x" style="color:#000080;"></i> No Reviews</h4>
+						  	<p>Nobody has written a review for <b><%= @vn.name %></b> yet. Come and write a review about <%= @vn.name %> to let the community know of your thoughts!</p>
+						</div>
+				  	<% end %>
 			    </div>
 			    <div role="tabpanel" class="tab-pane" id="messages">
 			    	  <%= render :partial => 'review', :collection => @positive_reviews  %>

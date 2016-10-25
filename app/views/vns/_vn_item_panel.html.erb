@@ -1,14 +1,5 @@
 <div class="panel panel-default">
 	<div class="panel-body">
-		<% if !@vn.trailer_url.blank? %>
-			<%= link_to @vn.trailer_url, :class => "vn-youtube fancyframe" do %>
-				<span class="fa-stack fa-lg">
-					<i class="fa fa-circle fa-stack-1x vn-youtube-circle"></i>
-					<i class="fa fa-play fa-stack-1x vn-youtube-play" ></i>
-				</span>
-			<% end %> 
-		<% end %>
-
 		<ul class="list-inline vn-genres">
 			<% @vn.genres.each do |genre| %>
 			<li class="vngenre-padding inline-nopadding"><%= link_to genre.name,genre_path(genre),:class =>"vn-genre summary-text" %></li>

@@ -27,6 +27,6 @@ every 7.day, :at => '10:00 am' do
   rake "duplicate_vntls"
 end
 
-every 7.days, :at => '6:00 am' do
+every 7.day, :at => '6:00 am' do
   rake "reddit_vntls"
 end
