@@ -36,7 +36,7 @@
  					<%= render 'favourite_ajax',locals:{vn: @vn} %>
 				</div>
 				<% if user_signed_in? %>
- 					<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit", 'data-no-turbolink' =>"true" do %>
+ 					<%= link_to edit_vn_path(@vn),:class => "btn ghost-buttonimg vn-buttonedit visible-lg-block", 'data-no-turbolink' =>"true" do %>
 						<i class="fa fa-pencil"></i>
 					<% end %>
 				<% end %>
