@@ -71,7 +71,7 @@ body {
       <div class="row">
          <% (1..14).each do |i| %>
               <div class="col-md-4">
-                <%= link_to(image_tag("anime-sim/screenshots/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/screenshots/#{i}.jpg")) %>
+                <%= link_to(image_tag("anime-sim/screenshots/#{i}.jpg",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/screenshots/#{i}.jpg"),target: "_blank") %>
               </div>
          <% end %>
       </div>
@@ -79,8 +79,8 @@ body {
       <h2>Promotional Image</h2>
       <div class="row">
         <div class="col-md-12">
-              <%= link_to(image_tag("anime-sim/promo_new.png",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/main.png")) %>
-              <%= link_to(image_tag("anime-sim/main.png",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/main.png")) %>
+              <%= link_to(image_tag("anime-sim/promo_new.png",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/main.png"),target: "_blank") %>
+              <%= link_to(image_tag("anime-sim/main.png",class:"img-responsive",style:"padding-top:10px;padding-bottom:10px;"),asset_url("anime-sim/main.png"),target: "_blank") %>
           </div>
       </div>
       <h2 id ="about"> About Visualnoveler</h2>
