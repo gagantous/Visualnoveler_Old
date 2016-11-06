@@ -27,7 +27,7 @@
 					<div class="col-md-9 col-sm-8 col-xs-8">
 						<h4><%= link_to news.title,news_path(news),class:"link-black" %></h4>
 						<!-- to remove images !-->
-						<%= truncate_html(markdown(news.content).gsub(/<img([^>])+/,""),length: 150) %>
+						<%= truncate_html(markdown(news.content).gsub(/<img([^>])+/,"").gsub(/<iframe([^>])+/,""),length: 150) %>
 					</div>
 				</div>
 			</li>
