@@ -1,1 +1,2 @@
 $('.vn-discover-column').html("<%= escape_javascript render(:partial => 'layouts/vn_column', collection: @vn,:as => :vn) %>");
+$('.vn-discover-pagination').html("<%= escape_javascript will_paginate @vn, renderer: BootstrapPagination::Rails %>")

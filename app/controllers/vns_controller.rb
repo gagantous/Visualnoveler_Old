@@ -75,11 +75,12 @@ class VnsController < ApplicationController
 		@vn = @vn.joins(:genres).where('genres.id' => genre_ids).group('vns.id').having("count(genres.id) = ?",genre_ids.count) unless genre_ids.blank?
 		@vn = @vn.where("rating_number > ?",rating) unless rating.blank?
 		@vn = @vn.where(status: get_status(status)) unless status.blank?
-		@vn = @vn.paginate(:page => params[:page], :per_page => 16)
+		@vn = @vn.paginate(:page => params[:page], :per_page => 12)
 		if status.blank? && rating.to_i == 0 && genre_ids.blank?
 			@vn = @vn.limit(12)
 		end
 		respond_to do |format|
+			format.html
         	format.js
     	end
 	end
