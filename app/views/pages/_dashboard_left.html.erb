@@ -1,0 +1,86 @@
+<div class="col-md-8">
+	<h2>New Visual Novel Releases</h2>
+	<div class="row">
+		<% @new_vns.each do |vn| %>
+			<div class="col-md-4">
+				<a href="<%= vn_path(vn) %>">
+				<div class="dashboard-new-vns" style="background-image: url(<%= asset_path(vn.image_1.url(:thumb)) %>);">
+					<div class="dashboard-new-vns-name vn-poster-name">
+						<%= vn.name %>
+					</div>
+				</div>
+				</a>
+			</div>
+		<% end %>
+
+	</div>
+			
+	<h2> <%= link_to "Latest News",news_index_path,class:"link-black" %> </h2>
+	<div class="row">
+		<ul class="list-unstyled homepage-news">
+		<% @news.each do |news| %>
+			<li>
+				<div class="row">
+					<div class="col-md-3 col-sm-4 col-xs-4">
+						<%= link_to image_tag(news.featured_image.url(:thumb),class:"img-responsive"),news_path(news) %>
+					</div>
+					<div class="col-md-9 col-sm-8 col-xs-8">
+						<h4><%= link_to news.title,news_path(news),class:"link-black" %></h4>
+						<!-- to remove images !-->
+						<%= truncate_html(markdown(news.content).gsub(/<img([^>])+/,""),length: 150) %>
+					</div>
+				</div>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h2> <%= link_to "Top Visual Novels",top_vns_path,class:"link-black" %></h2>
+		</div>
+		<% @top_vns.each do |vn| %>
+			<div class="col-md-3">
+			<%= link_to vn_path(vn) do %>
+		    	<div class="dashboard-vn-column">
+					<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "vn-index-poster") %>
+					<div class="vn-column-data">
+						<h4>
+							<% if vn.name.length > 30 %>
+								<span class="vn-poster-name"><%= vn.name %>
+							<% else %>
+								<span class="vn-poster-name"><%= vn.name %>
+							<% end %>
+						</h4>
+					</div>
+		    	</div>
+	    	<% end %>
+	    	</div>
+		<% end %>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2> <%= link_to "Featured Visual Novels",top_vns_path,class:"link-black" %></h2>
+		</div>
+		<% @featured_vns.each do |vn| %>
+			<div class="col-md-3">
+			<%= link_to vn_path(vn) do %>
+		    	<div class="dashboard-vn-column">
+					<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "vn-index-poster") %>
+					<div class="vn-column-data">
+						<h4>
+							<% if vn.name.length > 30 %>
+								<span class="vn-poster-name"><%= vn.name %>
+							<% else %>
+								<span class="vn-poster-name"><%= vn.name %>
+							<% end %>
+						</h4>
+					</div>
+		    	</div>
+	    	<% end %>
+	    	</div>
+		<% end %>
+	</div>
+
+
+</div>

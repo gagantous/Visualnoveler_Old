@@ -1,0 +1,43 @@
+<div class="col-md-4 dashboard-right">
+	<div class="row">
+		<div class="col-md-12 col-sm-6">
+			<h3> <%= link_to "Recent Discussions","https://forums.visualnoveler.com/",class:"link-black" %> </h3>
+			<ul class="list-unstyled">
+				<% @forum_posts.each do |post| %>
+					<li> 
+						<%= link_to post.title,post.link,class:"link-black" %> 
+						<span class="forum-date"> 
+							- <%= time_ago_in_words(post.date_time).gsub('about','') %>
+						</span>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="col-md-12 col-sm-6">
+			<h3> <%= link_to "Translation Updates",translations_path,class:"link-black" %></h3>
+			<ul class="list-unstyled">
+				<% @translations.each do |translation| %>
+					<li> 
+						<%= truncate_html(translation.vn.name,length:45	,omission: '..') %> 
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+
+	<h3>Random Visual Novels</h3>
+	<ul class="list-unstyled homepage-news">
+		<% @random_vns.each do |vn| %>
+		<li>
+			<div class="row">
+				<div class="col-md-3 col-xs-3">
+					<%= link_to image_tag(vn.image_poster,class:"img-responsive"),vn_path(vn) %>
+				</div>
+				<div class="col-md-9 col-xs-9">
+					<%= link_to vn.name,vn_path(vn),class:"link-black" %>
+				</div>
+			</div>
+		</li>
+		<% end %>
+	</ul>
+</div>

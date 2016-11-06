@@ -22,7 +22,7 @@ class VnsController < ApplicationController
 		  format.js
 		end
 	end
-	# walkthrough page
+
 	def walkthrough
 		@vn = Vn.find(params[:id])
 	end
@@ -46,8 +46,7 @@ class VnsController < ApplicationController
 	end
 
 	def discover
-		@vn = Vn.new
-		@random = Vn.limit(12).order("RANDOM()")
+		@vn = Vn.limit(12).order("RANDOM()")
 		@status = Vn.statuses
 		@genres = Genre.all.order('name ASC')
 	end
@@ -80,6 +79,9 @@ class VnsController < ApplicationController
 		if status.blank? && rating.to_i == 0 && genre_ids.blank?
 			@vn = @vn.limit(12)
 		end
+		respond_to do |format|
+        	format.js
+    	end
 	end
 
 	def rate

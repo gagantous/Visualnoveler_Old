@@ -10,6 +10,22 @@ $(document).on('ajax:beforeSend', '.status-fav', function(e) {
     $(".ajax-fav").replaceWith("<i class='fa fa-spinner fa-spin'></i>");
 });
 
+$(document).ready(function() {
+
+  $(".sort-checkbox").change(function() {
+      $("#discover-form").submit();
+  });
+
+  $(".rating-discover-vn").ionRangeSlider({
+    min: 0,
+    max: 10,
+    onFinish: function (data) {
+      $("#discover-form").submit();
+    }
+  });
+
+});
+
 $(document).ready(function(){
     $(".vn-column").children(".vn-column-data").hide();
     $(".vn-index-poster").one("load",function() {

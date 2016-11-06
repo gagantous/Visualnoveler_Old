@@ -30,10 +30,10 @@
           <% if current_user.is_staff? %> 
          <ul class ="nav navbar-nav logo-dropdown">
             <li class="dropdown">   
-          <a class="navbar-brand" data-toggle="dropdown" class="dropdown-toggle" href=<%= vns_path %>>Visualnoveler</a>
+          <a class="navbar-brand" data-toggle="dropdown" class="dropdown-toggle" href=<%= root_path %>>Visualnoveler</a>
               <ul class="dropdown-menu">
                   <li class="dropdown-header">Dashboard</li>
-                  <li><%= link_to "Home", vns_path %></li>
+                  <li><%= link_to "Home", root_path %></li>
                   <li><%= link_to "Visual Novel listings", admin_vn_path %></li>
                   <li><%= link_to "Character listings", admin_character_path %></li>
                   <li><%= link_to "Developer listings", admin_developer_path %></li>
@@ -57,11 +57,11 @@
            </li>
          </ul> 
          <% else %>
-          <a class="navbar-brand" href=<%= vns_path %>>Visualnoveler</a>
+          <a class="navbar-brand" href=<%= root_path %>>Visualnoveler</a>
          <% end %> 
 
          <% else %>
-             <a class="navbar-brand" href=<%= vns_path %>>Visualnoveler</a>
+             <a class="navbar-brand" href=<%= root_path %>>Visualnoveler</a>
          <% end %>
         </div> <!-- navbar header !-->
       <div id="navbar" class="navbar-collapse collapse">

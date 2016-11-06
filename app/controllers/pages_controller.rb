@@ -19,6 +19,16 @@ class PagesController < ApplicationController
      #Image.includes(:tags).where('tags.id' => params['tag_ids']).all
   end
 
+  def dashboard
+    @new_vns = Vn.where.not(release_date: nil).order("release_date DESC").limit(3)
+    @translations = TranslationPost.where.not(pending: true).order("created_at DESC").limit(8)
+    @news = News.order("created_at desc").limit(3)
+    @top_vns = Vn.order("rating_number DESC NULLS LAST").limit(4)
+    @featured_vns = Vn.where(isFeatured: true).limit(4).order("RANDOM()")
+    @forum_posts = ForumPost.limit(5).order("date_time DESC")
+    @random_vns = Vn.limit(5).order("RANDOM()")
+  end
+
   def typeahead
 
     @vn = Vn.search_by_name(params[:search])

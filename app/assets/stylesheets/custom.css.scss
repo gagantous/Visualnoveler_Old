@@ -7,10 +7,16 @@ $font-size-h5: $font-size-base;
 $blue-btn-color: #4d90fe;
 $blue-color: #4d90fe;
 $grey-color: #bdc3c7;
+
 $vn-mobilewidth: 140px;
 $vn-mobileheight: 194px;
 $vn-width: 200px;
 $vn-height: 278px;
+
+$dashboard-vn-mobilewidth: 140px;
+$dashboard-vn-mobileheight: 194px;
+$dashboard-vn-width: 140px;
+$dashboard-vn-height: 194px;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -397,6 +403,11 @@ footer {
     width: $vn-mobilewidth !important;
     height: $vn-mobileheight !important;
   }
+
+  .dashboard-vn-column {
+    width: $dashboard-vn-mobilewidth !important;
+    height: $dashboard-vn-mobileheight !important;
+  }
   .user-post {
     margin-bottom: 30px;
   }
@@ -617,11 +628,7 @@ footer {
 }
 //desktop 
 @media (min-width: 1200px) { 
-  //VN Show page
-  .vn-column {
-    width: $vn-width;
-    height: $vn-height;
-  }
+ 
   .author-img {
     width: 75%;
     margin: 0 auto;
@@ -761,6 +768,15 @@ footer {
     width: 90%;
     max-width: 808px;
   }
+
+  .vn-column {
+    width: $vn-width;
+    height: $vn-height;
+  }
+  .dashboard-vn-column {
+    width: $dashboard-vn-width !important;
+    height: $dashboard-vn-height !important;
+  }
   .padding-search{
   
   }
@@ -789,10 +805,11 @@ footer {
   }
 }
 
-// settings for specific table sizes
-@media (min-width: 462px) and (max-width: 767px) {
-
-
+//Medium devices 992px and up (tablet)
+@media (min-width: 992px) {
+  .dashboard-right {
+    padding-left: 35px;
+  }
 }
 .removepadding {
   padding-right: 0px !important;
@@ -942,10 +959,8 @@ footer {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.vn-column{
+.vn-column,.dashboard-vn-column {
   position: relative;
-  width: $vn-width;
-  height: $vn-height;
   margin: 15px 10px 15px 10px;  
   float: left;
   .inline-nopadding {
@@ -2202,7 +2217,40 @@ img.center {
   }
 }
  
+.dashboard-new-vns {
+    position: relative;
+    float: left;
+    width:  100%;
+    min-height: 197px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+.dashboard-new-vns-name {
+    background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.01) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.01) 100%);
+    border-radius: 0 0 3px 3px;
+    bottom: 0;
+    color: #fff;
+    padding: 10px;
+    padding-top: 40px;
+    position: absolute;
+    text-align: left;
+    text-shadow: 0 0 1px rgba(0,0,0,0.59);
+    width: 100%;
+}
 
+.homepage-news {
+  li {
+    padding: 10px;
+  }
+}
+.link-black {
+  color:black;
+}
+.forum-date {
+  color: rgba(0, 39, 59, 0.35);
+}
 
 
 @media (min-width: 992px) {

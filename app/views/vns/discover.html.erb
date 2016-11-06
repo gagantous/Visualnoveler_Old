@@ -1,5 +1,6 @@
 <% title "Search Visual Novels" %>
-<%= simple_form_for @vn, :method => :get, url: search_vns_path do |f| %>
+<%= simple_form_for Vn.new,html: {id:"discover-form"}, :method => :get, url: search_vns_path,remote: true do |f| %>
+
 <div class="container">
 	<div class="row" style="margin-bottom:25px;">
 		<div class="col-xs-12 col-vn-discover-filters">
@@ -7,7 +8,7 @@
 			<% @status.each do |status| %>
 				<div class="radio">
 				  <label>
-				  	<%= radio_button_tag "vn[status]",status[0] %>
+				  	<%= radio_button_tag "vn[status]",status[0],false,class: "sort-checkbox" %>
 				  	<%= status[0] %>
 				  </label>
 				</div>
@@ -21,34 +22,19 @@
 			<% @genres.each do |genre| %>
 				<div class="checkbox genre-checkbox">
 		    		<label class="checkbox-inline">
-		     	 	<%= check_box_tag 'genre_ids[]',genre.id %>
+		     	 	<%= check_box_tag 'genre_ids[]',genre.id,false,class: "sort-checkbox" %>
 					<span style="font-weight:normal;"><%= genre.name %> </span>
 		    		</label>
 		    	</div>
 	    	<% end %>
-	    	 <%= f.button :button,"Search Visual Novel", class: "btn btn-primary",style:"margin-top:14px;" %>
-			 
+	    	 
 		</div>
 		
 		<div class="col-xs-12 col-vn-discover-items">
 			<h1 style="">Advanced Visual Novel Search </h1>
-			<% @random.each do |vn| %>
-		    	<div class="vn-column">
-		    		<%= link_to vn_path(vn) do %>
-						<%= image_tag(vn.image_poster,:alt => vn.name, :class=> "vn-index-poster") %>
-					<% end %>
-					<div class="vn-column-data">
-						<a href=<%= vn_path(vn) %>> 
-						<h4>
-							<% if vn.name.length > 30 %>
-								<span class="vn-poster-name"><%= vn.name %>
-							<% else %>
-								<span class="vn-poster-name"><%= vn.name %>
-							<% end %>
-						</h4></a>
-					</div>
-		    	</div>
-			<% end %>
+			<div class="vn-discover-column">
+				<%= render :partial => 'layouts/vn_column', collection: @vn,:as => :vn %>
+			</div>
 		</div>
 		
 	</div>

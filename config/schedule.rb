@@ -30,3 +30,7 @@ end
 every 7.day, :at => '6:00 am' do
   rake "reddit_vntls"
 end
+
+every 1.hour do
+  rake "get_recent_posts"
+end
