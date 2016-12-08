@@ -119,12 +119,12 @@
 
 	@media (max-width: 460px) {
 		.main-image {
+			background: image-url('ascendant-hearts/main_mobile.jpg') center center no-repeat;
 			min-height: 400px;
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
 			background-size: cover;
-			background: image-url('ascendant-hearts/main_mobile.jpg') center center no-repeat;
 		}
 
 		.gallery-wrapper {
@@ -134,12 +134,12 @@
 	}
 	@media (min-width: 460px) {
 		.main-image {
+			background: image-url('ascendant-hearts/main.jpg') no-repeat center center;
 			min-height: 900px;
 			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-			background: image-url('ascendant-hearts/main.jpg') right top no-repeat;
+			 -moz-background-size: cover;
+			 -o-background-size: cover;
+			 background-size: cover;
 		}
 		.gallery-wrapper {
 			padding-left: 105px;
