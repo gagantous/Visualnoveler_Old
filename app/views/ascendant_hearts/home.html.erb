@@ -17,6 +17,9 @@
 		        scrollTop: $( $.attr(this, 'href') ).offset().top
 		    }, 500);
 		});
+		$height = $( window ).height();
+		$width = $( window ).width();
+		$(".main-image").width($width).height($height);
 	});
 </script>
 

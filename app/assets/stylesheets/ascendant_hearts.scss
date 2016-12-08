@@ -134,8 +134,8 @@
 	}
 	@media (min-width: 460px) {
 		.main-image {
+			min-height: 800px;
 			background: image-url('ascendant-hearts/main.jpg') no-repeat center center;
-			min-height: 900px;
 			-webkit-background-size: cover;
 			 -moz-background-size: cover;
 			 -o-background-size: cover;
