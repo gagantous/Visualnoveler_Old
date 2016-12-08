@@ -18,7 +18,7 @@
 	}
 
 	h3 {
-		font-size: 2em;
+		font-size: 1.8em;
 	}
 	h4 {
 		font-size: 1.5em;
@@ -126,6 +126,11 @@
 			background-size: cover;
 			background: image-url('ascendant-hearts/main_mobile.jpg') center center no-repeat;
 		}
+
+		.gallery-wrapper {
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 	@media (min-width: 460px) {
 		.main-image {
@@ -135,6 +140,12 @@
 			-o-background-size: cover;
 			background-size: cover;
 			background: image-url('ascendant-hearts/main.jpg') right top no-repeat;
+		}
+		.gallery-wrapper {
+			padding-left: 105px;
+			padding-right: 105px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 	@media (max-width: 992px) and (min-width: 772px) {
