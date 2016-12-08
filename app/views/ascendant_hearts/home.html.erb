@@ -1,0 +1,186 @@
+<% title "Ascendant Hearts - Visualnoveler" %>
+
+<script type="text/javascript">
+	$(function() {
+		$(window).scroll(function() {
+		  if ($(document).scrollTop() > 50) {
+		    $('nav').addClass('shrink');
+		  } else {
+		    $('nav').removeClass('shrink');
+		  }
+		});
+
+		$(document).on('click', 'a', function(event){
+		    event.preventDefault();
+
+		    $('html, body').animate({
+		        scrollTop: $( $.attr(this, 'href') ).offset().top
+		    }, 500);
+		});
+	});
+</script>
+
+ <!-- Fixed navbar -->
+<nav class="navbar navbar-ascendant navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="ascendant-title" href="#top">Ascendant Hearts</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right ascendant-navbar-right">
+        <li><a href="#">Kickstarter</a></li>
+        <li> <a href="#top">Top</a></li>
+        <li><a href="#characters">Character</a></li>
+        <li> <a href="#story">Story</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="main-image" id="top">
+</div>
+
+<div class="container trailer">
+	<div class="row">
+		<div class="col-md-8 col-centered">
+			<div class='embed-container'>
+				<iframe src='https://www.youtube.com/embed/V6dXVlIDXT4' frameborder='0' allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container character" id ="characters">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="text-center">Character</h2>
+		</div>
+		<div class="col-md-4">
+			<%= image_tag("ascendant-hearts/characters/shiori.png",class: "img-responsive") %>
+			<h3 class="text-center">Shiori</h3>
+			<p> An elemental mage and adept adventurer with a short temper. It’s traditional for RPG parties to include a traitor… and most people believe it’s her. Fortunately, that’s not true. She has everyone’s best interests at heart. Probably. </p>
+		</div>
+		<div class="col-md-4">
+			<%= image_tag("ascendant-hearts/characters/aiko.png",class: "img-responsive") %>
+			<h3 class="text-center">Aiko</h3>
+			<p> A quiet mage with an affinity for healing magic. Epic quests often kill off a party member to show how serious the situation is, and she’s afraid that might be her fate. Nevertheless, she joins the party to help Hayato.</p>
+		</div>
+		<div class="col-md-4">
+			<%= image_tag("ascendant-hearts/characters/chise.png",class: "img-responsive") %>
+			<h3 class="text-center">Chise</h3>
+			<p> A rogue whose judgmental nature masks a deep desire to protect people. She’s searching for a hero, but years of joining parties with common farm boys, runaway princesses, and young men with spiky hair have gotten her nowhere.  </p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Side Character</h2>
+			<div class="row">
+				<div class="col-md-4">
+					<%= image_tag("ascendant-hearts/characters/rogue.png",class: "img-responsive") %>
+				</div>
+				<div class="col-md-4">
+					<%= image_tag("ascendant-hearts/characters/guildmaster.png",class: "img-responsive") %>
+				</div>
+				<div class="col-md-4">
+					<%= image_tag("ascendant-hearts/characters/guildmaster.png",class: "img-responsive") %>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h2>Monsters</h2>
+			<div class="row">
+				<div class="col-md-4">
+					<%= image_tag("ascendant-hearts/characters/wolf.png",class: "img-responsive monster-wolf") %>
+				</div>
+				<div class="col-md-4">
+					<%= image_tag("ascendant-hearts/characters/fly.png",class: "img-responsive monster-fly") %>
+				</div>
+				<div class="col-md-4">
+					<%= image_tag("ascendant-hearts/characters/ghost.png",class: "img-responsive monster-ghost") %>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+
+<div class="container-fluid story" style="background: url(<%= asset_path('ascendant-hearts/fountain.jpg') %>) right top no-repeat;">
+	<div class="row" id="story">
+		<div class="col-md-6 col-centered">
+			<h2 class="text-center story-header"> Story</h2>
+
+			<p>Hayato lived an ordinary life until he wakes up one day with amnesia… and finds himself in a world closer to the video games he plays than the world he remembers.
+			</p>
+			<p>Fetch quests? Skill points? Respawning after death? It’s all a bit much to accept.</p>
+			<p>A mage named Shiori offers to help him find his way, and with her help, he learns about how to fight monsters, perform fetch quests, and put items in a strange metaphysical space called an “inventory.” Soon he’s ready to take on NPC quests!</p>
+			<p>But the town of Lightshire is in danger from deadly monsters—monsters that can kill you for real.</p>
+			<p>Where did they come from? What is behind the attacks? Hayato and Shiori are determined to find out, and no matter what they encounter—from high-level dungeons to argumentative party members—they won’t stop until they learn the truth.</p>
+			<h4>Features</h4>
+			<ul>
+				<li>Parody of traditional JRPG and MMORPG tropes.</li>
+				<li>Immersive fantasy world filled with monsters and memorable characters.</li>
+				<li>Numerous distinct environments, including a haunted library, a mad scientist’s laboratory, and an eldritch temple.</li>
+				<li>Find true love on your quest to save the village of Lightshire.</li>
+				<li>Lighthearted and humorous atmosphere.</li>
+			</ul>
+		</div>
+		
+	</div>
+
+	<div class="row" id="gallery">
+		<div class="col-md-12">
+			<h2 class="gallery-header"> Gallery </h2>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
+		</div>
+
+		<div class="col-md-3 col-xs-6">
+			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
+		</div>
+
+
+	</div>
+</div>
+
+<div class="container" id="about">
+	<div class="row">
+		<div class="col-md-4">
+			<%= image_tag("ascendant-hearts/logo.png",class:"img-responsive") %>
+		</div>
+
+		<div class="col-md-8">
+		<h3> About</h3>
+		<p> <%= link_to "Visualnoveler",root_path %> is a website for fans of visual novels to track and discover visual novels. </p>
+		<p> We have recently started creating visual novels such as <%= link_to "Anime Studio Simulator",anime_studio_sim_path %> on Steam and Ascendant Hearts is our next project!.</p>
+	</div>
+	</div>
+</div>

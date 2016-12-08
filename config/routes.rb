@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/resources' => 'pages#resources'
   get '/recommendation' => 'pages#recommendation'
   get '/blogs' => 'pages#blogs'
+  
   authenticated :user do
     root :to => "pages#dashboard",as: :authenticated_root
   end
@@ -126,13 +127,15 @@ Rails.application.routes.draw do
       end
  end
   
- #anime studio sim
-  get '/anime-studio-sim' => 'pages#anime_sim_home'
-  get '/anime-studio-sim/about' => 'pages#anime_sim_about'
-  get '/anime-studio-sim/story' => 'pages#anime_sim_story'
-  get '/anime-studio-sim/characters' => 'pages#anime_sim_characters'
-  get '/anime-studio-sim/gallery' => 'pages#anime_sim_gallery'
-  get '/anime-studio-sim/presskit' => 'pages#anime_sim_press'
+  #anime studio sim
+  get '/anime-studio-sim' => 'anime_sim#home'
+  get '/anime-studio-sim/about' => 'anime_sim#about'
+  get '/anime-studio-sim/story' => 'anime_sim#story'
+  get '/anime-studio-sim/characters' => 'anime_sim#characters'
+  get '/anime-studio-sim/gallery' => 'anime_sim#gallery'
+  get '/anime-studio-sim/presskit' => 'anime_sim#press'
+  #ascendant hearts
+  get '/ascendant-hearts' => 'ascendant_hearts#home'
   post 'vns/:id/favourite' => 'vns#favourite'
   post 'vns/:id/status' => 'vns#status'
   post 'vns/:id/rate' => 'vns#rate'

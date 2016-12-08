@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>
+    <%= if content_for?(:title) && !content_for?(:news_title) then yield(:title)  else yield(:news_title) end %>
+  </title>
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <meta property="og:image" content=<%= asset_path("anime-sim/anime_sim_bg.jpg") %>>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <%= favicon_link_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="description" content="Anime Studio Simulator is a visual novel with simulation elements in the game involving the player managing a team. Throughout the game, the player must battle deadlines, stress, motivation and other resources like budgets to make their own anime.">
+</head>
+<body style="background-color:white;">
+
+
+<section id="ascendant-hearts">
+
+<%= yield %>
+
+</section>
+</body>
+</html>
+<!-- 
+end of container -->
+
+

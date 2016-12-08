@@ -1,0 +1,149 @@
+#ascendant-hearts {
+	font-family: 'Raleway', sans-serif;
+	background-color: white;
+	font-size: 16px;
+
+	:target:before {
+		content:"";
+		display:block;
+		height: 50px; /* fixed header height*/
+		margin: -50px 0 0; /* negative fixed header height */
+	}
+	.icon-bar{
+		background-color: white;
+	}
+
+	h2 {
+		font-size: 2.35em;
+	}
+
+	h3 {
+		font-size: 2em;
+	}
+	h4 {
+		font-size: 1.5em;
+	}
+	.ascendant-title {
+		font-size: 1.75em;
+		font-weight: bold;
+		color: white;
+		float: left;
+	    padding: 15px 15px;
+	    line-height: 20px;
+	    height: 50px;
+	}
+
+	.navbar-ascendant {
+		background-color: #000000;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+	.ascendent-body{
+		background-color: white !important;
+	}
+
+	.ascendant-navbar-right {
+		a {
+			color: white;
+			font-size: 1.3em;
+			background-color: transparent !important;
+		}
+		a:hover {
+			color: #22A7F0;
+		}
+	}
+
+	.story {
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;	
+		color: white;
+		padding-bottom: 15px;
+	}
+
+	.shrink {
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+	nav.navbar {
+		-webkit-transition: all 0.25s ease;
+   		transition: all 0.25s ease;
+	}
+	.character {
+		padding-bottom: 40px;
+	}
+	.story-header {
+		padding-bottom: 20px;
+	}
+	.gallery-header {
+		padding-bottom: 10px;
+	}
+
+	#gallery {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	.gallery-img {
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+
+	.embed-container { 
+		position: relative; 
+		padding-bottom: 56.25%; 
+		height: 0; 
+		overflow: hidden; 
+		max-width: 100%; 
+	} 
+	.embed-container iframe, .embed-container object, .embed-container embed { 
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		width: 100%; 
+		height: 100%;
+	}
+	.monster-wolf,{
+		position: relative;
+		top: 65px;
+	}
+	.monster-fly {
+		position: relative;
+		top: 55px;
+	}
+	.monster-ghost {
+		position: relative;
+		top: 30px;
+	}
+
+	@media (max-width: 460px) {
+		.main-image {
+			min-height: 400px;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			background: image-url('ascendant-hearts/main_mobile.jpg') center center no-repeat;
+		}
+	}
+	@media (min-width: 460px) {
+		.main-image {
+			min-height: 900px;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			background: image-url('ascendant-hearts/main.jpg') right top no-repeat;
+		}
+	}
+	@media (max-width: 992px) and (min-width: 772px) {
+		.ascendant-title {
+			font-size: 1.25em !important;
+		}
+
+		.ascendant-navbar-right a {
+			font-size: 1em !important;
+		}
+	}
+}

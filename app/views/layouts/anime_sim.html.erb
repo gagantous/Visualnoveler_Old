@@ -19,12 +19,6 @@
  <meta name="description" content="Anime Studio Simulator is a visual novel with simulation elements in the game involving the player managing a team. Throughout the game, the player must battle deadlines, stress, motivation and other resources like budgets to make their own anime.">
 </head>
 <body>
-<script>
-    $("body").floatingSocialShare({
-        buttons: ["facebook", "twitter"],
-        text: "share with: "
-    });
-</script>
 
 <section id="anime-sim">
 <div class="container">
@@ -45,13 +39,13 @@
            
             <h1 class="hidden-xs"><a class="" href=<%= anime_studio_sim_path %>><%= image_tag(asset_path("anime-sim/anime-sim-logo-medium.png"),class:"logo",alt: "Anime Studio Simulator") %></a></h1>
              <ul class="anime-sim-nav-list visible-xs-block">
-    <li><%= link_to 'About', anime_studio_sim_about_path %></li>
-    <li><%= link_to 'Story', anime_studio_sim_story_path %></li>
-    <li><%= link_to 'Steam', "http://store.steampowered.com/app/508230" %></li>
-    <li><%= link_to 'Characters', anime_studio_sim_characters_path %> </li>
-    <li><%= link_to 'Gallery', anime_studio_sim_gallery_path %></li>
+              <li><%= link_to 'About', anime_studio_sim_about_path %></li>
+              <li><%= link_to 'Story', anime_studio_sim_story_path %></li>
+              <li><%= link_to 'Steam', "http://store.steampowered.com/app/508230" %></li>
+              <li><%= link_to 'Characters', anime_studio_sim_characters_path %> </li>
+              <li><%= link_to 'Gallery', anime_studio_sim_gallery_path %></li>
 
-  </ul>
+            </ul>
           
           </div><!--/.nav-collapse -->
 
