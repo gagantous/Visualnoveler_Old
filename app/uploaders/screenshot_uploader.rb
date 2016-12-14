@@ -1,11 +1,12 @@
 # encoding: utf-8
 
 class ScreenshotUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
-  # Choose what kind of storage to use for this uploader:
+
+  process resize_to_limit: [1000,1000]
+  process :optimize
+  
   if Rails.env.production?
       storage :fog
   elsif Rails.env.development?

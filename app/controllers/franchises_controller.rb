@@ -11,6 +11,7 @@ class FranchisesController < ApplicationController
 
 	def edit
 		@franchise = Franchise.find(params[:id])
+		@vns = @franchise.vns
 		authorize @franchise
 	end
 

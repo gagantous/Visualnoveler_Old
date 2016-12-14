@@ -26,6 +26,7 @@ class DevelopersController < ApplicationController
 
 	def edit
 		@developer = Developer.find(params[:id])
+		@vns = @developer.vns
 		authorize @developer
 	end
 

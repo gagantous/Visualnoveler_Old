@@ -52,11 +52,7 @@
 			<%= render 'vn_item_panel' ,locals: {vn: @vn}%>
 		</div>
 		<div class="col-lg-9 col-md-9">
-			<% if @vn.name.length > 30 %>
-			 	<h1 style="font-size:19px !important;"><%= @vn.name %> </h1>
-			<% else %>
-			 	<h1><%= @vn.name %> </h1>
-			 <% end %>
+			<%= get_vn_name(@vn.name) %>
 			  
  			<span class="default-text vn-score">
  				Score: <%= @vn.rating_number%> 

@@ -3,6 +3,27 @@
 		<div class="col-md-8">
 			<div class="panel panel-default">
   			<div class="panel-body">
+  			<div class="row">
+  				<div class="col-md-12">
+		  			<h2>Character List
+		  				<%= link_to "Characters with no VN",admin_lonely_character_path,:class => "btn btn-default",style:"margin-left:15px;" %>
+		  			</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+           			<div class="input-group" id="custom-search-input">
+		              	<%= form_tag(search_characters_path, :method => "get", class: "navbar-form admin-search-form", id: "search-form" ) do %>
+			                <%= text_field_tag :search, params[:search], class: "form-control search-query typeahead", placeholder: "Search Visual Novels" %>
+			                <div class="input-group-btn">
+			                  <%= button_tag(type: "submit", class: "btn") do %>
+			                    <span class=" glyphicon glyphicon-search"></span>
+			                  <% end %>
+			                </div>
+			             <% end %>
+		         	</div>
+	              </div>
+         	 </div>
 		<table class="table">
 			<h2>Character List 
        			 

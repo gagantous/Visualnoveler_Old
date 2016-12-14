@@ -16,6 +16,7 @@ class PublishersController < ApplicationController
 
 	def edit
 		@publisher = Publisher.find(params[:id])
+		@vns = @publisher.vns
 		authorize @publisher
 	end
 

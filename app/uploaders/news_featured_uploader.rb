@@ -1,13 +1,10 @@
 # encoding: utf-8
 
 class NewsFeaturedUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
-  # Choose what kind of storage to use for this uploader:
-
   process resize_to_limit: [1000,565]
+  process :optimize
   storage :file
   # storage :fog
   # Override the directory where uploaded files will be stored.

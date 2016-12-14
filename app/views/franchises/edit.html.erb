@@ -2,22 +2,30 @@
 
 <div class="container">
 	<div class="row">
-		<%= simple_form_for @franchise do |f| %>
+		<div class="col-md-12">
+			<%= simple_form_for @franchise do |f| %>
 
-		<h1>Edit Franchise</h1>
-		<div class="row">
-		<div class="col-lg-4">
-		  <%= f.input :name %>
+			<h1>Edit <%= @franchise.name %> </h1>
+			<div class="row">
+				<div class="col-lg-4">
+				  <%= f.input :name %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<%= render :partial => 'admin/vn_admin_small_poster', collection: @vns, :as => :vn  %>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top:15px;">
+				<div class="col-lg-12">
+				  <%= f.button :submit , class: "btn btn-primary" %>
+				</div>
+			</div>
+
+			<% end %>
+
 		</div>
-		 </div>
-		
-
-		<div class="col-lg-12">
-		  <%= f.button :submit , class: "btn btn-primary" %>
-		 </div>
-		<% end %>
-
-
 	</div>
-
 </div>

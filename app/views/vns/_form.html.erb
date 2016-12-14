@@ -1,69 +1,142 @@
-	<%= simple_form_for @vn do |f| %>
+<%= simple_form_for @vn do |f| %>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-3">
+				  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Name of Visual Novel', error: 'Name is mandatory, please specify one' %>
+				 </div>
+				 <div class="col-md-3">
+				  <%= f.input :alias, input_html: {style: "width:200px;"}, label: 'Alias of Visual Novel' %>
+				 </div>
 
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<%= f.association :genres, as: :check_boxes %> 
+				</div>
 
-		<div class="col-lg-3">
-		  <%= f.input :name, input_html: {style: "width:200px;"}, label: 'Name of Visual Novel', error: 'Name is mandatory, please specify one',required: false  %>
-		 </div>
-		 <div class="col-lg-3">
-		  <%= f.input :alias, input_html: {style: "width:200px;"}, label: 'Alias', error: 'Name is mandatory, please specify one',required: false  %>
-		 </div>
+				<div class="col-md-3">
+					<%= f.association :publishers, as: :check_boxes %> 
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<%= f.input :status %> 
+				</div>
+				<div class="col-md-2">
+			  		<%= f.input :rating_number %>
+			  	</div>
+				<div class="col-md-2">
+					<%= f.association :developer,collection: @developers,input_html: {class:"selectpicker",'data-live-search' => true} %> 
+				</div>
+				<div class="col-md-2">
+					<%= f.association :franchise,input_html: {class:"selectpicker",'data-live-search' => true} %> 
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+				  <%= f.input :release_date,start_year: @start_year,end_year: @end_year,prompt: "Unknown" %>
+				</div>
+				<div class="col-md-4">
+				  <%= f.input :trailer_url %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+			  		<%= f.input :summary,input_html: {style: "height:150px;"} %>
+			  	</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+				 	<%= f.input :image_poster %>
+		  			<%= image_tag f.object.image_poster.url, :class => "img-responsive" if f.object.image_poster? %>
+				</div>
+			  	<div class="col-md-2">
+		  			<%= f.input :image_coverpage %>
+		  			<% if f.object.image_coverpage? %>
+			  			<label> 
+			  				<%= f.check_box :remove_image_coverpage %>
+			  				Remove Cover Image
+			  			</label>
+			  			<%= image_tag f.object.image_coverpage.url, :class => "img-responsive" %>
+			  		<% end %>
+			 	</div>
+				<div class="col-md-2">
+			 		<%= f.input :image_1,label: "Screenshot 1" %>
+	  				<%= image_tag f.object.image_1.url, :class => "img-responsive" if f.object.image_1? %>
+				</div>
+				<div class="col-md-2">
+				 	<%= f.input :image_2,label: "Screenshot 2" %>
+		  			<%= image_tag f.object.image_2.url, :class => "img-responsive" if f.object.image_1? %>
+				</div>
+				<div class="col-md-2">
+				 	<%= f.input :image_3,label: "Screenshot 3"%>
+		  			<%= image_tag f.object.image_3.url, :class => "img-responsive" if f.object.image_1? %>
+				 </div>
+				 <div class="col-md-2">
+				 	<%= f.input :image_4,label: "Screenshot 4" %>
+		  			<%= image_tag f.object.image_4.url, :class => "img-responsive" if f.object.image_1? %>
+				 </div>
+			  	<div class="col-md-12">
+			 		<%= f.input :isFeatured %>
+			 	</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<label>Purchase Links</label>
+				</div>
+				<div class="col-md-2">
+					<%= f.input :buy_1 %>
+				</div>
 
-		  <div class="col-lg-12">
-		 
-			<%= f.association :genres, as: :check_boxes %> 
+				<div class="col-md-2">
+					<%= f.input :buy_2 %>
+				</div>
+				<div class="col-md-2">
+					<%= f.input :buy_3 %>
+				</div>
+				<div class="col-md-2">
+					<%= f.input :buy_4 %>
+				</div>
+			</div>
 		</div>
-		 <div class="col-lg-12">
-			<%= f.association :publishers, as: :check_boxes %> 
-		</div>
-		 <div class="col-lg-12">
-		 
-			<%= f.association :developer,input_html: {style: "width:150px;"},collection: Developer.order('name ASC') %> 
-			<%= f.association :franchise,input_html: {style: "width:150px;"} %> 
-			<%= f.input :status,input_html: {style: "width:150px;"} %> 
-		</div>
+	</div>
 
-		  <div class="col-lg-2">
-		  <%= f.input :rating_number,input_html: {style: "width:100px;"} %>
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Characters</h2>
+				<%= f.simple_fields_for :characters,f.object.characters.priority_order do |char| %>
+					<div class="row">
+						<div class="col-md-4">
+				 			<%= char.input :name %>
+						</div>
+						 <div class="col-md-2">
+						 	<%= char.input :img_string %>
+						 </div>
+						 <div class="col-md-2">
+						 	<%= image_tag char.object.img_string.url, :class => 'character-edit-thumbnail' if char.object.img_string? %>
+						 </div>
+						<div class="col-md-2">
+					 		<%= char.input :role %>
+					 	</div>
+						<div class="col-md-10">
+							<%= char.input :summary,input_html: {style: "height:150px;"}%>
+						</div>
+					</div>
+				 
+				<% end %>
 		</div>
-		<div class="col-lg-6">
-		  <%= f.input :release_date,start_year: @start_year,end_year: @end_year,prompt: "Unknown",input_html: {style: "width:150px;"} %>
-		</div>
-		<div class="col-lg-2">
-		  <%= f.input :trailer_url %>
-		</div>
+	</div>
 
-		<div class="col-lg-12">
-		  <%= f.input :summary,input_html: {style: "height:150px;"} %>
-		</div>
-	
-		 <div class="col-lg-2">
-		 	 <%= f.input :image_poster %>
-		 </div>
-		  <div class="col-lg-2">
-		 	 <%= f.input :image_coverpage %>
-		 </div>
-		  <div class="col-lg-2">
-		 	 <%= f.input :image_1,label: "Screenshot 1" %>
-		 </div>
-		  <div class="col-lg-2">
-		 	 <%= f.input :image_2,label: "Screenshot 2" %>
-		 </div>
-		  <div class="col-lg-2">
-		 	 <%= f.input :image_3,label: "Screenshot 3"%>
-		 </div>
-		  <div class="col-lg-2">
-		 	 <%= f.input :image_4,label: "Screenshot 4"%>
-		 </div>
-		 
-		 <div class="col-lg-12">
-		  <%= f.input :isFeatured %>
-		 </div>
-		
-   		 <div class='links col-md-3'>
-      		<%= link_to_add_association 'Add Character', f, :characters,:class => 'btn btn-default' %>
+	<div class="row">
+		<div class='links col-md-3'>
+	    	<%= link_to_add_association 'Add Character', f, :characters,:class => 'btn btn-default' %>
+	   	</div>
+	</div>
 
-   		 </div>
-   		 <div class='col-md-12' style="margin-top:20px;">
-		  <%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Creating.."}  %>
+	<div class="row" style="padding-top:25px; padding-bottom:30px;">
+		<div class="col-md-12">
+			<%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Updating..."} %>
 		</div>
-		<% end %>
+	</div>
+<% end %>

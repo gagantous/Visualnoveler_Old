@@ -13,7 +13,7 @@
 			<tbody>
 			<% @franchise.each do |franchise| %>
 				<tr>
-				<td><%= link_to franchise.name, franchise_path(franchise) %> </td>
+				<td><%= link_to franchise.name, edit_franchise_path(franchise) %> </td>
 				<td><%= link_to 'Edit',edit_franchise_path(franchise) %></td>
 				<td><%= time_ago_in_words(franchise.updated_at) %></td>
 				</tr>

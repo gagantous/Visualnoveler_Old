@@ -100,6 +100,7 @@ class VnsController < ApplicationController
 		@translation = @vn.translation
 		@start_year = Date.today.year + 4
 		@end_year = 1995
+		@developers = Developer.all.order('name ASC')
 		authorize @vn
 		@character = @vn.characters.priority_order
     	#@vn.characters.build
@@ -178,6 +179,7 @@ class VnsController < ApplicationController
 		@vn = Vn.new
 		@start_year = Date.today.year + 4
 		@end_year = 1995
+		@developers = Developer.all.order('name ASC')
 		authorize @vn
     	@vn.characters.build
 	end

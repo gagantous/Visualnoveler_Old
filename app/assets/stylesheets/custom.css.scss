@@ -2107,11 +2107,6 @@ img.center {
   margin-bottom: 5px;
 }
 
-.char-creation-wrapper {
-  height: 350px;
-  width: auto;
-  overflow: auto;
-}
 .vn-poster-image-wrapper {
   position: relative;
   display: inline-block;
@@ -2250,6 +2245,11 @@ img.center {
 }
 .forum-date {
   color: rgba(0, 39, 59, 0.35);
+}
+
+.admin-search-form{
+  position: relative;
+  right: 15px;
 }
 
 

@@ -7,6 +7,17 @@ module VnsHelper
 	    request.user_agent =~ /Mobile|webOS/
 	  end
 	end
+
+	def get_vn_name(name)
+
+		if name.length > 45
+			return "<h1 style='font-size:14px !important;'>#{name}</h1>".html_safe
+		elsif @vn.name.length > 30
+			return "<h1 style='font-size:19px !important;'>#{name}</h1>".html_safe
+		else
+			return "<h1>#{name}</h1>".html_safe
+		end
+	end
 	
 	def get_character_role(character)
 		name = character.name

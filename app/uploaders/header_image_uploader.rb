@@ -1,10 +1,9 @@
 class HeaderImageUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
+  process :optimize
   process crop: :header_image
-  process :quality => 90
+
   # Choose what kind of storage to use for this uploader:
    if Rails.env.production?
       storage :fog

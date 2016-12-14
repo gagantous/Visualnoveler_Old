@@ -1,13 +1,11 @@
 # encoding: utf-8
 
 class UserImageUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
   process resize_to_fill: [220,220]
-  #process resize_to_fill: [220,220]
-  # Choose what kind of storage to use for this uploader:
+  process :optimize
+  
   if Rails.env.production?
       storage :fog
   elsif Rails.env.development?

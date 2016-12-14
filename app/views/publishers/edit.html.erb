@@ -4,24 +4,31 @@
 	<div class="row">
 		<%= simple_form_for @publisher do |f| %>
 
-		<h1>Edit Publisher</h1>
+		<h1>Edit <%= @publisher.name %></h1>
 		<div class="row">
-		<div class="col-lg-4">
-		  <%= f.input :name %>
-		</div>
+			<div class="col-lg-4">
+			  <%= f.input :name %>
+			</div>
 		 </div>
-		 <div class="row">
-		 <div class="col-lg-6">
-		  <%= f.input :details %>
-		 </div>
+		<div class="row">
+			 <div class="col-lg-6">
+			  <%= f.input :details %>
+			 </div>
 		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<%= render :partial => 'admin/vn_admin_small_poster', collection: @vns, :as => :vn  %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-10">
+			  <%= f.button :submit , class: "btn btn-primary" %>
+			</div>
 
-		<div class="col-lg-6">
-		  <%= f.button :submit , class: "btn btn-primary" %>
-		 </div>
-		 	<div class="col-lg-3 col-lg-offset-2">
-		  <%= link_to 'Delete Publisher',@publisher, class: "btn btn-danger",method: :delete %>
-		 </div>
+			<div class="col-lg-2">
+				<%= link_to 'Delete Publisher',@publisher, class: "btn btn-danger",method: :delete,data: { confirm: 'Are you sure?' }%>
+			</div>
+		</div>
 		<% end %>
 
 

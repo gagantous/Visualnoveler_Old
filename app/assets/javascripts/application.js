@@ -21,6 +21,7 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require cocoon
+//= require bootstrap-select
 //= require_tree .
 //= require starburst/starburst
 //= require fancybox

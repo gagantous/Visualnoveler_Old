@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'twitter-typeahead-rails'
 gem 'bootstrap-social-rails'
+gem 'bootstrap-select-wrapper-rails'
 gem 'fancybox2-rails', '~> 0.2.8'
 gem 'friendly_id', '~> 5.1.0'
 gem 'simple_form'
@@ -23,6 +24,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 #image & attachments 
 gem 'carrierwave'
 gem 'carrierwave-crop'
+gem 'carrierwave-imageoptimizer'
 gem "mini_magick"
 gem 'remotipart', git: 'https://github.com/JangoSteve/remotipart.git',branch: 'master'
 #announcements

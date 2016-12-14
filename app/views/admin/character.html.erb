@@ -3,21 +3,27 @@
 		<div class="col-md-8">
 			<div class="panel panel-default">
   			<div class="panel-body">
-  			<h2>Character List 
-				<%= link_to "Characters with no VN",admin_lonely_character_path,:class => "btn btn-default" %>   
-				</h2>
-				<div class="row">
-				<%= form_tag(search_characters_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+  			<div class="row">
+  				<div class="col-md-12">
+		  			<h2>Character List
+		  				<%= link_to "Characters with no VN",admin_lonely_character_path,:class => "btn btn-default",style:"margin-left:15px;" %>
+		  			</h2>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-4">
-				 <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Character" %>
-	            </div>
-	            <div class="col-md-4">
-	              <%= button_tag(type: "submit", class: "btn btn-primary padding-search",style:"position:relative;bottom:9px;right:55px;") do %>
-	                  <i class="fa fa-search 6x"></i>
-	              <% end %>
-	       	  	</div>
-	              <% end %>
-	         	 </div>
+           			<div class="input-group" id="custom-search-input">
+		              	<%= form_tag(search_characters_path, :method => "get", class: "navbar-form admin-search-form", id: "search-form" ) do %>
+			                <%= text_field_tag :search, params[:search], class: "form-control search-query typeahead", placeholder: "Search Visual Novels" %>
+			                <div class="input-group-btn">
+			                  <%= button_tag(type: "submit", class: "btn") do %>
+			                    <span class=" glyphicon glyphicon-search"></span>
+			                  <% end %>
+			                </div>
+			             <% end %>
+		         	</div>
+	              </div>
+         	 </div>
 		<table class="table">
 			<thead><tr>
 				<th>Image</th>

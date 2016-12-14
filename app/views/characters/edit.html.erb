@@ -23,8 +23,8 @@
 		  <%= f.input :summary,input_html: {style: "height:150px;"} %>
 		</div>
 
-		<div class="col-lg-12 char-creation-wrapper">
-			<%= f.association :vns, :as => :check_boxes %>
+		<div class="col-lg-6">
+			<%= f.association :vns,input_html: {class:"selectpicker",'data-live-search' => true} %>
 		</div>
 
 		<div class="col-lg-12" style="margin-top:20px;">

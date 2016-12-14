@@ -60,6 +60,7 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    bootstrap-select-wrapper-rails (1.10.0)
     bootstrap-social-rails (4.8.0)
       railties (>= 3.1)
     builder (3.2.2)
@@ -79,6 +80,9 @@ GEM
       carrierwave (>= 0.8.0, < 0.11.0)
       jquery-rails
       rails (>= 3.2)
+    carrierwave-imageoptimizer (1.4.0)
+      carrierwave (>= 0.8, < 2.0)
+      image_optimizer (~> 1.6)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
@@ -267,6 +271,7 @@ GEM
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
+    image_optimizer (1.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.0)
     jquery-rails (4.0.5)
@@ -498,10 +503,12 @@ DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   best_in_place (~> 3.0.1)
   bootstrap-sass (~> 3.3.5.1)
+  bootstrap-select-wrapper-rails
   bootstrap-social-rails
   capybara
   carrierwave
   carrierwave-crop
+  carrierwave-imageoptimizer
   cocoon
   coffee-rails (~> 4.1.0)
   database_cleaner
