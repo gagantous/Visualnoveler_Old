@@ -25,13 +25,17 @@
 			  <%= f.button :submit , class: "btn btn-primary" %>
 			</div>
 
-			<div class="col-lg-2">
-				<%= link_to 'Delete Publisher',@publisher, class: "btn btn-danger",method: :delete,data: { confirm: 'Are you sure?' }%>
-			</div>
 		</div>
 		<% end %>
 
 
 	</div>
 
+</div>
+<div class="container" style="">
+	<div class="row">
+		<div class="col-lg-2 pull-right">
+			<%= link_to 'Delete Publisher',@publisher, class: "btn btn-danger",method: :delete,data: { confirm: 'Are you sure?' }%>
+		</div>
+	</div>
 </div>
