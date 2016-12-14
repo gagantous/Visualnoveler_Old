@@ -145,6 +145,8 @@
 			<div class="col-md-4">
 				<%= f.button :submit , class: "btn btn-primary",data:{ disable_with: "Updating..."} %>
 			</div>
+
+		<% end %>
 			<div class="col-md-2 pull-right">
 				<% if current_user.admin? %>
 					<%= button_to @vn,:method=>:delete,:class =>"btn btn-danger pull-right", style:"",data:{ disable_with: "Deleting Visual Novel..",confirm: "Are you sure?"} do %>
@@ -153,7 +155,6 @@
 				<% end %>
 			</div>
 		</div>
-	<% end %>
 </div>
 
 

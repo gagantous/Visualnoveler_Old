@@ -14,8 +14,8 @@
 				<div class="col-md-4">
            			<div class="input-group" id="custom-search-input">
 		              	<%= form_tag(search_characters_path, :method => "get", class: "navbar-form admin-search-form", id: "search-form" ) do %>
-			                <%= text_field_tag :search, params[:search], class: "form-control search-query typeahead", placeholder: "Search Visual Novels" %>
-			                <div class="input-group-btn">
+			                <%= text_field_tag :search, params[:search], class: "form-control search-query", placeholder: "Search Characters" %>
+			                <div class="input-group-btn" style="display:inherit;">
 			                  <%= button_tag(type: "submit", class: "btn") do %>
 			                    <span class=" glyphicon glyphicon-search"></span>
 			                  <% end %>
