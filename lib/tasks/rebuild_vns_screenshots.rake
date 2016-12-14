@@ -5,6 +5,7 @@ require 'rake'
     Screenshot.all.each_with_index do |ss,index|
       if ss.image?
         ss.image.recreate_versions!
+        ss.save!
       end
     end
 

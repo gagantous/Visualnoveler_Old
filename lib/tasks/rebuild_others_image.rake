@@ -14,6 +14,7 @@ require 'rake'
       if user.library_image?
         user.library_image.recreate_versions!
       end
+      user.save!
     end
 
     puts "User Model rebuild image complete"
@@ -22,6 +23,7 @@ require 'rake'
       if news.featured_image?
         news.featured_image.recreate_versions!
       end
+      news.save!
     end
 
     puts "News Model rebuild image complete"
@@ -30,6 +32,7 @@ require 'rake'
       if n.image?
         n.image.recreate_versions!
       end
+      n.save!
     end
 
     puts "NewsImage Model rebuild image complete"

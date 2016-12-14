@@ -24,6 +24,7 @@ require 'rake'
       if vn.image_4?
         vn.image_4.recreate_versions!
       end
+      vn.save!
     end
 
     puts "Visual Novel Model rebuild image complete"
