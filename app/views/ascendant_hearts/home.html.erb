@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav navbar-right ascendant-navbar-right">
         <li><a href="#">Kickstarter</a></li>
         <li> <a href="#top">Top</a></li>
-        <li><a href="#characters">Character</a></li>
+        <li><a href="#characters">Characters</a></li>
         <li> <a href="#story">Story</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#about">About</a></li>
@@ -50,7 +50,7 @@
 
 <div class="main-image" id="top"></div>
 
-<div class="container trailer">
+<!-- <div class="container trailer">
 	<div class="row">
 		<div class="col-md-8 col-centered">
 			<div class='embed-container'>
@@ -58,13 +58,13 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <div class="container character">
 	<a class="anchor" id="characters"></a>
 	<div class="row">
 		<div class="col-md-12">
-			<h2 class="text-center">Character</h2>
+			<h2 class="text-center">Characters</h2>
 		</div>
 		<div class="col-md-4">
 			<%= image_tag("ascendant-hearts/characters/shiori.png",class: "img-responsive") %>
@@ -85,7 +85,7 @@
 
 	<div class="row">
 		<div class="col-md-6">
-			<h2>Side Character</h2>
+			<h3 class="text-center">Side Characters</h2>
 			<div class="row">
 				<div class="col-md-4">
 					<%= image_tag("ascendant-hearts/characters/rogue.png",class: "img-responsive") %>
@@ -94,12 +94,12 @@
 					<%= image_tag("ascendant-hearts/characters/guildmaster.png",class: "img-responsive") %>
 				</div>
 				<div class="col-md-4">
-					<%= image_tag("ascendant-hearts/characters/guildmaster.png",class: "img-responsive") %>
+					<%= image_tag("ascendant-hearts/characters/priest.png",class: "img-responsive") %>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-6">
-			<h2>Monsters</h2>
+			<h3 class="text-center">Monsters</h2>
 			<div class="row">
 				<div class="col-md-4">
 					<%= image_tag("ascendant-hearts/characters/wolf.png",class: "img-responsive monster-wolf") %>
@@ -136,6 +136,7 @@
 				<li>Numerous distinct environments, including a haunted library, a mad scientist’s laboratory, and an eldritch temple.</li>
 				<li>Find true love on your quest to save the village of Lightshire.</li>
 				<li>Lighthearted and humorous atmosphere.</li>
+				<li>Four possible endings based on your choices.</li>
 			</ul>
 		</div>
 		
@@ -146,32 +147,19 @@
 		<div class="col-md-12">
 			<h2 class="gallery-header"> Gallery </h2>
 		</div>
-		<div class="col-md-3 col-xs-6">
-			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
-		</div>
-		<div class="col-md-3 col-xs-6">
-			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
-		</div>
-		<div class="col-md-3 col-xs-6">
-			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
-		</div>
-		<div class="col-md-3 col-xs-6">
-			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
-		</div>
+		
+		<% (9..12).each do |i| %>
+     		<div class="col-md-3 col-xs-6">
+				<%= link_to(image_tag("ascendant-hearts/ss/#{i}.jpg",class:"img-responsive gallery-img"),asset_url("ascendant-hearts/ss/#{i}.jpg"),:class => "fancybox", :rel =>'group' ) %>
+			</div>
+     	<% end %>
 
-		<div class="col-md-3 col-xs-6">
-			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
-		</div>
-		<div class="col-md-3 col-xs-6">
-			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
-		</div>
-		<div class="col-md-3 col-xs-6">
-			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
-		</div>
-		<div class="col-md-3 col-xs-6">
-			<%= link_to(image_tag("anime-sim/screenshots/1.jpg",class:"img-responsive gallery-img"),asset_url("anime-sim/screenshots/1.jpg"),:class => "fancybox", :rel =>'group' ) %>
-		</div>
-
+     	<% (1..8).each do |i| %>
+     		<div class="col-md-3 col-xs-6">
+				<%= link_to(image_tag("ascendant-hearts/ss/#{i}.png",class:"img-responsive gallery-img"),asset_url("ascendant-hearts/ss/#{i}.png"),:class => "fancybox", :rel =>'group' ) %>
+				
+			</div>
+     	<% end %>	
 
 	</div>
 </div>

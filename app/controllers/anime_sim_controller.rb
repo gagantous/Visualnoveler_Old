@@ -21,6 +21,6 @@ class AnimeSimController < ApplicationController
 	end
 
 	def press
-		render :layout => 'anime_sim'
+		render :layout => 'none'
 	end
 end
