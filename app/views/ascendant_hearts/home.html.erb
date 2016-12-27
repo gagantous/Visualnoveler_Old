@@ -66,17 +66,17 @@
 		<div class="col-md-12">
 			<h2 class="text-center">Characters</h2>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-4">
 			<%= image_tag("ascendant-hearts/characters/shiori.png",class: "img-responsive") %>
 			<h3 class="text-center">Shiori</h3>
 			<p> An elemental mage and adept adventurer with a short temper. It’s traditional for RPG parties to include a traitor… and most people believe it’s her. Fortunately, that’s not true. She has everyone’s best interests at heart. Probably. </p>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-4">
 			<%= image_tag("ascendant-hearts/characters/aiko.png",class: "img-responsive") %>
 			<h3 class="text-center">Aiko</h3>
 			<p> A quiet mage with an affinity for healing magic. Epic quests often kill off a party member to show how serious the situation is, and she’s afraid that might be her fate. Nevertheless, she joins the party to help Hayato.</p>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-4">
 			<%= image_tag("ascendant-hearts/characters/chise.png",class: "img-responsive") %>
 			<h3 class="text-center">Chise</h3>
 			<p> A rogue whose judgmental nature masks a deep desire to protect people. She’s searching for a hero, but years of joining parties with common farm boys, runaway princesses, and young men with spiky hair have gotten her nowhere.  </p>
@@ -87,13 +87,13 @@
 		<div class="col-md-6">
 			<h3 class="text-center">Side Characters</h2>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4 col-sm-4">
 					<%= image_tag("ascendant-hearts/characters/rogue.png",class: "img-responsive") %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 col-sm-4">
 					<%= image_tag("ascendant-hearts/characters/guildmaster.png",class: "img-responsive") %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 col-sm-4">
 					<%= image_tag("ascendant-hearts/characters/priest.png",class: "img-responsive") %>
 				</div>
 			</div>
@@ -101,13 +101,13 @@
 		<div class="col-md-6">
 			<h3 class="text-center">Monsters</h2>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4 col-sm-4">
 					<%= image_tag("ascendant-hearts/characters/wolf.png",class: "img-responsive monster-wolf") %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 col-sm-4">
 					<%= image_tag("ascendant-hearts/characters/fly.png",class: "img-responsive monster-fly") %>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 col-sm-4">
 					<%= image_tag("ascendant-hearts/characters/ghost.png",class: "img-responsive monster-ghost") %>
 				</div>
 			</div>
@@ -149,20 +149,20 @@
 		</div>
 		
 		<% (9..12).each do |i| %>
-     		<div class="col-md-3 col-xs-6">
+     		<div class="col-md-3 col-xs-6 col-sm-4">
 				<%= link_to(image_tag("ascendant-hearts/ss/#{i}.jpg",class:"img-responsive gallery-img"),asset_url("ascendant-hearts/ss/#{i}.jpg"),:class => "fancybox", :rel =>'group' ) %>
 			</div>
      	<% end %>
 
      	<% (1..4).each do |i| %>
-     		<div class="col-md-3 col-xs-6">
+     		<div class="col-md-3 col-xs-6 col-sm-4">
 				<%= link_to(image_tag("ascendant-hearts/ss/#{i}.png",class:"img-responsive gallery-img"),asset_url("ascendant-hearts/ss/#{i}.png"),:class => "fancybox", :rel =>'group' ) %>
 				
 			</div>
      	<% end %>	
 
      	<% (5..8).each do |i| %>
-     		<div class="col-md-3 col-xs-6">
+     		<div class="col-md-3 col-xs-6 col-sm-4">
 				<%= link_to(image_tag("ascendant-hearts/ss/#{i}.png",class:"img-responsive gallery-img"),asset_url("ascendant-hearts/ss/#{i}.png"),:class => "fancybox hidden-xs", :rel =>'group' ) %>
 				
 			</div>
@@ -174,11 +174,11 @@
 <div class="container">
 	<a class="anchor" id="about"></a>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-4 col-sm-5">
 			<%= image_tag("ascendant-hearts/logo.png",class:"img-responsive") %>
 		</div>
 
-		<div class="col-md-8">
+		<div class="col-md-8 col-sm-7">
 		<h3> About</h3>
 		<p> <%= link_to "Visualnoveler",root_path %> is a website for fans of visual novels to track and discover visual novels. </p>
 		<p> We have recently started creating visual novels such as <%= link_to "Anime Studio Simulator",anime_studio_sim_path %> on Steam and Ascendant Hearts is our next project!.</p>
