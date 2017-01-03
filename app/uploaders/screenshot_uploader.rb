@@ -5,7 +5,6 @@ class ScreenshotUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   process resize_to_limit: [1000,1000]
-  process :optimize
   
   if Rails.env.production?
       storage :fog

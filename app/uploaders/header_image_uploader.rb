@@ -1,7 +1,6 @@
 class HeaderImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
-  process :optimize
   process crop: :header_image
 
   # Choose what kind of storage to use for this uploader:

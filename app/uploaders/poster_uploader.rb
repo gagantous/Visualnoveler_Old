@@ -5,7 +5,7 @@ class PosterUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process crop: :image_coverpage  
   process resize_to_limit: [400,400]
-  process optimize: [{ quality: 85 }]
+  
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
       storage :fog

@@ -4,7 +4,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include CarrierWave::ImageOptimizer
 
-  process :optimize
   process crop: :image_coverpage
   if Rails.env.production?
       storage :fog
