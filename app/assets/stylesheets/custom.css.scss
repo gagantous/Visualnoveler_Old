@@ -532,13 +532,8 @@ footer {
     transition: height 0.15s ease;
     -webkit-transition: height 0.15s;
   }
-  // .vnindex-heading{
-  //   top: 0px;
-  //   padding-left:45px;
-  //   position:relative;
-  //   display: inline;
-  // }
-
+  .vn-review-username {
+  }
    .vn-score{
     padding-left: 25px;
     font-size: 1.2em;
@@ -619,7 +614,11 @@ footer {
 }
 //desktop 
 @media (min-width: 1200px) { 
- 
+  .vn-review-username {
+    position: relative;
+    bottom: 15px;
+    margin-left: 5px;
+  }
   .author-img {
     width: 75%;
     margin: 0 auto;
@@ -2257,12 +2256,6 @@ img.center {
 
 .list-review {
   display: inline-block;
-}
-
-.vn-review-username {
-    position: relative;
-    bottom: 15px;
-    margin-left: 5px;
 }
 
 @media (min-width: 992px) {

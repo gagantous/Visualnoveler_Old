@@ -9,12 +9,12 @@
 					<div class="col-md-12">
 						<h4><%= link_to @review.vn.name,vn_path(@review.vn) %></h4>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 col-xs-4">
 						<%= link_to image_tag(@review.user.poster_image.url,class: "vn-reviewposter img-circle"),user_path(@review.user) if @review.user.poster_image? %> 
 						<%= link_to @review.user.name,user_path(@review.user),class: "vn-review-postdate vn-review-username" %>
 					</div>
 			
-					<div class="col-md-8 col-xs-4 col-sm-5">
+					<div class="col-md-8 col-xs-8 col-sm-5">
 						<ul class="list-unstyled list-review pull-right">
 							<li>
 								<span class="vn-review-postdate"><%= @review.created_at.strftime("%B, %d, %Y") %></span>
