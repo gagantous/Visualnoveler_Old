@@ -3,27 +3,31 @@
 <section id="vn-review-section">
 <div class="container">
 	<div class="row" style="padding-top:20px;">
-		
-		<div class="panel panel-default"><div class="panel-body">
-			<h2> <%= @review.user.name %>'s review of <%= link_to @review.vn.name,vn_path(@review.vn) %> </h2>
-			<div class="col-md-2 col-sm-2 col-xs-12">
-				<%= link_to image_tag(@review.user.poster_image.url,class: "img-responsive vn-reviewposter"),user_path(@review.user) %>
-				<div class="review-username">
-					<%= link_to @review.user.name,user_path(@review.user),class: "vn-reviewtext summary-text review-username" %>
-				</div>
-			</div>
-
 			<div class="col-md-10 col-sm-10 col-xs-12">
+				<div class="panel panel-default"><div class="panel-body">
 				<div class="row">
-					<div class="col-md-3 col-xs-4">
-						<%= get_review_icon(@review.rating) %>
+					<div class="col-md-12">
+						<h4><%= link_to @review.vn.name,vn_path(@review.vn) %></h4>
 					</div>
-					<div class="col-md-2 col-xs-4">
-						<span class="vn-ratingdiv">Score: <%= @review.rating%></span>
+					<div class="col-md-4">
+						<%= link_to image_tag(@review.user.poster_image.url,class: "vn-reviewposter img-circle"),user_path(@review.user) if @review.user.poster_image? %> 
+						<%= link_to @review.user.name,user_path(@review.user),class: "vn-review-postdate vn-review-username" %>
 					</div>
-					<div class="col-md-3 col-xs-4">
-						<span class="vn-review-postdate "><%= time_ago_in_words(@review.created_at) %></span>
+			
+					<div class="col-md-8 col-xs-4 col-sm-5">
+						<ul class="list-unstyled list-review pull-right">
+							<li>
+								<span class="vn-review-postdate"><%= @review.created_at.strftime("%B, %d, %Y") %></span>
+							</li>
+							<li>
+								<i class="fa fa-star" aria-hidden="true"></i>
+				 				<%= @review.rating %>
+							</li>
+						</ul>
 					</div>
+				</div>
+
+				<div class="row">
 					<div class="vn-reviewdetails col-md-12 col-xs-12">
 						<%= markdown(@review.details) %>
 					</div>

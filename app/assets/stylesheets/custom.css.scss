@@ -496,8 +496,6 @@ footer {
     right: 15px;
   }
 
-  .vn-ratingdiv {
-  }
   .vn-navbuttons{
     margin-left: 15px;
     margin-top: 15px;
@@ -572,11 +570,7 @@ footer {
     margin-bottom: 15px;
     left: 20px;
   }
-  .vn-reviewposter {
-    width: 93px !important;
-    height: 93px !important;
-  }
-
+ 
   #preview > img {
     display: block;
     max-width: 100%;
@@ -614,9 +608,6 @@ footer {
     position: relative;
     width: 155px;
     float: left;
-  }
-
-  .vn-ratingdiv {
   }
 
   .vn-reviewdate{
@@ -719,10 +710,7 @@ footer {
     right: 15px;
   }
 
-  .vn-ratingdiv {
-     
-  }
-  #vn-review-section,#vn-walkthrough{
+  #vn-walkthrough{
     p{
       //line-height: 1.2em;
       font-size: 17px !important;
@@ -877,11 +865,16 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-.nav-library {
+.nav-library-pill {
   color: black;
-  font-size: 1.2em;
+  font-size: 1em;
+  margin: 10px 0px;
 }
 
+.nav-library {
+  // background-color: #202020;
+  // color: white;
+}
 .button-text{
 
   font-size: 16px;
@@ -1568,11 +1561,11 @@ textarea {
 }
 
 .vn-review-postdate{
-    color: rgba(0,39,59,.35);   
+    color: black;   
     font-weight: 500;
-    font-size: 17px;
-    position: relative;
-    top: 19px;
+    // font-size: 17px;
+    // position: relative;
+    // top: 19px;
 }
 
 
@@ -1658,12 +1651,16 @@ body {
   }
 }
 
-.vn-reviewmargins {
-  margin-bottom: 35px;
+.vn-review-item {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .vn-reviewtext {
   font-size: 1.2em;
   font-weight: 500;
+  color: black;
 }
 .vn-reviewdetails{
   padding-top: 9px;
@@ -1782,12 +1779,6 @@ body {
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   }
 
-.vn-ratingdiv{
-  font-size: 1.2em;
-  position: relative;
-  top: 19px;
-}
-
 .links-shared{
     text-decoration: none;
     color: #666;
@@ -1879,7 +1870,6 @@ img.center {
   padding: 0;
   min-height: 40px;
   border-bottom: 1px solid #eee;
-  margin-bottom: 18px;
 }
 
 .portlet {
@@ -2252,6 +2242,28 @@ img.center {
   right: 15px;
 }
 
+.fa-star-margin {
+  margin-right: 5px;
+}
+
+.vn-reviewposter {
+  max-width: 50px !important;
+  height: auto;
+}
+
+.caption-subject a {
+  color: black;
+}
+
+.list-review {
+  display: inline-block;
+}
+
+.vn-review-username {
+    position: relative;
+    bottom: 15px;
+    margin-left: 5px;
+}
 
 @media (min-width: 992px) {
   .col-user-leftcol {

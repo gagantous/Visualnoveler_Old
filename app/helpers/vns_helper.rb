@@ -75,23 +75,7 @@ module VnsHelper
 		end
 		return string
 	end
-	def get_review_icon(rating)
-		
-		rating = rating.to_f
-		text = ""
-		
-		if rating == 5
-			text = '<span class="vn-recommendtext summarytext">Mixed Thoughts</span>'
-			return  '<i class="fa fa-question" style="color:#F89406;padding-right:5px;font-size:2.9em;"></i>'.html_safe + text.html_safe
-		elsif rating > 5
-			text = '<span class="vn-recommendtext summarytext">Recommended</span>'
-			return '<i class="fa fa-smile-o fa-3x" style="color:green;padding-right:8px;"></i>'.html_safe + text.html_safe
-		elsif rating < 5
-			text = '<span class="vn-recommendtext summarytext">Not Recommended</span>'
-			return '<i class="fa fa-frown-o fa-3x" style="color:#F64747;padding-right:5px;"></i>'.html_safe + text.html_safe
-		end
-	end
-
+	
 	def get_purchase_location(url)
 		if url.blank?
 			return

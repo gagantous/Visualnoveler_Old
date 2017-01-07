@@ -1,38 +1,44 @@
-<div class="row vn-reviewmargins">
-	<div class="col-md-2 col-sm-2 col-xs-12">
-		<div class="vn-review-userposter">
-			<%= link_to image_tag(review.user.poster_image.url,class: "img-responsive vn-reviewposter"),user_path(review.user) if review.user.poster_image? %>
-			<div class="vn-reviewusertextdiv">
-				<%= link_to review.user.name,user_path(review.user),class: "vn-reviewtext summary-text" %>
+<div class="row vn-review-item">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+
+		<div class="row">
+			<div class="col-md-4">
+				<%= link_to image_tag(review.user.poster_image.url,class: "vn-reviewposter img-circle"),user_path(review.user) if review.user.poster_image? %> 
+				<%= link_to review.user.name,user_path(review.user),class: "vn-review-postdate vn-review-username" %>
+			</div>
+			
+			<div class="col-md-8 col-xs-4 col-sm-5">
+				<ul class="list-unstyled list-review pull-right">
+					<li>
+						<span class="vn-review-postdate"><%= review.created_at.strftime("%B, %d, %Y") %></span>
+					</li>
+					<li>
+						<i class="fa fa-star" aria-hidden="true"></i>
+		 				<%= review.rating %>
+					</li>
+				</ul>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-10 col-sm-12 col-xs-12">
+
 		<div class="row">
-			<div class="col-md-5 col-xs-5 col-sm-4">
-					<%= get_review_icon(review.rating) %>
-				</div>
-				<div class="col-md-2 col-xs-3 col-sm-3">
-					<span class="vn-ratingdiv">Score: <%= review.rating%></span>
-				</div>
-				<div class="col-md-4 col-xs-4 col-sm-5">
-					<span class="vn-review-postdate "><%= time_ago_in_words(review.created_at) %></span>
-				</div>
 			<div class="vn-reviewdetails col-md-12 col-xs-12">
 				<%= markdown(review.details.truncate(1400)) %>
 			</div>
+		</div>
 		
+		<div class="row">
 			<div class="col-md-12 col-xs-12">
 				<% if review.details.length > 1400 %>
 					<%= link_to 'View More',vn_review_path(review.vn,review),class: "btn blue-button" %>
 				<% end %>
 				<% if user_signed_in? %>
 					<% if current_user.id == review.user_id || current_user.admin? || current_user.mod? %>
-					<%= link_to 'Edit Review',edit_vn_review_path(@vn,review),class: "btn blue-button pull-right",'data-no-turbolink' =>"true" %>
+						<%= link_to 'Edit Review',edit_vn_review_path(@vn,review),class: "btn blue-button pull-right",'data-no-turbolink' =>"true" %>
 					<% end %> 
 				<% end %>
 			</div>
 		</div>
-	</div>
+		<hr>
 
+	</div>
 </div>
