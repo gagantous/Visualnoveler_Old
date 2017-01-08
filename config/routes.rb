@@ -136,6 +136,10 @@ Rails.application.routes.draw do
   get '/anime-studio-sim/presskit' => 'anime_sim#press'
   #ascendant hearts
   get '/ascendant-hearts' => 'ascendant_hearts#home'
+  get '/ascendant-hearts/presskit' => 'ascendant_hearts#press'
+  #destiny chronicles
+  get '/destiny-chronicles' => 'destiny_chronicles#home'
+
   post 'vns/:id/favourite' => 'vns#favourite'
   post 'vns/:id/status' => 'vns#status'
   post 'vns/:id/rate' => 'vns#rate'

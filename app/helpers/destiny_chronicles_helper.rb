@@ -1,0 +1,2 @@
+module DestinyChroniclesHelper
+end

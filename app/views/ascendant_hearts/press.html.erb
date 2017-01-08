@@ -1,0 +1,130 @@
+<div class="uk-container uk-container-center">
+      <div class="uk-grid">
+        <div id="navigation" class="uk-width-medium-1-4">
+          <h1 class="nav-header">Visualnoveler</h1>
+          <ul class="uk-nav uk-nav-side">         <li><a href="#factsheet">Factsheet</a></li>
+            <li><a href="#description">Description</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#trailers">Videos</a></li>
+            <li><a href="#images">Images</a></li>
+            <li><a href="#logo">Logo &amp; Icon</a></li>     
+          </ul>
+        </div>
+        <div id="content" class="uk-width-medium-3-4"><%= image_tag("ascendant-hearts/main_presskit.jpg",class:"header") %><div class="uk-grid">
+            <div class="uk-width-medium-2-6">
+              <h2 id="factsheet">Factsheet</h2>
+              <p>
+                <strong>Developer:</strong><br/>
+                <%= link_to "Visualnoveler",root_path %>
+              </p>
+              <p>
+                <strong>Website:</strong><br/>
+                <%= link_to "Ascendant Hearts",ascendant_hearts_path %>
+              </p>
+              <p>
+                <strong>Press / Business contact:</strong><br/>
+                <a href="mailto:wraithseeker@visualnoveler.com">wraithseeker@visualnoveler.com</a>
+              </p>
+              <p>
+                <strong>Releases</strong><br/>
+                <a href="http://store.steampowered.com/app/508230">Anime Studio Simulator</a>
+              </p> 
+              <p>
+                <strong>Estimated Release Date:</strong><br/>
+                July 2017
+              </p>
+               <p>
+                <strong>Platforms:</strong><br/>
+                PC: Steam (Windows,Mac,Linux)
+              </p>
+              <p>
+                <strong>Retail Price:</strong><br/>
+                $10
+              </p>
+              <p>
+                <strong>Demo Download:</strong><br/>
+                Coming soon
+              </p>      
+            </div>
+            <div class="uk-width-medium-4-6">
+              <h2 id="description">Description</h2>
+                <p> Hayato lived an ordinary life until he wakes up one day with amnesia… and finds himself in a world closer to the video games he plays than the world he remembers. </p>
+                <p>Fetch quests? Skill points? Respawning after death? It’s all a bit much to accept.</p>
+                <p>A mage named Shiori offers to help him find his way, and with her help, he learns about how to fight monsters, perform fetch quests, and put items in a strange metaphysical space called an “inventory.” Soon he’s ready to take on NPC quests!</p>
+                <p>But the town of Lightshire is in danger from deadly monsters—monsters that can kill you for real.</p>
+                <p>Where did they come from? What is behind the attacks? Hayato and Shiori are determined to find out, and no matter what they encounter—from high-level dungeons to argumentative party members—they won’t stop until they learn the truth.</p>
+              <h2 id="features">Features</h2>
+              <ul>
+                <li>Parody of traditional JRPG and MMORPG tropes.</li>
+                <li>Immersive fantasy world filled with monsters and memorable characters.</li>
+                <li>Numerous distinct environments, including a haunted library, a mad scientist’s laboratory, and an eldritch temple.</li>
+                <li>Find true love on your quest to save the village of Lightshire.</li>
+                <li>Lighthearted and humorous atmosphere.</li>
+                <li>Four possible endings based on your choices.</li>
+              </ul>
+              
+            </div>
+          </div>
+
+          <hr>
+
+          <h2 id="trailers">Videos</h2>
+          <p><strong>Coming Soon</strong>&nbsp;
+           <!--  <a href="http://www.youtube.com/watch?v=BdRVpYx4Vz4">YouTube</a><div class="uk-responsive-width iframe-container">
+              <iframe src="http://www.youtube.com/embed/BdRVpYx4Vz4" frameborder="0" allowfullscreen></iframe>
+          </div> --></p>        
+          <hr>
+          <h2 id="images">Images</h2>
+          <!-- <a href="images/images.zip"><div class="uk-alert">download all screenshots &amp; photos as .zip (5MB)</div></a> -->
+          <div class="uk-grid images">
+            
+
+            <% (9..12).each do |i| %>
+              <div class="uk-width-medium-1-2">
+                <%= link_to(image_tag("ascendant-hearts/ss/#{i}.jpg",style:"padding-bottom:20px;"),asset_url("ascendant-hearts/ss/#{i}.jpg")) %>
+              </div>
+            <% end %>
+
+            <% (1..4).each do |i| %>
+              <div class="uk-width-medium-1-2">
+                <%= link_to(image_tag("ascendant-hearts/ss/#{i}.png",style:"padding-bottom:20px;"),asset_url("ascendant-hearts/ss/#{i}.jpg")) %>
+              </div>
+            <% end %> 
+
+            <% (5..8).each do |i| %>
+              <div class="uk-width-medium-1-2">
+                <%= link_to(image_tag("ascendant-hearts/ss/#{i}.png",style:"padding-bottom:20px;"),asset_url("ascendant-hearts/ss/#{i}.jpg")) %>
+              </div>
+            <% end %> 
+
+          </div>   
+
+          <hr>
+
+          <h2 id="logo">Logo &amp; Icon</h2>
+          <div class="uk-grid images">
+            <div class="uk-width-medium-1-2">
+              <%= link_to image_tag("ascendant-hearts/logo_presskit.png",class:"img-responsive"),asset_url("ascendant-hearts/logo_presskit.png") %>
+            </div>
+          </div>         
+          <hr>
+
+          <p><a href="http://dopresskit.com/">presskit()</a> by Rami Ismail (<a href="http://www.vlambeer.com/">Vlambeer</a>)
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>   
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.2/masonry.pkgd.min.js"></script>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        var container = $('.images');
+
+        container.imagesLoaded( function() {
+          container.masonry({
+            itemSelector: '.uk-width-medium-1-2',
+          });
+        });
+      });
+    </script>
