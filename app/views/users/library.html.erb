@@ -85,24 +85,12 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
              <li class="dropdown pull-right-nav">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle dropdown-avatar">
-                  <div class="nav-user">
-                    <span class="usernav-name"><%= current_user.name %></span>
-                    <b class="caret usernav-name"></b>
+             	<%= link_to user_path(@user),style:"padding:0px;" do %>
+                  <div class="nav-user" style="display:inline-block;">
+                    <span class="usernav-name"><%= @user.name %></span>
                   </div>
-                </a>
-                <% if current_user.poster_image.blank? %>
-                  <%= image_tag("default_avatar.jpg",:class => "pull-right-nav",:style =>"max-width: 60px; max-height: 60px;margin-left:8px;")  %>
-               <% else %>
-                  <%= image_tag("#{current_user.poster_image.url}",:class => "pull-right-nav",:style =>"max-width: 60px; max-height: 60px;margin-left:8px;")  %>
-               <% end %>
-                <ul class="dropdown-menu">
-                    <li><%= link_to "My Profile", user_path(current_user) %></li>
-                    <li><%= link_to "Edit Profile", edit_path %></li>
-                    <li><%= link_to "My Library", library_user_path(current_user) %></li>
-                    <!-- <li><%= link_to "Crop Profile Picture", crop_user_path(current_user) %></li> !-->
-                    <li><%= link_to "Logout", logout_path, :method => :delete %></li>    
-                </ul>
+                  <%= image_tag(@user.poster_image.url,:class => "pull-right-nav",:style =>"max-width: 60px; max-height: 60px;margin-left:8px;")  %>
+                <% end %>
              </li>
           </ul>
         </div><!--/.nav-collapse -->

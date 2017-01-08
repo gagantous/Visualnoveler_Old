@@ -615,9 +615,6 @@ footer {
 //desktop 
 @media (min-width: 1200px) { 
   .vn-review-username {
-    position: relative;
-    bottom: 15px;
-    margin-left: 5px;
   }
   .author-img {
     width: 75%;
@@ -2256,6 +2253,11 @@ img.center {
 
 .list-review {
   display: inline-block;
+  position: relative;
+  top: 10px;
+  li {
+    padding: 0px 5px;
+  }
 }
 
 @media (min-width: 992px) {
