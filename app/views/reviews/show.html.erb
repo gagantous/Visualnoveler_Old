@@ -10,7 +10,11 @@
 						<h4><%= link_to @review.vn.name,vn_path(@review.vn) %></h4>
 					</div>
 					<div class="col-md-4 col-xs-6 col-sm-4">
-						<%= link_to image_tag(@review.user.poster_image.url,class: "vn-reviewposter img-circle"),user_path(@review.user) if @review.user.poster_image? %> 
+						<% if @review.user.poster_image.blank? %>
+		                  <%= link_to image_tag("default_avatar.jpg",class: "vn-reviewposter img-circle"),user_path(@review.user) %> 
+		               <% else %>
+		                  <%= link_to image_tag(@review.user.poster_image.url,class: "vn-reviewposter img-circle"),user_path(@review.user)%> 
+		               <% end %> 
 						<ul class="list-unstyled list-review">
 							<li>
 								<%= link_to @review.user.name,user_path(@review.user),class: "vn-review-postdate vn-review-username" %>
