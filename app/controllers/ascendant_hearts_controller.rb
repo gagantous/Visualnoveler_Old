@@ -5,6 +5,6 @@ class AscendantHeartsController < ApplicationController
 	end
 
 	def press
-		render :layout => 'none'
+		render :layout => 'presskit'
 	end
 end
