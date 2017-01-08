@@ -1,51 +1,40 @@
 <% title 'Edit Profile' %>
 <div class="container">
-<div class="row">
-   
+  <div class="row">
+    <%= simple_form_for @user, html: { multipart: true }  do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="form-inputs">
 
-<%= simple_form_for @user, html: { multipart: true }  do |f| %>
-
-  <div class="form-inputs">
-    <div class="row">
-       <div class="col-md-12">
-        <h2>Edit <%= @user.name %>'s Profile
-        </h2>
-       </div>
-        <div class="col-md-4">
-             <%= f.input :name, required: false, autofocus: true %>
+        <div class="row">
+          <div class="col-md-12">
+            <h2>
+              Edit <%= @user.name %>'s Profile
+            </h2>
+          </div>
+          <div class="col-md-4">
+               <%= f.input :name, autofocus: true %>
+          </div>
+          <div class="col-md-2">
+            <% if !@user.admin? %>
+              <%= f.input :role, autofocus: true %>
+            <% end %>
+          </div>  
         </div>
 
-         <div class="col-md-2">
-              <% if !@user.admin? %>
-               <%= f.input :role, required: false, autofocus: true %>
-              <% end %>
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.input :bio ,input_html: {rows: 8}%>
+          </div>
         </div>
-       
     </div>
-    <div class="row">
-      <div class="col-md-4">
-          <%= f.input :bio ,input_html: {rows: 8}%>
+    <div class="row" >
+      <div class="col-md-12">
+          <div class="form-actions" style="padding-top:25px;padding-left:10px;">
+            <%= f.button :submit, "Update",class: "register-button",:style =>"width: 100px;" %>
+            <%= link_to "Back", :back, :class => "btn btn-default", style: "margin-left:150px;"%>
+          </div>
       </div>
     </div>
-
-    
- 
-  
+  <% end %>
   </div>
-  <div class="row" >
-    <div class="col-md-12">
-        <div class="form-actions" style="padding-top:25px;padding-left:10px;">
-          <%= f.button :submit, "Update",class: "register-button",:style =>"width: 100px;" %>
-        <%= link_to "Back", :back, :class => "btn btn-default", style: "margin-left:150px;"%>
-        </div>
-    </div>
-<% end %>
-<!--
-<h3>Cancel my account</h3> 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
- -->
-     <div class="col-md-12">
-     </div>
-  </div>
-
-</div></div>
+</div>

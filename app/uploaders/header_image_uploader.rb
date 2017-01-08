@@ -1,5 +1,4 @@
 class HeaderImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
   process crop: :header_image
 

@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 class PosterUploader < CarrierWave::Uploader::Base
-  include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
   process crop: :image_coverpage  
   process resize_to_limit: [400,400]

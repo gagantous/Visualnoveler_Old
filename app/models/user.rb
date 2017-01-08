@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
     enum role: [:user,:mod,:admin,:writer,:helper]
     after_initialize :set_default_role, :if => :new_record?
     before_create :add_to_list
-  # validates :name, presence: true
+    validates :name, presence: true
     has_many :library_entries, dependent: :destroy
     has_many :posts, dependent: :destroy
     has_many :news
@@ -11,14 +11,16 @@ class User < ActiveRecord::Base
     mount_uploader :poster_image, UserImageUploader
     mount_uploader :library_image, DefaultUploader
     mount_uploader :header_image, HeaderImageUploader
+    validates :poster_image, file_size: { less_than: 2.megabytes }
+    validates :library_image, file_size: { less_than: 2.megabytes }
+    validates :header_image, file_size: { less_than: 2.megabytes }
     crop_uploaded :header_image
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,:confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
      :omniauthable, :omniauth_providers => [:facebook,:twitter,:google_oauth2]
-    validate :image_size
-    validates :name, presence: true,uniqueness: {case_sensitive: false}
+    #validates :name, presence: true,uniqueness: {case_sensitive: false}
     accepts_nested_attributes_for :library_entries
     accepts_nested_attributes_for :posts
     include PgSearch
@@ -73,12 +75,5 @@ class User < ActiveRecord::Base
     def is_staff?
       return admin? || mod? || writer? || helper?
     end
-
-    private 
-      def image_size
-        if poster_image.size > 2.megabytes || library_image.size > 2.megabytes || header_image.size > 2.megabytes
-          errors.add(:poster_image,"Image size is too big, it should be less than 2mb.")
-        end
-      end
 
 end

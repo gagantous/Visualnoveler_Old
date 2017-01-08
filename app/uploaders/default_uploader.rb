@@ -2,7 +2,6 @@
 
 class DefaultUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  include CarrierWave::ImageOptimizer
   if Rails.env.production?
       storage :fog
   elsif Rails.env.development?

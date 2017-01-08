@@ -1,10 +1,8 @@
 # encoding: utf-8
 
 class UserImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
   process resize_to_fill: [220,220]
-  process :optimize
   if Rails.env.production?
       storage :fog
   elsif Rails.env.development?

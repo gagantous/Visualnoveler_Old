@@ -24,7 +24,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 #image & attachments 
 gem 'carrierwave'
 gem 'carrierwave-crop'
-gem 'carrierwave-imageoptimizer'
+gem 'file_validators'
 gem "mini_magick"
 gem 'remotipart', git: 'https://github.com/JangoSteve/remotipart.git',branch: 'master'
 #announcements

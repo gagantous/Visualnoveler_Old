@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 class ScreenshotUploader < CarrierWave::Uploader::Base
-  include CarrierWave::ImageOptimizer
   include CarrierWave::MiniMagick
 
   process resize_to_limit: [1000,1000]

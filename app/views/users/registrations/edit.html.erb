@@ -3,7 +3,7 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:method => :put, :multipart => true}) do |f| %>
 <div class="container" style="padding-bottom:25px;">
   <div class="row">
-      <%= f.error_notification %>
+      <%= render 'shared/error_messages', object: f.object %>
       <div class="col-md-3">
           <h2> Account Settings</h2>
           <%= f.input :email %>
@@ -11,9 +11,6 @@
           <% if current_user.poster_image.url.present? %>
             <%= image_tag(current_user.poster_image.url,:class =>"img-responsive",style:"max-width:140px;") %>
           <% end %>
-         <!--  <%= f.input :poster_image, input_html: { hidden: true ,style:"display:none;",class:"file-upload-real" },label: false %> -->
-         <!--  <%= link_to 'Upload Image','#',class:"file-upload-clicker btn btn-info",style:"margin-bottom:5px;" %>
-          <input id="file-upload-text" class="custom-input" type="text" hidden="true"> -->
           <%= f.input :poster_image,label: false %>
           <h3> Header Background Image</h3>
           <% if current_user.header_image.url.present? %>
@@ -22,7 +19,11 @@
            <%= f.input :header_image,label: false %>
           <h3>Library Settings</h3>
           <%= f.input :library_image %>
-          <%= f.input :library_image_type,prompt:"Default",collection: ["cover","top left","top right","bottom right","bottom left"] %>
+          <div class="row">
+            <div class="col-md-8">
+            <%= f.input :library_image_type,prompt:"Default",collection: ["cover","top left","top right","bottom right","bottom left"],style:"" %>
+          </div>
+        </div>
           <% if @user.library_image? %>
           <%= image_tag(@user.library_image.url,class:"img-responsive") if @user.library_image? %>
             <label>
@@ -37,7 +38,11 @@
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>    
-          <%= f.input :name, required: false, autofocus: true %>
+          <div class="row">
+            <div class="col-md-7">
+              <%= f.input :name, required: false, autofocus: true %>
+            </div>
+          </div>
           <%= f.input :bio ,:input_html => {:rows => 7,id: "markdown",}%>
           <div id="preview" style=""> </div>
       </div>
