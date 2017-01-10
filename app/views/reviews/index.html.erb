@@ -3,8 +3,12 @@
 <section id="vn-review-section">
 <div class="container">
 	<div class="row" style="padding-top:20px;">
-		<h1><%= link_to @vn.name,vn_path(@vn)%> Reviews </h1>
-		<%= render :partial => 'review', collection: @reviews  %>
+		<div class="col-md-10">
+			<div class="panel panel-default"><div class="panel-body">
+			<h4><%= link_to @vn.name,vn_path(@vn)%> Reviews </h4>
+			<%= render :partial => 'review', collection: @reviews  %>
+			</div></div>
+		</div>
 	</div>
 </div>
 </section>

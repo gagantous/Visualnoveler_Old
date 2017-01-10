@@ -1,58 +1,15 @@
 <% title "#{@review.vn.name} Review by #{@review.user.name}" %>
 <% description (@review.vn.name + " Review - " + @review.details.truncate(300)) %>
+
 <section id="vn-review-section">
 <div class="container">
 	<div class="row" style="padding-top:20px;">
-			<div class="col-md-10 col-sm-10 col-xs-12">
-				<div class="panel panel-default"><div class="panel-body">
-				<div class="row">
-					<div class="col-md-12">
-						<h4><%= link_to @review.vn.name,vn_path(@review.vn) %></h4>
-					</div>
-					<div class="col-md-4 col-xs-6 col-sm-4">
-						<% if @review.user.poster_image.blank? %>
-		                  <%= link_to image_tag("default_avatar.jpg",class: "vn-reviewposter img-circle"),user_path(@review.user) %> 
-		               <% else %>
-		                  <%= link_to image_tag(@review.user.poster_image.url,class: "vn-reviewposter img-circle"),user_path(@review.user)%> 
-		               <% end %> 
-						<ul class="list-unstyled list-review">
-							<li>
-								<%= link_to @review.user.name,user_path(@review.user),class: "vn-review-postdate vn-review-username" %>
-							</li>
-							<li>
-								<span class="vn-review-postdate"><%= @review.created_at.strftime("%B, %d, %Y") %></span>
-							</li>
-						</ul>
-					</div>
-			
-					<div class="col-md-8 col-xs-6 col-sm-8">
-						<ul class="list-unstyled list-review pull-right">
-							
-							<li>
-								<i class="fa fa-lg fa-star" aria-hidden="true"></i>
-				 				<%= @review.rating %>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="vn-reviewdetails col-md-12 col-xs-12">
-						<%= markdown(@review.details) %>
-					</div>
-					<div class="col-md-12 col-xs-12">
-						<% if user_signed_in? %>
-						<% if current_user.id == @review.user_id %>
-						<%= link_to 'Edit Review',edit_vn_review_path(@review.vn,@review),class: "btn blue-button" %>
-						<% end %> 
-						<% end %>
-					</div>
-				</div>
-			</div>
-
-		</div></div>
-
-		<!-- end of panels !-->
+		<div class="col-md-10">
+			<div class="panel panel-default"><div class="panel-body">
+			<h4><%= link_to @review.vn.name,vn_path(@review.vn)%> Reviews </h4>
+			<%= render :partial => 'review', locals: {review: @review} %>
+			</div></div>
+		</div>
 	</div>
 </div>
 </section>

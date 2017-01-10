@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
 
 	def show
 		@review = Review.find(params[:id])
+		@vn = @review.vn
 	end
 
 	def new

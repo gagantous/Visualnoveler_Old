@@ -56,7 +56,7 @@
 			  
  			<span class="default-text vn-score">
  				<i class="fa fa-star fa-star-margin" aria-hidden="true"></i>
- 				<%= @vn.rating_number %> 
+ 				<%= @vn.rating_number.blank? ? "?" : @vn.rating_number %> 
  			</span>
  			<!-- start of buttons -->
  			<div class="vn-pull-right">
