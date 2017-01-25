@@ -244,8 +244,8 @@
 		<div class="col-md-3">
 			<ul class="list-unstyled user-library-list-inline">
 				<li>
-					<% unless @lib_fav.blank? %>
-						<strong>Playing:</strong> <%= @lib_fav.count %> visual novels
+					<% unless @lib_watched.blank? %>
+						<strong>Playing:</strong> <%= @lib_watched.count %> visual novels
 					<% end %>
 				</li>
 				<li>
@@ -265,7 +265,7 @@
 				</li>
 				<li>
 					<% unless @lib_fav.blank? %>
-						<strong>Playing:</strong> <%= @lib_fav.count %> visual novels
+						<strong>Favourites:</strong> <%= @lib_fav.count %> visual novels
 					<% end %>
 				</li>
 				<li>
