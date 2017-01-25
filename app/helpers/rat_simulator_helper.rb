@@ -1,0 +1,2 @@
+module RatSimulatorHelper
+end

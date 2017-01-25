@@ -237,29 +237,71 @@
 	  </div>
 	</div>  
 	<!-- panels and main divs below !-->
-	<ul class="list-inline user-library-list-inline">
-		<li>
-			<% unless @avg_lib_score.blank? %>
-				<h4>Average Rating: <%= compute_average(@avg_lib_score) %></h4>
-			<% end %>
-		</li>
-		<li>
-			<% unless @avg_lib_playingScore.blank? %>
-				<h4>Average Playing Rating: <%= compute_average(@avg_lib_playingScore) %></h4>
-				<% else %>
-			<% end %>
-		</li>
-		<li>
-			<% unless @avg_lib_completedScore.blank? %>
-				<h4>Average Completed Rating: <%= compute_average(@avg_lib_completedScore) %></h4>
-			<% end %>
-		</li>
-		<li>
-			<% unless @avg_lib_favScore.blank? %>
-				<h4>Average Favourite Rating: <%= compute_average(@avg_lib_favScore) %></h4>
-			<% end %>
-		</li>
-	</ul>  
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Statistics</h3>
+		</div>
+		<div class="col-md-3">
+			<ul class="list-unstyled user-library-list-inline">
+				<li>
+					<% unless @lib_fav.blank? %>
+						<strong>Playing:</strong> <%= @lib_fav.count %> visual novels
+					<% end %>
+				</li>
+				<li>
+					<% unless @lib_completed.blank? %>
+						<strong>Completed:</strong> <%= @lib_completed.count %> visual novels
+					<% end %>
+				</li>
+				<li>
+					<% unless @lib_wishlist.blank? %>
+						<strong>Wishlist:</strong> <%= @lib_wishlist.count %> visual novels
+					<% end %>
+				</li>
+				<li>
+					<% unless @lib_backlog.blank? %>
+						<strong>Backlog:</strong> <%= @lib_backlog.count %> visual novels
+					<% end %>
+				</li>
+				<li>
+					<% unless @lib_fav.blank? %>
+						<strong>Playing:</strong> <%= @lib_fav.count %> visual novels
+					<% end %>
+				</li>
+				<li>
+					<% unless @lib_dropped.blank? %>
+						<strong>Dropped:</strong> <%= @lib_dropped.count %> visual novels
+					<% end %>
+				</li>
+			</ul> 
+		</div>
+
+		<div class="col-md-3">
+			<ul class="list-unstyled user-library-list-inline">
+				<li>
+					<% unless @avg_lib_score.blank? %>
+						<strong>Average Rating:</strong> <%= compute_average(@avg_lib_score) %>
+					<% end %>
+				</li>
+				<li>
+					<% unless @avg_lib_playingScore.blank? %>
+						<strong>Average Playing Rating:</strong> <%= compute_average(@avg_lib_playingScore) %>
+						<% else %>
+					<% end %>
+				</li>
+				<li>
+					<% unless @avg_lib_completedScore.blank? %>
+						<strong>Average Completed Rating:</strong> <%= compute_average(@avg_lib_completedScore) %>
+					<% end %>
+				</li>
+				<li>
+					<% unless @avg_lib_favScore.blank? %>
+						<strong>Average Favourite Rating:</strong> <%= compute_average(@avg_lib_favScore) %>
+					<% end %>
+				</li>
+			</ul> 
+		</div>
+	</div> 
 	  </div></div>
 	 </div>
 </div></div>

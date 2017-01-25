@@ -1,0 +1,27 @@
+<%= title "Rat Simulator" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-centered">
+      <%= image_tag("rat-simulator/header.png",class:"img-responsive") %>
+      <h2>Description</h2>
+      <p>Rat Simulator is a game about a rat's daily life. Consume food and wreck destruction in the house so you can build a rat's paradise. Experience the life of a hunted rat by pesky humans!</p>
+      <h2>Features</h2>
+      <ul>
+        <li>Life of a Rat</li>
+        <li>Stealth gameplay</li>
+        <li>Be a pest </li>
+        <li>Wreck havoc in the house </li>
+        <li>Lighthearted and humorous atmosphere.</li>
+        <li>Make a home for rats</li>
+      </ul>
+      <h2>Images</h2>
+      <div class="row">
+       <% (1..8).each do |i| %>
+        <div class="col-md-3">
+          <%= link_to(image_tag("rat-simulator/screenshots/#{i}.png",class:"img-responsive",style:"padding-bottom:20px;"),asset_url("rat-simulator/screenshots/#{i}.png"),class:"fancybox",rel:"group") %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
