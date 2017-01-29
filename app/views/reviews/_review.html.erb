@@ -12,6 +12,7 @@
 				<ul class="list-unstyled list-review">
 					<li>
 						<%= link_to review.user.name,user_path(review.user),class: "vn-review-postdate vn-review-username" %>
+						- <%= link_to review.vn.name,vn_path(review.vn),class: "vn-review-postdate vn-review-username" %>
 					</li>
 					<li>
 						<span class="vn-review-postdate"><%= review.created_at.strftime("%B, %d, %Y") %></span>
