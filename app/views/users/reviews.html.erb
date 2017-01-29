@@ -6,9 +6,10 @@
 		<div class="col-md-12">
 			<h1><%= link_to @user.name,user_path(@user)%>'s Reviews </h1>
 		</div>
-		<%= render :partial => 'reviews/review', collection: @reviews  %>
-		<div class="col-md-12">
-			<%= will_paginate @reviews, renderer: BootstrapPagination::Rails %>
+		<div class="col-md-10">
+			<div class="panel panel-default"><div class="panel-body">
+			<%= render :partial => 'reviews/review', collection: @reviews  %>
+			</div></div>
 		</div>
 	</div>
 </div>

@@ -40,7 +40,7 @@
 			<div class="col-md-12 col-xs-12">
 				<% if user_signed_in? %>
 					<% if current_user.id == review.user_id || current_user.admin? || current_user.mod? %>
-						<%= link_to 'Edit Review',edit_vn_review_path(@vn,review),class: "btn blue-button pull-right",'data-no-turbolink' =>"true" %>
+						<%= link_to 'Edit Review',edit_vn_review_path(review.vn,review),class: "btn blue-button pull-right",'data-no-turbolink' =>"true" %>
 					<% end %> 
 				<% end %>
 			</div>
