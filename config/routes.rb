@@ -89,7 +89,6 @@ Rails.application.routes.draw do
     get :screenshots, on: :member
     get :top, on: :collection
     get :translated, on: :collection
-    get :walkthroughs, on: :collection
     get :discover, on: :collection
     get :search, on: :collection
   end

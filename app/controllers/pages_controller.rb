@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @new_vns = Vn.where.not(release_date: nil).order("release_date DESC").limit(3)
+    @new_vns = Vn.where.not(release_date: nil).where.not(image_1: nil).order("release_date DESC").limit(3)
     @translations = TranslationPost.where.not(pending: true).order("created_at DESC").limit(8)
     @news = News.order("created_at desc").limit(3)
     @top_vns = Vn.order("rating_number DESC NULLS LAST").limit(4)

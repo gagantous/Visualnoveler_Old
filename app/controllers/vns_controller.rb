@@ -55,10 +55,6 @@ class VnsController < ApplicationController
 		@vn = Vn.where(:status => 1).paginate(:page => params[:page], :per_page => 25)
 	end
 
-	def walkthroughs
-		@vn = Vn.where("walkthrough_content is NOT NULL and walkthrough_content != ''").paginate(:page => params[:page], :per_page => 25)
-	end
-
 	def top
 		@vn = Vn.order("rating_number DESC NULLS LAST").paginate(:page => params[:page], :per_page => 25)
 		#@vn = Vn.all.where(:isFeatured => true)

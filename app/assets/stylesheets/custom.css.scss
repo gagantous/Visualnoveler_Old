@@ -740,10 +740,6 @@ footer {
     margin-bottom: 15px;
     left: 0px !important
   }
-  .footer-social {
-    float: none !important;
-    text-align: center;
-  }
 
 }
 // tablet + desktop
@@ -2033,6 +2029,13 @@ img.center {
   max-width: 100%;
   height: auto;
 }
+
+ .footer-social {
+    padding-left: 20px;
+    float: none !important;
+    display: inline;
+    text-align: center;
+  }
 .footer-social > li {
   padding-left: 10px;
   padding-right: 10px;
