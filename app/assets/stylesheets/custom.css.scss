@@ -2131,8 +2131,9 @@ img.center {
   margin-top: 20px;
   font-size: 18px;
 }
-.landing-btn:hover {
+.landing-btn:hover,.landing-btn:active,.landing-btn:visited {
   color: white;
+  background-color: #4d90fe;
 }
 .landing-img {
   width: 160px;
