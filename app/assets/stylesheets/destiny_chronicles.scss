@@ -1,3 +1,73 @@
 // Place all the styles related to the destiny_chronicles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#destiny-chronicles {
+	@media (max-width: 460px) {
+		.cta-offset {
+			margin-left: 0%;
+		}
+	}
+	@media (min-width: 460px) {
+		.cta-offset {
+			margin-left: 23%;
+		}
+	}
+
+	@media (min-width: 992px) and (max-width: 1200px) {
+		.cta-offset {
+			margin-left: 13%;
+		}
+	}
+	
+	.navbar .navbar-nav {
+	  display: inline-block;
+	  float: none;
+	  vertical-align: top;
+	}
+
+	.navbar .navbar-collapse {
+	  text-align: center;
+	}
+
+	.navbar-destiny-chronicles {
+	  	border: solid 1px black;
+		background-color: #E3D1A0;
+		padding-top:5px;
+		padding-bottom:5px;
+		
+		.destiny-chronicles-navbar-center {
+			a {
+				color: #403314;
+				font-size: 1.3em;
+				background-color: transparent !important;
+			}
+			a:hover {
+				color: #403314;
+			}
+		}
+	}
+	.icon-bar {
+		background-color: black;
+	}
+	//Mailchimp
+	#mc_embed_signup{background: transparent; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;margin-top: 60vh;}
+	#mc_embed_signup .button {
+		background-color: #0880EB;
+	}
+	#mc_embed_signup .button:hover {
+		background-color: #0880EB;
+	}
+	#mc_embed_signup input.email {
+		max-width: 250px;
+		height: 42px;
+		padding: 0px 0.6em;
+	}
+	#mc_embed_signup .button {
+		height: 42px;
+		font-size: 16px;
+		max-width: 250px;
+	}
+}
+
+
