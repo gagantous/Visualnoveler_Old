@@ -3,9 +3,53 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #destiny-chronicles {
+	p {
+		font-size:  16px;
+	}
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	.character-row {
+		margin-bottom: 30px;
+	}
+	.selected{
+   		border: solid 2px #0880EB;
+	}
+	.char-hidden {
+		display: none;
+	}
+	.char-profile-img {
+		position: relative;
+		bottom: 20px;
+	}
+	font-family: 'Lato', sans-serif;
+
+	// tablet size
+	@media (min-width: 460px) and (max-width: 768px) {
+		.short-cta {
+			margin-top: 0vh;
+		}
+		.mobile-top-logo {
+			margin-top: 18vh;
+			max-width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	//tablet and desktop
+	@media (min-width: 768px) {
+		.short-cta {
+			margin-top: 59.5vh;
+		}
+	}
+	// mobile
 	@media (max-width: 460px) {
-		.cta-offset {
-			margin-left: 0%;
+		.mobile-top-logo {
+			margin-top: 18vh;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 	@media (min-width: 460px) {
@@ -17,6 +61,12 @@
 	@media (min-width: 992px) and (max-width: 1200px) {
 		.cta-offset {
 			margin-left: 13%;
+		}
+	}
+
+	@media (min-width: 460px) and (max-width: 992px) {
+		.cta-offset {
+			margin-left: 0%;
 		}
 	}
 	
@@ -31,7 +81,7 @@
 	}
 
 	.navbar-destiny-chronicles {
-	  	border: solid 1px black;
+	  	border-bottom: solid 1px black;
 		background-color: #E3D1A0;
 		padding-top:5px;
 		padding-bottom:5px;
@@ -43,15 +93,42 @@
 				background-color: transparent !important;
 			}
 			a:hover {
-				color: #403314;
+				color: #064BD4;
 			}
 		}
 	}
 	.icon-bar {
 		background-color: black;
 	}
+	.short-cta {
+    	text-shadow: 0 0 5px white;
+    	color: black;
+		font-size: 21.5px;
+	}
+	.logo-bottom {
+		max-width: 350px;
+		margin: 0 auto;
+	}
+	.about-anchor {
+		display: block;
+	    position: relative;
+	    top: -250px;
+	    visibility: hidden;
+	}
+	.character-anchor {
+		display: block;
+	    position: relative;
+	    top: -80px;
+	    visibility: hidden;
+	}
+	.story-anchor {
+		display: block;
+	    position: relative;
+	    top: -80px;
+	    visibility: hidden;
+	}
 	//Mailchimp
-	#mc_embed_signup{background: transparent; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;margin-top: 60vh;}
+	#mc_embed_signup{background: transparent; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;margin-top: 10px;}
 	#mc_embed_signup .button {
 		background-color: #0880EB;
 	}

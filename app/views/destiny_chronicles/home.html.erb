@@ -2,8 +2,17 @@
 <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 
 <style type="text/css">
-.promo-image {
-		background: url("<%= asset_path('destiny-chronicles/promo_image.png') %>") no-repeat center center;
+	@media (max-width: 768px) {
+		.promo-image {
+			background: url("<%= asset_path('destiny-chronicles/promo_image_small.jpg') %>") no-repeat center center;
+		}
+	}
+	@media (min-width: 768px) {
+		.promo-image {
+			background: url("<%= asset_path('destiny-chronicles/promo_image.png') %>") no-repeat center center;
+		}
+	}
+	.promo-image {
 		margin-top: 61px;
 		min-height: calc(100vh + 90px);
 		-webkit-background-size: 100%;
@@ -15,9 +24,8 @@
 		-o-background-size: cover;
 		background-size: cover;
 	}
-
 </style>
-<nav class="navbar navbar-destiny-chronicles navbar-fixed-top">
+<nav class="navbar navbar-destiny-chronicles navbar-fixed-top" style="background: url(<%= asset_path('destiny-chronicles/texture_3.jpg') %>">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -29,22 +37,28 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav destiny-chronicles-navbar-center">
-        <li> <a href="#top">About</a></li>
-        <li><a href="#characters">Story</a></li>
-        <li><a href="#characters">Characters</a></li>
-        <li><a href="#characters">World</a></li>
-        <li><a href="#characters">Screenshots</a></li>
+        <li> <a href="#about">About</a></li>
+        <li><a href="#character">Characters</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#gameplay">Gameplay</a></li>
+        <li><a href="#world">World</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
 
-<!-- #0880EB !-->
-<div class="container-fluid promo-image" style="">
-	<div class="row" style="background-color:transparent;">
-		<div class="col-lg-4 col-md-6 cta-offset col-xs-12 col-sm-6">
+<div class="container-fluid promo-image">
+	<div class="row">
+		<div class="col-xs-10 visible-xs col-centered">
+			<%= image_tag("destiny-chronicles/logo_big.png",class:"img-responsive mobile-top-logo") %>
+		</div>
+		<div class="col-lg-4 col-md-6 cta-offset col-xs-12 col-sm-8">
+			<h2 class="short-cta text-center">
+				Fantasy Action JRPG
+			</h2>
 			<div id="mc_embed_signup">
-				<form action="//visualnoveler.us12.list-manage.com/subscribe/post?u=bd4a5b36ba4be25f658069e35&amp;id=f5f4b45cd9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+				<form action="//visualnoveler.us15.list-manage.com/subscribe/post?u=1241ff84c89cf187d202555fb&amp;id=1b767a2eba" method="post" id="mc-embedded-subscribe-form" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 				    <div id="mc_embed_signup_scroll">
 					<!-- <label for="mce-EMAIL">Enter email to receive updates</label> -->
 					<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter email to receive updates" required>
@@ -57,3 +71,189 @@
 		</div>
 	<div>
 </div>
+<!-- extra divs? who knows? !-->
+</div></div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-centered">
+			<a class="about-anchor" id="about"></a>
+			<h1 class="text-center">About</h1>
+		</div>
+
+		<div class="col-md-8 col-centered">
+			<p>Inspired by classic action JRPGs, Destiny Chronicles is an action role-playing game about a girl named Celeste who goes on a journey to prove herself worthy of becoming a true knight. Her quest will take her far from her home, across the continent in pursuit of a thief whose actions stem from a darker plan.</p>
+
+			<p>Its character-driven plot focuses on the interactions between Celeste and her companions as they search for the thief. Our goal is to make the game lighthearted and humorous, but still tell a compelling story.</p>
+
+			<p>Destiny Chronicles features an exciting, fast-paced action combat system similar to that of Kingdom Hearts, set in a world inspired by JRPGs. A talent tree and an upgrade system will allow you to customize Celeste’s fighting style to suit your playstyle.</p>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row character-row">
+		<div class="col-md-6 col-centered">
+			<a class="character-anchor" id="character"></a>
+			<h1 class="text-center">Characters</h1>
+			<div class="row">
+				<div class="col-md-3 col-xs-6 col-sm-3">
+					<%= image_tag("destiny-chronicles/celeste_face.png",id: "celeste-profile",class:"char-portrait img-circle") %>
+				</div>
+				<div class="col-md-3 col-xs-6 col-sm-3">
+					<%= image_tag("destiny-chronicles/ruby_face.png",id: "ruby-profile",class:"char-portrait img-circle") %>
+				</div>
+				<div class="col-md-3 col-xs-6 col-sm-3">
+					<%= image_tag("destiny-chronicles/valana_face.png",id: "valana-profile",class:"char-portrait img-circle") %>
+				</div>
+				<div class="col-md-3 col-xs-6 col-sm-3">
+					<%= image_tag("destiny-chronicles/valana_face.png",id: "thief-profile",class:"char-portrait img-circle") %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="celeste">
+			<div class="col-md-5 col-md-offset-1">
+				<h2>Celeste</h2>
+				<p>Celeste grew up among the knighthood, isolated from the larger world. She always dreamed of becoming a knight herself to protect people, but things aren’t as simple as she imagined them to be.  
+				</p>
+				<p>
+					Now, a thief has ruined her initiation, and she’s determined to prove herself. Although she knows little about the outside world, she ventures out on her own to reclaim what was stolen. 
+				</p>
+			</div>
+			<div class="col-md-5">
+				<%= image_tag("destiny-chronicles/celeste.png",class:"char-profile-img") %>
+			</div>
+		</div>
+
+		<div id="ruby" class="char-hidden">
+			<div class="col-md-5 col-md-offset-1">
+				<h2>Ruby</h2>
+				<p>Ruby is a skilled mage who has devoted her life to research. So much of the world’s past is shrouded in mystery, and she intends to be the one who learns the truth. 
+				</p>
+				<p>
+					She’s currently searching for a shadowy organization most people believe is only a myth. Can she prove its existence? When her path crosses ways with Celeste’s, she jumps at the chance to see what truths her quest will uncover. 
+				</p>
+			</div>
+			<div class="col-md-6">
+				<%= image_tag("destiny-chronicles/ruby.png",class:"char-profile-img") %>
+			</div>
+		</div>
+
+		<div id="valana" class="char-hidden">
+			<div class="col-md-5 col-md-offset-1">
+				<h2>Valana</h2>
+				<p>Valana is a mercenary. She has a soft spot for people in trouble and occasionally offers assistance free of charge, although she still fights monsters and hunts down criminals for pay. 
+				</p>
+				<p>
+					When she meets Celeste, she recognizes the young knight as someone who really needs a guide to steer her away from trouble. Fortunately, they have a shared goal, although just why she’s hunting the thief is anyone’s guess.
+				</p>
+			</div>
+			<div class="col-md-6">
+				<%= image_tag("destiny-chronicles/valana.png",class:"char-profile-img") %>
+			</div>
+		</div>
+
+		<div id="thief" class="char-hidden">
+			<div class="col-md-5 col-md-offset-1">
+				<h2>Thief</h2>
+				<p>Who is the mysterious woman who stole the artifact before Celeste could claim it? What does she want with it?
+				</p>
+				<p>
+					Her path takes her far to the north, into hostile lands beyond known civilizations. Although she fights Celeste whenever their paths cross, she claims to have a noble cause. She keeps her motives to herself, but there’s more to this apparent thief than meets the eye. 
+				</p>
+			</div>
+			<div class="col-md-6">
+				<%= image_tag("destiny-chronicles/valana.png",class:"char-profile-img") %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container" style="padding-bottom:10px;">
+	<div class="row">
+		<div class="col-md-6 col-centered">
+			<a class="story-anchor" id="story"></a>
+			<h1 class="text-center">Story</h1>
+		</div>
+
+		<div class="col-md-8 col-centered">
+			<p>For centuries, an order of knights has protected the people from monsters. Celeste, a young initiate, is sent to the forest village of Village Name to prove herself worthy of knighthood by retrieving an ancient artifact that has corrupted the forest.</p>
+
+			<p>When a mysterious young woman steals the artifact before Celeste can take it, she fails her initiation. Determined to prove herself, Celeste leaves home on her own to find the thief, reclaim the artifact, and become a knight.  </p>
+
+			<p>But the outside world is much different than the isolated society Celeste grew up in, and she joins forces with a mercenary named Valana and a researcher named Ruby. Their journey takes them across a continent filled with mysterious ruins, remnants of an ancient civilization that crumbled ages ago. No one knows who they were or why they fell, and the stolen artifact is one of the few remaining relics from their era.</p>
+
+			<p>The more Celeste sees of the world, the more she questions not only her mission, but also the role of the knighthood. Is it right for them to remain separate from the rest of the world? Do they protect people as much as they claim, or have they prioritized the artifacts above the lives of the people they claim to protect?</p>
+
+			<p>One thing is certain: the woman who took the artifact is no ordinary thief, and the stolen artifact is only the tip of a dark plot. A mysterious destiny ties them together, and this journey will change Celeste’s life forever. </p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 col-centered">
+			<h2 class="text-center"><%= image_tag("destiny-chronicles/logo_big.png",class:"img-responsive logo-bottom") %></h2>
+			<div id="mc_embed_signup">
+				<form action="//visualnoveler.us15.list-manage.com/subscribe/post?u=1241ff84c89cf187d202555fb&amp;id=1b767a2eba" method="post" id="mc-embedded-subscribe-form" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+				    <div id="mc_embed_signup_scroll">
+					<!-- <label for="mce-EMAIL">Enter email to receive updates</label> -->
+					<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter email to receive updates" required>
+				    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+				    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_bd4a5b36ba4be25f658069e35_f5f4b45cd9" tabindex="-1" value=""></div>
+				    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+	$(function() {
+		$('.char-portrait').click(function(){
+	   		$('.selected').removeClass('selected'); // removes the previous selected class
+	   		$(this).addClass('selected'); // adds the class to the clicked image
+	   		ShowCharacterProfile($(this).attr('id'));
+		});
+
+		function ShowCharacterProfile(name) {
+			switch (name) {
+				case "celeste-profile":
+					$("#celeste").fadeIn();
+					$("#ruby").hide();
+					$("#valana").hide();
+					$("#thief").hide();
+					break;
+				case "ruby-profile":
+					$("#ruby").fadeIn();
+					$("#celeste").hide();
+					$("#valana").hide();
+					$("#thief").hide();
+					break;
+				case "valana-profile":
+					$("#valana").fadeIn();
+					$("#ruby").hide();
+					$("#celeste").hide();
+					$("#thief").hide();
+					break;
+				case "thief-profile":
+					$("#thief").fadeIn();
+					$("#celeste").hide();
+					$("#ruby").hide();
+					$("#valana").hide();
+				default:
+					break;
+			}
+		}
+		$('.nav').on('click', 'a', function(event){
+		    event.preventDefault();
+
+		    $('html, body').animate({
+		        scrollTop: $( $.attr(this, 'href') ).offset().top
+		    }, 500);
+		});
+	});
+</script>
