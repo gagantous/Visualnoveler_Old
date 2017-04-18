@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #destiny-chronicles {
+	h1 {
+		margin-bottom: 15px;
+	}
 	p {
 		font-size:  16px;
 	}
@@ -10,6 +13,24 @@
 		width: 100%;
 		height: auto;
 		display: block;
+	}
+	.img-screenshots {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	.social-icon-color {
+		color: #778899;
+	}
+	.social-media-icons {
+		margin-top: 35px;
+		li {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+	}
+	.about-img {
+		margin-bottom: 15px;
 	}
 	.character-row {
 		margin-bottom: 30px;
@@ -94,6 +115,7 @@
 		
 		.destiny-chronicles-navbar-center {
 			a {
+				font-weight: bold;
 				color: #403314;
 				font-size: 1.3em;
 				background-color: transparent !important;
