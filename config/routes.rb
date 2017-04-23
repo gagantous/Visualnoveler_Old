@@ -138,6 +138,7 @@ Rails.application.routes.draw do
   get '/ascendant-hearts/presskit' => 'ascendant_hearts#press'
   #destiny chronicles
   get '/destiny-chronicles' => 'destiny_chronicles#home'
+  get '/destiny-chronicles/success' => 'destiny_chronicles#success'
   #rat simulator
   get '/rat-simulator' => 'rat_simulator#home'
   get '/rat-simulator/presskit' => 'rat_simulator#press'
