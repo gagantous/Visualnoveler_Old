@@ -1,34 +1,36 @@
 <%= title "Rat Simulator" %>
-<div class="container">
+<div class="container" style="color:#acb2b8;">
   <div class="row">
     <div class="col-md-8 col-centered">
-      <%= image_tag("rat-simulator/header.png",class:"img-responsive") %>
-      <h2> <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=849825292">Steam Greenlight Page </a></h2>
+      <%= image_tag("rat-simulator/header.png",class:"img-responsive",style:"margin-bottom:20px;") %>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Msr444PdGRo" frameborder="0" allowfullscreen></iframe>
       <h2>Description</h2>
-      <p>
-                  Rat Simulator is a game about a rat's life in a household. No longer do you need to wonder what they get up to when humans are around, as this state-of-the-art computer simulation models the complete rat experience. Consume food and wreck destruction in the house so you can build a rat’s paradise.  
-      </p>
-
-      <p>Mess is yours to make in this survival stealth role-playing simulator as you experience the life of a hunted rat by pesky humans! </p>
-      <p>Rat Simulator will have a few hours worth of gameplay through objectives in the game as you progress to take over the household. </p>
-
-      <h2>Video</h2>
-      <p><iframe width="560" height="315" src="https://www.youtube.com/embed/UiqiFHfftTg" frameborder="0" allowfullscreen></iframe></p>
-      <h2>Features</h2>
+      <p>Rat Simulator is a survival stealth role-playing simulator game set in a suburban neighborhood where you play as a rat to spread the plague across the neighborhood in order to build a rat's paradise.</p>
+      <p>No longer do you need to wonder what they get up to when humans are around, as this state-of-the-art computer simulation models the complete rat experience. As a rat, you'll get to steal food, wreck havoc and create chaos whenever you feel like it. This terrifies the humans who fear you and will fight back by calling pestmen to exterminate you.</p>
+      <p>Mess is yours to make in this survival stealth role-playing simulator, as you experience the life of a hunted rat fighting to drive out those pesky humans!</p>
+      <h2> Key Features</h2>
       <ul>
-        <li>Play as a Rat</li>
-        <li>Stealth gameplay</li>
-        <li>Be a pest </li>
-        <li>Wreck havoc in the house </li>
-        <li>Make a home for rats</li>
+        <li><b>Infection</b> - Infect 9 unique houses with the plague in the suburban neighborhood, but watch out for the inhabitants who are out to stop you in your tracks.</li>
+        <li><b>Stealth Gameplay</b> – Avoid detection from humans while spreading the plague, else you'll feel the wrath of the pestmen who are out to kill you!</li>
+        <li><b>Destruction</b> – Create chaos in the houses where you'll get to destroy precious objects such as plates, glasses and vases much to humanity’s dismay. Or maybe you just feel like making a mess out of their houses by throwing their fragile possessions everywhere.</li>
+        <li><b>Rat Paradise</b> – Save rats who are trapped in houses and then call upon your fellow rats to infect new houses in the neighborhood!</li>
+        <li><b>Enhancements</b> – Your experiences empowers your abilities and you'll get to select upgrades in order to boost your rat capabilities.</li>
+        <li><b>Poisoned Food</b> – It's all fun to spread diseases to the humans, and after all you'll get the house to yourself if they die to the plague, right?</li>
+        <li><b>Annoy Humans</b> – As a plague bearer, you'll get to temporarily stop the humans in their tracks as they drop to the ground when shot with poison.</li>
       </ul>
-      <h2>Images</h2>
-      <div class="row">
+
+      <div class="row" style="margin-top:40px;">
        <% (1..8).each do |i| %>
         <div class="col-md-3">
-          <%= link_to(image_tag("rat-simulator/screenshots/#{i}.png",class:"img-responsive",style:"padding-bottom:20px;"),asset_url("rat-simulator/screenshots/#{i}.png"),class:"fancybox",rel:"group") %>
+          <%= link_to(image_tag("rat-simulator/screenshots/#{i}.jpg",class:"img-responsive",style:"padding-bottom:20px;"),asset_url("rat-simulator/screenshots/#{i}.jpg"),class:"fancybox",rel:"group") %>
         </div>
       <% end %>
+      </div>
+
+      <div class="row" style="margin-top:40px;">
+        <div class="col-md-12">
+          <iframe src="https://store.steampowered.com/widget/596950/" frameborder="0" width="646" height="190"></iframe>
+        </div>
       </div>
     </div>
   </div>
