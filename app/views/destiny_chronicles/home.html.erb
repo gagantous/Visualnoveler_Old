@@ -4,7 +4,7 @@
 <style type="text/css">
 	@media (max-width: 768px) {
 		.promo-image {
-			background: url("<%= asset_path('destiny-chronicles/promo_image_small.jpg') %>") no-repeat center center;
+			background: url("<%= asset_path('destiny-chronicles/promo_image_small.png') %>") no-repeat center center;
 		}
 	}
 	@media (min-width: 768px) {
@@ -14,7 +14,7 @@
 	}
 	.promo-image {
 		margin-top: 61px;
-		min-height: calc(100vh + 90px);
+		min-height: calc(100vh + 120px);
 		-webkit-background-size: 100%;
 		-moz-background-size: 100%;
 		-o-background-size: 100%;
@@ -43,6 +43,7 @@
         <li><a href="#story">Story</a></li>
         <li><a href="#gameplay">Gameplay</a></li>
         <li><a href="#world">World</a></li>
+        <li><a href="#music">Music</a></li>
         <li><a href="#screenshots">Screenshots</a></li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -90,16 +91,18 @@
 		<div class="col-md-8 col-centered">
 			<p>Inspired by classic action JRPGs, Destiny Chronicles is an action role-playing game about a squire named Celeste who begins a journey to prove herself worthy of becoming a true knight. Her quest takes her far from her home, across the continent in pursuit of a thief whose actions stem from a sinister plot.</p>
 
-			<p>Its character-driven plot focuses on the interactions between Celeste and her companions as they hunt down the thief. Our goal is to make the game lighthearted and humorous, yet still tell a compelling story.</p>
+			<p>Its character-driven plot focuses on the interactions between Celeste and her companions as they hunt down the thief. Our goal is to make the game lighthearted and humorous, yet still tell a compelling story. </p>
 
 			<p>Destiny Chronicles features an exciting and fast-paced action combat system like that of Kingdom Hearts and Celeste’s fighting style can be customized to suit your playstyle with a talent tree and upgrade system.</p>
+			<p>The game is currently in the early development phase and we will be running a Kickstarter soon. </p>
 			<ul class="features">
 				<li><b>Character-Driven Story</b> – As Celeste travels across the continent with her companions Valana and Ruby, they’ll learn more about the world and its history, as well as a sinister plot about to unfold. </li>
 				<li><b>Exciting, Dynamic Battles</b> – Take on a variety of enemies with an exciting action combat system. Plan your battles, unleash special attacks, and devastate your foes.</li>
 				<li><b>Beautiful, Mysterious World</b> – Explore fields, towns, and dungeons across a strange world still haunted by its elusive past. </li>
-				<li><b>Customization</b> – Use weapon upgrades and an expansive talent tree system to customize Celeste’s fighting style.</li>
+				<li><b>Customization</b> – Use an expansive talent tree to customize Celeste’s fighting style. </li>
 				<li><b>Quests</b> – In addition to the main story, side quests and optional activities allow you to further explore the world and characters of Destiny Chronicles.</li>
 				<li><b>Party Interactions</b> – The three main characters learn and change throughout their journey and humorous banter fills their interactions as they come to know each other. Optional conversations add greater depth to their friendship. </li>
+				<li><b>Enchanting</b> – Upgrade your gear and boost your skills by enchanting them with magical relics. </li>
 			</ul>
 		</div>
 	</div>
@@ -120,7 +123,7 @@
 					<%= image_tag("destiny-chronicles/valana_face.png",id: "valana-profile",class:"char-portrait img-circle") %>
 				</div>
 				<div class="col-md-3 col-xs-6 col-sm-3">
-					<%= image_tag("destiny-chronicles/thief_face.png",id: "thief-profile",class:"char-portrait img-circle") %>
+					<%= image_tag("destiny-chronicles/kylia_face.png",id: "thief-profile",class:"char-portrait img-circle") %>
 				</div>
 			</div>
 		</div>
@@ -168,9 +171,9 @@
 			</div>
 		</div>
 
-		<div id="thief" class="char-hidden">
+		<div id="kylia" class="char-hidden">
 			<div class="col-md-5 col-md-offset-1">
-				<h2>Thief</h2>
+				<h2>Kylia</h2>
 				<p>Who is the mysterious woman who stole the artifact before Celeste could claim it? What does she want with it? Her path takes her far to the north, into hostile lands beyond known civilizations. Although she fights Celeste whenever their paths cross, she claims to have a noble cause. 
 				</p>
 				<p>
@@ -178,7 +181,7 @@
 				</p>
 			</div>
 			<div class="col-md-6">
-				<%= image_tag("destiny-chronicles/thief.png",class:"char-profile-img",alt: "valana") %>
+				<%= image_tag("destiny-chronicles/kylia.png",class:"char-profile-img",alt: "kylia") %>
 			</div>
 		</div>
 	</div>
@@ -192,7 +195,7 @@
 		</div>
 
 		<div class="col-md-8 col-centered">
-			<p>For centuries, an order of knights has protected the people of Darencia from monsters. Celeste, a young squire training to join the knighthood, is sent to the forest village of Ornwood to prove herself worthy by retrieving an ancient artifact that has corrupted the forest. </p>
+			<p>For centuries, the Ashen Order has protected the people of Darencia from monsters. Celeste, a young squire training to join the knighthood, is sent to the forest village of Ornwood to prove herself worthy by retrieving an ancient artifact that has corrupted the forest.</p>
 
 			<p>When a mysterious young woman steals the artifact before Celeste can take it, she fails her initiation. Determined to prove herself, Celeste leaves home to find the thief, reclaim the artifact, and become a knight.</p>
 
@@ -220,6 +223,7 @@
 			</div>
 		</div>
 		<div class="col-md-8 col-centered ost-col">
+			<a class="music-anchor" id="music"></a>
 			<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/319990062&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 		</div>
 	</div>
@@ -271,22 +275,22 @@
 					$("#celeste").fadeIn();
 					$("#ruby").hide();
 					$("#valana").hide();
-					$("#thief").hide();
+					$("#kylia").hide();
 					break;
 				case "ruby-profile":
 					$("#ruby").fadeIn();
 					$("#celeste").hide();
 					$("#valana").hide();
-					$("#thief").hide();
+					$("#kylia").hide();
 					break;
 				case "valana-profile":
 					$("#valana").fadeIn();
 					$("#ruby").hide();
 					$("#celeste").hide();
-					$("#thief").hide();
+					$("#kylia").hide();
 					break;
 				case "thief-profile":
-					$("#thief").fadeIn();
+					$("#kylia").fadeIn();
 					$("#celeste").hide();
 					$("#ruby").hide();
 					$("#valana").hide();

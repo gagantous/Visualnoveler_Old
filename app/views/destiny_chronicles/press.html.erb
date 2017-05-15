@@ -1,0 +1,126 @@
+<%= title "Destiny Chronicles" %>
+<div class="uk-container uk-container-center">
+      <div class="uk-grid">
+        <div id="navigation" class="uk-width-medium-1-4">
+          <h1 class="nav-header">Visualnoveler</h1>
+          <ul class="uk-nav uk-nav-side">         <li><a href="#factsheet">Factsheet</a></li>
+            <li><a href="#description">Description</a></li>
+            <li><a href="#features">Features</a></li>
+           <!--  <li><a href="#trailers">Videos</a></li> -->
+            <li><a href="#images">Images</a></li>
+            <li><a href="#logo">Promo Image &amp; Logo</a></li> 
+            <li><a href="#music">Music</a></li>    
+          </ul>
+        </div>
+        <div id="content" class="uk-width-medium-3-4"><%= image_tag("destiny-chronicles/press_header.png",class:"header") %><div class="uk-grid">
+            <div class="uk-width-medium-2-6">
+              <h2 id="factsheet">Factsheet</h2>
+              <p>
+                <strong>Developer:</strong><br/>
+                <%= link_to "Visualnoveler",root_path %>
+              </p>
+              <p>
+                <strong>Website:</strong><br/>
+                <%= link_to "Destiny Chronicles",destiny_chronicles_path %>
+              </p>
+              <p>
+                <strong>Press / Business contact:</strong><br/>
+                <a href="mailto:wraithseeker@visualnoveler.com">wraithseeker@visualnoveler.com</a>
+              </p>
+              <p>
+                <strong>Social</strong><br/>
+                <a href="https://www.facebook.com/destinychronicles/">Facebook</a>
+                <br> 
+                <a href="https://twitter.com/wraithseekerr">Twitter</a>
+              </p> 
+              <p>
+                <strong>Releases</strong><br/>
+                <a href="http://store.steampowered.com/app/508230">Anime Studio Simulator</a>
+              </p> 
+            </div>
+            <div class="uk-width-medium-4-6">
+              <h2 id="description">Description</h2>
+                <p>Inspired by classic action JRPGs, Destiny Chronicles is an action role-playing game about a squire named Celeste who begins a journey to prove herself worthy of becoming a true knight. Her quest takes her far from her home, across the continent in pursuit of a thief whose actions stem from a sinister plot.</p>
+                <p>Its character-driven plot focuses on the interactions between Celeste and her companions as they hunt down the thief. Our goal is to make the game lighthearted and humorous, yet still tell a compelling story.</p>
+                <p>Destiny Chronicles features an exciting and fast-paced action combat system like that of Kingdom Hearts and Celeste’s fighting style can be customized to suit your playstyle with a talent tree and upgrade system.</p>
+                <p>The game is currently in the early development phase and we will be running a Kickstarter soon.</p>
+              <h2 id="features">Features</h2>
+              <ul>
+                <li><b>Character-Driven Story</b> - As Celeste travels across the continent with her companions Valana and Ruby, they’ll learn more about the world and its history, as well as a sinister plot about to unfold. </li>
+                <li><b>Exciting, Dynamic Battles</b> – Take on a variety of enemies with an exciting action combat system. Plan your battles, unleash special attacks, and devastate your foes.</li>
+                <li><b>Beautiful, Mysterious World</b> – Explore fields, towns, and dungeons across a strange world still haunted by its elusive past.</li>
+                <li><b>Customization</b> – Use an expansive talent tree to customize Celeste’s fighting style.</li>
+                <li><b>Quests</b> – In addition to the main story, side quests and optional activities allow you to further explore the world and characters of Destiny Chronicles.</li>
+                <li><b>Party Interactions</b> – The three main characters learn and change throughout their journey and humorous banter fills their interactions as they come to know each other. Optional conversations add greater depth to their friendship.</li>
+                <li><b>Enchanting</b> – Upgrade your gear and boost your skills by enchanting them with magical relics.</li>
+            </ul>
+              
+            </div>
+          </div>
+
+          <hr>
+
+      <!--     <h2 id="trailers">Videos</h2>
+          <p>
+            <div class="uk-responsive-width iframe-container">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Msr444PdGRo" frameborder="0" allowfullscreen></iframe>
+          </div>
+          </p>        
+          <hr> -->
+          <h2 id="images">Images</h2>
+          <!-- <a href="images/images.zip"><div class="uk-alert">download all screenshots &amp; photos as .zip (5MB)</div></a> -->
+          <div class="uk-grid images">
+            
+            <div class="uk-width-medium-1-2">
+              <%= link_to(image_tag("destiny-chronicles/screenshots/about_ss.png",style:"padding-bottom:20px;",alt: "destiny chronicles screenshots"),asset_url("destiny-chronicles/screenshots/about_ss.png")) %>
+            </div>
+            <% (1..8).each do |i| %>
+              <div class="uk-width-medium-1-2">
+                
+                <%= link_to(image_tag("destiny-chronicles/screenshots/ss_#{i}_thumb.png",style:"padding-bottom:20px;",alt: "destiny chronicles screenshots_#{i}"),asset_url("destiny-chronicles/screenshots/ss_#{i}.png")) %>
+              </div>
+            <% end %>
+          </div>   
+
+          <hr>
+
+          <h2 id="logo">Promo Image & Logo</h2>
+          <div class="uk-grid images">
+            <div class="uk-width-medium-1-2">
+              <%= link_to image_tag("destiny-chronicles/promo_image_presskit.jpg",class:"img-responsive"),asset_url("destiny-chronicles/promo_image_presskit.jpg") %>
+            </div>
+
+            <div class="uk-width-medium-1-2">
+              <%= link_to image_tag("destiny-chronicles/logo_presskit.png",class:"img-responsive"),asset_url("destiny-chronicles/logo_presskit.png") %>
+            </div>
+          </div>         
+          <hr>
+
+          <h2 id="music">Music</h2>
+          <div class="uk-grid images">
+            <div class="uk-width-medium-1-1">
+                <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/319990062&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+            </div>
+          </div>         
+
+          <hr>
+          <br>
+          <p><a href="http://dopresskit.com/">presskit()</a> by Rami Ismail (<a href="http://www.vlambeer.com/">Vlambeer</a>)
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>   
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.2/masonry.pkgd.min.js"></script>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        var container = $('.images');
+
+        container.imagesLoaded( function() {
+          container.masonry({
+            itemSelector: '.uk-width-medium-1-2',
+          });
+        });
+      });
+    </script>

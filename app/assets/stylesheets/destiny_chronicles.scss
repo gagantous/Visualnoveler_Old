@@ -68,13 +68,13 @@
 	//tablet and desktop
 	@media (min-width: 768px) {
 		.short-cta {
-			margin-top: 59.5vh;
+			margin-top: 61vh;
 		}
 	}
 	// mobile
 	@media (max-width: 460px) {
 		.mobile-top-logo {
-			margin-top: 18vh;
+			margin-top: 20vh;
 			margin-left: auto;
 			margin-right: auto;
 		}
@@ -99,6 +99,7 @@
 	@media (min-width: 1680px) {
 		.short-cta {
 			font-size: 24px !important;
+			margin-top: 59vh !important;
 		}
 
 	}
@@ -174,6 +175,12 @@
 		display: block;
 	    position: relative;
 	    top: -85px;
+	    visibility: hidden;
+	}
+	.music-anchor {
+		display: block;
+	    position: relative;
+	    top: -65px;
 	    visibility: hidden;
 	}
 	.top-anchor {

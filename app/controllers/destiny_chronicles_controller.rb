@@ -6,4 +6,8 @@ class DestinyChroniclesController < ApplicationController
 	def success
 		render :layout => 'destiny_chronicles'
 	end
+
+	def press
+		render :layout => 'presskit'
+	end
 end

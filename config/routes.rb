@@ -139,6 +139,7 @@ Rails.application.routes.draw do
   #destiny chronicles
   get '/destiny-chronicles' => 'destiny_chronicles#home'
   get '/destiny-chronicles/success' => 'destiny_chronicles#success'
+  get '/destiny-chronicles/presskit' => 'destiny_chronicles#press'
   #rat simulator
   get '/rat-simulator' => 'rat_simulator#home'
   get '/rat-simulator/presskit' => 'rat_simulator#press'
